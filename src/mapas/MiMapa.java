@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import entradaDeDatos.EntradaFichero;
 /**
  * 
  * Esta clase genera el circuito de la práctica , mediante un tipo Mapa de Java.
@@ -19,13 +18,14 @@ import entradaDeDatos.EntradaFichero;
 public class MiMapa <T,E>
 {
     
-    Map<T,E> mapa;
-    EntradaFichero fichero;
-    List <T> lista;
+    private Map<T,E> mapa;
+    private List <T> lista;
     /**
     * constructor de MiMapa, el cual genera un mapa dado un StringTokenizer
     * @param tokens
     */
+  
+    @SuppressWarnings("unchecked")
     public MiMapa(StringTokenizer tokens)
     {
       
@@ -71,6 +71,7 @@ public class MiMapa <T,E>
     * @param ele
     * @return
     */
+    @SuppressWarnings("unchecked")
     public E getElemento(int ele)
     {
         return (E) lista.get(ele);

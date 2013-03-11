@@ -4,19 +4,19 @@ public enum MiViento {
 
     A_FAVOR(1), EN_CONTRA(-1), LATERAL(0), DESCONOCIDO(0);
 
-    int factor;
+    private int factor;
 
     MiViento(int nuevo_factor) {
 	factor = nuevo_factor;
     }
 
     /**
-     * A través de un string , determina si es miembro o no del conjunto y
-     * devuelve un valor válido en TODOS los casos.
+     * A travÃ©s de un string , determina si es miembro o no del conjunto y
+     * devuelve un valor vÃ¡lido en TODOS los casos.
      * 
      * @param viento
      *            String a comprobar si es miembro del conjunto
-     * @return MiViento Un miembro de la conjunto válido
+     * @return MiViento Un miembro de la conjunto vÃ¡lido
      */
     public static MiViento existe(String viento) {
 	MiViento viento_valido = DESCONOCIDO;

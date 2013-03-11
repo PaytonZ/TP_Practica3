@@ -11,12 +11,12 @@ import entradaDeDatos.*;
  */
 public class Carretera {
 
-    EntradaFichero fichero;
-    String ruta;
-    Bicicleta bici;
-    double[] matriz;
-    final double FACTORPENDIENTE = 0.1;
-    int tramo;
+    private EntradaFichero fichero;
+    private String ruta;
+    private Bicicleta bici;
+    private double[] matriz;
+    private final double FACTORPENDIENTE = 0.1;
+    private int tramo;
     /**
      * recibe la direccion de la ruta en la que se encuentra el fichero de
      * carretera
@@ -44,8 +44,7 @@ public class Carretera {
 
     public void calculaFactor() {
 	
-	double cadencia;
-	cadencia = bici.getCadencia();
+	bici.getCadencia();
 	if(tramo+2 < matriz.length)
 	{
 	   //aplicamos el factor de la pendiente del tramo en el que se encuentra la bici

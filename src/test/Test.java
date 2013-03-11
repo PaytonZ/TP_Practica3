@@ -12,16 +12,16 @@ import factoresExternos.Viento;
 import persona.*;
 import bicicleta.*;
 import tiempo.*;
-
+@SuppressWarnings("unused")
 public class Test {
-    Ciclista ciclista;
-    Reloj reloj;
-    Bicicleta bici;
-    Viento viento;
-    Carretera carretera;
-    Parser parse;
-    int dientesporpinon[] = { 6, 5, 4, 3, 2, 1 };
-    int dientesporplato[] = { 2, 3, 4 };
+    private Ciclista ciclista;
+    private Reloj reloj;
+    private Bicicleta bici;
+    private Viento viento;
+    private Carretera carretera;
+        private Parser parse;
+    private int dientesporpinon[] = { 6, 5, 4, 3, 2, 1 };
+    private int dientesporplato[] = { 2, 3, 4 };
 
     @Before
     public void setUp() {

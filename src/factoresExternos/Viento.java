@@ -45,8 +45,7 @@ public class Viento{
 
     public void calculaFactor() {
 	
-	double cadencia;
-	cadencia = bici.getCadencia();
+	bici.getCadencia();
 	if(tramo+2 < matriz.length)
 	{
 	   //aplicamos el factor de la pendiente del tramo en el que se encuentra la bici

@@ -29,7 +29,6 @@ public class Principal {
 
     private ArrayList<Object> listaejecuta;
     private ArrayList<Object> listasalida;
-    private Parser Parsercomandos;
     private Vector<Object> vectorobjetos;
     InterfaceEjecuta parser;
     
@@ -89,7 +88,7 @@ public class Principal {
         int limite = 300; // Se establecera el limite en SEGUNDOS de la ejecucion
         // del programa
         EntradaFichero entrada = new EntradaFichero();
-        MiMapa<Double,Double> mapa = new MiMapa<Double,Double>
+        new MiMapa<Double,Double>
         (entrada.cargarFicheroEnStringTokenizer("carretera.txt",":;"));
         
         

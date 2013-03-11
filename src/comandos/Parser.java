@@ -20,11 +20,11 @@ import entradaDeDatos.SuperLectura;
 public class Parser implements InterfaceEjecuta {
 
     //sirve para indicar el numero de ciclista al que va destinada la accion
-    String parametro;
+   private String parametro;
     
-    SuperLectura lectura;
-    InterfazInstruccion instruccion;
-    Vector<Object> vector;
+   private SuperLectura lectura;
+   private InterfazInstruccion instruccion;
+   private  Vector<Object> vector;
     
     public Parser(Vector<Object> mivector) {
 
@@ -94,7 +94,7 @@ public class Parser implements InterfaceEjecuta {
 	}
 	catch(Exception e)
 	{
-	    System.out.println("Comando Desconocido o formato no valido");
+	    
 	}
 	
     }
