@@ -6,6 +6,7 @@ package tiempo;
  *
  */
 import salidaDeDatos.SalidaDeDatosPorTeclado;
+import ui.Ventana;
 import interfaceMain.InterfaceEjecuta;
 import interfaceMain.InterfaceSalida;
 
@@ -16,7 +17,12 @@ public class Reloj extends Contador implements InterfaceEjecuta,
     Contador segundo = new Contador();
     Contador minuto = new Contador();
     Contador hora = new Contador();
-
+    Ventana ventana ;
+    public Reloj(Ventana miventana)
+    {
+	
+	ventana = miventana;
+    }
     /**
      * este metodo realiza la operacion de ir incrementando segundos, minutos y
      * horas
@@ -85,12 +91,13 @@ public class Reloj extends Contador implements InterfaceEjecuta,
     public void muestra() {
 	// mostrarReloj();
 
-	SalidaDeDatosPorTeclado salida = new SalidaDeDatosPorTeclado();
+	SalidaDeDatosPorTeclado salida = new SalidaDeDatosPorTeclado(ventana);
 	int tiempo[] = new int[3];
 	tiempo = devuelveTiempo();
 	String mensaje;
 	mensaje = String.valueOf(tiempo[2] + " " + tiempo[1] + " " + tiempo[0]);
-	salida.mostrarPorPantalla(mensaje + "#hh:mm:ss");
+	//salida.mostrarPorPantalla(mensaje + "#hh:mm:ss");
+	salida.mostrarPorVentana(mensaje+ "#hh:mm:ss", 6);
     }
 
 }

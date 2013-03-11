@@ -12,6 +12,7 @@ import factoresExternos.Viento;
 import persona.*;
 import bicicleta.*;
 import tiempo.*;
+import ui.Ventana;
 @SuppressWarnings("unused")
 public class Test {
     private Ciclista ciclista;
@@ -22,13 +23,13 @@ public class Test {
         private Parser parse;
     private int dientesporpinon[] = { 6, 5, 4, 3, 2, 1 };
     private int dientesporplato[] = { 2, 3, 4 };
-
+    Ventana ventana;
     @Before
     public void setUp() {
 
-	bici = new Bicicleta(dientesporpinon.length, dientesporplato.length, 1,
-		dientesporpinon, dientesporplato, 0.6858);
-	reloj = new Reloj();
+	bici = new Bicicleta(0,dientesporpinon.length, dientesporplato.length, 1,
+		dientesporpinon, dientesporplato, 0.6858,ventana);
+	reloj = new Reloj(ventana);
 	ciclista = new Ciclista(bici);
     }
 

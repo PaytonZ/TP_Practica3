@@ -15,7 +15,7 @@ public class ComandoDesconocido implements InterfazInstruccion {
 
     @Override
     public void execute(Object o) {
-	System.out.println("DESCONOCIDO");
+	//System.out.println("DESCONOCIDO");
 	// TODO Auto-generated method stub
 
     }

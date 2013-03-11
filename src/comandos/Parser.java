@@ -5,6 +5,8 @@ import interfaceMain.InterfaceEjecuta;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
+import ui.Ventana;
+
 import entradaDeDatos.SuperLectura;
 
 /**
@@ -25,9 +27,9 @@ public class Parser implements InterfaceEjecuta {
    private SuperLectura lectura;
    private InterfazInstruccion instruccion;
    private  Vector<Object> vector;
-    
-    public Parser(Vector<Object> mivector) {
-
+    Ventana ventana;
+    public Parser(Vector<Object> mivector,Ventana miventana) {
+	ventana = miventana;
 	//lectura=input;
 	lectura = new SuperLectura();
 	vector = mivector;
@@ -46,9 +48,7 @@ public class Parser implements InterfaceEjecuta {
 	
 	//partimos la cadena si hay retornos de carro o espacios
 	StringTokenizer comandos= new StringTokenizer(comando, "\n\r ");
-	//guardamos la primera parte de la cadena
-	comando = comandos.nextToken();
-	parametro = "";
+	
 	
 	
 	
@@ -58,7 +58,9 @@ public class Parser implements InterfaceEjecuta {
 	 */
 	try
 	{
-	    
+	  //guardamos la primera parte de la cadena
+		comando = comandos.nextToken();
+		parametro = "";
 	    parametro = comandos.nextToken();
 	}
 	catch(Exception e)
@@ -79,7 +81,7 @@ public class Parser implements InterfaceEjecuta {
 
 	
 	
-	instruccion = DameComando(lectura.leer());
+	instruccion = DameComando(ventana.dameInstruccion());
 	
 	/**
 	 * Este try sirve para que no rompa el programa, ya que el parametro al empezar no tiene valor

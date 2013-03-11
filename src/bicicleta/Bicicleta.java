@@ -3,6 +3,7 @@ package bicicleta;
 import factoresExternos.Carretera;
 import factoresExternos.Viento;
 import salidaDeDatos.SalidaDeDatosPorTeclado;
+import ui.Ventana;
 import interfaceMain.InterfaceEjecuta;
 import interfaceMain.InterfaceSalida;
 
@@ -36,7 +37,7 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
 
     // y del radio de la rueda
     protected float radiorueda;
-
+    private int miid;
     // EspacioporcadaPedalada = RecorridoLinealDelaRueda * RelaciondeTransmisin
     private float espaciorecorrido;
 
@@ -45,18 +46,19 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
     protected double factorviento;
     Carretera carretera ;
     Viento viento;
-    public Bicicleta(int numeropinones, int numeroplatos, double radiorueda,
-	    int midientepinon[], int midienteplato[], double radio) {
+    Ventana miventana;
+    public Bicicleta(int id,int numeropinones, int numeroplatos, double radiorueda,
+	    int midientepinon[], int midienteplato[], double radio,Ventana ventana) {
 
 	super();
 	dientesplato = new int[numeroplatos];
 	dientespinon = new int[numeropinones];
 	numruedas = 2;
-
+	miid = id;
 	dientesplato[platoact] = 5;
-
+	
 	// asignamos el numero de dientes a cada piñon y a cada plato
-
+	miventana = ventana;
 	setAsignaNumeroDientesPinon(midientepinon);
 
 	setAsignaNumeroDientesPlato(midienteplato);
@@ -401,16 +403,27 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
      */
     @Override
     public void muestra() {
-	SalidaDeDatosPorTeclado output = new SalidaDeDatosPorTeclado();
+	SalidaDeDatosPorTeclado output = new SalidaDeDatosPorTeclado(miventana);
 	String mensaje;
+	/*
 	mensaje = String.valueOf(getVelocidad());
-	output.mostrarPorPantalla(mensaje + "#velocidad");
+	output.mostrarPorVentana(miid +"#"+ mensaje + "#velocidad");
 	mensaje = String.valueOf(getEspacioRecorrido());
 
-	output.mostrarPorPantalla(mensaje + "#distancia");
+	output.mostrarPorVentana(miid +"#"+mensaje + "#distancia");
 	mensaje = String.valueOf(getCadencia());
 
-	output.mostrarPorPantalla(mensaje + "#cadencia");
+	output.mostrarPorVentana(miid+"#" +mensaje + "#cadencia" );
+	*/
+	mensaje = String.valueOf(getVelocidad());
+	output.mostrarPorVentana(mensaje + "#velocidad",miid);
+	mensaje = String.valueOf(getEspacioRecorrido());
+
+	output.mostrarPorVentana(mensaje + "#distancia",miid);
+	mensaje = String.valueOf(getCadencia());
+
+	output.mostrarPorVentana(mensaje + "#cadencia" ,miid);
+	
 
     }
 
