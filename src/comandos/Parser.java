@@ -2,14 +2,9 @@
 
 import interfaceMain.InterfaceEjecuta;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
-
-import entradaDeDatos.EntradaTeclado;
 import entradaDeDatos.SuperLectura;
 
 /**
@@ -55,7 +50,7 @@ public class Parser implements InterfaceEjecuta {
 	comando = comandos.nextToken();
 	parametro = "";
 	
-	//String comandos= new String(comando.split("\n")[0].split("\r")[0]);
+	
 	
 	/**
 	 * si no se introduce nada, entonces solo tenemos un token, por lo cual es necesario

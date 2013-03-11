@@ -1,7 +1,5 @@
 package comandos;
 
-import interfaceMain.InterfaceEjecuta;
-
 public class ComandoDesconocido implements InterfazInstruccion {
     public ComandoDesconocido() {
 	// System.out.println("Comando desconocido");

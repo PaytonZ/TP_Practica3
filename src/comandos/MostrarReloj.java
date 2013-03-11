@@ -1,6 +1,5 @@
 package comandos;
 
-import interfaceMain.InterfaceEjecuta;
 import tiempo.Reloj;
 
 public class MostrarReloj implements InterfazInstruccion {

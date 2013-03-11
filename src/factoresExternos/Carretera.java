@@ -1,6 +1,5 @@
 package factoresExternos;
 
-import interfaceMain.InterfaceEjecuta;
 import bicicleta.Bicicleta;
 import entradaDeDatos.*;
 

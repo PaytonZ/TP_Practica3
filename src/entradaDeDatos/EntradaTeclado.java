@@ -4,9 +4,6 @@ import interfaceMain.InterfaceEjecuta;
 
 import java.io.*;
 
-
-import comandos.Parser;
-
 /**
  * 
  * Esta clase se encarga de leer por teclado sin interrupcion y devolver un string para ser usado por otra clase.

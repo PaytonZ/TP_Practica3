@@ -95,6 +95,7 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
      * en el, se ejecutara cuando se realice el for each de la lista
      * correspondiente
      */
+    @Override
     public void ejecuta() {
 	// setCadencia('a'); en un futuro servira para aumentar o disminuir la
 	// cadencia
@@ -128,6 +129,7 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
      * en el, se mostrara cuando se realice el for each de la lista
      * correspondiente
      */
+    @Override
     public void muestra() {
 
     }

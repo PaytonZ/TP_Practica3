@@ -9,11 +9,9 @@ import comandos.Parser;
 import factoresExternos.Carretera;
 import factoresExternos.Viento;
 
-import interfaceMain.InterfaceEjecuta;
 import persona.*;
 import bicicleta.*;
 import tiempo.*;
-import salidaDeDatos.*;
 
 public class Test {
     Ciclista ciclista;
@@ -34,7 +32,6 @@ public class Test {
 	ciclista = new Ciclista(bici);
     }
 
-    @SuppressWarnings("deprecation")
     @org.junit.Test
     public void test() {
 

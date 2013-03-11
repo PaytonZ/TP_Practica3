@@ -11,17 +11,17 @@ import interfaceMain.InterfaceSalida;
  * 
  */
 
-public class SalidaDeDatos {
+public class SalidaDeDatosPorTeclado {
 
     // este arraylist, contiene todos los objetos que se mostraran en el metodo
     // mostrarObjeto()
     ArrayList<Object> milista = new ArrayList<Object>();
 
-    public SalidaDeDatos() {
+    public SalidaDeDatosPorTeclado() {
 
     }
 
-    public SalidaDeDatos(ArrayList<Object> lista) {
+    public SalidaDeDatosPorTeclado(ArrayList<Object> lista) {
 
 	milista = lista;
     }

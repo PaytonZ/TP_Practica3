@@ -5,7 +5,7 @@ package tiempo;
  * @author Juan Carlos Marco y Juan Luis Pérez
  *
  */
-import salidaDeDatos.SalidaDeDatos;
+import salidaDeDatos.SalidaDeDatosPorTeclado;
 import interfaceMain.InterfaceEjecuta;
 import interfaceMain.InterfaceSalida;
 
@@ -69,6 +69,7 @@ public class Reloj extends Contador implements InterfaceEjecuta,
      * en el, se ejecutara cuando se realice el for each de la lista
      * correspondiente
      */
+    @Override
     public void ejecuta() {
 
 	cuentaReloj();
@@ -80,10 +81,11 @@ public class Reloj extends Contador implements InterfaceEjecuta,
      * en el, se mostrara cuando se realice el for each de la lista
      * correspondiente
      */
+    @Override
     public void muestra() {
 	// mostrarReloj();
 
-	SalidaDeDatos salida = new SalidaDeDatos();
+	SalidaDeDatosPorTeclado salida = new SalidaDeDatosPorTeclado();
 	int tiempo[] = new int[3];
 	tiempo = devuelveTiempo();
 	String mensaje;

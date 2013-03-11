@@ -1,8 +1,5 @@
 package comandos;
 
-import interfaceMain.InterfaceEjecuta;
-import factoresExternos.MiViento;
-
 public enum Comandos  {
    // RELOJ(new MostrarReloj()), 
     NINGUNA(new ComandoNinguno()), 

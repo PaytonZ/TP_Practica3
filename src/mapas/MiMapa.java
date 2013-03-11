@@ -28,7 +28,7 @@ public class MiMapa <T,E>
     */
     public MiMapa(StringTokenizer tokens)
     {
-        //F[] matriz = fichero.convertirAArrayFichero("carretera.txt");
+      
         
         lista = new ArrayList<T>();
         Map<T,E> mapa = new HashMap<T,E>();
@@ -46,7 +46,7 @@ public class MiMapa <T,E>
             {
                 
                 mapa.put(clave, (E) tokens.nextToken());
-                lista.add(j,(T)clave);
+                lista.add(j,clave);
                 
                 j++;
             }
@@ -74,7 +74,7 @@ public class MiMapa <T,E>
     public E getElemento(int ele)
     {
         return (E) lista.get(ele);
-        //return mapa.get(lista.get(ele));
+        
     }
    
     

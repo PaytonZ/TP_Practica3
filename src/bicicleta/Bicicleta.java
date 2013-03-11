@@ -2,7 +2,7 @@ package bicicleta;
 
 import factoresExternos.Carretera;
 import factoresExternos.Viento;
-import salidaDeDatos.SalidaDeDatos;
+import salidaDeDatos.SalidaDeDatosPorTeclado;
 import interfaceMain.InterfaceEjecuta;
 import interfaceMain.InterfaceSalida;
 
@@ -183,7 +183,7 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
 
 	float velocidad_maxima;
 
-	velocidad_maxima = (float) (getVelocidad() * cadencia);
+	velocidad_maxima = getVelocidad() * cadencia;
 
 	if (getVelocidad() < velocidad_maxima) {
 
@@ -252,6 +252,7 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
 	}
     }
 
+    @Override
     public float getDireccion() {
 	return direccion;
     }
@@ -400,7 +401,7 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
      */
     @Override
     public void muestra() {
-	SalidaDeDatos output = new SalidaDeDatos();
+	SalidaDeDatosPorTeclado output = new SalidaDeDatosPorTeclado();
 	String mensaje;
 	mensaje = String.valueOf(getVelocidad());
 	output.mostrarPorPantalla(mensaje + "#velocidad");

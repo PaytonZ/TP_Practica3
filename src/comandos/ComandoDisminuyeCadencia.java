@@ -1,7 +1,6 @@
 package comandos;
 
 import persona.Ciclista;
-import interfaceMain.InterfaceEjecuta;
 
 public class ComandoDisminuyeCadencia implements InterfazInstruccion {
     public ComandoDisminuyeCadencia() {
