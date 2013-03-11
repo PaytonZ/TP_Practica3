@@ -91,7 +91,7 @@ public class Parser implements InterfaceEjecuta {
 	    {
 		instruccion.execute(vector.elementAt(Integer.parseInt(parametro)));
 	    }
-	}
+	}//TODO Excepciones para indicar que el comando es erroneo????!!!???? **/
 	catch(Exception e)
 	{
 	    
