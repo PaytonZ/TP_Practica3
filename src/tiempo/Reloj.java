@@ -5,6 +5,7 @@ package tiempo;
  * @author Juan Carlos Marco y Juan Luis Pérez
  *
  */
+import salidaDeDatos.SalidaDeDatosPorSwing;
 import salidaDeDatos.SalidaDeDatosPorTeclado;
 import ui.Ventana;
 import interfaceMain.InterfaceEjecuta;
@@ -91,7 +92,7 @@ public class Reloj extends Contador implements InterfaceEjecuta,
     public void muestra() {
 	// mostrarReloj();
 
-	SalidaDeDatosPorTeclado salida = new SalidaDeDatosPorTeclado(ventana);
+	SalidaDeDatosPorSwing salida = new SalidaDeDatosPorSwing(ventana);
 	int tiempo[] = new int[3];
 	tiempo = devuelveTiempo();
 	String mensaje;

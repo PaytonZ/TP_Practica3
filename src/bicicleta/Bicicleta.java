@@ -2,6 +2,7 @@ package bicicleta;
 
 import factoresExternos.Carretera;
 import factoresExternos.Viento;
+import salidaDeDatos.SalidaDeDatosPorSwing;
 import salidaDeDatos.SalidaDeDatosPorTeclado;
 import ui.Ventana;
 import interfaceMain.InterfaceEjecuta;
@@ -403,7 +404,7 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
      */
     @Override
     public void muestra() {
-	SalidaDeDatosPorTeclado output = new SalidaDeDatosPorTeclado(miventana);
+	SalidaDeDatosPorSwing output = new SalidaDeDatosPorSwing(miventana);
 	String mensaje;
 	/*
 	mensaje = String.valueOf(getVelocidad());
