@@ -12,7 +12,7 @@ import factoresExternos.Viento;
 import persona.*;
 import bicicleta.*;
 import tiempo.*;
-import ui.Ventana;
+import vista.Ventana;
 @SuppressWarnings("unused")
 public class Test {
     private Ciclista ciclista;

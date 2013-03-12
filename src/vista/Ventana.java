@@ -1,4 +1,4 @@
-package ui;
+package vista;
 
 import interfaceMain.InterfaceEjecuta;
 

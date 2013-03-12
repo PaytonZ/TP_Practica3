@@ -5,9 +5,8 @@ package tiempo;
  * @author Juan Carlos Marco y Juan Luis Pérez
  *
  */
-import salidaDeDatos.SalidaDeDatosPorSwing;
-import salidaDeDatos.SalidaDeDatosPorTeclado;
-import ui.Ventana;
+import vista.SalidaDeDatosPorSwing;
+import vista.Ventana;
 import interfaceMain.InterfaceEjecuta;
 import interfaceMain.InterfaceSalida;
 

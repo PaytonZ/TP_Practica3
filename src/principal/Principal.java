@@ -7,7 +7,7 @@ import interfaceMain.InterfaceSalida;
 import java.util.ArrayList;
 import persona.Ciclista;
 import tiempo.Reloj;
-import ui.Ventana;
+import vista.Ventana;
 import bicicleta.Bicicleta;
 import java.util.*;
 
