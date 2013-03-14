@@ -15,7 +15,7 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	InterfaceSalida {
     private float cadencia; // numero de pedaladas por segundo
     private Bicicleta bici;
-
+    
     public Ciclista(Bicicleta nueva_bici) {
 	cadencia = 1;
 	setBici(nueva_bici);

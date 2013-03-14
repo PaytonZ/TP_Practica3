@@ -20,12 +20,12 @@ public class Ventana extends JFrame implements InterfaceEjecuta{
     private JTextField tFreloj;
     private JTextField tFcomando;
     private String cadena;
-    JTextArea textArea_0;
-    JTextArea textArea_1;
-    JTextArea textArea_2;
-    JTextArea textArea_3;
-    JTextArea textArea_4;
-    JTextArea textArea_5;
+    private JTextArea textArea_0;
+    private JTextArea textArea_1;
+    private JTextArea textArea_2;
+    private JTextArea textArea_3;
+    private JTextArea textArea_4;
+    private JTextArea textArea_5;
     private JLabel lblComandos;
     private JLabel lblTiempo;
 
