@@ -28,7 +28,7 @@ public class Test {
     public void setUp() {
 
 	bici = new Bicicleta(0,dientesporpinon.length, dientesporplato.length, 1,
-		dientesporpinon, dientesporplato, 0.6858,ventana);
+		dientesporpinon, dientesporplato, 0.6858);
 	reloj = new Reloj(ventana);
 	ciclista = new Ciclista(bici);
     }

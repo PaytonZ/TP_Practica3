@@ -16,15 +16,16 @@ public class SalidaDeDatosPorSwing {
 
     // este arraylist, contiene todos los objetos que se mostraran en el metodo
     // mostrarObjeto()
-    ArrayList<Object> milista = new ArrayList<Object>();
+    ArrayList<Object> lista_salida;
     Ventana miventana ;
-    public SalidaDeDatosPorSwing(Ventana ventana) {
-	miventana = ventana;
+    public SalidaDeDatosPorSwing(Ventana vent,ArrayList<Object> lista_o ) {
+	lista_salida=lista_o;
+	miventana=vent;
     }
 
     public SalidaDeDatosPorSwing(ArrayList<Object> lista) {
 	
-	milista = lista;
+	lista_salida = lista;
     }
 
     /**
@@ -256,7 +257,7 @@ public class SalidaDeDatosPorSwing {
      * metodo muestra de los objetos que contiene
      */
     public void mostrarObjetos() {
-	for (Object listaobjetos : milista) {
+	for (Object listaobjetos : lista_salida) {
 
 	    ((InterfaceSalida) listaobjetos).muestra();
 
