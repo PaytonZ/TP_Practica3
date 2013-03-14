@@ -37,7 +37,7 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
 
     // y del radio de la rueda
     protected float radiorueda;
-    private int identificador_bicicleta;
+
     // EspacioporcadaPedalada = RecorridoLinealDelaRueda * RelaciondeTransmisin
     private float espaciorecorrido;
 
@@ -47,15 +47,13 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
     Carretera carretera;
     Viento viento;
 
-    public Bicicleta(int id, int numeropinones, int numeroplatos,
-	    double radiorueda, int midientepinon[], int midienteplato[],
-	    double radio) {
+    public Bicicleta(int numeropinones, int numeroplatos, double radiorueda,
+	    int midientepinon[], int midienteplato[], double radio) {
 
 	super();
 	dientesplato = new int[numeroplatos];
 	dientespinon = new int[numeropinones];
 	numruedas = 2;
-	identificador_bicicleta = id;
 	dientesplato[platoact] = 5;
 
 	// asignamos el numero de dientes a cada piñon y a cada plato
@@ -292,12 +290,7 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
 	espacioRecorridoPorCadencia(getCadencia());
 	carretera.calculaFactor();
 	viento.calculaFactor();
-	/*
-	 * setPinon('a'); setPlato('a');
-	 * setRelacionTransmision(dientespinon[getPinonAct
-	 * ()]/dientesplato[getPlatoAct()]); setEspacioporpedalada((Math.PI *
-	 * radiorueda) * relaciontransmision);
-	 */
+
     }
 
     /**
@@ -363,16 +356,6 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
 	return dientespinon;
     }
 
-    /*
-     * public void setDientesplato(int[] dientesplato) { this.dientesplato =
-     * dientesplato; }
-     * 
-     * public int[] getDientespinon() { return dientespinon; }
-     * 
-     * public void setDientespinon(int[] dientespinon) { this.dientespinon =
-     * dientespinon; }
-     */
-
     public double getRelacionTransmision() {
 	return relaciontransmision;
     }
@@ -408,17 +391,6 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
     public String muestra() {
 
 	String mensaje = "";
-	/*
-	 * mensaje = String.valueOf(getVelocidad());
-	 * output.mostrarPorVentana(miid +"#"+ mensaje + "#velocidad"); mensaje
-	 * = String.valueOf(getEspacioRecorrido());
-	 * 
-	 * output.mostrarPorVentana(miid +"#"+mensaje + "#distancia"); mensaje =
-	 * String.valueOf(getCadencia());
-	 * 
-	 * output.mostrarPorVentana(miid+"#" +mensaje + "#cadencia" );
-	 */
-	mensaje += "ciclista" + identificador_bicicleta + "%";
 
 	mensaje += String.valueOf(getVelocidad());
 	mensaje += "#velocidad" + ",";
@@ -428,8 +400,6 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
 
 	mensaje += String.valueOf(getCadencia());
 	mensaje += "#cadencia" + ",";
-
-	// System.out.println(mensaje);
 
 	return mensaje;
 

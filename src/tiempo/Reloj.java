@@ -91,16 +91,19 @@ public class Reloj extends Contador implements InterfaceEjecuta,
      */
     @Override
     public String muestra() {
-	/*
-	 * mostrarReloj();
-	 * 
-	 * //SalidaDeDatosPorSwing salida = new SalidaDeDatosPorSwing(); int
-	 * tiempo[] = new int[3]; tiempo = devuelveTiempo(); String mensaje;
-	 * mensaje = String.valueOf(tiempo[2] + " " + tiempo[1] + " " +
-	 * tiempo[0]); //salida.mostrarPorPantalla(mensaje + "#hh:mm:ss");
-	 * salida.mostrarPorVentana(mensaje+ "#hh:mm:ss", 6);
-	 */
-	return "";
+
+	String mensaje = "";
+	mensaje += "reloj" + "%";
+
+	// SalidaDeDatosPorSwing salida = new SalidaDeDatosPorSwing(); int
+	int tiempo[] = new int[3];
+	tiempo = devuelveTiempo();
+
+	mensaje += String
+		.valueOf(tiempo[2] + " " + tiempo[1] + " " + tiempo[0])
+		+ "#hh:mm:ss";
+
+	return mensaje;
 
     }
 

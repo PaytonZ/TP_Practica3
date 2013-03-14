@@ -260,6 +260,7 @@ public class SalidaDeDatosPorSwing {
 	    aux = salida.split("%");
 	    id = aux[0];
 	    mensaje_final = aux[1].split(",");
+	    salida = "";
 	    for (int i = 0; i < mensaje_final.length; i++) {
 
 		mostrarPorVentana(mensaje_final[i], id);

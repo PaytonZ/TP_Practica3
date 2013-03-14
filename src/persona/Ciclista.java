@@ -15,10 +15,12 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	InterfaceSalida {
     private float cadencia; // numero de pedaladas por segundo
     private Bicicleta bici;
+    private int identificador_ciclista;
 
-    public Ciclista(Bicicleta nueva_bici) {
+    public Ciclista(Bicicleta nueva_bici, int id) {
 	cadencia = 1;
 	setBici(nueva_bici);
+	identificador_ciclista = id;
 
     }
 
@@ -131,12 +133,11 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
      * 
      * @return
      */
-    @Override
-    public String muestra() {
-
-	return "";
-    }
-
+    /*
+     * @Override public String muestra() {
+     * 
+     * return ""; }
+     */
     public void setCadencia(char accion) {
 	if (accion == 'a') {
 	    // if(cadencia < maximocadencia)
@@ -156,5 +157,26 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 
     public void disminuirCadencia() {
 	setCadencia('d');
+    }
+
+    /**
+     * @return the identificador_ciclista
+     */
+    public int getIdentificador_ciclista() {
+	return identificador_ciclista;
+    }
+
+    /**
+     * @param identificador_ciclista
+     *            the identificador_ciclista to set
+     */
+    public void setIdentificador_ciclista(int identificador_ciclista) {
+	this.identificador_ciclista = identificador_ciclista;
+    }
+
+    @Override
+    public String muestra() {
+
+	return "ciclista" + identificador_ciclista + "%" + bici.muestra();
     }
 }

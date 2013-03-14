@@ -31,7 +31,7 @@ public class Parser implements InterfaceEjecuta {
     Ventana ventana;
 
     public Parser(Vector<Object> mivector) {
-	ventana = miventana;
+
 	// lectura=input;
 	lectura = new SuperLectura();
 	vector = mivector;

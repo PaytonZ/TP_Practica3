@@ -29,10 +29,10 @@ public class Test {
     @Before
     public void setUp() {
 
-	bici = new Bicicleta(0, dientesporpinon.length, dientesporplato.length,
-		1, dientesporpinon, dientesporplato, 0.6858);
-	reloj = new Reloj(ventana);
-	ciclista = new Ciclista(bici);
+	bici = new Bicicleta(dientesporpinon.length, dientesporplato.length, 1,
+		dientesporpinon, dientesporplato, 0.6858);
+	reloj = new Reloj();
+	ciclista = new Ciclista(bici, 0);
     }
 
     @org.junit.Test
