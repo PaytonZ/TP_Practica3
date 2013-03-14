@@ -12,14 +12,15 @@ import entradaDeDatos.*;
  * 
  */
 
-public class Viento{
+public class Viento {
 
-   private EntradaFichero fichero;
-   private  String vientos;
-   private Bicicleta bici;
-   private double[] matriz;
-   private final double FACTORVIENTO = 0.1;
-   private int tramo;
+    private EntradaFichero fichero;
+    private String vientos;
+    private Bicicleta bici;
+    private double[] matriz;
+    private final double FACTORVIENTO = 0.1;
+    private int tramo;
+
     /**
      * recibe la direccion de la ruta en la que se encuentra el fichero de
      * carretera
@@ -27,7 +28,7 @@ public class Viento{
      * @param miruta
      */
 
-    public Viento(String miruta,Bicicleta mibici) {
+    public Viento(String miruta, Bicicleta mibici) {
 	vientos = miruta;
 	fichero = new EntradaFichero();
 	matriz = fichero.convertirAArrayFichero(vientos, ":;");
@@ -46,25 +47,22 @@ public class Viento{
     }
 
     public void calculaFactor() {
-	
+
 	bici.getCadencia();
-	if(tramo+2 < matriz.length)
-	{
-	   //aplicamos el factor de la pendiente del tramo en el que se encuentra la bici
-	    if(bici.getEspacioRecorrido() >= matriz[tramo] && 
-		    bici.getEspacioRecorrido() <matriz[tramo+2])
-	    {
-		 
-		 bici.setFactorViento(matriz[tramo+1] * FACTORVIENTO);
+	if (tramo + 2 < matriz.length) {
+	    // aplicamos el factor de la pendiente del tramo en el que se
+	    // encuentra la bici
+	    if (bici.getEspacioRecorrido() >= matriz[tramo]
+		    && bici.getEspacioRecorrido() < matriz[tramo + 2]) {
+
+		bici.setFactorViento(matriz[tramo + 1] * FACTORVIENTO);
+	    } else {
+
+		tramo = tramo + 2;
+		bici.setFactorViento(matriz[tramo + 1] * FACTORVIENTO);
 	    }
-	    else
-	    {
-		
-		tramo = tramo +2;
-		bici.setFactorViento(matriz[tramo+1] * FACTORVIENTO);
-	    }
-	   
+
 	}
-	
+
     }
 }

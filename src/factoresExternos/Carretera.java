@@ -19,6 +19,7 @@ public class Carretera {
     private double[] matriz;
     private final double FACTORPENDIENTE = 0.1;
     private int tramo;
+
     /**
      * recibe la direccion de la ruta en la que se encuentra el fichero de
      * carretera
@@ -26,7 +27,7 @@ public class Carretera {
      * @param miruta
      */
 
-    public Carretera(String miruta,Bicicleta mibici) {
+    public Carretera(String miruta, Bicicleta mibici) {
 	ruta = miruta;
 	fichero = new EntradaFichero();
 	matriz = fichero.convertirAArrayFichero(ruta, ":;");
@@ -45,25 +46,22 @@ public class Carretera {
     }
 
     public void calculaFactor() {
-	
+
 	bici.getCadencia();
-	if(tramo+2 < matriz.length)
-	{
-	   //aplicamos el factor de la pendiente del tramo en el que se encuentra la bici
-	    if(bici.getEspacioRecorrido() >= matriz[tramo] && 
-		    bici.getEspacioRecorrido() <matriz[tramo+2])
-	    {
-		 
-		 bici.setFactorPendiente(matriz[tramo+1] * FACTORPENDIENTE);
+	if (tramo + 2 < matriz.length) {
+	    // aplicamos el factor de la pendiente del tramo en el que se
+	    // encuentra la bici
+	    if (bici.getEspacioRecorrido() >= matriz[tramo]
+		    && bici.getEspacioRecorrido() < matriz[tramo + 2]) {
+
+		bici.setFactorPendiente(matriz[tramo + 1] * FACTORPENDIENTE);
+	    } else {
+
+		tramo = tramo + 2;
+		bici.setFactorPendiente(matriz[tramo + 1] * FACTORPENDIENTE);
 	    }
-	    else
-	    {
-		
-		tramo = tramo +2;
-		bici.setFactorPendiente(matriz[tramo+1] * FACTORPENDIENTE);
-	    }
-	   
+
 	}
-	
+
     }
 }

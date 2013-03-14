@@ -8,8 +8,6 @@ public class ComandoSubeMarcha implements InterfazInstruccion {
 	// TODO Auto-generated constructor stub
     }
 
-  
-
     @Override
     public void parse() {
 	// TODO Auto-generated method stub

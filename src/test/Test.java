@@ -13,6 +13,7 @@ import persona.*;
 import bicicleta.*;
 import tiempo.*;
 import vista.Ventana;
+
 @SuppressWarnings("unused")
 public class Test {
     private Ciclista ciclista;
@@ -20,15 +21,16 @@ public class Test {
     private Bicicleta bici;
     private Viento viento;
     private Carretera carretera;
-        private Parser parse;
+    private Parser parse;
     private int dientesporpinon[] = { 6, 5, 4, 3, 2, 1 };
     private int dientesporplato[] = { 2, 3, 4 };
     Ventana ventana;
+
     @Before
     public void setUp() {
 
-	bici = new Bicicleta(0,dientesporpinon.length, dientesporplato.length, 1,
-		dientesporpinon, dientesporplato, 0.6858);
+	bici = new Bicicleta(0, dientesporpinon.length, dientesporplato.length,
+		1, dientesporpinon, dientesporplato, 0.6858);
 	reloj = new Reloj(ventana);
 	ciclista = new Ciclista(bici);
     }
@@ -83,10 +85,10 @@ public class Test {
 	assertEquals(2, bici.getCadencia(), 0);
 
 	bici.setFactorPendiente(2.3);
-	assertEquals(2.3,bici.getFactorPendiente(), 0);
-	
+	assertEquals(2.3, bici.getFactorPendiente(), 0);
+
 	bici.setFactorViento(2.3);
-	assertEquals(2.3,bici.getFactorViento(), 0);
+	assertEquals(2.3, bici.getFactorViento(), 0);
 	// pruebas reloj
 	reloj.cuentaReloj();
 	int hora[] = { 1, 0, 0 };
@@ -112,8 +114,6 @@ public class Test {
 	assertEquals(1, bici.getPlatoAct());
 	ciclista.setBici(bici);
 	assertEquals(bici, ciclista.getBici());
-	
-	
 
     }
 

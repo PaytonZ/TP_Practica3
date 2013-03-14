@@ -1,7 +1,5 @@
 package comandos;
 
-
-
 public interface InterfazInstruccion {
 
     public void parse();
@@ -11,7 +9,5 @@ public interface InterfazInstruccion {
     public void configurarContexto();
 
     public void obtenerAyuda();
-
-  
 
 }

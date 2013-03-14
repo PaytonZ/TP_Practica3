@@ -3,7 +3,7 @@ package bicicleta;
 /**
  * Clase que representa un vehículo en la realidad
  * 
- * @author Juan Carlos Marco 
+ * @author Juan Carlos Marco
  * @author Juan Luis Perez
  */
 public class Vehiculo {

@@ -1,15 +1,12 @@
 package comandos;
 
-public enum Comandos  {
-   // RELOJ(new MostrarReloj()), 
-    NINGUNA(new ComandoNinguno()), 
-    DESCONOCIDO(new ComandoDesconocido()),
-    AUMENTACADENCIA(new ComandoAumentaCadencia()), 
-    DISMINUYECADENCIA(new ComandoDisminuyeCadencia()), 
-    SUBEMARCHA(new ComandoSubeMarcha()), 
-    BAJAMARCHA(new ComandoBajaMarcha()), 
-    SUBEPLATO(new ComandoSubePlato()), 
-    BAJAPLATO( new ComandoBajaPlato());
+public enum Comandos {
+    // RELOJ(new MostrarReloj()),
+    NINGUNA(new ComandoNinguno()), DESCONOCIDO(new ComandoDesconocido()), AUMENTACADENCIA(
+	    new ComandoAumentaCadencia()), DISMINUYECADENCIA(
+	    new ComandoDisminuyeCadencia()), SUBEMARCHA(new ComandoSubeMarcha()), BAJAMARCHA(
+	    new ComandoBajaMarcha()), SUBEPLATO(new ComandoSubePlato()), BAJAPLATO(
+	    new ComandoBajaPlato());
 
     Comandos(InterfazInstruccion nueva_instruccion) {
 	instruccion = nueva_instruccion;
@@ -29,13 +26,12 @@ public enum Comandos  {
 	    if (comando.equalsIgnoreCase(c.name())) {
 		// prueba para comprobar que lo leido por teclado corresponde a
 		// un comando
-		//System.out.println(c.name());
+		// System.out.println(c.name());
 		comando_valido = c;
 	    }
 	}
 
 	return comando_valido;
     }
-
 
 }

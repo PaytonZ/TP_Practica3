@@ -5,11 +5,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
+
 /**TODO:
  * Juan: Las entradas deberían estar centralizadas y no deberia haber más de una. Aprovecha el "SuperLector" y haz los cambios pertinentes para que solo tengamos un lector.
  * 
  */
-
 
 /**
  * esta clase es capaz de devolver los datos de un fichero, en un array de
@@ -28,9 +28,10 @@ public class EntradaFichero {
      * @return
      */
 
-    public double[] convertirAArrayFichero(String fichero,String delimitadores) {
+    public double[] convertirAArrayFichero(String fichero, String delimitadores) {
 
-	return devuelveMatrizDeStringTokenizer(cargarFicheroEnStringTokenizer(fichero,delimitadores));
+	return devuelveMatrizDeStringTokenizer(cargarFicheroEnStringTokenizer(
+		fichero, delimitadores));
 
     }
 
@@ -40,7 +41,8 @@ public class EntradaFichero {
      * @param textoConTokens
      * @return
      */
-    private double[] devuelveMatrizDeStringTokenizer(StringTokenizer textoConTokens) {
+    private double[] devuelveMatrizDeStringTokenizer(
+	    StringTokenizer textoConTokens) {
 	double[] array = new double[textoConTokens.countTokens()];
 	int i = 0;
 	while (textoConTokens.hasMoreElements()) {
@@ -51,7 +53,8 @@ public class EntradaFichero {
 	return array;
     }
 
-    public StringTokenizer cargarFicheroEnStringTokenizer(String fichero,String delimitadores) {
+    public StringTokenizer cargarFicheroEnStringTokenizer(String fichero,
+	    String delimitadores) {
 
 	String contenidoficherocontokens = new String();
 

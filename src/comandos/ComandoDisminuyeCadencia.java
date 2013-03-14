@@ -7,7 +7,6 @@ public class ComandoDisminuyeCadencia implements InterfazInstruccion {
 
     }
 
-
     @Override
     public void parse() {
 	// TODO Auto-generated method stub

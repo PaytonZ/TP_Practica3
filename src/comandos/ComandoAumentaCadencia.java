@@ -3,12 +3,10 @@ package comandos;
 import persona.Ciclista;
 
 public class ComandoAumentaCadencia implements InterfazInstruccion {
- 
+
     public ComandoAumentaCadencia() {
 	// TODO Auto-generated constructor stub
     }
-
- 
 
     @Override
     public void parse() {
@@ -18,7 +16,7 @@ public class ComandoAumentaCadencia implements InterfazInstruccion {
 
     @Override
     public void execute(Object o) {
-	
+
 	Ciclista cic = (Ciclista) o;
 	cic.aumentarCadencia();
 	// TODO Auto-generated method stub
@@ -36,9 +34,5 @@ public class ComandoAumentaCadencia implements InterfazInstruccion {
 	// TODO Auto-generated method stub
 
     }
-
-
-
-   
 
 }

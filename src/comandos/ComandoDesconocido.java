@@ -5,8 +5,6 @@ public class ComandoDesconocido implements InterfazInstruccion {
 	// System.out.println("Comando desconocido");
     }
 
-    
-
     @Override
     public void parse() {
 	// TODO Auto-generated method stub
@@ -15,7 +13,7 @@ public class ComandoDesconocido implements InterfazInstruccion {
 
     @Override
     public void execute(Object o) {
-	//System.out.println("DESCONOCIDO");
+	// System.out.println("DESCONOCIDO");
 	// TODO Auto-generated method stub
 
     }
@@ -32,7 +30,4 @@ public class ComandoDesconocido implements InterfazInstruccion {
 
     }
 
-
-
-   
 }

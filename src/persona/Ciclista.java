@@ -15,7 +15,7 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	InterfaceSalida {
     private float cadencia; // numero de pedaladas por segundo
     private Bicicleta bici;
-    
+
     public Ciclista(Bicicleta nueva_bici) {
 	cadencia = 1;
 	setBici(nueva_bici);
@@ -55,12 +55,12 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	    bici.setPinon('d');
 	}
     }
-    public void aumentaPinon()
-    {
+
+    public void aumentaPinon() {
 	cambiarPinon('a');
     }
-    public void disminuyePinon()
-    {
+
+    public void disminuyePinon() {
 	cambiarPinon('d');
     }
 
@@ -79,15 +79,15 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	    bici.setPlato('d');
 	}
     }
-    public void aumentaPlato()
-    {
+
+    public void aumentaPlato() {
 	cambiarPlato('a');
-	
+
     }
-    public void disminuyePlato()
-    {
+
+    public void disminuyePlato() {
 	cambiarPlato('d');
-	
+
     }
 
     /**
@@ -101,7 +101,7 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	// cadencia
 	pedalear(cadencia);
 	// cambiarPlato('d');
-	//cambiarPinon('a');
+	// cambiarPinon('a');
 
     }
 
@@ -128,10 +128,13 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
      * este metodo esta heredado de la clase InterfazSalida, y todo lo que haya
      * en el, se mostrara cuando se realice el for each de la lista
      * correspondiente
+     * 
+     * @return
      */
     @Override
-    public void muestra() {
+    public String muestra() {
 
+	return "";
     }
 
     public void setCadencia(char accion) {
@@ -146,10 +149,12 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	}
 	bici.setCadencia(cadencia);
     }
-    public void aumentarCadencia(){
+
+    public void aumentarCadencia() {
 	setCadencia('a');
     }
-    public void disminuirCadencia(){
+
+    public void disminuirCadencia() {
 	setCadencia('d');
     }
 }

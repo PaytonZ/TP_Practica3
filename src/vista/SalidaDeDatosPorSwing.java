@@ -2,7 +2,6 @@ package vista;
 
 import java.util.ArrayList;
 
-
 import interfaceMain.InterfaceSalida;
 
 /**
@@ -16,15 +15,17 @@ public class SalidaDeDatosPorSwing {
 
     // este arraylist, contiene todos los objetos que se mostraran en el metodo
     // mostrarObjeto()
-    ArrayList<Object> lista_salida;
-    Ventana miventana ;
-    public SalidaDeDatosPorSwing(Ventana vent,ArrayList<Object> lista_o ) {
-	lista_salida=lista_o;
-	miventana=vent;
+    ArrayList<InterfaceSalida> lista_salida;
+    Ventana miventana;
+
+    public SalidaDeDatosPorSwing(Ventana vent,
+	    ArrayList<InterfaceSalida> lista_o) {
+	lista_salida = lista_o;
+	miventana = vent;
     }
 
-    public SalidaDeDatosPorSwing(ArrayList<Object> lista) {
-	
+    public SalidaDeDatosPorSwing(ArrayList<InterfaceSalida> lista) {
+
 	lista_salida = lista;
     }
 
@@ -67,7 +68,7 @@ public class SalidaDeDatosPorSwing {
 	    break;
 	}
 	}
-	
+
 	System.out.println(mensajefinal.toString());
     }
 
@@ -80,71 +81,61 @@ public class SalidaDeDatosPorSwing {
      *            la siguiente manera : mensaje = "mensaje#formato"
      */
     /*
-    public void mostrarPorVentana(String mensaje) {
-
-	StringBuffer mensajefinal = new StringBuffer();
-	int posicionempiezacadena = 0;
-	int posicionempiezaformato = 0;
-	// buscamos la posicion a partir de la cual empieza el mensaje
-	while (posicionempiezacadena < mensaje.length()
-		&& mensaje.charAt(posicionempiezacadena) != '#') 
-	{
-		   posicionempiezacadena++;
-
-	}
-	posicionempiezaformato = posicionempiezacadena+1;
-	// buscamos la posicion a partir de la cual empieza el formato
-	while (posicionempiezaformato < mensaje.length()
-		&& mensaje.charAt(posicionempiezaformato) != '#') {
-	    posicionempiezaformato++;
-
-	}
-	
-	//System.out.println(mensaje.substring(posicionempiezaformato + 1,posicionempiezaformato).toString());
-	// como ya sabemos donde empieza el formato, ahora solo comparamos para
-	// sacar la salida formateada
-	// con dicho formato
-	System.out.println(mensaje.substring(posicionempiezaformato + 1).toString());
-	
-	    /*
-	switch (mensaje.substring(posicionempiezaformato + 1).toString()) {
-	case "cadencia": 
-	    mensajefinal.append(mensaje.substring(posicionempiezacadena+1, posicionempiezaformato)
-		    + " pedaladas por segundo ");
-	    break;
-	
-	case "velocidad": 
-	    mensajefinal.append("Velocidad actual:"
-		    + mensaje.substring(posicionempiezacadena+1, posicionempiezaformato) + " m/s ");
-	    break;
-	
-	case "distancia": 
-	    mensajefinal.append("Distancia recorrida:"
-		    + mensaje.substring(posicionempiezacadena+1, posicionempiezaformato) + " m ");
-	    break;
-	
-	case "hh:mm:ss": 
-	    int caractermensaje = 0;
-	    while (caractermensaje < posicionempiezaformato) {
-		if (mensaje.charAt(caractermensaje) == ' ') {
-		    mensajefinal.insert(caractermensaje, ":");
-
-		} else {
-		    mensajefinal.insert(caractermensaje,
-			    mensaje.charAt(caractermensaje));
-		}
-
-		caractermensaje++;
-	    }
-
-	    break;
-	
-	}
-	
-	//System.out.println(mensajefinal.toString());
-	
-	
-    }*/
+     * public void mostrarPorVentana(String mensaje) {
+     * 
+     * StringBuffer mensajefinal = new StringBuffer(); int posicionempiezacadena
+     * = 0; int posicionempiezaformato = 0; // buscamos la posicion a partir de
+     * la cual empieza el mensaje while (posicionempiezacadena <
+     * mensaje.length() && mensaje.charAt(posicionempiezacadena) != '#') {
+     * posicionempiezacadena++;
+     * 
+     * } posicionempiezaformato = posicionempiezacadena+1; // buscamos la
+     * posicion a partir de la cual empieza el formato while
+     * (posicionempiezaformato < mensaje.length() &&
+     * mensaje.charAt(posicionempiezaformato) != '#') {
+     * posicionempiezaformato++;
+     * 
+     * }
+     * 
+     * //System.out.println(mensaje.substring(posicionempiezaformato +
+     * 1,posicionempiezaformato).toString()); // como ya sabemos donde empieza
+     * el formato, ahora solo comparamos para // sacar la salida formateada //
+     * con dicho formato
+     * System.out.println(mensaje.substring(posicionempiezaformato +
+     * 1).toString());
+     * 
+     * 
+     * switch (mensaje.substring(posicionempiezaformato + 1).toString()) { case
+     * "cadencia":
+     * mensajefinal.append(mensaje.substring(posicionempiezacadena+1,
+     * posicionempiezaformato) + " pedaladas por segundo "); break;
+     * 
+     * case "velocidad": mensajefinal.append("Velocidad actual:" +
+     * mensaje.substring(posicionempiezacadena+1, posicionempiezaformato) +
+     * " m/s "); break;
+     * 
+     * case "distancia": mensajefinal.append("Distancia recorrida:" +
+     * mensaje.substring(posicionempiezacadena+1, posicionempiezaformato) +
+     * " m "); break;
+     * 
+     * case "hh:mm:ss": int caractermensaje = 0; while (caractermensaje <
+     * posicionempiezaformato) { if (mensaje.charAt(caractermensaje) == ' ') {
+     * mensajefinal.insert(caractermensaje, ":");
+     * 
+     * } else { mensajefinal.insert(caractermensaje,
+     * mensaje.charAt(caractermensaje)); }
+     * 
+     * caractermensaje++; }
+     * 
+     * break;
+     * 
+     * }
+     * 
+     * miventana.po //System.out.println(mensajefinal.toString());
+     * 
+     * 
+     * }
+     */
     /**
      * este metodo recibe un String con los datos a mostrar y con el formato
      * inclusive y es capaz de sacarlo formateado de dicha forma
@@ -202,7 +193,8 @@ public class SalidaDeDatosPorSwing {
 	}
 	System.out.println(mensajefinal.toString());
     }
-    public void mostrarPorVentana(String mensaje,int id) {
+
+    public void mostrarPorVentana(String mensaje, String id) {
 
 	StringBuffer mensajefinal = new StringBuffer();
 	int posicionempiezaformato = 0;
@@ -250,23 +242,32 @@ public class SalidaDeDatosPorSwing {
 	}
 	}
 	miventana.ponTextoEnTextArea(id, mensajefinal.toString());
-	//System.out.println(mensajefinal.toString());
+	// System.out.println(mensajefinal.toString());
     }
+
     /**
      * este metodo hace un for each del arraylist dela propia clase y ejecuta el
      * metodo muestra de los objetos que contiene
      */
     public void mostrarObjetos() {
-	for (Object listaobjetos : lista_salida) {
+	String salida;
+	String[] aux, mensaje_final;
+	String id;
 
-	    ((InterfaceSalida) listaobjetos).muestra();
+	for (InterfaceSalida listaobjetos : lista_salida) {
+
+	    salida = listaobjetos.muestra();
+	    aux = salida.split("%");
+	    id = aux[0];
+	    mensaje_final = aux[1].split(",");
+	    for (int i = 0; i < mensaje_final.length; i++) {
+
+		mostrarPorVentana(mensaje_final[i], id);
+
+	    }
 
 	}
 
     }
 
 }
-
-
-
-

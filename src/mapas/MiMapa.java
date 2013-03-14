@@ -15,68 +15,63 @@ import java.util.StringTokenizer;
  * @author Emilio Alvarez
  * 
  */
-public class MiMapa <T,E>
-{
-    
-    private Map<T,E> mapa;
-    private List <T> lista;
-    /**
-    * constructor de MiMapa, el cual genera un mapa dado un StringTokenizer
-    * @param tokens
-    */
-  
-    @SuppressWarnings("unchecked")
-    public MiMapa(StringTokenizer tokens)
-    {
-      
-        
-        lista = new ArrayList<T>();
-        Map<T,E> mapa = new HashMap<T,E>();
-        int i = 0;
-        T clave = null;
-        int j = 0;
-        while(tokens.hasMoreTokens())
-        {
-            if(i % 2 == 0)
-            {
-        	clave = (T) tokens.nextToken();
-            
-            }
-            if(i%2 == 1)
-            {
-                
-                mapa.put(clave, (E) tokens.nextToken());
-                lista.add(j,clave);
-                
-                j++;
-            }
-        
-        
-            i++;
-        }
+public class MiMapa<T, E> {
 
+    private Map<T, E> mapa;
+    private List<T> lista;
+
+    /**
+     * constructor de MiMapa, el cual genera un mapa dado un StringTokenizer
+     * 
+     * @param tokens
+     */
+
+    @SuppressWarnings("unchecked")
+    public MiMapa(StringTokenizer tokens) {
+
+	lista = new ArrayList<T>();
+	Map<T, E> mapa = new HashMap<T, E>();
+	int i = 0;
+	T clave = null;
+	int j = 0;
+	while (tokens.hasMoreTokens()) {
+	    if (i % 2 == 0) {
+		clave = (T) tokens.nextToken();
+
+	    }
+	    if (i % 2 == 1) {
+
+		mapa.put(clave, (E) tokens.nextToken());
+		lista.add(j, clave);
+
+		j++;
+	    }
+
+	    i++;
+	}
 
     }
+
     /**
-    * se devuelve el mapa
-    * @return
-    */
-    public Map<T, E> getMapa()
-    {
+     * se devuelve el mapa
+     * 
+     * @return
+     */
+    public Map<T, E> getMapa() {
 	return mapa;
 
     }
-    /**dada una clave, se devuelve la informacion oportuna
-    *
-    * @param ele
-    * @return
-    */
+
+    /**
+     * dada una clave, se devuelve la informacion oportuna
+     * 
+     * @param ele
+     * @return
+     */
     @SuppressWarnings("unchecked")
-    public E getElemento(int ele)
-    {
-        return (E) lista.get(ele);
-        
+    public E getElemento(int ele) {
+	return (E) lista.get(ele);
+
     }
-   
-    
+
 }

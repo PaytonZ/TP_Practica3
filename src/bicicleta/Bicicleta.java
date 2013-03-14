@@ -44,11 +44,12 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
     protected float cadencia;
     protected double factorpendiente;
     protected double factorviento;
-    Carretera carretera ;
+    Carretera carretera;
     Viento viento;
-   
-    public Bicicleta(int id,int numeropinones, int numeroplatos, double radiorueda,
-	    int midientepinon[], int midienteplato[], double radio) {
+
+    public Bicicleta(int id, int numeropinones, int numeroplatos,
+	    double radiorueda, int midientepinon[], int midienteplato[],
+	    double radio) {
 
 	super();
 	dientesplato = new int[numeroplatos];
@@ -56,17 +57,17 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
 	numruedas = 2;
 	identificador_bicicleta = id;
 	dientesplato[platoact] = 5;
-	
+
 	// asignamos el numero de dientes a cada piñon y a cada plato
-	
+
 	setAsignaNumeroDientesPinon(midientepinon);
 
 	setAsignaNumeroDientesPlato(midienteplato);
 
 	setRadioRueda((float) radio);
 	factorpendiente = 0;
-	carretera = new Carretera("carretera.txt",this);
-	viento = new Viento("vientos.txt",this);
+	carretera = new Carretera("carretera.txt", this);
+	viento = new Viento("vientos.txt", this);
     }
 
     /**
@@ -210,8 +211,8 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
 	// la velocidad es el radio de la rueda * 2 PI * relacion de la
 	// transmision * cadencia de pedaleo
 
-	velocidad = (float) ((2 * Math.PI * getRadioRueda() * getRelacionTransmision()) 
-			* getCadencia()- factorpendiente - factorviento);
+	velocidad = (float) ((2 * Math.PI * getRadioRueda() * getRelacionTransmision())
+		* getCadencia() - factorpendiente - factorviento);
 
     }
 
@@ -287,7 +288,7 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
      */
     @Override
     public void ejecuta() {
-	
+
 	espacioRecorridoPorCadencia(getCadencia());
 	carretera.calculaFactor();
 	viento.calculaFactor();
@@ -400,30 +401,37 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
      * este metodo esta heredado de la clase InterfazSalida, y todo lo que haya
      * en el, se mostrara cuando se realice el for each de la lista
      * correspondiente
+     * 
+     * @return
      */
     @Override
-    public void muestra() {
-	SalidaDeDatosPorSwing output = new SalidaDeDatosPorSwing();
-	String mensaje;
+    public String muestra() {
+
+	String mensaje = "";
 	/*
-	mensaje = String.valueOf(getVelocidad());
-	output.mostrarPorVentana(miid +"#"+ mensaje + "#velocidad");
-	mensaje = String.valueOf(getEspacioRecorrido());
+	 * mensaje = String.valueOf(getVelocidad());
+	 * output.mostrarPorVentana(miid +"#"+ mensaje + "#velocidad"); mensaje
+	 * = String.valueOf(getEspacioRecorrido());
+	 * 
+	 * output.mostrarPorVentana(miid +"#"+mensaje + "#distancia"); mensaje =
+	 * String.valueOf(getCadencia());
+	 * 
+	 * output.mostrarPorVentana(miid+"#" +mensaje + "#cadencia" );
+	 */
+	mensaje += "ciclista" + identificador_bicicleta + "%";
 
-	output.mostrarPorVentana(miid +"#"+mensaje + "#distancia");
-	mensaje = String.valueOf(getCadencia());
+	mensaje += String.valueOf(getVelocidad());
+	mensaje += "#velocidad" + ",";
 
-	output.mostrarPorVentana(miid+"#" +mensaje + "#cadencia" );
-	*/
-	mensaje = String.valueOf(getVelocidad());
-	output.mostrarPorVentana(mensaje + "#velocidad",identificador_bicicleta);
-	mensaje = String.valueOf(getEspacioRecorrido());
+	mensaje += String.valueOf(getEspacioRecorrido());
+	mensaje += "#distancia" + ",";
 
-	output.mostrarPorVentana(mensaje + "#distancia",identificador_bicicleta);
-	mensaje = String.valueOf(getCadencia());
+	mensaje += String.valueOf(getCadencia());
+	mensaje += "#cadencia" + ",";
 
-	output.mostrarPorVentana(mensaje + "#cadencia" ,identificador_bicicleta);
-	
+	// System.out.println(mensaje);
+
+	return mensaje;
 
     }
 
@@ -434,22 +442,22 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
     public float getCadencia() {
 	return cadencia;
     }
-    public void setFactorPendiente(double fact)
-    {
+
+    public void setFactorPendiente(double fact) {
 	factorpendiente = fact;
     }
-    public double getFactorPendiente()
-    {
+
+    public double getFactorPendiente() {
 	return factorpendiente;
     }
-    public void setFactorViento(double fact)
-    {
+
+    public void setFactorViento(double fact) {
 	factorviento = fact;
     }
-    public double getFactorViento()
-    {
+
+    public double getFactorViento() {
 	return factorviento;
-	
+
     }
 
 }

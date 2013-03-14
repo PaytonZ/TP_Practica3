@@ -7,9 +7,9 @@ package interfaceMain;
  */
 public interface InterfaceSalida {
     /**
-     * MÃ©todo comÃºn que tendrÃ¡n todos los OBJETOS QUE TIENEN SALIDA DE DATOS
+     * Método comÃºn que tendrÃ¡n todos los OBJETOS QUE TIENEN SALIDA DE DATOS
      * 
      */
-    void muestra();
+    String muestra();
 
 }

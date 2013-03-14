@@ -1,6 +1,5 @@
 package comandos;
 
-
 import persona.Ciclista;
 
 public class ComandoBajaMarcha implements InterfazInstruccion {
@@ -8,8 +7,6 @@ public class ComandoBajaMarcha implements InterfazInstruccion {
     public ComandoBajaMarcha() {
 	// TODO Auto-generated constructor stub
     }
-
-  
 
     @Override
     public void parse() {

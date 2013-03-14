@@ -17,12 +17,12 @@ public class Reloj extends Contador implements InterfaceEjecuta,
     Contador segundo = new Contador();
     Contador minuto = new Contador();
     Contador hora = new Contador();
-    Ventana ventana ;
-    public Reloj()
-    {
-	
-	ventana = miventana;
+    Ventana ventana;
+
+    public Reloj() {
+
     }
+
     /**
      * este metodo realiza la operacion de ir incrementando segundos, minutos y
      * horas
@@ -86,18 +86,22 @@ public class Reloj extends Contador implements InterfaceEjecuta,
      * este metodo esta heredado de la clase InterfazSalida, y todo lo que haya
      * en el, se mostrara cuando se realice el for each de la lista
      * correspondiente
+     * 
+     * @return
      */
     @Override
-    public void muestra() {
-	// mostrarReloj();
+    public String muestra() {
+	/*
+	 * mostrarReloj();
+	 * 
+	 * //SalidaDeDatosPorSwing salida = new SalidaDeDatosPorSwing(); int
+	 * tiempo[] = new int[3]; tiempo = devuelveTiempo(); String mensaje;
+	 * mensaje = String.valueOf(tiempo[2] + " " + tiempo[1] + " " +
+	 * tiempo[0]); //salida.mostrarPorPantalla(mensaje + "#hh:mm:ss");
+	 * salida.mostrarPorVentana(mensaje+ "#hh:mm:ss", 6);
+	 */
+	return "";
 
-	SalidaDeDatosPorSwing salida = new SalidaDeDatosPorSwing();
-	int tiempo[] = new int[3];
-	tiempo = devuelveTiempo();
-	String mensaje;
-	mensaje = String.valueOf(tiempo[2] + " " + tiempo[1] + " " + tiempo[0]);
-	//salida.mostrarPorPantalla(mensaje + "#hh:mm:ss");
-	salida.mostrarPorVentana(mensaje+ "#hh:mm:ss", 6);
     }
 
 }
