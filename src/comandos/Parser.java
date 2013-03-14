@@ -19,7 +19,7 @@ import entradaDeDatos.SuperLectura;
  * 
  */
 
-public class Parser implements InterfaceEjecuta {
+public class Parser {
 
     // sirve para indicar el numero de ciclista al que va destinada la accion
     private String parametro;
@@ -68,13 +68,13 @@ public class Parser implements InterfaceEjecuta {
 	return Comandos.existe(comando).getInstruccion();
     }
 
-    @Override
     /**
-     * metodo heredado de la interfazEjecuta el cual se ejecuta en el for each del principal.
+     * metodo heredado de la interfazEjecuta el cual se ejecuta en el for each
+     * del principal.
      */
-    public void ejecuta() {
+    public void ejecuta(InterfazInstruccion instruccion) {
 
-	instruccion = dameComando(ventana.dameInstruccion());
+	// instruccion = dameComando(ventana.dameInstruccion());
 
 	/**
 	 * Este try sirve para que no rompa el programa, ya que el parametro al
@@ -87,10 +87,11 @@ public class Parser implements InterfaceEjecuta {
 			.parseInt(parametro)));
 	    }
 	}// TODO Excepciones para indicar que el comando es erroneo????!!!????
-	 // **/
+	 //
 	catch (Exception e) {
 
 	}
 
     }
+
 }

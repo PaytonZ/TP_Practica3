@@ -17,11 +17,11 @@ import javax.swing.border.EmptyBorder;
 import comandos.Parser;
 
 public class Ventana extends JFrame implements InterfaceEjecuta {
-    
-   private Parser parser;
+
+    private Parser parser;
 
     private static final long serialVersionUID = -8170475180669923771L;
-    
+
     private JPanel panel_general;
     private JTextField tFreloj;
     private JTextField tFcomando;
@@ -38,17 +38,17 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     private JLabel lblconsola;
 
     public Ventana(Parser nuevo_parser) {
-	
-	parser= nuevo_parser;
-	
+
+	parser = nuevo_parser;
+
 	init();
     }
-    
-private void init() {
+
+    private void init() {
 	GridLayout layout = new GridLayout(0, 2, 10, 10);
-	
-//Panel general
-	
+
+	// Panel general
+
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setBounds(100, 100, 865, 558);
 	panel_general = new JPanel();
@@ -56,7 +56,7 @@ private void init() {
 	setContentPane(panel_general);
 	panel_general.setLayout(layout);
 
-	//Añadir ciclistas.
+	// Añadir ciclistas.
 	JPanel panel_ciclista0 = new JPanel();
 	textArea_ciclista0 = new JTextArea();
 	panel_ciclista0.setLayout(new BorderLayout());
@@ -81,8 +81,8 @@ private void init() {
 
 	panel_general.add(panel_ciclista2);
 
-	//Añadir reloj
-	
+	// Añadir reloj
+
 	JPanel panel_reloj = new JPanel();
 
 	tFreloj = new JTextField();
@@ -108,26 +108,25 @@ private void init() {
 		    cadena = tFcomando.getText();
 		    parser.dameComando(cadena);
 		    tFcomando.setText("");
-		    
+
 		}
 	    }
 	});
-	
+
 	panel_general.add(panel_comandos);
-	
+
 	JPanel panel_consola = new JPanel();
 	panel_consola.setLayout(new BorderLayout());
-	tFconsola= new JTextField();
+	tFconsola = new JTextField();
 	panel_consola.add(new JLabel("Consola"), BorderLayout.NORTH);
 	panel_consola.add(tFconsola, BorderLayout.CENTER);
 
-	
 	panel_general.add(panel_consola);
 
-	//Añadir consola // output
-	
+	// Añadir consola // output
+
 	setVisible(true);
-	
+
     }
 
     public void ponTextoEnTextArea(String id, String mensaje) {
@@ -159,6 +158,9 @@ private void init() {
 	    break;
 	case "reloj":
 	    tFreloj.setText(mensaje);
+	    break;
+	case "consola":
+	    tFconsola.setText(mensaje);
 	    break;
 
 	}

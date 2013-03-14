@@ -1,6 +1,7 @@
 package comandos;
 
 import persona.Ciclista;
+import vista.Console;
 
 public class ComandoAumentaCadencia implements InterfazInstruccion {
 
@@ -19,6 +20,7 @@ public class ComandoAumentaCadencia implements InterfazInstruccion {
 
 	Ciclista cic = (Ciclista) o;
 	cic.aumentarCadencia();
+
 	// TODO Auto-generated method stub
 
     }

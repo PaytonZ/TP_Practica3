@@ -33,7 +33,7 @@ public class Principal {
     private ArrayList<InterfaceEjecuta> listaejecuta;
     private ArrayList<InterfaceSalida> listasalida;
     private Vector<Object> vectorobjetos;
-    
+
     SalidaDeDatosPorSwing output;
 
     public static void main(String args[]) {
@@ -49,7 +49,7 @@ public class Principal {
 	listaejecuta = new ArrayList<InterfaceEjecuta>();
 	listasalida = new ArrayList<InterfaceSalida>();
 	vectorobjetos = new Vector<Object>();
-	
+
 	int dientesporpinon[] = { 17, 16, 15, 14, 13, 12 };
 	int dientesporplato[] = { 36, 40, 44 };
 	Bicicleta bici0 = new Bicicleta(dientesporpinon.length,
@@ -100,7 +100,7 @@ public class Principal {
 	listaejecuta.add(bici3);
 	listaejecuta.add(bici4);
 	listaejecuta.add(bici5);
-	
+
 	// listaejecuta.add(parser);
 	listaejecuta.add(ventana);
 
@@ -109,7 +109,6 @@ public class Principal {
 	listasalida.add(ciclista0);
 	listasalida.add(ciclista1);
 	listasalida.add(ciclista2);
-
 
 	/*
 	 * listasalida.add(bici3); listasalida.add(ciclista3);
