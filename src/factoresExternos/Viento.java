@@ -6,18 +6,20 @@ import entradaDeDatos.*;
 /**
  * esta clase crea una carretera a partir de un fichero
  * 
- * @author juancly
+ * @author Juan Luis Perez
+ * @author Juan Carlos Marco
+ * @author Emilio Alvarez
  * 
  */
 
 public class Viento{
 
-    EntradaFichero fichero;
-    String vientos;
-    Bicicleta bici;
-    double[] matriz;
-    final double FACTORVIENTO = 0.1;
-    int tramo;
+   private EntradaFichero fichero;
+   private  String vientos;
+   private Bicicleta bici;
+   private double[] matriz;
+   private final double FACTORVIENTO = 0.1;
+   private int tramo;
     /**
      * recibe la direccion de la ruta en la que se encuentra el fichero de
      * carretera

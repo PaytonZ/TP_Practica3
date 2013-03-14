@@ -5,7 +5,7 @@ import interfaceMain.InterfaceEjecuta;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
-import ui.Ventana;
+import vista.Ventana;
 
 import entradaDeDatos.SuperLectura;
 

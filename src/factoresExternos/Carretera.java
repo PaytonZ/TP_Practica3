@@ -6,7 +6,9 @@ import entradaDeDatos.*;
 /**
  * esta clase crea una carretera a partir de un fichero
  * 
- * @author juancly
+ * @author Juan Luis Perez
+ * @author Juan Carlos Marco
+ * @author Emilio Alvarez
  * 
  */
 public class Carretera {

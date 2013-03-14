@@ -7,7 +7,9 @@ import interfaceMain.InterfaceSalida;
 import java.util.ArrayList;
 import persona.Ciclista;
 import tiempo.Reloj;
-import ui.Ventana;
+import vista.Console;
+import vista.SalidaDeDatosPorSwing;
+import vista.Ventana;
 import bicicleta.Bicicleta;
 import java.util.*;
 
@@ -32,7 +34,8 @@ public class Principal {
     private ArrayList<Object> listasalida;
     private Vector<Object> vectorobjetos;
     InterfaceEjecuta parser;
-    Ventana ventana;
+    SalidaDeDatosPorSwing output;
+    
 
     public static void main(String args[])
     {
@@ -49,28 +52,29 @@ public class Principal {
         listaejecuta = new ArrayList<Object>();
         listasalida = new ArrayList<Object>();
         vectorobjetos = new Vector<Object>();
-        ventana = new Ventana();
+        
         int dientesporpinon[] = { 17, 16, 15, 14, 13, 12 };
         int dientesporplato[] = { 36, 40, 44 };
         Bicicleta bici0 = new Bicicleta(0,dientesporpinon.length,
         		dientesporplato.length, 1, dientesporpinon, dientesporplato,
-        		0.6858,ventana);
+        		0.6858);
         Bicicleta bici1 = new Bicicleta(1,dientesporpinon.length,
                 	dientesporplato.length, 1, dientesporpinon, dientesporplato,
-                	0.6858,ventana);
+                	0.6858);
         Bicicleta bici2 = new Bicicleta(2,dientesporpinon.length,
                 	dientesporplato.length, 1, dientesporpinon, dientesporplato,
-                	0.6858,ventana);
+                	0.6858);
        Bicicleta bici3 = new Bicicleta(3,dientesporpinon.length,
                         dientesporplato.length, 1, dientesporpinon, dientesporplato,
-                        0.6858,ventana);
+                        0.6858);
        Bicicleta bici4 = new Bicicleta(4,dientesporpinon.length,
                         dientesporplato.length, 1, dientesporpinon, dientesporplato,
-                        0.6858,ventana);
+                        0.6858);
        Bicicleta bici5 = new Bicicleta(5,dientesporpinon.length,
                         dientesporplato.length, 1, dientesporpinon, dientesporplato,
-                        0.6858,ventana);
-        Reloj reloj = new Reloj(ventana);
+                        0.6858);
+       
+        Reloj reloj = new Reloj();
         Ciclista ciclista0 = new Ciclista(bici0);
         Ciclista ciclista1 = new Ciclista(bici1);
         Ciclista ciclista2 = new Ciclista(bici2);
@@ -92,7 +96,7 @@ public class Principal {
         listaejecuta.add(ciclista2);
         listaejecuta.add(ciclista3);
         listaejecuta.add(ciclista4);
-        listaejecuta.add(ciclista5);
+        listaejecuta.add(ciclista5);       
         listaejecuta.add(bici0);
         listaejecuta.add(bici1);
         listaejecuta.add(bici2);
@@ -100,7 +104,7 @@ public class Principal {
         listaejecuta.add(bici4);
         listaejecuta.add(bici5);
         listaejecuta.add(parser);
-        listaejecuta.add(ventana);
+    //    listaejecuta.add(ventana);
         
         listasalida.add(reloj);
         listasalida.add(bici0);
@@ -116,7 +120,7 @@ public class Principal {
         listasalida.add(bici5);
         listasalida.add(ciclista5);
 
-       
+       output = new SalidaDeDatosPorSwing(new Ventana(),listasalida);
         
     }
 
@@ -130,7 +134,7 @@ public class Principal {
         (entrada.cargarFicheroEnStringTokenizer("carretera.txt",":;"));
         
         
-    
+  
         
         while (contador < limite)
         {
@@ -140,11 +144,8 @@ public class Principal {
         	((InterfaceEjecuta) c).ejecuta();
             }
         
-            for (Object c : listasalida)
-            {
-        	((InterfaceSalida) c).muestra();
-            }
-            
+           output.mostrarObjetos();
+           
             contador++;
         }
     }
