@@ -6,7 +6,6 @@ import java.util.StringTokenizer;
 import java.util.Vector;
 
 import vista.Ventana;
-
 import entradaDeDatos.SuperLectura;
 
 /**
@@ -47,7 +46,7 @@ public class Parser implements InterfaceEjecuta {
      * @param comando
      * @return
      */
-    public InterfazInstruccion DameComando(String comando) {
+    public InterfazInstruccion dameComando(String comando) {
 
 	// partimos la cadena si hay retornos de carro o espacios
 	StringTokenizer comandos = new StringTokenizer(comando, "\n\r ");
@@ -75,7 +74,7 @@ public class Parser implements InterfaceEjecuta {
      */
     public void ejecuta() {
 
-	instruccion = DameComando(ventana.dameInstruccion());
+	instruccion = dameComando(ventana.dameInstruccion());
 
 	/**
 	 * Este try sirve para que no rompa el programa, ya que el parametro al

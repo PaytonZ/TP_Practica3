@@ -5,7 +5,6 @@ import javax.swing.text.JTextComponent;
 import java.io.PrintStream;
 
 public final class Console {
-    private static final long serialVersionUID = 3;
 
     private static JTextComponent textField;
     private static PrintStream stream = System.out; // by default we will output
