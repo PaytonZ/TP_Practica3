@@ -130,7 +130,7 @@ public class Principal {
 		"carretera.txt", ":;"));
 
 	while (contador < limite) {
-	   
+
 	    for (InterfaceEjecuta c : listaejecuta) {
 		c.ejecuta();
 	    }

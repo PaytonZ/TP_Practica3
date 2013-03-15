@@ -7,13 +7,13 @@ package bicicleta;
  * @author Juan Luis Perez
  */
 public class Vehiculo {
-    protected float velocidad;
+    protected double velocidad;
     protected int numruedas;
 
-    protected int direccion = 0;
-    protected float peso = 0;
+    protected double direccion = 0;
+    protected double peso = 0;
 
-    protected float espaciorecorrido;
+    protected double espaciorecorrido;
 
     public Vehiculo() {
 	velocidad = 0;
@@ -38,7 +38,7 @@ public class Vehiculo {
      * 
      * @return el rumbo actual
      */
-    public float getDireccion() {
+    public double getDireccion() {
 	return direccion;
     }
 
@@ -56,7 +56,7 @@ public class Vehiculo {
      * 
      * @return la velocidad actual
      */
-    public float getVelocidad() {
+    public double getVelocidad() {
 	return velocidad;
     }
 

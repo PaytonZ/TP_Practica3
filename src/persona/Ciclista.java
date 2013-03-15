@@ -36,11 +36,11 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	getBici().setCadencia(micadencia);
 
     }
-
+/*
     // asigna un rumbo que se enviara a la bicicleta
     public void setRumbo(int d, Bicicleta bici) {
 	bici.setDireccion(d);
-    }
+    }*/
 
     /**
      * este metodo envia la accion a la bicicleta de cambiar piñon,

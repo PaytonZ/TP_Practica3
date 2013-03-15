@@ -33,15 +33,15 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
     // un espacio que
     // dependera
     // de la relacion plato / pinon
-    protected float relaciontransmision;
+    protected double relaciontransmision;
 
     // y del radio de la rueda
-    protected float radiorueda;
+    protected double radiorueda;
 
     // EspacioporcadaPedalada = RecorridoLinealDelaRueda * RelaciondeTransmisin
-    private float espaciorecorrido;
+    private double espaciorecorrido;
 
-    protected float cadencia;
+    protected double cadencia;
     protected double factorpendiente;
     protected double factorviento;
     Carretera carretera;
@@ -62,7 +62,7 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
 
 	setAsignaNumeroDientesPlato(midienteplato);
 
-	setRadioRueda((float) radio);
+	setRadioRueda((double) radio);
 	factorpendiente = 0;
 	carretera = new Carretera("carretera.txt", this);
 	viento = new Viento("vientos.txt", this);
@@ -82,7 +82,7 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
      * 
      * @return
      */
-    public float getPeso() {
+    public double getPeso() {
 	return peso;
     }
 
@@ -180,23 +180,23 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
      * @param cadencia
      *            pedaladas por segundo que manda el ciclista
      */
-    public void espacioRecorridoPorCadencia(float cadencia) {
+    public void calculaEspacioRecorrido() 
+    {
 
-	float velocidad_maxima;
-
-	velocidad_maxima = getVelocidad() * cadencia;
-
-	if (getVelocidad() < velocidad_maxima) {
-
-	}
-	// velocidad = (float) (( 2 *Math.PI *getRadioRueda() *
-	// getRelacionTransmision() )* getCadencia());
-
-	// asignamos la relacion de marchas actuales
-	setRelacionTransmision(pinonact, platoact);
-
-	setVelocidad();
-	espaciorecorrido = espaciorecorrido + velocidad;
+		double velocidad_maxima;
+	
+		velocidad_maxima = velocidad * cadencia;
+	
+		if (velocidad < velocidad_maxima) {
+	
+		}
+		// velocidad = (double) (( 2 *Math.PI *getRadioRueda() *
+		// getRelacionTransmision() )* getCadencia());
+	
+		// asignamos la relacion de marchas actuales
+		calculaRelacionTransmision();
+		calculaVelocidadActual();
+		espaciorecorrido = espaciorecorrido + velocidad;
     }
 
     /**
@@ -205,13 +205,14 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
      * @param numero
      */
 
-    public void setVelocidad() {
-	// la velocidad es el radio de la rueda * 2 PI * relacion de la
-	// transmision * cadencia de pedaleo
+    public void calculaVelocidadActual() 
+    {
+    	// la velocidad es el radio de la rueda * 2 PI * relacion de la
+    	// transmision * cadencia de pedaleo
 
-	velocidad = (float) ((2 * Math.PI * getRadioRueda() * getRelacionTransmision())
-		* getCadencia() - factorpendiente - factorviento);
-
+    	velocidad = ((2 * Math.PI * radiorueda * relaciontransmision)
+    		* cadencia - factorpendiente - factorviento);
+    	//System.out.println(radiorueda);
     }
 
     public void setPedales(int numero) {
@@ -222,7 +223,7 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
      * este metodo asigna un peso
      * 
      */
-    public void setPeso(float pesos) {
+    public void setPeso(double pesos) {
 	peso = pesos;
     }
 
@@ -253,8 +254,8 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
 	}
     }
 
-    @Override
-    public float getDireccion() {
+    
+    public double getDireccion() {
 	return direccion;
     }
 
@@ -285,12 +286,15 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
      * correspondiente
      */
     @Override
-    public void ejecuta() {
-
-	espacioRecorridoPorCadencia(getCadencia());
-	carretera.calculaFactor();
-	viento.calculaFactor();
-
+    public void ejecuta() 
+    {
+		// TODO Auto-generated method stub
+		//carretera.calculaFactor();
+		//viento.calculaFactor();
+		calculaEspacioRecorrido();
+		calculaVelocidadActual();
+		carretera.calculaFactor();
+		viento.calculaFactor();
     }
 
     /**
@@ -304,7 +308,7 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
      * @param espacioporpedalada
      *            the espacioporpedalada to set
      */
-    public void setEspacioPorPedalada(float espacioporpedalada) {
+    public void setEspacioPorPedalada(double espacioporpedalada) {
 	this.espaciorecorrido = espacioporpedalada;
     }
 
@@ -360,22 +364,23 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
 	return relaciontransmision;
     }
 
-    public void setRelacionTransmision(int pinon, int plato) {
+    public void calculaRelacionTransmision() 
+    {
 
-	relaciontransmision = ((float) getDientesPlato(plato) / (float) getDientesPinon(pinon));
+    	relaciontransmision = ((double) dientesplato[platoact] /  (double) dientespinon[pinonact]);
+    
+    } 
 
-    }
-
-    public float getRadioRueda() {
+    public double getRadioRueda() {
 	return radiorueda;
     }
 
-    public void setRadioRueda(float radiorueda) {
+    public void setRadioRueda(double radiorueda) {
 	this.radiorueda = radiorueda;
     }
 
-    public float getLongitudRueda() {
-	float longitudrueda = 1;
+    public double getLongitudRueda() {
+	double longitudrueda = 1;
 	// longitudrueda = 2 *
 	return longitudrueda;
     }
@@ -405,11 +410,11 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
 
     }
 
-    public void setCadencia(float micadencia) {
+    public void setCadencia(double micadencia) {
 	cadencia = micadencia;
     }
 
-    public float getCadencia() {
+    public double getCadencia() {
 	return cadencia;
     }
 
