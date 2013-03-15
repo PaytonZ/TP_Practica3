@@ -93,5 +93,11 @@ public class Parser {
 	}
 
     }
+    public void setInstruccion(String ins)
+    {
+	
+    	instruccion = dameComando(ins);
+    	ejecuta(instruccion);
+    }
 
 }

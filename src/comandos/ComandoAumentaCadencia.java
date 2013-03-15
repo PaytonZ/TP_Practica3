@@ -17,7 +17,6 @@ public class ComandoAumentaCadencia implements InterfazInstruccion {
 
     @Override
     public void execute(Object o) {
-
 	Ciclista cic = (Ciclista) o;
 	cic.aumentarCadencia();
 
