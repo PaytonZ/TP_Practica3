@@ -3,6 +3,7 @@ package comandos;
 import persona.Ciclista;
 
 public class ComandoDisminuyeCadencia implements InterfazInstruccion {
+    Ciclista cic;
     public ComandoDisminuyeCadencia() {
 
     }
@@ -15,7 +16,7 @@ public class ComandoDisminuyeCadencia implements InterfazInstruccion {
 
     @Override
     public void execute(Object o) {
-	Ciclista cic = (Ciclista) o;
+	cic = (Ciclista) o;
 	cic.disminuirCadencia();
 	// TODO Auto-generated method stub
 
@@ -31,5 +32,13 @@ public class ComandoDisminuyeCadencia implements InterfazInstruccion {
     public void obtenerAyuda() {
 	// TODO Auto-generated method stub
 
+    }
+
+    @Override
+    public String getInformacionInstruccion() 
+    {
+	// TODO Auto-generated method stub
+	return "cadencia disminuida en el ciclista " + cic.getIdentificador_ciclista() 
+		+ "\ncadencia actual :" + cic.getCadencia();
     }
 }

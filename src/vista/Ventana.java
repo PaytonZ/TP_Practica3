@@ -35,6 +35,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     JTextArea textArea_ciclista5;
     private JLabel lblComandos;
     private JLabel lblTiempo;
+    private JTextArea textArea_salida;
 
     public Ventana(Parser nuevo_parser) {
 
@@ -129,6 +130,15 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	lblTiempo = new JLabel("Tiempo");
 	lblTiempo.setBounds(312, 293, 70, 15);
 	contentPane.add(lblTiempo);
+	
+	JLabel label = new JLabel("Salida");
+	label.setBounds(206, 430, 114, 15);
+	contentPane.add(label);
+	
+	textArea_salida = new JTextArea();
+	textArea_salida.setColumns(10);
+	textArea_salida.setBounds(206, 457, 453, 43);
+	contentPane.add(textArea_salida);
 	this.setVisible(true);
 
     }
@@ -182,11 +192,15 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	textArea_ciclista1.setText("");
 
 	textArea_ciclista2.setText("");
+	textArea_ciclista3.setText("");
+	textArea_ciclista4.setText("");
+	textArea_ciclista5.setText("");
 	/*
 	 * textArea_ciclista3.setText(""); textArea_ciclista4.setText("");
 	 * textArea_ciclista5.setText("");
 	 */
 	tFreloj.setText("");
+	textArea_salida.setText(parser.getInstruccion());
 
     }
 }

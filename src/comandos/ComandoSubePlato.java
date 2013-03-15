@@ -3,7 +3,7 @@ package comandos;
 import persona.Ciclista;
 
 public class ComandoSubePlato implements InterfazInstruccion {
-
+    Ciclista cic;
     public ComandoSubePlato() {
 	// TODO Auto-generated constructor stub
     }
@@ -17,7 +17,7 @@ public class ComandoSubePlato implements InterfazInstruccion {
     @Override
     public void execute(Object o) {
 	// TODO Auto-generated method stub
-	Ciclista cic = (Ciclista) o;
+	cic = (Ciclista) o;
 	cic.aumentaPlato();
     }
 
@@ -31,6 +31,13 @@ public class ComandoSubePlato implements InterfazInstruccion {
     public void obtenerAyuda() {
 	// TODO Auto-generated method stub
 
+    }
+
+    @Override
+    public String getInformacionInstruccion() 
+    {
+	// TODO Auto-generated method stub
+	return "plato subido en el ciclista"+cic.getIdentificador_ciclista()+"\nplato actual :" + cic.getPlatoActualBici() ;
     }
 
 }

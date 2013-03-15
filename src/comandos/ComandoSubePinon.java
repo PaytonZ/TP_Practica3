@@ -2,9 +2,9 @@ package comandos;
 
 import persona.Ciclista;
 
-public class ComandoSubeMarcha implements InterfazInstruccion {
-
-    public ComandoSubeMarcha() {
+public class ComandoSubePinon implements InterfazInstruccion {
+    Ciclista cic;
+    public ComandoSubePinon() {
 	// TODO Auto-generated constructor stub
     }
 
@@ -16,7 +16,7 @@ public class ComandoSubeMarcha implements InterfazInstruccion {
 
     @Override
     public void execute(Object o) {
-	Ciclista cic = (Ciclista) o;
+	cic = (Ciclista) o;
 	cic.aumentaPinon();
 	// TODO Auto-generated method stub
 
@@ -32,6 +32,13 @@ public class ComandoSubeMarcha implements InterfazInstruccion {
     public void obtenerAyuda() {
 	// TODO Auto-generated method stub
 
+    }
+
+    @Override
+    public String getInformacionInstruccion() 
+    {
+	// TODO Auto-generated method stub
+	return "pinon subido en el ciclista"+cic.getIdentificador_ciclista() + "\npinon actual :" + cic.getPinonActualBici() ;
     }
 
 }

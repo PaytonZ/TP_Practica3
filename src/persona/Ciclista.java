@@ -165,7 +165,20 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     public int getIdentificador_ciclista() {
 	return identificador_ciclista;
     }
-
+    
+    public String getPinonActualBici()
+    {
+	return String.valueOf(bici.getPinonAct());
+    }
+    public String getPlatoActualBici()
+    {
+	return String.valueOf(bici.getPlatoAct());
+    }
+    
+    public String getCadencia()
+    {
+	return String.valueOf(cadencia);
+    }
     /**
      * @param identificador_ciclista
      *            the identificador_ciclista to set

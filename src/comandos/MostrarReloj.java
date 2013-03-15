@@ -37,4 +37,11 @@ public class MostrarReloj implements InterfazInstruccion {
 	// TODO Auto-generated method stub
 
     }
+
+    @Override
+    public String getInformacionInstruccion() 
+    {
+	// TODO Auto-generated method stub
+	return null;
+    }
 }

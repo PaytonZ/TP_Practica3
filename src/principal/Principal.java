@@ -28,7 +28,8 @@ import entradaDeDatos.EntradaFichero;
  * 
  */
 
-public class Principal {
+public class Principal 
+{
 
     private ArrayList<InterfaceEjecuta> listaejecuta;
     private ArrayList<InterfaceSalida> listasalida;
@@ -36,7 +37,8 @@ public class Principal {
 
     SalidaDeDatosPorSwing output;
 
-    public static void main(String args[]) {
+    public static void main(String args[]) 
+    {
 
 	Principal p = new Principal();
 	p.inicia();
@@ -45,7 +47,8 @@ public class Principal {
 
     }
 
-    public void inicia() {
+    public void inicia() 
+    {
 	listaejecuta = new ArrayList<InterfaceEjecuta>();
 	listasalida = new ArrayList<InterfaceSalida>();
 	vectorobjetos = new Vector<Object>();
@@ -109,6 +112,9 @@ public class Principal {
 	listasalida.add(ciclista0);
 	listasalida.add(ciclista1);
 	listasalida.add(ciclista2);
+	listasalida.add(ciclista3);
+	listasalida.add(ciclista4);
+	listasalida.add(ciclista5);
 
 	/*
 	 * listasalida.add(bici3); listasalida.add(ciclista3);
@@ -120,7 +126,8 @@ public class Principal {
 
     }
 
-    public void ejecuta() {
+    public void ejecuta() 
+    {
 	int contador = 0; // Contara los segundos de ejecucion del programa
 	int limite = 300; // Se establecera el limite en SEGUNDOS de la
 			  // ejecucion
@@ -129,9 +136,11 @@ public class Principal {
 	new MiMapa<Double, Double>(entrada.cargarFicheroEnStringTokenizer(
 		"carretera.txt", ":;"));
 
-	while (contador < limite) {
+	while (contador < limite) 
+	{
 
-	    for (InterfaceEjecuta c : listaejecuta) {
+	    for (InterfaceEjecuta c : listaejecuta) 
+	    {
 		c.ejecuta();
 	    }
 
@@ -141,7 +150,8 @@ public class Principal {
 	}
     }
 
-    public void finaliza() {
+    public void finaliza() 
+    {
 
     }
 

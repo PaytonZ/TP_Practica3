@@ -2,7 +2,7 @@ package comandos;
 
 public class ComandoNinguno implements InterfazInstruccion {
     public ComandoNinguno() {
-	// System.out.println("NO EXISTE EL COMANDO");
+	//System.out.println("hola");
     }
 
     @Override
@@ -13,8 +13,9 @@ public class ComandoNinguno implements InterfazInstruccion {
 
     @Override
     public void execute(Object o) {
+	
 	// TODO Auto-generated method stub
-	// System.out.println("NO EXISTE EL COMANDO");
+	
     }
 
     @Override
@@ -27,6 +28,14 @@ public class ComandoNinguno implements InterfazInstruccion {
     public void obtenerAyuda() {
 	// TODO Auto-generated method stub
 
+    }
+
+    @Override
+    public String getInformacionInstruccion() 
+    {
+	// TODO Auto-generated method stub
+	//System.out.print("hola");
+	return "faltan parametros";
     }
 
 }

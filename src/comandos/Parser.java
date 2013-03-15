@@ -93,6 +93,21 @@ public class Parser {
 	}
 
     }
+    public String getInstruccion()
+    {
+	String a = "";
+	try
+	{
+	    a = instruccion.getInformacionInstruccion(); 
+	}
+	catch(Exception e)
+	{
+	    
+	}
+	
+	//System.out.print(instruccion.getNombreInstruccion());
+	return a;//instruccion.getNombreInstruccion();
+    }
     public void setInstruccion(String ins)
     {
 	
