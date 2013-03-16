@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import persona.Ciclista;
 import tiempo.Reloj;
 import vista.Console;
+import vista.Lienzo;
 import vista.SalidaDeDatosPorSwing;
 import vista.Ventana;
 import bicicleta.Bicicleta;
@@ -36,15 +37,18 @@ public class Principal
     private Vector<Object> vectorobjetos;
 
     SalidaDeDatosPorSwing output;
-
+    static Lienzo lienzo;
     public static void main(String args[]) 
     {
 
 	Principal p = new Principal();
+	lienzo = new Lienzo();
+	lienzo.main(args);
 	p.inicia();
 	p.ejecuta();
 	p.finaliza();
-
+	
+	
     }
 
     public void inicia() 
@@ -52,7 +56,7 @@ public class Principal
 	listaejecuta = new ArrayList<InterfaceEjecuta>();
 	listasalida = new ArrayList<InterfaceSalida>();
 	vectorobjetos = new Vector<Object>();
-
+	
 	int dientesporpinon[] = { 17, 16, 15, 14, 13, 12 };
 	int dientesporplato[] = { 36, 40, 44 };
 	Bicicleta bici0 = new Bicicleta(dientesporpinon.length,
@@ -152,7 +156,7 @@ public class Principal
 
     public void finaliza() 
     {
-
+	lienzo = new Lienzo();
     }
 
 }

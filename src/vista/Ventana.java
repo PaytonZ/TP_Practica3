@@ -22,7 +22,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     private Parser parser;
 
     private static final long serialVersionUID = -8170475180669923771L;
-
+    Lienzo lienzo;
     private JPanel contentPane;
     private JTextField tFreloj;
     private JTextField tFcomando;
@@ -40,7 +40,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     public Ventana(Parser nuevo_parser) {
 
 	parser = nuevo_parser;
-
+	lienzo=new Lienzo();
 	init();
     }
 
