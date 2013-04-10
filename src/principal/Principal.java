@@ -42,8 +42,6 @@ public class Principal
     {
 
 	Principal p = new Principal();
-	lienzo = new Lienzo();
-	lienzo.main(args);
 	p.inicia();
 	p.ejecuta();
 	p.finaliza();
@@ -85,6 +83,10 @@ public class Principal
 	Ciclista ciclista3 = new Ciclista(bici3, 3);
 	Ciclista ciclista4 = new Ciclista(bici4, 4);
 	Ciclista ciclista5 = new Ciclista(bici5, 5);
+	
+	Lienzo mapa = new Lienzo();
+	mapa.setVisible(true);
+	
 	vectorobjetos.add(ciclista0);
 	vectorobjetos.add(ciclista1);
 	vectorobjetos.add(ciclista2);
@@ -98,7 +100,7 @@ public class Principal
 	listaejecuta.add(ciclista0);
 	listaejecuta.add(ciclista1);
 	listaejecuta.add(ciclista2);
-	//listaejecuta.add(ciclista3);
+		//listaejecuta.add(ciclista3);
 	//listaejecuta.add(ciclista4);
 	//listaejecuta.add(ciclista5);
 	/*listaejecuta.add(bici0);
@@ -120,11 +122,8 @@ public class Principal
 	listasalida.add(ciclista4);
 	listasalida.add(ciclista5);
 
-	/*
-	 * listasalida.add(bici3); listasalida.add(ciclista3);
-	 * listasalida.add(bici4); listasalida.add(ciclista4);
-	 * listasalida.add(bici5); listasalida.add(ciclista5);
-	 */
+	
+	listaejecuta.add(mapa);	
 
 	output = new SalidaDeDatosPorSwing(ventana, listasalida);
 

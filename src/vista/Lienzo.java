@@ -1,5 +1,7 @@
 package vista;
 
+import interfaceMain.InterfaceEjecuta;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -11,42 +13,26 @@ import javax.swing.border.EmptyBorder;
 
 import entradaDeDatos.EntradaFichero;
 
-
-public class Lienzo extends JFrame 
+/**
+ * Esta clase genera la representación del mapa mediante Swing , utilizando un archivo de texto 
+ * 
+ * @author Juan Luis Perez
+ * @author Juan Carlos Marco
+ * @author Emilio Alvarez
+ * 
+ */
+ 
+public class Lienzo extends JFrame implements InterfaceEjecuta
 {
-    /**
-     * 
-     */
+    
     private static final long serialVersionUID = 1L;
     final int FACTORESCALA;
     private JPanel contentPane;
     EntradaFichero entrada;
     double [] matriz;
-    /**
-     * Launch the application.
-     */
-    public static void main(String[] args) 
-    {
-        EventQueue.invokeLater(new Runnable() 
-        {
-            public void run() 
-            {
-                try 
-                {
-                    Lienzo frame = new Lienzo();
-                    frame.setVisible(true);
-                } 
-                catch (Exception e) 
-                {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    /**
-     * Create the frame.
-     */
+    Graphics g;
+    
+   
     public Lienzo()
     {
 	FACTORESCALA = 10;
@@ -61,7 +47,7 @@ public class Lienzo extends JFrame
         entrada = new EntradaFichero();
         matriz = entrada.convertirAArrayFichero("carretera.txt", ":;");
     }
-    
+    @Override
     public void paint (Graphics g)
     {
         super.paint(g);
@@ -75,9 +61,23 @@ public class Lienzo extends JFrame
             g.drawLine((int) x, y, ((int)matriz[i+2])/FACTORESCALA, y-(int)matriz[i+1]);
             x = ((int)matriz[i+2])/FACTORESCALA;
             y = y-(int)matriz[i+1];
-            i = i +2;
+            i+=2;
         }
         g.drawLine((int) x, y, (int)matriz[matriz.length-1]/FACTORESCALA, y-(int)matriz[matriz.length-2]);
         
+        
+      
+        
     }
+    @Override
+    public void repaint()
+    {
+	
+    }
+    @Override
+    public void ejecuta() {
+	// TODO Auto-generated method stub
+	repaint();
+    }
+    
 }
