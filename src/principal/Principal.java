@@ -7,7 +7,7 @@ import interfaceMain.InterfaceSalida;
 import java.util.ArrayList;
 import persona.Ciclista;
 import tiempo.Reloj;
-import vista.Console;
+
 import vista.Lienzo;
 import vista.SalidaDeDatosPorSwing;
 import vista.Ventana;
@@ -88,9 +88,9 @@ public class Principal
 	vectorobjetos.add(ciclista0);
 	vectorobjetos.add(ciclista1);
 	vectorobjetos.add(ciclista2);
-	vectorobjetos.add(ciclista3);
-	vectorobjetos.add(ciclista4);
-	vectorobjetos.add(ciclista5);
+	//vectorobjetos.add(ciclista3);
+	//vectorobjetos.add(ciclista4);
+	//vectorobjetos.add(ciclista5);
 
 	Ventana ventana = new Ventana(new Parser(vectorobjetos));
 
@@ -98,15 +98,15 @@ public class Principal
 	listaejecuta.add(ciclista0);
 	listaejecuta.add(ciclista1);
 	listaejecuta.add(ciclista2);
-	listaejecuta.add(ciclista3);
-	listaejecuta.add(ciclista4);
-	listaejecuta.add(ciclista5);
-	listaejecuta.add(bici0);
+	//listaejecuta.add(ciclista3);
+	//listaejecuta.add(ciclista4);
+	//listaejecuta.add(ciclista5);
+	/*listaejecuta.add(bici0);
 	listaejecuta.add(bici1);
 	listaejecuta.add(bici2);
 	listaejecuta.add(bici3);
 	listaejecuta.add(bici4);
-	listaejecuta.add(bici5);
+	listaejecuta.add(bici5);*/
 
 	// listaejecuta.add(parser);
 	listaejecuta.add(ventana);

@@ -13,8 +13,7 @@ import interfaceMain.InterfaceSalida;
  * 
  * @author Juan Carlos Marco y Juan Luis Perez
  */
-public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
-	InterfaceSalida {
+public class Bicicleta extends Vehiculo implements InterfaceSalida {
 
     // almacena el numero de pedales, ya que puede haber tandems
     protected int numpedales = 2;
@@ -44,8 +43,8 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
     protected double cadencia;
     protected double factorpendiente;
     protected double factorviento;
-    Carretera carretera;
-    Viento viento;
+    private Carretera carretera;
+    private Viento viento;
 
     public Bicicleta(int numeropinones, int numeroplatos, double radiorueda,
 	    int midientepinon[], int midienteplato[], double radio) {
@@ -64,8 +63,8 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
 
 	setRadioRueda((double) radio);
 	factorpendiente = 0;
-	carretera = new Carretera("carretera.txt", this);
-	viento = new Viento("vientos.txt", this);
+	setCarretera(new Carretera("carretera.txt", this));
+	setViento(new Viento("vientos.txt", this));
     }
 
     /**
@@ -285,7 +284,7 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
      * en el, se ejecutara cuando se realice el for each de la lista
      * correspondiente
      */
-    @Override
+    /*@Override
     public void ejecuta() 
     {
 		// TODO Auto-generated method stub
@@ -293,9 +292,9 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
 		//viento.calculaFactor();
 		calculaEspacioRecorrido();
 		calculaVelocidadActual();
-		carretera.calculaFactor();
-		viento.calculaFactor();
-    }
+		getCarretera().calculaFactor();
+		getViento().calculaFactor();
+    }*/
 
     /**
      * @return the espacioporpedalada
@@ -433,6 +432,34 @@ public class Bicicleta extends Vehiculo implements InterfaceEjecuta,
     public double getFactorViento() {
 	return factorviento;
 
+    }
+
+    /**
+     * @return the carretera
+     */
+    public Carretera getCarretera() {
+	return carretera;
+    }
+
+    /**
+     * @param carretera the carretera to set
+     */
+    public void setCarretera(Carretera carretera) {
+	this.carretera = carretera;
+    }
+
+    /**
+     * @return the viento
+     */
+    public Viento getViento() {
+	return viento;
+    }
+
+    /**
+     * @param viento the viento to set
+     */
+    public void setViento(Viento viento) {
+	this.viento = viento;
     }
 
 }

@@ -102,6 +102,10 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	// setCadencia('a'); en un futuro servira para aumentar o disminuir la
 	// cadencia
 	pedalear(cadencia);
+	bici.calculaEspacioRecorrido();
+	bici.calculaVelocidadActual();
+	bici.getCarretera().calculaFactor();
+	bici.getViento().calculaFactor();
 	// cambiarPlato('d');
 	// cambiarPinon('a');
 

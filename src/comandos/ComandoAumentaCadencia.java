@@ -1,7 +1,6 @@
 package comandos;
 
 import persona.Ciclista;
-import vista.Console;
 
 public class ComandoAumentaCadencia implements InterfazInstruccion {
     Ciclista cic;

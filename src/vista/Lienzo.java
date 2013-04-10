@@ -14,6 +14,10 @@ import entradaDeDatos.EntradaFichero;
 
 public class Lienzo extends JFrame 
 {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     final int FACTORESCALA;
     private JPanel contentPane;
     EntradaFichero entrada;

@@ -18,7 +18,7 @@ import javax.swing.border.EmptyBorder;
 import comandos.Parser;
 
 public class Ventana extends JFrame implements InterfaceEjecuta {
-
+/*
     private Parser parser;
 
     private static final long serialVersionUID = -8170475180669923771L;
@@ -176,7 +176,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	    /*
 	case "consola":
 	    tFconsola.setText(mensaje);
-	    break;*/
+	    break;
 
 	}
 
@@ -198,13 +198,13 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	/*
 	 * textArea_ciclista3.setText(""); textArea_ciclista4.setText("");
 	 * textArea_ciclista5.setText("");
-	 */
+	 
 	tFreloj.setText("");
 	textArea_salida.setText(parser.getInstruccion());
 
     }
 }
-/*
+
 package vista;
 
 import interfaceMain.InterfaceEjecuta;
@@ -222,8 +222,8 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import comandos.Parser;
-
-public class Ventana extends JFrame implements InterfaceEjecuta {
+*/
+//public class Ventana extends JFrame implements InterfaceEjecuta {
 
     private Parser parser;
 
@@ -351,7 +351,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	    textArea_ciclista2.setText(textArea_ciclista2.getText() + "\n"
 		    + mensaje);
 	    break;
-	case "ciclista3":
+	/*case "ciclista3":
 	    textArea_ciclista3.setText(textArea_ciclista3.getText() + "\n"
 		    + mensaje);
 	    break;
@@ -362,7 +362,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	case "ciclista5":
 	    textArea_ciclista5.setText(textArea_ciclista5.getText() + "\n"
 		    + mensaje);
-	    break;
+	    break;*/
 	case "reloj":
 	    tFreloj.setText(mensaje);
 	    break;
@@ -396,4 +396,4 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	tFreloj.setText("");
 
     }
-}*/
+}
