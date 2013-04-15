@@ -46,7 +46,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	// Panel general
 
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	setBounds(100, 100, 865, 558);
+	setBounds(0, 0, 1366, 768);
 	panel_general = new JPanel();
 	panel_general.setBorder(new EmptyBorder(5, 5, 5, 5));
 	setContentPane(panel_general);
@@ -96,6 +96,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	panel_comandos.setLayout(new BorderLayout());
 	panel_comandos.add(new JLabel("Comandos"), BorderLayout.NORTH);
 	panel_comandos.add(tFcomando, BorderLayout.CENTER);
+	/*
 	tFcomando.addKeyListener(new KeyAdapter() {
 
 	    @Override
@@ -108,7 +109,19 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 		}
 	    }
 	});
-
+	*/
+	tFcomando.addKeyListener(new KeyAdapter() 
+	{
+		@Override
+		public void keyPressed(KeyEvent e) 
+		{
+			if(e.getKeyCode() == 10)
+			{
+			    	parser.setInstruccion(tFcomando.getText());
+				tFcomando.setText("");
+			}
+		}
+	});
 	panel_general.add(panel_comandos);
 
 	JPanel panel_consola = new JPanel();
@@ -118,7 +131,14 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	panel_consola.add(tFconsola, BorderLayout.CENTER);
 
 	panel_general.add(panel_consola);
+	/*
+	JPanel panel_lienzo = new JPanel();
+	panel_lienzo.setLayout(new BorderLayout());
+	Lienzo lienzo = new Lienzo();
+	panel_lienzo.add(new JLabel("Lienzo"), BorderLayout.NORTH);
+	panel_lienzo.add(lienzo, BorderLayout.CENTER);
 
+	panel_general.add(panel_lienzo);*/
 	// Añadir consola // output
 
 	setVisible(true);
@@ -181,7 +201,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	textArea_ciclista1.setText("");
 
 	textArea_ciclista2.setText("");
-	
+	tFconsola.setText(parser.getInstruccion());
 	tFreloj.setText("");
 
     }
