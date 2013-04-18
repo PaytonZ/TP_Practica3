@@ -68,6 +68,7 @@ public class Parser {
 	} catch (Exception e) {
 
 	} finally {
+	    
 	}
 
 	return Comandos.existe(comando).getInstruccion();
@@ -98,7 +99,8 @@ public class Parser {
 
 	catch (Exception e) {
 
-	} finally {
+	}
+	finally {
 	}
 
     }
