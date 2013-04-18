@@ -401,7 +401,8 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
     }
 
     public void setCadencia(double micadencia) {
-	cadencia = micadencia;
+
+	cadencia = (micadencia>=0) ? micadencia:-micadencia;
 
     }
 
