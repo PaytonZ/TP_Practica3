@@ -32,7 +32,8 @@ public class ComandoAyuda implements InterfazInstruccion {
 	 */
 	return "asignacadencia <num_ciclista> <cadencia> \n "
 		+ "bajapinon <num_ciclista> \n" + "bajaplato <num_ciclista> \n"
-		+ "subeplato <num_ciclista> \n" + "subepinon <num_ciclista>";
+		+ "subeplato <num_ciclista> \n" + "subepinon <num_ciclista> \n" +
+		"frenar <num_ciclista> <cantidad> <tiempo>";
 
     }
 
