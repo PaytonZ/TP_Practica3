@@ -1,11 +1,11 @@
 package comandos;
 
 public class ComandoDesconocido implements InterfazInstruccion {
-  
+
     public ComandoDesconocido() {
-	
+
     }
-    
+
     @Override
     public void parse() {
 	// TODO Auto-generated method stub
@@ -13,10 +13,10 @@ public class ComandoDesconocido implements InterfazInstruccion {
     }
 
     @Override
-    public void execute(Object o) {
-	 //System.out.println("DESCONOCIDO");
+    public void execute(Object o, double valor) {
+	// System.out.println("DESCONOCIDO");
 	// TODO Auto-generated method stub
-	
+
     }
 
     @Override
@@ -30,9 +30,9 @@ public class ComandoDesconocido implements InterfazInstruccion {
 	// TODO Auto-generated method stub
 
     }
+
     @Override
-    public String getInformacionInstruccion() 
-    {
+    public String getInformacionInstruccion() {
 	// TODO Auto-generated method stub
 	return "comando desconocido";
     }

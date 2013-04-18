@@ -22,7 +22,8 @@ import entradaDeDatos.SuperLectura;
 public class Parser {
 
     // sirve para indicar el numero de ciclista al que va destinada la accion
-    private String parametro;
+    private String num_ciclista;
+    private String valor;
 
     private SuperLectura lectura;
     private InterfazInstruccion instruccion;
@@ -59,10 +60,14 @@ public class Parser {
 	try {
 	    // guardamos la primera parte de la cadena
 	    comando = comandos.nextToken();
-	    parametro = "";
-	    parametro = comandos.nextToken();
+	    num_ciclista = "";
+	    num_ciclista = comandos.nextToken();
+
+	    valor = comandos.nextToken();
+
 	} catch (Exception e) {
 
+	} finally {
 	}
 
 	return Comandos.existe(comando).getInstruccion();
@@ -82,37 +87,37 @@ public class Parser {
 	 * un numero y este es un indice de la lista de objetos
 	 */
 	try {
-	    if (Integer.parseInt(parametro) >= 0) {
-		instruccion.execute(vector.elementAt(Integer
-			.parseInt(parametro)));
+	    int num_ciclista_actual = Integer.parseInt(num_ciclista);
+
+	    if ((num_ciclista_actual >= 0) && (num_ciclista_actual <= 2)) {
+
+		instruccion.execute(vector.elementAt(num_ciclista_actual),
+			Double.parseDouble(valor));
 	    }
-	}// TODO Excepciones para indicar que el comando es erroneo????!!!????
-	 //
+	}
+
 	catch (Exception e) {
 
+	} finally {
 	}
 
     }
-    public String getInstruccion()
-    {
+
+    public String getInstruccion() {
 	String a = "";
-	try
-	{
-	    a = instruccion.getInformacionInstruccion(); 
+	try {
+	    a = instruccion.getInformacionInstruccion();
+	} catch (Exception e) {
+
 	}
-	catch(Exception e)
-	{
-	    
-	}
-	
-	//System.out.print(instruccion.getNombreInstruccion());
-	return a;//instruccion.getNombreInstruccion();
+
+	return a;
     }
-    public void setInstruccion(String ins)
-    {
-	
-    	instruccion = dameComando(ins);
-    	ejecuta(instruccion);
+
+    public void setInstruccion(String ins) {
+
+	instruccion = dameComando(ins);
+	ejecuta(instruccion);
     }
 
 }

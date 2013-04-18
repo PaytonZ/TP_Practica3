@@ -19,9 +19,9 @@ public class MostrarReloj implements InterfazInstruccion {
     }
 
     @Override
-    public void execute(Object o) {
+    public void execute(Object o, double valor) {
 	Reloj mireloj = (Reloj) o;
-	mireloj.mostrarReloj();
+	// mireloj.mostrarReloj();
 	// TODO Auto-generated method stub
 
     }
@@ -39,8 +39,7 @@ public class MostrarReloj implements InterfazInstruccion {
     }
 
     @Override
-    public String getInformacionInstruccion() 
-    {
+    public String getInformacionInstruccion() {
 	// TODO Auto-generated method stub
 	return null;
     }

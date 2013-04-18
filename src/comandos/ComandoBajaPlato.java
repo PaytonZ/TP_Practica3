@@ -4,6 +4,7 @@ import persona.Ciclista;
 
 public class ComandoBajaPlato implements InterfazInstruccion {
     Ciclista cic;
+
     public ComandoBajaPlato() {
 	// TODO Auto-generated constructor stub
     }
@@ -15,7 +16,7 @@ public class ComandoBajaPlato implements InterfazInstruccion {
     }
 
     @Override
-    public void execute(Object o) {
+    public void execute(Object o, double valor) {
 	cic = (Ciclista) o;
 	cic.disminuyePlato();// TODO Auto-generated method stub
 
@@ -34,10 +35,10 @@ public class ComandoBajaPlato implements InterfazInstruccion {
     }
 
     @Override
-    public String getInformacionInstruccion() 
-    {
+    public String getInformacionInstruccion() {
 	// TODO Auto-generated method stub
-	return "plato bajado en el ciclista"+cic.getIdentificador_ciclista() + "\n plato actual :" + cic.getPlatoActualBici() ;
+	return "plato bajado en el ciclista" + cic.getIdentificador_ciclista()
+		+ "\n plato actual :" + cic.getPlatoActualBici();
     }
 
 }

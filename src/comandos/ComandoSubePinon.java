@@ -4,6 +4,7 @@ import persona.Ciclista;
 
 public class ComandoSubePinon implements InterfazInstruccion {
     Ciclista cic;
+
     public ComandoSubePinon() {
 	// TODO Auto-generated constructor stub
     }
@@ -15,7 +16,7 @@ public class ComandoSubePinon implements InterfazInstruccion {
     }
 
     @Override
-    public void execute(Object o) {
+    public void execute(Object o, double valor) {
 	cic = (Ciclista) o;
 	cic.aumentaPinon();
 	// TODO Auto-generated method stub
@@ -35,10 +36,10 @@ public class ComandoSubePinon implements InterfazInstruccion {
     }
 
     @Override
-    public String getInformacionInstruccion() 
-    {
+    public String getInformacionInstruccion() {
 	// TODO Auto-generated method stub
-	return "pinon subido en el ciclista"+cic.getIdentificador_ciclista() + "\npinon actual :" + cic.getPinonActualBici() ;
+	return "pinon subido en el ciclista" + cic.getIdentificador_ciclista()
+		+ "\npinon actual :" + cic.getPinonActualBici();
     }
 
 }

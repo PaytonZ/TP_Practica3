@@ -1,4 +1,3 @@
-
 package vista;
 
 import interfaceMain.InterfaceEjecuta;
@@ -21,7 +20,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     private JPanel panel_general;
     private JTextField tFreloj;
     private JTextField tFcomando;
-    private JTextField tFconsola;
+    private JTextArea tFconsola;
     private String cadena;
     private JTextArea textArea_ciclista0;
     private JTextArea textArea_ciclista1;
@@ -58,7 +57,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	panel_ciclista0.setLayout(new BorderLayout());
 	panel_ciclista0.add(new JLabel("Ciclista0"), BorderLayout.NORTH);
 	panel_ciclista0.add(textArea_ciclista0, BorderLayout.CENTER);
-	
+
 	panel_general.add(panel_ciclista0);
 
 	JPanel panel_ciclista1 = new JPanel();
@@ -97,48 +96,40 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	panel_comandos.add(new JLabel("Comandos"), BorderLayout.NORTH);
 	panel_comandos.add(tFcomando, BorderLayout.CENTER);
 	/*
+	 * tFcomando.addKeyListener(new KeyAdapter() {
+	 * 
+	 * @Override public void keyPressed(KeyEvent e) { if (e.getKeyCode() ==
+	 * KeyEvent.VK_ENTER) { cadena = tFcomando.getText();
+	 * parser.dameComando(cadena); tFcomando.setText("");
+	 * 
+	 * } } });
+	 */
 	tFcomando.addKeyListener(new KeyAdapter() {
-
 	    @Override
 	    public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-		    cadena = tFcomando.getText();
-		    parser.dameComando(cadena);
+		if (e.getKeyCode() == 10) {
+		    parser.setInstruccion(tFcomando.getText());
 		    tFcomando.setText("");
-
 		}
 	    }
-	});
-	*/
-	tFcomando.addKeyListener(new KeyAdapter() 
-	{
-		@Override
-		public void keyPressed(KeyEvent e) 
-		{
-			if(e.getKeyCode() == 10)
-			{
-			    	parser.setInstruccion(tFcomando.getText());
-				tFcomando.setText("");
-			}
-		}
 	});
 	panel_general.add(panel_comandos);
 
 	JPanel panel_consola = new JPanel();
 	panel_consola.setLayout(new BorderLayout());
-	tFconsola = new JTextField();
+	tFconsola = new JTextArea();
 	panel_consola.add(new JLabel("Consola"), BorderLayout.NORTH);
 	panel_consola.add(tFconsola, BorderLayout.CENTER);
 
 	panel_general.add(panel_consola);
 	/*
-	JPanel panel_lienzo = new JPanel();
-	panel_lienzo.setLayout(new BorderLayout());
-	Lienzo lienzo = new Lienzo();
-	panel_lienzo.add(new JLabel("Lienzo"), BorderLayout.NORTH);
-	panel_lienzo.add(lienzo, BorderLayout.CENTER);
-
-	panel_general.add(panel_lienzo);*/
+	 * JPanel panel_lienzo = new JPanel(); panel_lienzo.setLayout(new
+	 * BorderLayout()); Lienzo lienzo = new Lienzo(); panel_lienzo.add(new
+	 * JLabel("Lienzo"), BorderLayout.NORTH); panel_lienzo.add(lienzo,
+	 * BorderLayout.CENTER);
+	 * 
+	 * panel_general.add(panel_lienzo);
+	 */
 	// Añadir consola // output
 
 	setVisible(true);
@@ -160,18 +151,15 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	    textArea_ciclista2.setText(textArea_ciclista2.getText() + "\n"
 		    + mensaje);
 	    break;
-	/*case "ciclista3":
-	    textArea_ciclista3.setText(textArea_ciclista3.getText() + "\n"
-		    + mensaje);
-	    break;
-	case "ciclista4":
-	    textArea_ciclista4.setText(textArea_ciclista4.getText() + "\n"
-		    + mensaje);
-	    break;
-	case "ciclista5":
-	    textArea_ciclista5.setText(textArea_ciclista5.getText() + "\n"
-		    + mensaje);
-	    break;*/
+	/*
+	 * case "ciclista3":
+	 * textArea_ciclista3.setText(textArea_ciclista3.getText() + "\n" +
+	 * mensaje); break; case "ciclista4":
+	 * textArea_ciclista4.setText(textArea_ciclista4.getText() + "\n" +
+	 * mensaje); break; case "ciclista5":
+	 * textArea_ciclista5.setText(textArea_ciclista5.getText() + "\n" +
+	 * mensaje); break;
+	 */
 	case "reloj":
 	    tFreloj.setText(mensaje);
 	    break;

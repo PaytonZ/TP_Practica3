@@ -2,7 +2,7 @@ package comandos;
 
 public class ComandoNinguno implements InterfazInstruccion {
     public ComandoNinguno() {
-	//System.out.println("hola");
+	// System.out.println("hola");
     }
 
     @Override
@@ -12,10 +12,10 @@ public class ComandoNinguno implements InterfazInstruccion {
     }
 
     @Override
-    public void execute(Object o) {
-	
+    public void execute(Object o, double valor) {
+
 	// TODO Auto-generated method stub
-	
+
     }
 
     @Override
@@ -31,10 +31,9 @@ public class ComandoNinguno implements InterfazInstruccion {
     }
 
     @Override
-    public String getInformacionInstruccion() 
-    {
+    public String getInformacionInstruccion() {
 	// TODO Auto-generated method stub
-	//System.out.print("hola");
+	// System.out.print("hola");
 	return "faltan parametros";
     }
 

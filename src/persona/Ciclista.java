@@ -13,7 +13,7 @@ import bicicleta.*;
  */
 public class Ciclista extends Persona implements InterfaceEjecuta,
 	InterfaceSalida {
-    private float cadencia; // numero de pedaladas por segundo
+    private double cadencia; // numero de pedaladas por segundo
     private Bicicleta bici;
     private int identificador_ciclista;
 
@@ -31,16 +31,16 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
      * el pedaleo no tendrá efecto
      * 
      */
-    public void pedalear(float micadencia) {
+    public void pedalear(double cadencia) {
 
-	getBici().setCadencia(micadencia);
+	getBici().setCadencia(cadencia);
 
     }
-/*
-    // asigna un rumbo que se enviara a la bicicleta
-    public void setRumbo(int d, Bicicleta bici) {
-	bici.setDireccion(d);
-    }*/
+
+    /*
+     * // asigna un rumbo que se enviara a la bicicleta public void setRumbo(int
+     * d, Bicicleta bici) { bici.setDireccion(d); }
+     */
 
     /**
      * este metodo envia la accion a la bicicleta de cambiar piñon,
@@ -142,58 +142,53 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
      * 
      * return ""; }
      */
-    public void setCadencia(char accion) {
-	if (accion == 'a') {
-	    // if(cadencia < maximocadencia)
-	    cadencia++;
-	} else if (accion == 'd') {
-	    if (cadencia > 0) {
-		cadencia--;
-	    }
-
-	}
-	bici.setCadencia(cadencia);
-    }
-
-    public void aumentarCadencia() {
-	setCadencia('a');
-    }
-
-    public void disminuirCadencia() {
-	setCadencia('d');
-    }
-
-    /**
+    /*
+     * public void setCadencia(char accion) { if (accion == 'a') { //
+     * if(cadencia < maximocadencia) cadencia++; } else if (accion == 'd') { if
+     * (cadencia > 0) { cadencia--; }
+     * 
+     * } bici.setCadencia(cadencia); }
+     * 
+     * public void aumentarCadencia() { setCadencia('a'); }
+     * 
+     * public void disminuirCadencia() { setCadencia('d'); }
+     * 
+     * /**
+     * 
      * @return the identificador_ciclista
      */
+
     public int getIdentificador_ciclista() {
 	return identificador_ciclista;
     }
-    
-    public String getPinonActualBici()
-    {
+
+    public String getPinonActualBici() {
 	return String.valueOf(bici.getPinonAct());
     }
-    public String getPlatoActualBici()
-    {
+
+    public String getPlatoActualBici() {
 	return String.valueOf(bici.getPlatoAct());
     }
-    
-    public String getCadencia()
-    {
+
+    public String getCadencia() {
 	return String.valueOf(cadencia);
     }
+
     /**
      * @param identificador_ciclista
      *            the identificador_ciclista to set
      */
-    public void setIdentificador_ciclista(int identificador_ciclista) {
-	this.identificador_ciclista = identificador_ciclista;
+    public void setIdentificador_ciclista(int nuevo_identificador_ciclista) {
+	identificador_ciclista = nuevo_identificador_ciclista;
     }
 
     @Override
     public String muestra() {
 
 	return "ciclista" + identificador_ciclista + "%" + bici.muestra();
+    }
+
+    public void setCadencia(double nueva_cadencia) {
+	cadencia = nueva_cadencia;
     }
 }

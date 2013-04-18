@@ -37,12 +37,11 @@ public class Reloj extends Contador implements InterfaceEjecuta,
     /**
      * este metodo muestra por consola el cronometraje actual
      */
-    public void mostrarReloj() {
-	int tiempo[] = new int[3];
-	tiempo = devuelveTiempo();
-	System.out.println("hora " + tiempo[2] + " minuto " + tiempo[1]
-		+ " segundo " + tiempo[0]);
-    }
+    /*
+     * public void mostrarReloj() { int tiempo[] = new int[3]; tiempo =
+     * devuelveTiempo(); System.out.println("hora " + tiempo[2] + " minuto " +
+     * tiempo[1] + " segundo " + tiempo[0]); }
+     */
 
     /**
      * este metodo devuelve el tiempo actual en un array , el cual contiene en

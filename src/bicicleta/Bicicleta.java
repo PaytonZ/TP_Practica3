@@ -179,23 +179,22 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
      * @param cadencia
      *            pedaladas por segundo que manda el ciclista
      */
-    public void calculaEspacioRecorrido() 
-    {
+    public void calculaEspacioRecorrido() {
 
-		double velocidad_maxima;
-	
-		velocidad_maxima = velocidad * cadencia;
-	
-		if (velocidad < velocidad_maxima) {
-	
-		}
-		// velocidad = (double) (( 2 *Math.PI *getRadioRueda() *
-		// getRelacionTransmision() )* getCadencia());
-	
-		// asignamos la relacion de marchas actuales
-		calculaRelacionTransmision();
-		calculaVelocidadActual();
-		espaciorecorrido = espaciorecorrido + velocidad;
+	double velocidad_maxima;
+
+	velocidad_maxima = velocidad * cadencia;
+
+	if (velocidad < velocidad_maxima) {
+
+	}
+	// velocidad = (double) (( 2 *Math.PI *getRadioRueda() *
+	// getRelacionTransmision() )* getCadencia());
+
+	// asignamos la relacion de marchas actuales
+	calculaRelacionTransmision();
+	calculaVelocidadActual();
+	espaciorecorrido = espaciorecorrido + velocidad;
     }
 
     /**
@@ -204,14 +203,13 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
      * @param numero
      */
 
-    public void calculaVelocidadActual() 
-    {
-    	// la velocidad es el radio de la rueda * 2 PI * relacion de la
-    	// transmision * cadencia de pedaleo
+    public void calculaVelocidadActual() {
+	// la velocidad es el radio de la rueda * 2 PI * relacion de la
+	// transmision * cadencia de pedaleo
 
-    	velocidad = ((2 * Math.PI * radiorueda * relaciontransmision)
-    		* cadencia - factorpendiente - factorviento);
-    	//System.out.println(radiorueda);
+	velocidad = ((2 * Math.PI * radiorueda * relaciontransmision)
+		* cadencia - factorpendiente - factorviento);
+	// System.out.println(radiorueda);
     }
 
     public void setPedales(int numero) {
@@ -253,7 +251,6 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 	}
     }
 
-    
     public double getDireccion() {
 	return direccion;
     }
@@ -284,17 +281,12 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
      * en el, se ejecutara cuando se realice el for each de la lista
      * correspondiente
      */
-    /*@Override
-    public void ejecuta() 
-    {
-		// TODO Auto-generated method stub
-		//carretera.calculaFactor();
-		//viento.calculaFactor();
-		calculaEspacioRecorrido();
-		calculaVelocidadActual();
-		getCarretera().calculaFactor();
-		getViento().calculaFactor();
-    }*/
+    /*
+     * @Override public void ejecuta() { // TODO Auto-generated method stub
+     * //carretera.calculaFactor(); //viento.calculaFactor();
+     * calculaEspacioRecorrido(); calculaVelocidadActual();
+     * getCarretera().calculaFactor(); getViento().calculaFactor(); }
+     */
 
     /**
      * @return the espacioporpedalada
@@ -363,12 +355,11 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 	return relaciontransmision;
     }
 
-    public void calculaRelacionTransmision() 
-    {
+    public void calculaRelacionTransmision() {
 
-    	relaciontransmision = ((double) dientesplato[platoact] /  (double) dientespinon[pinonact]);
-    
-    } 
+	relaciontransmision = ((double) dientesplato[platoact] / (double) dientespinon[pinonact]);
+
+    }
 
     public double getRadioRueda() {
 	return radiorueda;
@@ -411,6 +402,7 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 
     public void setCadencia(double micadencia) {
 	cadencia = micadencia;
+
     }
 
     public double getCadencia() {
@@ -442,7 +434,8 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
     }
 
     /**
-     * @param carretera the carretera to set
+     * @param carretera
+     *            the carretera to set
      */
     public void setCarretera(Carretera carretera) {
 	this.carretera = carretera;
@@ -456,7 +449,8 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
     }
 
     /**
-     * @param viento the viento to set
+     * @param viento
+     *            the viento to set
      */
     public void setViento(Viento viento) {
 	this.viento = viento;

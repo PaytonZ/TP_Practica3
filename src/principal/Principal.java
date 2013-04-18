@@ -29,8 +29,7 @@ import entradaDeDatos.EntradaFichero;
  * 
  */
 
-public class Principal 
-{
+public class Principal {
 
     private ArrayList<InterfaceEjecuta> listaejecuta;
     private ArrayList<InterfaceSalida> listasalida;
@@ -38,23 +37,21 @@ public class Principal
 
     SalidaDeDatosPorSwing output;
     static Lienzo lienzo;
-    public static void main(String args[]) 
-    {
+
+    public static void main(String args[]) {
 
 	Principal p = new Principal();
 	p.inicia();
 	p.ejecuta();
 	p.finaliza();
-	
-	
+
     }
 
-    public void inicia() 
-    {
+    public void inicia() {
 	listaejecuta = new ArrayList<InterfaceEjecuta>();
 	listasalida = new ArrayList<InterfaceSalida>();
 	vectorobjetos = new Vector<Object>();
-	
+
 	int dientesporpinon[] = { 17, 16, 15, 14, 13, 12 };
 	int dientesporplato[] = { 36, 40, 44 };
 	Bicicleta bici0 = new Bicicleta(dientesporpinon.length,
@@ -83,16 +80,16 @@ public class Principal
 	Ciclista ciclista3 = new Ciclista(bici3, 3);
 	Ciclista ciclista4 = new Ciclista(bici4, 4);
 	Ciclista ciclista5 = new Ciclista(bici5, 5);
-	
+
 	Lienzo mapa = new Lienzo();
 	mapa.setVisible(true);
-	
+
 	vectorobjetos.add(ciclista0);
 	vectorobjetos.add(ciclista1);
 	vectorobjetos.add(ciclista2);
-	//vectorobjetos.add(ciclista3);
-	//vectorobjetos.add(ciclista4);
-	//vectorobjetos.add(ciclista5);
+	// vectorobjetos.add(ciclista3);
+	// vectorobjetos.add(ciclista4);
+	// vectorobjetos.add(ciclista5);
 
 	Ventana ventana = new Ventana(new Parser(vectorobjetos));
 
@@ -100,17 +97,7 @@ public class Principal
 	listaejecuta.add(ciclista0);
 	listaejecuta.add(ciclista1);
 	listaejecuta.add(ciclista2);
-		//listaejecuta.add(ciclista3);
-	//listaejecuta.add(ciclista4);
-	//listaejecuta.add(ciclista5);
-	/*listaejecuta.add(bici0);
-	listaejecuta.add(bici1);
-	listaejecuta.add(bici2);
-	listaejecuta.add(bici3);
-	listaejecuta.add(bici4);
-	listaejecuta.add(bici5);*/
 
-	// listaejecuta.add(parser);
 	listaejecuta.add(ventana);
 
 	listasalida.add(reloj);
@@ -122,15 +109,13 @@ public class Principal
 	listasalida.add(ciclista4);
 	listasalida.add(ciclista5);
 
-	
-	listaejecuta.add(mapa);	
+	listaejecuta.add(mapa);
 
 	output = new SalidaDeDatosPorSwing(ventana, listasalida);
 
     }
 
-    public void ejecuta() 
-    {
+    public void ejecuta() {
 	int contador = 0; // Contara los segundos de ejecucion del programa
 	int limite = 300; // Se establecera el limite en SEGUNDOS de la
 			  // ejecucion
@@ -139,11 +124,9 @@ public class Principal
 	new MiMapa<Double, Double>(entrada.cargarFicheroEnStringTokenizer(
 		"carretera.txt", ":;"));
 
-	while (contador < limite) 
-	{
+	while (contador < limite) {
 
-	    for (InterfaceEjecuta c : listaejecuta) 
-	    {
+	    for (InterfaceEjecuta c : listaejecuta) {
 		c.ejecuta();
 	    }
 
@@ -153,8 +136,7 @@ public class Principal
 	}
     }
 
-    public void finaliza() 
-    {
+    public void finaliza() {
 	lienzo = new Lienzo();
     }
 
