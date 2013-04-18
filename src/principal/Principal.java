@@ -137,7 +137,7 @@ public class Principal {
     }
 
     public void finaliza() {
-	lienzo = new Lienzo();
+	//lienzo = new Lienzo();
     }
 
 }
