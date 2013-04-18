@@ -39,13 +39,14 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 
     // EspacioporcadaPedalada = RecorridoLinealDelaRueda * RelaciondeTransmisin
     private double espaciorecorrido;
-
+    private double espacioporpedalada;
     protected double cadencia;
     protected double factorpendiente;
     protected double factorviento;
     private Carretera carretera;
     private Viento viento;
-
+    double velocidad_anterior;
+    double aceleracion;
     public Bicicleta(int numeropinones, int numeroplatos, double radiorueda,
 	    int midientepinon[], int midienteplato[], double radio) {
 
@@ -54,7 +55,10 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 	dientespinon = new int[numeropinones];
 	numruedas = 2;
 	dientesplato[platoact] = 5;
-
+	espacioporpedalada = 0;
+	velocidad_anterior = 0;
+	velocidad = 0;
+	aceleracion = 0;
 	// asignamos el numero de dientes a cada piñon y a cada plato
 
 	setAsignaNumeroDientesPinon(midientepinon);
@@ -193,22 +197,49 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 
 	// asignamos la relacion de marchas actuales
 	calculaRelacionTransmision();
+	//calculamos la aceleracion
+	
+	
+	calculaEspacioPorCadaPedalada();
 	calculaVelocidadActual();
+	calculaAceleracion();
 	espaciorecorrido = espaciorecorrido + velocidad;
     }
-
+    public void calculaAceleracion()
+    {
+	aceleracion = velocidad - velocidad_anterior;
+	System.out.println(velocidad_anterior);
+    }
+   
     /**
      * sirve para asignar el numero de pedales
      * 
      * @param numero
      */
-
+    public double getRecorridoLinealDeLaRueda()
+    {
+	return radiorueda * Math.PI;
+    }
+    public void calculaEspacioPorCadaPedalada()
+    {
+	espacioporpedalada = getRecorridoLinealDeLaRueda() * getRelacionTransmision();
+    }
+    public void frenar(double cantidad,double tiempo)
+    {
+	/**
+	 * implementar
+	 */
+    }
     public void calculaVelocidadActual() {
 	// la velocidad es el radio de la rueda * 2 PI * relacion de la
 	// transmision * cadencia de pedaleo
-
+/*
 	velocidad = ((2 * Math.PI * radiorueda * relaciontransmision)
-		* cadencia - factorpendiente - factorviento);
+		* cadencia - factorpendiente - factorviento);*/
+	//velocidad =aceleracion + velocidad_anterior;
+	velocidad = espacioporpedalada * cadencia - factorpendiente - factorviento;
+	System.out.print(velocidad);
+	velocidad_anterior = velocidad;
 	// System.out.println(radiorueda);
     }
 
@@ -237,8 +268,8 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 	// byte [] buffer = new byte[10];
 	// System.in.read(byte);
 	// aumentamos el pinon
-
-	if (accion == 'a') {
+System.out.print("entra");
+	if (accion == 'a') {	
 	    if (pinonact < dientespinon.length - 1) {
 		pinonact++;
 	    }

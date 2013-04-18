@@ -16,7 +16,7 @@ public class ComandoBajaPinon implements InterfazInstruccion {
     }
 
     @Override
-    public void execute(Object o, double valor) {
+    public void execute(Object o, double valor,double t) {
 	cic = (Ciclista) o;
 	cic.disminuyePinon();
 	// TODO Auto-generated method stub

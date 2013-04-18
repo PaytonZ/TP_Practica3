@@ -5,7 +5,8 @@ public enum Comandos {
     NINGUNO(new ComandoNinguno()), DESCONOCIDO(new ComandoDesconocido()), ASIGNACADENCIA(
 	    new ComandoAsignaCadencia()), SUBEPINON(new ComandoSubePinon()), BAJAPINON(
 	    new ComandoBajaPinon()), SUBEPLATO(new ComandoSubePlato()), BAJAPLATO(
-	    new ComandoBajaPlato()), AYUDA(new ComandoAyuda());
+	    new ComandoBajaPlato()), AYUDA(new ComandoAyuda()),
+		    FRENAR(new ComandoFrenar());
 
     Comandos(InterfazInstruccion nueva_instruccion) {
 	instruccion = nueva_instruccion;

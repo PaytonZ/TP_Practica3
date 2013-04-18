@@ -197,4 +197,8 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	}
 	cadencia = nueva_cadencia;
     }
+    public void frenar(double cantidad,double tiempo)
+    {
+	bici.frenar(cantidad, tiempo);
+    }
 }

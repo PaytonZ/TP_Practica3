@@ -23,8 +23,8 @@ public class Parser {
 
     // sirve para indicar el numero de ciclista al que va destinada la accion
     private String num_ciclista;
-    private String valor;
-
+    private String param1;
+    private String param2;
     private SuperLectura lectura;
     private InterfazInstruccion instruccion;
     private Vector<Object> vector;
@@ -51,7 +51,8 @@ public class Parser {
 
 	// partimos la cadena si hay retornos de carro o espacios
 	StringTokenizer comandos = new StringTokenizer(comando, "\n\r ");
-
+	param1 = "-1";
+	param2 = "-1";
 	/**
 	 * si no se introduce nada, entonces solo tenemos un token, por lo cual
 	 * es necesario crear este try, para poder coger el siguiente token, si
@@ -63,8 +64,8 @@ public class Parser {
 	    num_ciclista = "";
 	    num_ciclista = comandos.nextToken();
 
-	    valor = comandos.nextToken();
-
+	    param1 = comandos.nextToken();
+	    param2 = comandos.nextToken();
 	} catch (Exception e) {
 
 	} finally {
@@ -93,7 +94,7 @@ public class Parser {
 	    if ((num_ciclista_actual >= 0) && (num_ciclista_actual <= 2)) {
 
 		instruccion.execute(vector.elementAt(num_ciclista_actual),
-			Double.parseDouble(valor));
+			Double.parseDouble(param1),Double.parseDouble(param1));
 	    }
 	}
 

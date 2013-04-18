@@ -9,7 +9,7 @@ public class ComandoAyuda implements InterfazInstruccion {
     }
 
     @Override
-    public void execute(Object o, double valor) {
+    public void execute(Object o, double valor,double t) {
 	// TODO Auto-generated method stub
 
     }
