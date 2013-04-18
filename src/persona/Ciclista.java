@@ -16,6 +16,7 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     private double cadencia; // numero de pedaladas por segundo
     private Bicicleta bici;
     private int identificador_ciclista;
+    private double fuerza_ciclista;
 
     public Ciclista(Bicicleta nueva_bici, int id) {
 	cadencia = 1;
@@ -200,5 +201,19 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     public void frenar(double cantidad,double tiempo)
     {
 	bici.frenar(cantidad, tiempo);
+    }
+
+    /**
+     * @return the fuerza_ciclista
+     */
+    public double getFuerza_ciclista() {
+	return fuerza_ciclista;
+    }
+
+    /**
+     * @param fuerza_ciclista the fuerza_ciclista to set
+     */
+    public void setFuerza_ciclista(double fuerza_ciclista) {
+	this.fuerza_ciclista = fuerza_ciclista;
     }
 }

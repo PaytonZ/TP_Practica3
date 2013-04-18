@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 
 import comandos.Parser;
+import constantes.Constantes;
 
 import factoresExternos.Carretera;
 import factoresExternos.Viento;
@@ -30,7 +31,7 @@ public class Test {
     public void setUp() {
 
 	bici = new Bicicleta(dientesporpinon.length, dientesporplato.length, 1,
-		dientesporpinon, dientesporplato, 0.6858);
+		dientesporpinon, dientesporplato, 0.6858,Constantes.MASA_BICICLETA_ESTANDAR);
 	reloj = new Reloj();
 	ciclista = new Ciclista(bici, 0);
     }

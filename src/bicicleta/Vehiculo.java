@@ -1,5 +1,9 @@
 package bicicleta;
 
+import constantes.Constantes;
+
+
+
 /**
  * Clase que representa un vehículo en la realidad
  * 
@@ -7,17 +11,21 @@ package bicicleta;
  * @author Juan Luis Perez
  */
 public class Vehiculo {
+   
     protected double velocidad;
     protected int numruedas;
 
     protected double direccion = 0;
-    protected double peso = 0;
+    protected double peso;
+    protected double masa;
 
     protected double espaciorecorrido;
 
-    public Vehiculo() {
+    public Vehiculo(double nueva_masa) {
 	velocidad = 0;
 	espaciorecorrido = 0;
+	masa= nueva_masa;
+        peso = masa * Constantes.FUERZA_G;
     }
 
     /**

@@ -19,6 +19,7 @@ import mapas.MiMapa;
  import comandos.Comandos;
  import comandos.InterfazOrden;*/
 import comandos.Parser;
+import constantes.Constantes;
 
 import entradaDeDatos.EntradaFichero;
 
@@ -29,7 +30,7 @@ import entradaDeDatos.EntradaFichero;
  * 
  */
 
-public class Principal {
+public class CiclistaManager {
 
     private ArrayList<InterfaceEjecuta> listaejecuta;
     private ArrayList<InterfaceSalida> listasalida;
@@ -40,7 +41,7 @@ public class Principal {
 
     public static void main(String args[]) {
 
-	Principal p = new Principal();
+	CiclistaManager p = new CiclistaManager();
 	p.inicia();
 	p.ejecuta();
 	p.finaliza();
@@ -56,14 +57,14 @@ public class Principal {
 	int dientesporplato[] = { 36, 40, 44 };
 	Bicicleta bici0 = new Bicicleta(dientesporpinon.length,
 		dientesporplato.length, 1, dientesporpinon, dientesporplato,
-		0.6858);
+		0.6858,Constantes.MASA_BICICLETA_ESTANDAR);
 	Bicicleta bici1 = new Bicicleta(dientesporpinon.length,
 		dientesporplato.length, 1, dientesporpinon, dientesporplato,
-		0.6858);
+		0.6858, Constantes.MASA_BICICLETA_ESTANDAR);
 	Bicicleta bici2 = new Bicicleta(dientesporpinon.length,
 		dientesporplato.length, 1, dientesporpinon, dientesporplato,
-		0.6858);
-	Bicicleta bici3 = new Bicicleta(dientesporpinon.length,
+		0.6858, Constantes.MASA_BICICLETA_ESTANDAR);
+	/*Bicicleta bici3 = new Bicicleta(dientesporpinon.length,
 		dientesporplato.length, 1, dientesporpinon, dientesporplato,
 		0.6858);
 	Bicicleta bici4 = new Bicicleta(dientesporpinon.length,
@@ -71,15 +72,15 @@ public class Principal {
 		0.6858);
 	Bicicleta bici5 = new Bicicleta(dientesporpinon.length,
 		dientesporplato.length, 1, dientesporpinon, dientesporplato,
-		0.6858);
+		0.6858);*/
 
 	Reloj reloj = new Reloj();
 	Ciclista ciclista0 = new Ciclista(bici0, 0);
 	Ciclista ciclista1 = new Ciclista(bici1, 1);
 	Ciclista ciclista2 = new Ciclista(bici2, 2);
-	Ciclista ciclista3 = new Ciclista(bici3, 3);
-	Ciclista ciclista4 = new Ciclista(bici4, 4);
-	Ciclista ciclista5 = new Ciclista(bici5, 5);
+	//Ciclista ciclista3 = new Ciclista(bici3, 3);
+	//Ciclista ciclista4 = new Ciclista(bici4, 4);
+	//Ciclista ciclista5 = new Ciclista(bici5, 5);
 
 	Lienzo mapa = new Lienzo();
 	mapa.setVisible(true);
@@ -105,9 +106,9 @@ public class Principal {
 	listasalida.add(ciclista0);
 	listasalida.add(ciclista1);
 	listasalida.add(ciclista2);
-	listasalida.add(ciclista3);
-	listasalida.add(ciclista4);
-	listasalida.add(ciclista5);
+	//listasalida.add(ciclista3);
+	//listasalida.add(ciclista4);
+	//listasalida.add(ciclista5);
 
 	listaejecuta.add(mapa);
 

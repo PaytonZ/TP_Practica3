@@ -48,9 +48,9 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
     double velocidad_anterior;
     double aceleracion;
     public Bicicleta(int numeropinones, int numeroplatos, double radiorueda,
-	    int midientepinon[], int midienteplato[], double radio) {
+	    int midientepinon[], int midienteplato[], double radio,double masa) {
 
-	super();
+	super(masa);
 	dientesplato = new int[numeroplatos];
 	dientespinon = new int[numeropinones];
 	numruedas = 2;
@@ -208,7 +208,7 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
     public void calculaAceleracion()
     {
 	aceleracion = velocidad - velocidad_anterior;
-	System.out.println(velocidad_anterior);
+	
     }
    
     /**
@@ -237,10 +237,10 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 	velocidad = ((2 * Math.PI * radiorueda * relaciontransmision)
 		* cadencia - factorpendiente - factorviento);*/
 	//velocidad =aceleracion + velocidad_anterior;
+	
 	velocidad = espacioporpedalada * cadencia - factorpendiente - factorviento;
-	System.out.print(velocidad);
 	velocidad_anterior = velocidad;
-	// System.out.println(radiorueda);
+	
     }
 
     public void setPedales(int numero) {
@@ -262,13 +262,8 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
      *            'a' = aumentar , 'd' = disminuir
      */
     public void setPinon(char accion) {
-	// Lectura de un byte
-	// int cara = System.in.read();
-	// Lectura de hasta 10 bytes
-	// byte [] buffer = new byte[10];
-	// System.in.read(byte);
 	// aumentamos el pinon
-System.out.print("entra");
+
 	if (accion == 'a') {	
 	    if (pinonact < dientespinon.length - 1) {
 		pinonact++;

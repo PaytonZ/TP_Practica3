@@ -5,7 +5,7 @@ import tiempo.Reloj;
 public class MostrarReloj implements InterfazInstruccion {
 
     public MostrarReloj(Reloj rel) {
-	// System.out.println("ESTOY DENTRO DEL METODO RELOJ");
+	
     }
 
     public void ejecuta() {

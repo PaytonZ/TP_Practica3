@@ -1,5 +1,7 @@
 package persona;
 
+import constantes.Constantes;
+
 /**
  * 
  * Esta clase representa una persona física con todos su atributos
@@ -7,11 +9,13 @@ package persona;
  * @author Juan Carlos Marco y Juan Luis Pérez
  */
 public class Persona {
-    protected float peso;
-    protected float altura;
+    protected double peso;
+    protected double masa;
+    
 
-    public void persona() {
-
+    public void persona(double nueva_masa) {
+	masa= nueva_masa;
+	peso = masa * Constantes.FUERZA_G;
     }
 
     /**
@@ -20,7 +24,7 @@ public class Persona {
      * @param el
      *            peso
      */
-    public void setPeso(float miPeso) {
+    public void setPeso(double miPeso) {
 	peso = miPeso;
     }
 
@@ -29,26 +33,9 @@ public class Persona {
      * 
      * @return devuelve el peso
      */
-    public float getPeso() {
+    public double getPeso() {
 	return peso;
     }
 
-    /**
-     * asigna la altura
-     * 
-     * @param miAltura
-     */
-    public void setAltura(float miAltura) {
-	altura = miAltura;
-    }
-
-    /**
-     * devuelve la altura
-     * 
-     * @return devuelve la altura
-     */
-    public float getAltura() {
-	return altura;
-    }
 
 }
