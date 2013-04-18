@@ -189,6 +189,12 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     }
 
     public void setCadencia(double nueva_cadencia) {
+	if(nueva_cadencia >2)
+	{
+	    nueva_cadencia = 2;
+	    
+	    
+	}
 	cadencia = nueva_cadencia;
     }
 }
