@@ -2,24 +2,20 @@ package comandos;
 
 import persona.Ciclista;
 
-public class ComandoAsignaCadencia implements InterfazInstruccion {
-    Ciclista cic;
-
-    public ComandoAsignaCadencia() {
+public class ComandoAsignaCadencia implements InterfazCommand {
+    Ciclista miciclista;
+    double micadencia;
+    public ComandoAsignaCadencia(Ciclista cic, double cadencia) {
+	miciclista = cic;
+	micadencia = cadencia;
 	// TODO Auto-generated constructor stub
     }
 
-    @Override
-    public void parse() {
-	// TODO Auto-generated method stub
-
-    }
+   
 
     @Override
-    public void execute(Object o, double valor,double tiempo) {
-
-	cic = (Ciclista) o;
-	cic.setCadencia(valor);
+    public void execute() {
+	miciclista.setCadencia(micadencia);
 
 	// TODO Auto-generated method stub
 
@@ -42,8 +38,19 @@ public class ComandoAsignaCadencia implements InterfazInstruccion {
 	// TODO Auto-generated method stub
 
 	return "cadencia aumentada en el ciclista "
-		+ cic.getIdentificador_ciclista() + "\ncadencia actual :"
-		+ cic.getCadencia();
+		+ miciclista.getIdentificador_ciclista() + "\ncadencia actual :"
+		+ miciclista.getCadencia();
     }
+    @Override
+    public boolean parse(String nombre)
+    {
+	boolean iguales = false;
+	if(nombre.equalsIgnoreCase("asignacadencia"))
+	{
+	    iguales = true;
+	}
+	return iguales;
+    }
+
 
 }

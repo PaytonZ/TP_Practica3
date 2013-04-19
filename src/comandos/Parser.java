@@ -1,9 +1,13 @@
-﻿package comandos;
+﻿
+package comandos;
 
-import interfaceMain.InterfaceEjecuta;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.StringTokenizer;
 import java.util.Vector;
+
+import persona.Ciclista;
 
 import vista.Ventana;
 import entradaDeDatos.SuperLectura;
@@ -19,27 +23,39 @@ import entradaDeDatos.SuperLectura;
  * 
  */
 
-public class Parser {
-
-    // sirve para indicar el numero de ciclista al que va destinada la accion
+public class Parser 
+{
+   
+    ArrayList<InterfazCommand> array ;
     private String num_ciclista;
-    private String param1;
-    private String param2;
-    private SuperLectura lectura;
-    private InterfazInstruccion instruccion;
-    private Vector<Object> vector;
-    Ventana ventana;
-
-    public Parser(Vector<Object> mivector) {
-
-	// lectura=input;
-	lectura = new SuperLectura();
+    private InterfazCommand instruccion;
+    String cadena;
+    StringTokenizer comandosYatributos;
+    String comandoElegido;
+    Vector<Object> vector;
+    public Parser(Vector<Object> mivector)
+    {
+	instruccion = new ComandoNinguno();
 	vector = mivector;
-
+	array = new ArrayList<InterfazCommand>();
+	
+	
+	array.add(new ComandoAsignaCadencia(null,0));
+	array.add(new ComandoAyuda());
+	array.add(new ComandoBajaPinon(null));
+	array.add(new ComandoBajaPlato(null));
+	array.add(new ComandoDesconocido());
+	array.add(new ComandoFrenar(null,0,0));
+	array.add(new ComandoIncompleto());
+	array.add(new ComandoNinguno());
+	array.add(new ComandoSubePinon(null));
+	array.add(new ComandoSubePlato(null));
+	
+	
     }
-
+   
     /**
-     * Este metodo, formatea una entrada de teclado en ordenes capaces de ser
+     * Este metodo, formatea una entrada en ordenes capaces de ser
      * entendidas El formato de los comandos es el siguiente: comando parametro
      * donde comando es una instruccion creada en el sistema y el parametro se
      * refiere al numero de ciclista al que va destinada esa orden
@@ -47,80 +63,217 @@ public class Parser {
      * @param comando
      * @return
      */
-    public InterfazInstruccion dameComando(String comando) {
-
-	// partimos la cadena si hay retornos de carro o espacios
-	StringTokenizer comandos = new StringTokenizer(comando, "\n\r ");
-	param1 = "-1";
-	param2 = "-1";
-	/**
-	 * si no se introduce nada, entonces solo tenemos un token, por lo cual
-	 * es necesario crear este try, para poder coger el siguiente token, si
-	 * este existe
-	 */
-	try {
-	    // guardamos la primera parte de la cadena
-	    comando = comandos.nextToken();
-	    num_ciclista = "";
-	    num_ciclista = comandos.nextToken();
-
-	    param1 = comandos.nextToken();
-	    param2 = comandos.nextToken();
-	} catch (Exception e) {
-
-	} finally {
+    public InterfazCommand compruebaComando(String cadena) 
+    {
+	
+	comandosYatributos = new StringTokenizer(cadena, "\n\r ");
+	
+	if(existeCommand())
+	{
 	    
+	    asignaAtributos(comandoElegido,comandosYatributos);
 	}
-
-	return Comandos.existe(comando).getInstruccion();
+	else
+	{
+	    asignaAtributos("desconocido",comandosYatributos);
+	}
+	
+	
+	return null;
+	
+    }
+    public boolean existeCommand()
+    {
+	
+	
+	Iterator<InterfazCommand> it  = array.iterator();
+	String comando = "";
+	boolean encontrado = false;
+	//cogemos el primer token que deberia corresponder al comando
+	if(comandosYatributos.hasMoreTokens())
+	{
+	    comando = comandosYatributos.nextToken();
+	}
+	while(it.hasNext() && !encontrado)
+	{
+	   InterfazCommand comand = (InterfazCommand) it.next();
+	   
+	   if(comand.parse(comando))
+	   {
+	       comandoElegido = comando;
+	       encontrado = true;
+	   }
+	   
+	  
+	}
+	return encontrado;
     }
 
-    /**
-     * metodo heredado de la interfazEjecuta el cual se ejecuta en el for each
-     * del principal.
-     */
-    public void ejecuta(InterfazInstruccion instruccion) {
+    public void asignaAtributos(String comando,StringTokenizer args)
+    {
+	
+	switch(comando)
+	{
+	    case "asignacadencia":
+		
+        	    if(args.countTokens() != 2)
+        	    {
+        		instruccion = new ComandoIncompleto();		    
+        	    }
+        	    else
+        	    {
+        		
+        		int numciclista = Integer.parseInt(args.nextToken());
+        		int par1 = Integer.parseInt(args.nextToken());
+        		instruccion = new ComandoAsignaCadencia((Ciclista) vector.elementAt(numciclista),par1);
+        		
+        	    }
+        	    instruccion.execute();
+        	    break;
+	    
+	    case "ayuda":
+		
+        	    if(args.countTokens() != 0)
+        	    {
+        		instruccion = new ComandoIncompleto();		    
+        	    }
+        	    else
+        	    {
+        		
+        		instruccion = new ComandoAyuda();
+        	    }
+        	    instruccion.execute();
+        	    
+        	    break;
+	    
+	    case "bajapinon":
+		
+    		if(args.countTokens() != 1)
+    		{
+    		    instruccion = new ComandoIncompleto();		    
+    		}
+    		else
+    		{
+    			
+    		    int numciclista = Integer.parseInt(args.nextToken());
+    		    instruccion = new ComandoBajaPinon((Ciclista) vector.elementAt(numciclista));
+    			
+    		}
+    		instruccion.execute();
+    		
+    		break;
+    		
+	    case "bajaplato":
+		
+		if(args.countTokens() != 1)
+		{
+		    instruccion = new ComandoIncompleto();		    
+		}
+		else
+		{
+			
+		    int numciclista = Integer.parseInt(args.nextToken());
+		    instruccion = new ComandoBajaPlato((Ciclista) vector.elementAt(numciclista));
+			
+		}
+		instruccion.execute();
+		
+		break;	
+		
+	    case "desconocido":
+		
+		instruccion = new ComandoDesconocido();
+			
+		
+		instruccion.execute();
+		
+		break;
+		
+	    case "frenar":
+		
+		if(args.countTokens() != 3)
+		{
+		    instruccion = new ComandoIncompleto();		    
+		}
+		else
+		{
+			
+		    int numciclista = Integer.parseInt(args.nextToken());
+		    int par1 = Integer.parseInt(args.nextToken());
+		    int par2 = Integer.parseInt(args.nextToken());
+		    instruccion = new ComandoFrenar((Ciclista) vector.elementAt(numciclista),par1,par2);
+			
+		}
+		instruccion.execute();
+		
+		break;
+		
+	    case "incompleto":
+		
+		instruccion = new ComandoIncompleto();
+			
+		
+		instruccion.execute();
+		
+		break;
+		
+	    case "ninguno":
+		
+		instruccion = new ComandoNinguno();
+			
+		
+		instruccion.execute();
+		
+		break;
+		
+	    case "subepinon":
+		
+		if(args.countTokens() != 1)
+		{
+		    instruccion = new ComandoIncompleto();		    
+		}
+		else
+		{
+			
+		    int numciclista = Integer.parseInt(args.nextToken());
+		    instruccion = new ComandoSubePinon((Ciclista) vector.elementAt(numciclista));
+			
+		}
+		instruccion.execute();
+		
+		break;
+	    case "subeplato":
+		
+		if(args.countTokens() != 1)
+		{
+		    instruccion = new ComandoIncompleto();		    
+		}
+		else
+		{
+			
+		    int numciclista = Integer.parseInt(args.nextToken());
+		    instruccion = new ComandoSubePlato((Ciclista) vector.elementAt(numciclista));
+			
+		}
+		instruccion.execute();
+		
+		break;
 
-	// instruccion = dameComando(ventana.dameInstruccion());
-
-	/**
-	 * Este try sirve para que no rompa el programa, ya que el parametro al
-	 * empezar no tiene valor solo se ejeutara el comando si el parametro es
-	 * un numero y este es un indice de la lista de objetos
-	 */
-	try {
-	    int num_ciclista_actual = Integer.parseInt(num_ciclista);
-
-	    if ((num_ciclista_actual >= 0) && (num_ciclista_actual <= 2)) {
-
-		instruccion.execute(vector.elementAt(num_ciclista_actual),
-			Double.parseDouble(param1),Double.parseDouble(param1));
-	    }
-	}
-
-	catch (Exception e) {
-
-	}
-	finally {
-	}
+	    
+	    
+	    	    
+	}/*
+    	case "ayuda":
+	    
+	    new ComandoAyuda().execute();
+	    break;
+	    
+	}*/
 
     }
-
     public String getInstruccion() {
-	String a = "";
-	try {
-	    a = instruccion.getInformacionInstruccion();
-	} catch (Exception e) {
-
-	}
-
-	return a;
+	
+	return instruccion.getInformacionInstruccion();
+	
     }
-
-    public void setInstruccion(String ins) {
-
-	instruccion = dameComando(ins);
-	ejecuta(instruccion);
-    }
-
 }

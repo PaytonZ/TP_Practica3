@@ -108,7 +108,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	    @Override
 	    public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == 10) {
-		    parser.setInstruccion(tFcomando.getText());
+		    parser.compruebaComando(tFcomando.getText());
 		    tFcomando.setText("");
 		}
 	    }

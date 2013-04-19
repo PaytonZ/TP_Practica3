@@ -1,19 +1,23 @@
 package comandos;
 
-public class ComandoDesconocido implements InterfazInstruccion {
+public class ComandoDesconocido implements InterfazCommand {
 
     public ComandoDesconocido() {
 
     }
 
     @Override
-    public void parse() {
-	// TODO Auto-generated method stub
-
+    public boolean parse(String nombre)
+    {
+	boolean iguales = false;
+	if(nombre.equalsIgnoreCase("desconocido"))
+	{
+	    iguales = true;
+	}
+	return iguales;
     }
-
     @Override
-    public void execute(Object o, double valor,double t) {
+    public void execute() {
 	// System.out.println("DESCONOCIDO");
 	// TODO Auto-generated method stub
 
@@ -36,5 +40,8 @@ public class ComandoDesconocido implements InterfazInstruccion {
 	// TODO Auto-generated method stub
 	return "comando desconocido";
     }
-
+    public String getNombreComando()
+    {
+	return "desconocido";
+    }
 }

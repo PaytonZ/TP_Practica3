@@ -2,23 +2,33 @@ package comandos;
 
 import persona.Ciclista;
 
-public class ComandoFrenar implements InterfazInstruccion {
+public class ComandoFrenar implements InterfazCommand {
     Ciclista cic;
-
-    public ComandoFrenar() {
+    double valor;
+    double tiempo;
+    public ComandoFrenar(Ciclista miciclista, double mivalor, double mitiempo) {
+	cic = miciclista;
+	valor = mivalor;
+	tiempo = mitiempo;
 	// TODO Auto-generated constructor stub
     }
 
     @Override
-    public void parse() {
-	// TODO Auto-generated method stub
-
+    public boolean parse(String nombre)
+    {
+	boolean iguales = false;
+	if(nombre.equalsIgnoreCase("frenar"))
+	{
+	    iguales = true;
+	}
+	return iguales;
     }
 
     @Override
-    public void execute(Object o, double valor,double tiempo) {
+    public void execute() 
+    {
 
-	cic = (Ciclista) o;
+	
 	cic.frenar(valor, tiempo);
 
 	// TODO Auto-generated method stub
@@ -43,5 +53,8 @@ public class ComandoFrenar implements InterfazInstruccion {
 
 	return "freno aplicado en ciclista" + cic.getIdentificador_ciclista();
     }
-
+    public String getNombreComando()
+    {
+	return "frenar";
+    }
 }

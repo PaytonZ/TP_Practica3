@@ -13,7 +13,7 @@ import vista.SalidaDeDatosPorSwing;
 import vista.Ventana;
 import bicicleta.Bicicleta;
 import java.util.*;
-
+import constantes.Constantes;
 import mapas.MiMapa;
 /*
  import comandos.Comandos;
@@ -53,8 +53,8 @@ public class CiclistaManager {
 	listasalida = new ArrayList<InterfaceSalida>();
 	vectorobjetos = new Vector<Object>();
 
-	int dientesporpinon[] = { 17, 16, 15, 14, 13, 12 };
-	int dientesporplato[] = { 36, 40, 44 };
+	int dientesporpinon[] = { Constantes.NUM_PIN_0, Constantes.NUM_PIN_1, Constantes.NUM_PIN_2, Constantes.NUM_PIN_3, Constantes.NUM_PIN_4, Constantes.NUM_PIN_5};
+	int dientesporplato[] = { Constantes.NUM_PLA_0, Constantes.NUM_PLA_1, Constantes.NUM_PLA_2 };
 	Bicicleta bici0 = new Bicicleta(dientesporpinon.length,
 		dientesporplato.length, 1, dientesporpinon, dientesporplato,
 		0.6858,Constantes.MASA_BICICLETA_ESTANDAR);

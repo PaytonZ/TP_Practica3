@@ -1,18 +1,22 @@
 package comandos;
 
-public class ComandoNinguno implements InterfazInstruccion {
+public class ComandoNinguno implements InterfazCommand {
     public ComandoNinguno() {
 	// System.out.println("hola");
     }
 
     @Override
-    public void parse() {
-	// TODO Auto-generated method stub
-
+    public boolean parse(String nombre)
+    {
+	boolean iguales = false;
+	if(nombre.equalsIgnoreCase("ninguno"))
+	{
+	    iguales = true;
+	}
+	return iguales;
     }
-
     @Override
-    public void execute(Object o, double valor,double t) {
+    public void execute() {
 
 	// TODO Auto-generated method stub
 
@@ -34,7 +38,10 @@ public class ComandoNinguno implements InterfazInstruccion {
     public String getInformacionInstruccion() {
 	// TODO Auto-generated method stub
 	// System.out.print("hola");
-	return "faltan parametros";
+	return "";
     }
-
+    public String getNombreComando()
+    {
+	return "ninguno";
+    }
 }

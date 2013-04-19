@@ -2,22 +2,28 @@ package comandos;
 
 import persona.Ciclista;
 
-public class ComandoSubePinon implements InterfazInstruccion {
+public class ComandoSubePinon implements InterfazCommand {
     Ciclista cic;
-
-    public ComandoSubePinon() {
+    
+    public ComandoSubePinon(Ciclista micic) {
+	cic = micic;
 	// TODO Auto-generated constructor stub
     }
 
     @Override
-    public void parse() {
-	// TODO Auto-generated method stub
-
+    public boolean parse(String nombre)
+    {
+	boolean iguales = false;
+	if(nombre.equalsIgnoreCase("subepinon"))
+	{
+	    iguales = true;
+	}
+	return iguales;
     }
 
     @Override
-    public void execute(Object o, double valor,double t) {
-	cic = (Ciclista) o;
+    public void execute() {
+	
 	cic.aumentaPinon();
 	// TODO Auto-generated method stub
 
@@ -41,5 +47,8 @@ public class ComandoSubePinon implements InterfazInstruccion {
 	return "pinon subido en el ciclista" + cic.getIdentificador_ciclista()
 		+ "\npinon actual :" + cic.getPinonActualBici();
     }
-
+    public String getNombreComando()
+    {
+	return "subepinon";
+    }
 }

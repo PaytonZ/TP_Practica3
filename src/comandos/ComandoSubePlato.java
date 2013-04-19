@@ -2,23 +2,29 @@ package comandos;
 
 import persona.Ciclista;
 
-public class ComandoSubePlato implements InterfazInstruccion {
+public class ComandoSubePlato implements InterfazCommand {
     Ciclista cic;
 
-    public ComandoSubePlato() {
+    public ComandoSubePlato(Ciclista micic) {
+	cic = micic;
 	// TODO Auto-generated constructor stub
     }
 
     @Override
-    public void parse() {
-	// TODO Auto-generated method stub
-
+    public boolean parse(String nombre)
+    {
+	boolean iguales = false;
+	if(nombre.equalsIgnoreCase("subeplato"))
+	{
+	    iguales = true;
+	}
+	return iguales;
     }
 
     @Override
-    public void execute(Object o, double valor,double t) {
+    public void execute() {
 	// TODO Auto-generated method stub
-	cic = (Ciclista) o;
+	
 	cic.aumentaPlato();
     }
 
@@ -40,5 +46,8 @@ public class ComandoSubePlato implements InterfazInstruccion {
 	return "plato subido en el ciclista" + cic.getIdentificador_ciclista()
 		+ "\nplato actual :" + cic.getPlatoActualBici();
     }
-
+    public String getNombreComando()
+    {
+	return "subeplato";
+    }
 }

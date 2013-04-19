@@ -1,17 +1,22 @@
 package comandos;
 
-public class ComandoAyuda implements InterfazInstruccion {
+public class ComandoAyuda implements InterfazCommand {
 
     @Override
-    public void parse() {
-	// TODO Auto-generated method stub
-
+    public boolean parse(String nombre)
+    {
+	boolean iguales = false;
+	if(nombre.equalsIgnoreCase("ayuda"))
+	{
+	    iguales = true;
+	}
+	return iguales;
     }
 
     @Override
-    public void execute(Object o, double valor,double t) {
+    public void execute() {
 	// TODO Auto-generated method stub
-
+	//System.out.print("asdf");
     }
 
     @Override
@@ -35,5 +40,5 @@ public class ComandoAyuda implements InterfazInstruccion {
 	// TODO Auto-generated method stub
 
     }
-
+   
 }

@@ -1,10 +1,10 @@
 package comandos;
 
-public interface InterfazInstruccion {
+public interface InterfazCommand {
 
-    public void parse();
+    public boolean parse(String nombre);
 
-    public void execute(Object o, double d,double c);
+    public void execute();
 
     public void configurarContexto();
 
