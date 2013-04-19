@@ -14,10 +14,20 @@ public final class Constantes {
    public static final int NUM_PLA_0 = 36;
    public static final int NUM_PLA_1 = 40;
    public static final int NUM_PLA_2 = 44;
+   public static final int X_INICIAL = 5;
+   public static final int Y_INICIAL = 5;
    public static final int ANCHO_BOTON = 89;
    public static final int ALTO_BOTON = 25;
    public static final int ANCHO_TEXTBOX = 275;
    public static final int ALTO_TEXTBOX = ALTO_BOTON*4;
    
+   public static final String CADENCIA_MENOS = "Caden-";
+   public static final String CADENCIA_MAS = "Caden+";
+   public static final String PINON_MAS = "Pin+";
+   public static final String PINON_MENOS = "Pin-";
+   public static final String PLATO_MAS = "Pla+";
+   public static final String PLATO_MENOS = "Pla-";
+   public static final String FRENO_MAS = "Fre+";
+   public static final String FRENO_MENOS = "Fre-";
 
 }
