@@ -64,23 +64,22 @@ public class CiclistaManager {
 	Bicicleta bici2 = new Bicicleta(dientesporpinon.length,
 		dientesporplato.length, 1, dientesporpinon, dientesporplato,
 		0.6858, Constantes.MASA_BICICLETA_ESTANDAR);
-	/*Bicicleta bici3 = new Bicicleta(dientesporpinon.length,
+	Bicicleta bici3 = new Bicicleta(dientesporpinon.length,
 		dientesporplato.length, 1, dientesporpinon, dientesporplato,
-		0.6858);
+		0.6858, Constantes.MASA_BICICLETA_ESTANDAR);
 	Bicicleta bici4 = new Bicicleta(dientesporpinon.length,
 		dientesporplato.length, 1, dientesporpinon, dientesporplato,
-		0.6858);
+		0.6858, Constantes.MASA_BICICLETA_ESTANDAR);
 	Bicicleta bici5 = new Bicicleta(dientesporpinon.length,
 		dientesporplato.length, 1, dientesporpinon, dientesporplato,
-		0.6858);*/
-
+		0.6858, Constantes.MASA_BICICLETA_ESTANDAR);
 	Reloj reloj = new Reloj();
 	Ciclista ciclista0 = new Ciclista(bici0, 0);
 	Ciclista ciclista1 = new Ciclista(bici1, 1);
 	Ciclista ciclista2 = new Ciclista(bici2, 2);
-	//Ciclista ciclista3 = new Ciclista(bici3, 3);
-	//Ciclista ciclista4 = new Ciclista(bici4, 4);
-	//Ciclista ciclista5 = new Ciclista(bici5, 5);
+	Ciclista ciclista3 = new Ciclista(bici3, 3);
+	Ciclista ciclista4 = new Ciclista(bici4, 4);
+	Ciclista ciclista5 = new Ciclista(bici5, 5);
 
 	Lienzo mapa = new Lienzo();
 	mapa.setVisible(true);
@@ -88,9 +87,9 @@ public class CiclistaManager {
 	vectorobjetos.add(ciclista0);
 	vectorobjetos.add(ciclista1);
 	vectorobjetos.add(ciclista2);
-	// vectorobjetos.add(ciclista3);
-	// vectorobjetos.add(ciclista4);
-	// vectorobjetos.add(ciclista5);
+	vectorobjetos.add(ciclista3);
+	vectorobjetos.add(ciclista4);
+	vectorobjetos.add(ciclista5);
 
 	Ventana ventana = new Ventana(new Parser(vectorobjetos));
 
@@ -98,7 +97,9 @@ public class CiclistaManager {
 	listaejecuta.add(ciclista0);
 	listaejecuta.add(ciclista1);
 	listaejecuta.add(ciclista2);
-
+	listaejecuta.add(ciclista3);
+	listaejecuta.add(ciclista4);
+	listaejecuta.add(ciclista5);
 	listaejecuta.add(ventana);
 
 	listasalida.add(reloj);
@@ -106,9 +107,9 @@ public class CiclistaManager {
 	listasalida.add(ciclista0);
 	listasalida.add(ciclista1);
 	listasalida.add(ciclista2);
-	//listasalida.add(ciclista3);
-	//listasalida.add(ciclista4);
-	//listasalida.add(ciclista5);
+	listasalida.add(ciclista3);
+	listasalida.add(ciclista4);
+	listasalida.add(ciclista5);
 
 	listaejecuta.add(mapa);
 
