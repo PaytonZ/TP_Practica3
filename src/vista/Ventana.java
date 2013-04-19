@@ -380,16 +380,125 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	
 	
 	JLabel lblCiclista = new JLabel("Ciclista0");
-	lblCiclista.setBounds(textArea_ciclista0.getX(), 0, 70, 15);
+	lblCiclista.setBounds(textArea_ciclista0.getX(), 0,Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
 	contentPane.add(lblCiclista);
 	
 	JLabel lblCiclista_1 = new JLabel("Ciclista1");
-	lblCiclista_1.setBounds(textArea_ciclista1.getX(), 0, 70, 15);
+	lblCiclista_1.setBounds(textArea_ciclista1.getX(), 0, Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
 	contentPane.add(lblCiclista_1);
 	
 	JLabel lblCiclista_2 = new JLabel("Ciclista2");
-	lblCiclista_2.setBounds(textArea_ciclista2.getX(), 0, 70, 15);
+	lblCiclista_2.setBounds(textArea_ciclista2.getX(), 0, Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
 	contentPane.add(lblCiclista_2);
+	
+	
+	
+	
+	
+	JLabel lblCiclista_3 = new JLabel("Ciclista3");
+	lblCiclista_3.setBounds(lblCiclista.getX(), textArea_ciclista0.getHeight()+lblCiclista.getHeight()+lblCiclista.getY(), Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
+	contentPane.add(lblCiclista_3);
+	
+	textArea_ciclista3 = new JTextArea();
+	textArea_ciclista3.setBounds(0, textArea_ciclista0.getHeight()+lblCiclista_3.getHeight()*2, Constantes.ANCHO_TEXTBOX,Constantes.ALTO_TEXTBOX );
+	contentPane.add(textArea_ciclista3);
+	
+	JButton botonDisCad3 = new JButton();
+	botonDisCad3.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+		    parser.compruebaComando("asignacadencia 3 -");
+		}
+	});
+	botonDisCad3.setText("Caden-");
+	botonDisCad3.setVisible(true);
+	botonDisCad3.setBounds(textArea_ciclista3.getWidth()+textArea_ciclista3.getX(), textArea_ciclista3.getY(), Constantes.ANCHO_BOTON,Constantes.ALTO_BOTON);
+	contentPane.add(botonDisCad3);
+	
+	JButton botonAumCad3 = new JButton();
+	botonAumCad3.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+		    parser.compruebaComando("asignacadencia 3 +");
+		}
+	});
+	botonAumCad3.setText("Caden+");
+	botonAumCad3.setVisible(true);
+	botonAumCad3.setBounds(textArea_ciclista3.getWidth()+textArea_ciclista3.getX(), botonDisCad3.getY()+Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,Constantes.ALTO_BOTON);
+	contentPane.add(botonAumCad3);
+	
+	
+	JButton botonDisPin3 = new JButton();
+	botonDisPin3.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+		    parser.compruebaComando("bajapinon 3");
+		}
+	});
+	botonDisPin3.setText("Piñon -");
+	botonDisPin3.setVisible(true);
+	botonDisPin3.setBounds(textArea_ciclista3.getWidth()+textArea_ciclista3.getX(), botonAumCad3.getY()+Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,Constantes.ALTO_BOTON);
+	contentPane.add(botonDisPin3);
+	
+	JButton botonAumPin3 = new JButton();
+	botonAumPin3.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+		    parser.compruebaComando("subepinon 3");
+		}
+	});
+	botonAumPin3.setText("Piñon +");
+	botonAumPin3.setVisible(true);
+	botonAumPin3.setBounds(textArea_ciclista3.getWidth()+textArea_ciclista3.getX(), botonDisPin3.getY()+Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,Constantes.ALTO_BOTON);
+	contentPane.add(botonAumPin3);
+	
+	JButton botonDisPla3 = new JButton();
+	botonDisPla3.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+		    parser.compruebaComando("bajaplato 3");
+		}
+	});
+	botonDisPla3.setText("Plato -");
+	botonDisPla3.setVisible(true);
+	botonDisPla3.setBounds(botonDisCad3.getWidth()+botonDisCad3.getX(),  textArea_ciclista3.getY(), Constantes.ANCHO_BOTON,Constantes.ALTO_BOTON);
+	contentPane.add(botonDisPla3);
+	
+	JButton botonAumPla3 = new JButton();
+	botonAumPla3.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+		    parser.compruebaComando("subeplato 3");
+		}
+	});
+	botonAumPla3.setText("Plato +");
+	botonAumPla3.setVisible(true);
+	botonAumPla3.setBounds(botonAumCad3.getWidth()+botonAumCad3.getX(),botonAumCad3.getY(), Constantes.ANCHO_BOTON,Constantes.ALTO_BOTON);
+	contentPane.add(botonAumPla3);
+	
+	JButton botonFrenaPoco3 = new JButton();
+	botonFrenaPoco3.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+		    parser.compruebaComando("frenar 3 1");
+		}
+	});
+	botonFrenaPoco3.setText("Frenar -");
+	botonFrenaPoco3.setVisible(true);
+	botonFrenaPoco3.setBounds(botonDisPin3.getWidth()+botonDisPin3.getX(), botonDisPin3.getY(), Constantes.ANCHO_BOTON,Constantes.ALTO_BOTON);
+	contentPane.add(botonFrenaPoco3);
+	
+	JButton botonFrenaMas3 = new JButton();
+	botonFrenaMas3.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+		    parser.compruebaComando("frenar 3 1");
+		}
+	});
+	botonFrenaMas3.setText("Frenar +");
+	botonFrenaMas3.setVisible(true);
+	botonFrenaMas3.setBounds(botonAumPin3.getWidth()+botonAumPin3.getX(), botonAumPin3.getY(), Constantes.ANCHO_BOTON,Constantes.ALTO_BOTON);
+	contentPane.add(botonFrenaMas3);
 	
 	textArea_ciclista5 = new JTextArea();
 	textArea_ciclista5.setBounds(592, 166, 278, 100);
@@ -400,20 +509,109 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	contentPane.add(lblCiclista_5);
 	
 	textArea_ciclista4 = new JTextArea();
-	textArea_ciclista4.setBounds(302, 166, 278, 100);
+	textArea_ciclista4.setBounds(textArea_ciclista3.getWidth()+2*Constantes.ANCHO_BOTON, textArea_ciclista3.getY(), Constantes.ANCHO_TEXTBOX, Constantes.ALTO_TEXTBOX);
 	contentPane.add(textArea_ciclista4);
+	
+	JButton botonDisCad4 = new JButton();
+	botonDisCad4.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+		    parser.compruebaComando("asignacadencia 4 -");
+		}
+	});
+	botonDisCad4.setText("Caden-");
+	botonDisCad4.setVisible(true);
+	botonDisCad4.setBounds(textArea_ciclista4.getWidth()+textArea_ciclista4.getX(), textArea_ciclista4.getY(), Constantes.ANCHO_BOTON,Constantes.ALTO_BOTON);
+	contentPane.add(botonDisCad4);
+	
+	JButton botonAumCad4 = new JButton();
+	botonAumCad4.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+		    parser.compruebaComando("asignacadencia 4 +");
+		}
+	});
+	botonAumCad4.setText("Caden+");
+	botonAumCad4.setVisible(true);
+	botonAumCad4.setBounds(textArea_ciclista4.getWidth()+textArea_ciclista4.getX(), botonDisCad4.getY()+Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,Constantes.ALTO_BOTON);
+	contentPane.add(botonAumCad4);
+	
+	
+	JButton botonDisPin4 = new JButton();
+	botonDisPin4.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+		    parser.compruebaComando("bajapinon 4");
+		}
+	});
+	botonDisPin4.setText("Piñon -");
+	botonDisPin4.setVisible(true);
+	botonDisPin4.setBounds(textArea_ciclista4.getWidth()+textArea_ciclista4.getX(), botonAumCad4.getY()+Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,Constantes.ALTO_BOTON);
+	contentPane.add(botonDisPin4);
+	
+	JButton botonAumPin4 = new JButton();
+	botonAumPin4.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+		    parser.compruebaComando("subepinon 4");
+		}
+	});
+	botonAumPin4.setText("Piñon +");
+	botonAumPin4.setVisible(true);
+	botonAumPin4.setBounds(textArea_ciclista4.getWidth()+textArea_ciclista4.getX(), botonDisPin4.getY()+Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,Constantes.ALTO_BOTON);
+	contentPane.add(botonAumPin4);
+	
+	JButton botonDisPla4 = new JButton();
+	botonDisPla4.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+		    parser.compruebaComando("bajaplato 4");
+		}
+	});
+	botonDisPla4.setText("Plato -");
+	botonDisPla4.setVisible(true);
+	botonDisPla4.setBounds(botonDisCad4.getWidth()+botonDisCad4.getX(),  textArea_ciclista4.getY(), Constantes.ANCHO_BOTON,Constantes.ALTO_BOTON);
+	contentPane.add(botonDisPla4);
+	
+	JButton botonAumPla4 = new JButton();
+	botonAumPla4.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+		    parser.compruebaComando("subeplato 4");
+		}
+	});
+	botonAumPla4.setText("Plato +");
+	botonAumPla4.setVisible(true);
+	botonAumPla4.setBounds(botonAumCad4.getWidth()+botonAumCad4.getX(),botonAumCad4.getY(), Constantes.ANCHO_BOTON,Constantes.ALTO_BOTON);
+	contentPane.add(botonAumPla4);
+	
+	JButton botonFrenaPoco4 = new JButton();
+	botonFrenaPoco4.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+		    parser.compruebaComando("frenar 4 4");
+		}
+	});
+	botonFrenaPoco4.setText("Frenar -");
+	botonFrenaPoco4.setVisible(true);
+	botonFrenaPoco4.setBounds(botonDisPin4.getWidth()+botonDisPin4.getX(), botonDisPin4.getY(), Constantes.ANCHO_BOTON,Constantes.ALTO_BOTON);
+	contentPane.add(botonFrenaPoco4);
+	
+	JButton botonFrenaMas4 = new JButton();
+	botonFrenaMas4.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+		    parser.compruebaComando("frenar 4 4");
+		}
+	});
+	botonFrenaMas4.setText("Frenar +");
+	botonFrenaMas4.setVisible(true);
+	botonFrenaMas4.setBounds(botonAumPin4.getWidth()+botonAumPin4.getX(), botonAumPin4.getY(), Constantes.ANCHO_BOTON,Constantes.ALTO_BOTON);
+	contentPane.add(botonFrenaMas4);
 	
 	JLabel lblCiclista_4 = new JLabel("Ciclista4");
 	lblCiclista_4.setBounds(302, 139, 70, 15);
 	contentPane.add(lblCiclista_4);
-	
-	textArea_ciclista3 = new JTextArea();
-	textArea_ciclista3.setBounds(12, 166, 278, 100);
-	contentPane.add(textArea_ciclista3);
-	
-	JLabel lblCiclista_3 = new JLabel("Ciclista3");
-	lblCiclista_3.setBounds(12, 139, 70, 15);
-	contentPane.add(lblCiclista_3);
 	
 	lblComandos = new JLabel("Comandos");
 	lblComandos.setBounds(206, 322, 114, 15);
@@ -450,6 +648,18 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	    textArea_ciclista2.setText(textArea_ciclista2.getText() + "\n"
 		    + mensaje);
 	    break;
+	case "ciclista3":
+	    textArea_ciclista3.setText(textArea_ciclista3.getText() + "\n"
+		    + mensaje);
+	    break;
+	case "ciclista4":
+	    textArea_ciclista4.setText(textArea_ciclista4.getText() + "\n"
+		    + mensaje);
+	    break;
+	case "ciclista5":
+	    textArea_ciclista5.setText(textArea_ciclista5.getText() + "\n"
+		    + mensaje);
+	    break;
 	
 	case "reloj":
 	    tFreloj.setText(mensaje);
@@ -480,6 +690,10 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	textArea_ciclista1.setText("");
 
 	textArea_ciclista2.setText("");
+	textArea_ciclista3.setText("");
+	textArea_ciclista4.setText("");
+
+	textArea_ciclista5.setText("");
 	tFconsola.setText(parser.getInstruccion());
 	tFreloj.setText("");
 
