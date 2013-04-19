@@ -10,6 +10,8 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import comandos.Parser;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Ventana extends JFrame implements InterfaceEjecuta {
 
@@ -40,7 +42,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     }
 
     private void init() {
-	GridLayout layout = new GridLayout(0, 2, 10, 10);
+	GridLayout layout = new GridLayout(2, 3, 10, 10);
 
 	// Panel general
 
@@ -57,14 +59,36 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	panel_ciclista0.setLayout(new BorderLayout());
 	panel_ciclista0.add(new JLabel("Ciclista0"), BorderLayout.NORTH);
 	panel_ciclista0.add(textArea_ciclista0, BorderLayout.CENTER);
-
+	
+	JButton botonAumCad0 = new JButton();
+	botonAumCad0.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+		    parser.compruebaComando("asignacadencia 0 +");
+		}
+	});
+	botonAumCad0.setText("Aumenta Cadencia 0 +");
+	botonAumCad0.setVisible(true);
+	
+	JButton botonDisCad0 = new JButton();
+	botonDisCad0.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+		    parser.compruebaComando("asignacadencia 0 -");
+		}
+	});
+	botonDisCad0.setText("Disminuye Cadencia 0 -");
+	botonDisCad0.setVisible(true);
+	
 	panel_general.add(panel_ciclista0);
-
+	panel_general.add(botonAumCad0);
+	panel_general.add(botonDisCad0);
+	
 	JPanel panel_ciclista1 = new JPanel();
 	textArea_ciclista1 = new JTextArea();
 	panel_ciclista1.setLayout(new BorderLayout());
 	panel_ciclista1.add(new JLabel("Ciclista1"), BorderLayout.NORTH);
-	panel_ciclista1.add(textArea_ciclista1, BorderLayout.CENTER);
+	panel_ciclista1.add(textArea_ciclista1, BorderLayout.WEST);
 
 	panel_general.add(panel_ciclista1);
 

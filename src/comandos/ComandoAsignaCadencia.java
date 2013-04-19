@@ -15,6 +15,7 @@ public class ComandoAsignaCadencia implements InterfazCommand {
 
     @Override
     public void execute() {
+	if(micadencia <= 2 && micadencia >=0)
 	miciclista.setCadencia(micadencia);
 
 	// TODO Auto-generated method stub
