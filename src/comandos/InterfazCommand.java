@@ -1,5 +1,9 @@
 package comandos;
-
+/**
+ * esta interfaz, contiene todos los metodos que debe tener un comando
+ * @author juancly
+ *
+ */
 public interface InterfazCommand {
 
     public boolean parse(String nombre);

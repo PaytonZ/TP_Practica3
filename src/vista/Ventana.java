@@ -14,7 +14,11 @@ import constantes.Constantes;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+/**
+ * esta clase corresponde a la interfaz grafica de la aplicacion
+ * @author juancly
+ *
+ */
 public class Ventana extends JFrame implements InterfaceEjecuta {
 
     private Parser parser;
@@ -42,7 +46,9 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 
 	init();
     }
-    
+    /**
+     * este metodo,crea y coloca los componentes de la interfaz grafica.
+     */
     private void init() {
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setBounds(0, 0, 1366, 768);
@@ -66,16 +72,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 		    parser.compruebaComando("asignacadencia 0 -");
 		}
 	});
-	/*
-	    public static final String CADENCIA_MENOS = Constantes.CADENCIA_MENOS;
-	    public static final String CADENCIA_MAS = Constantes.CADENCIA_MAS;
-	    public static final String PINON_MAS = "Pin+";
-	    public static final String PINON_MENOS = "Pin-";
-	    public static final String PLATO_MAS = "Pla+";
-	    public static final String PLATO_MENOS = "Pla-";
-	    public static final String FRENO_MAS = "Fre+";
-	    public static final String FRENO_MENOS = "Fre-";
-	*/
+
 	
 	botonDisCad0.setText(Constantes.CADENCIA_MENOS);
 	botonDisCad0.setVisible(true);
@@ -743,7 +740,11 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	this.setVisible(true);
 
     }
-
+    /**
+     * este metodo , asigna un texto al textArea de ciclista que se quiera
+     * @param id
+     * @param mensaje
+     */
     public void ponTextoEnTextArea(String id, String mensaje) {
 
 	switch (id) {
@@ -782,18 +783,9 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	}
 
     }
-
-    public String dameInstruccion() {
-	String miInstruccion = "";
-	miInstruccion = cadena;
-	cadena = "";
-	return miInstruccion;
-    }
-
-    public void añadirCiclista() {
-
-    }
-
+/**
+ * metodo heredado de la interfazEjecuta, el cual se ejecuta, cada vuelta del bucle principal
+ */
     @Override
     public void ejecuta() {
 

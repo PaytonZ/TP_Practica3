@@ -1,5 +1,10 @@
 package constantes;
-
+/**
+ * esta clase contiene todas las constantes del programa, para poder cambiar de 
+ * forma eficiente, en todas clases da la aplicacion sus valores, con solo un cambio
+ * @author juancly
+ *
+ */
 public final class Constantes {
 
    public static final double FUERZA_G= 9.80665;
