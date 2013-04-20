@@ -33,12 +33,16 @@ public class Parser
     StringTokenizer comandosYatributos;
     String comandoElegido;
     Vector<Object> vector;
+    /**
+     * clase capaz de dado un string, formatearlo de tal forma, para ejecutar un comando.
+     * @param mivector
+     */
     public Parser(Vector<Object> mivector)
     {
 	instruccion = new ComandoNinguno();
 	vector = mivector;
 	array = new ArrayList<InterfazCommand>();
-	
+	//añadimos los objetos de cada tipo de comando que tenemos
 	
 	array.add(new ComandoAsignaCadencia(null,0));
 	array.add(new ComandoAyuda());
@@ -68,9 +72,10 @@ public class Parser
 	
 	comandosYatributos = new StringTokenizer(cadena, "\n\r ");
 	
+	//comprobamos si existe el comando
 	if(existeCommand())
 	{
-	    
+	   
 	    asignaAtributos(comandoElegido,comandosYatributos);
 	}
 	else
@@ -82,6 +87,10 @@ public class Parser
 	return null;
 	
     }
+    /**
+     * se comprueba si existe el comando , en el array de objetos de comando que tenemos
+     * @return true si existe, false en caso contrario
+     */
     public boolean existeCommand()
     {
 	
@@ -94,6 +103,9 @@ public class Parser
 	{
 	    comando = comandosYatributos.nextToken();
 	}
+	//recorremos el arraylist de objetos comando, y comprobamos que existe
+	//de ser asi, le asignamos a la variable comandoElegido, el comando que 
+	//queremos asignar
 	while(it.hasNext() && !encontrado)
 	{
 	   InterfazCommand comand = (InterfazCommand) it.next();
@@ -109,6 +121,12 @@ public class Parser
 	return encontrado;
     }
 
+    /**
+     * dado un comando, se le asignan los atributos necesarios para poder ejecutarlo,
+     * si no se le pueden asignar, el comando resultante sera, comando incompleto.
+     * @param comando
+     * @param args
+     */
     public void asignaAtributos(String comando,StringTokenizer args)
     {
 	instruccion = new ComandoIncompleto();	
@@ -116,12 +134,9 @@ public class Parser
 	switch(comando)
 	{
 	    case "asignacadencia":
-		
+	    {	
         	 if(args.countTokens() == 2)
         	 {
-        	    	    
-        	
-        	    	
         	    int numciclista = Integer.parseInt(args.nextToken());
         	    String auxpar1 = args.nextToken();
         	    
@@ -131,8 +146,6 @@ public class Parser
         	    {
         		auxpar1 = ((Ciclista)vector.elementAt(numciclista)).getCadencia();
         		param1 = Double.parseDouble(auxpar1) + 1;
-        		
-        		//par1 = Integer.parseInt(((Ciclista)vector.elementAt(numciclista)).getCadencia()) + 1;
         	    }
         	    else if(auxpar1.equalsIgnoreCase("-"))
         	    {
@@ -148,9 +161,9 @@ public class Parser
         		
         	 }
         	 break;
-	    
+	    }
 	    case "ayuda":
-		
+	    {	
         	 if(args.countTokens() == 0)
         	 {
         	
@@ -158,9 +171,9 @@ public class Parser
         	 }
         	    
         	 break;
-	    
+	    } 
 	    case "bajapinon":
-		
+	    {	
 		if(args.countTokens() == 1)
     		{
     		
@@ -171,9 +184,9 @@ public class Parser
     		}
     		
     		break;
-    		
+	    }	
 	    case "bajaplato":
-		
+	    {	
 		if(args.countTokens() == 1)
 		{
 		
@@ -185,17 +198,17 @@ public class Parser
 		
 		
 		break;	
-		
+	    }	
 	    case "desconocido":
-		
+	    {	
 		instruccion = new ComandoDesconocido();
 			
 		
 		
 		break;
-		
+	    }	
 	    case "frenar":
-		
+	    {	
 		if(args.countTokens() == 3)
 		{
 		
@@ -208,38 +221,36 @@ public class Parser
 		}
 		
 		break;
-		
+	    }	
 	    case "incompleto":
-		
+	    {	
 		instruccion = new ComandoIncompleto();
 			
 		
 		
 		break;
-		
+	    }	
 	    case "ninguno":
-		
+	    {	
 		instruccion = new ComandoNinguno();
 			
 		
 		
 		break;
-		
+	    }	
 	    case "subepinon":
-		
+	    {	
 		if(args.countTokens() == 1)
 		{
-		
-			
 		    int numciclista = Integer.parseInt(args.nextToken());
 		    instruccion = new ComandoSubePinon((Ciclista) vector.elementAt(numciclista));
 			
 		}
 		
 		break;
-		
+	    }	
 	    case "subeplato":
-		
+	    {	
 		if(args.countTokens() == 1)
 		{
 		
@@ -250,10 +261,16 @@ public class Parser
 		}
 		
 		
-		break;	    
+		break;	
+	    }	
 	}
 	instruccion.execute();
     }
+    
+    /**
+     * retorna la informacion del comando dado.
+     * @return
+     */
     public String getInstruccion() {
 	
 	return instruccion.getInformacionInstruccion();
