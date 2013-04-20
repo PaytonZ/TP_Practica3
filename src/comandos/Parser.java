@@ -111,17 +111,16 @@ public class Parser
 
     public void asignaAtributos(String comando,StringTokenizer args)
     {
+	instruccion = new ComandoIncompleto();	
 	
 	switch(comando)
 	{
 	    case "asignacadencia":
 		
-        	 if(args.countTokens() != 2)
+        	 if(args.countTokens() == 2)
         	 {
-        	    instruccion = new ComandoIncompleto();		    
-        	 }
-        	 else
-        	 {
+        	    	    
+        	
         	    	
         	    int numciclista = Integer.parseInt(args.nextToken());
         	    String auxpar1 = args.nextToken();
@@ -148,54 +147,42 @@ public class Parser
         	    instruccion = new ComandoAsignaCadencia((Ciclista) vector.elementAt(numciclista),(int)param1);
         		
         	 }
-        	 instruccion.execute();
         	 break;
 	    
 	    case "ayuda":
 		
-        	 if(args.countTokens() != 0)
+        	 if(args.countTokens() == 0)
         	 {
-        	     instruccion = new ComandoIncompleto();		    
-        	 }
-        	 else
-        	 {
+        	
         	     instruccion = new ComandoAyuda();
         	 }
-        	 instruccion.execute();
         	    
         	 break;
 	    
 	    case "bajapinon":
 		
-		if(args.countTokens() != 1)
+		if(args.countTokens() == 1)
     		{
-    		    instruccion = new ComandoIncompleto();		    
-    		}
-    		else
-    		{
+    		
     			
     		    int numciclista = Integer.parseInt(args.nextToken());
     		    instruccion = new ComandoBajaPinon((Ciclista) vector.elementAt(numciclista));
     			
     		}
-    		instruccion.execute();
     		
     		break;
     		
 	    case "bajaplato":
 		
-		if(args.countTokens() != 1)
+		if(args.countTokens() == 1)
 		{
-		    instruccion = new ComandoIncompleto();		    
-		}
-		else
-		{
+		
 			
 		    int numciclista = Integer.parseInt(args.nextToken());
 		    instruccion = new ComandoBajaPlato((Ciclista) vector.elementAt(numciclista));
 			
 		}
-		instruccion.execute();
+		
 		
 		break;	
 		
@@ -204,18 +191,14 @@ public class Parser
 		instruccion = new ComandoDesconocido();
 			
 		
-		instruccion.execute();
 		
 		break;
 		
 	    case "frenar":
 		
-		if(args.countTokens() != 3)
+		if(args.countTokens() == 3)
 		{
-		    instruccion = new ComandoIncompleto();		    
-		}
-		else
-		{
+		
 			
 		    int numciclista = Integer.parseInt(args.nextToken());
 		    int par1 = Integer.parseInt(args.nextToken());
@@ -223,7 +206,6 @@ public class Parser
 		    instruccion = new ComandoFrenar((Ciclista) vector.elementAt(numciclista),par1,par2);
 			
 		}
-		instruccion.execute();
 		
 		break;
 		
@@ -232,7 +214,6 @@ public class Parser
 		instruccion = new ComandoIncompleto();
 			
 		
-		instruccion.execute();
 		
 		break;
 		
@@ -241,45 +222,37 @@ public class Parser
 		instruccion = new ComandoNinguno();
 			
 		
-		instruccion.execute();
 		
 		break;
 		
 	    case "subepinon":
 		
-		if(args.countTokens() != 1)
+		if(args.countTokens() == 1)
 		{
-		    instruccion = new ComandoIncompleto();		    
-		}
-		else
-		{
+		
 			
 		    int numciclista = Integer.parseInt(args.nextToken());
 		    instruccion = new ComandoSubePinon((Ciclista) vector.elementAt(numciclista));
 			
 		}
-		instruccion.execute();
 		
 		break;
 		
 	    case "subeplato":
 		
-		if(args.countTokens() != 1)
+		if(args.countTokens() == 1)
 		{
-		    instruccion = new ComandoIncompleto();		    
-		}
-		else
-		{
+		
 			
 		    int numciclista = Integer.parseInt(args.nextToken());
 		    instruccion = new ComandoSubePlato((Ciclista) vector.elementAt(numciclista));
 			
 		}
-		instruccion.execute();
+		
 		
 		break;	    
 	}
-
+	instruccion.execute();
     }
     public String getInstruccion() {
 	
