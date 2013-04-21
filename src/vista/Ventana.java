@@ -838,18 +838,18 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	contentPane.add(botonFrenaMas5);
 
 	lblTiempo = new JLabel("Tiempo");
-	lblTiempo.setBounds(312, 293, 70, 15);
+	lblTiempo.setBounds(textArea_ciclista3.getX(), textArea_ciclista3.getY()+textArea_ciclista3.getHeight(), 70, 15);
 	contentPane.add(lblTiempo);
 
 	tFreloj = new JTextField();
 	tFreloj.setEditable(false);
-	tFreloj.setBounds(400, 291, 114, 19);
+	tFreloj.setBounds(lblTiempo.getX(), lblTiempo.getY()+lblTiempo.getHeight(), 114, 19);
 	contentPane.add(tFreloj);
 	tFreloj.setColumns(10);
 	cadena = "";
 
 	lblComandos = new JLabel("Comandos");
-	lblComandos.setBounds(206, 322, 114, 15);
+	lblComandos.setBounds(textArea_ciclista4.getX(), textArea_ciclista4.getY()+textArea_ciclista4.getHeight(), 114, 15);
 	contentPane.add(lblComandos);
 	tFcomando = new JTextField();
 	tFcomando.addKeyListener(new KeyAdapter() {
@@ -862,17 +862,17 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	    }
 	});
 
-	tFcomando.setBounds(206, 349, 453, 43);
+	tFcomando.setBounds(lblComandos.getX(), lblComandos.getY()+lblComandos.getHeight(), Constantes.ANCHO_TEXTBOX, Constantes.ALTO_TEXTBOX);
 	contentPane.add(tFcomando);
 	// tFcomando.setColumns(10);
 
 	JLabel lblConsola = new JLabel("Consola");
-	lblConsola.setBounds(206, 430, 114, 15);
+	lblConsola.setBounds(textArea_ciclista5.getX(), textArea_ciclista4.getY()+textArea_ciclista4.getHeight(), 114, 15);
 	contentPane.add(lblConsola);
 
 	tFconsola = new JTextArea();
-	tFconsola.setColumns(10);
-	tFconsola.setBounds(206, 457, 453, 43);
+	//tFconsola.setColumns(10);
+	tFconsola.setBounds(lblConsola.getX(), lblConsola.getY()+lblConsola.getHeight(), Constantes.ANCHO_TEXTBOX, Constantes.ALTO_TEXTBOX);
 	contentPane.add(tFconsola);
 	this.setVisible(true);
 

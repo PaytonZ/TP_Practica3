@@ -37,6 +37,8 @@ public final class Constantes {
     public static final String PLATO_MENOS = "Pla-";
     public static final String FRENO_MAS = "Fre+";
     public static final String FRENO_MENOS = "Fre-";
+    
+    public static final int NUM_DECIMALES= 3;
 
     public static double IMPULSO_RELOJ_SEGUNDOS = 1;
     public static double IMPULSO_RELOJ_MILISEGUNDOS = IMPULSO_RELOJ_SEGUNDOS * 1000;
