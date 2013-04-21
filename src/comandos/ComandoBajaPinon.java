@@ -11,11 +11,9 @@ public class ComandoBajaPinon implements InterfazCommand {
     }
 
     @Override
-    public boolean parse(String nombre)
-    {
+    public boolean parse(String nombre) {
 	boolean iguales = false;
-	if(nombre.equalsIgnoreCase("bajapinon"))
-	{
+	if (nombre.equalsIgnoreCase("bajapinon")) {
 	    iguales = true;
 	}
 	return iguales;
@@ -23,7 +21,7 @@ public class ComandoBajaPinon implements InterfazCommand {
 
     @Override
     public void execute() {
-	
+
 	cic.disminuyePinon();
 	// TODO Auto-generated method stub
 
@@ -48,8 +46,7 @@ public class ComandoBajaPinon implements InterfazCommand {
 		+ "\n pinon actual :" + cic.getPinonActualBici();
     }
 
-    public String getNombreComando()
-    {
+    public String getNombreComando() {
 	return "bajapinon";
     }
 }

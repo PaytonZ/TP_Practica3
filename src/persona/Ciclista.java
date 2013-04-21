@@ -190,16 +190,14 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     }
 
     public void setCadencia(double nueva_cadencia) {
-	if(nueva_cadencia >2)
-	{
+	if (nueva_cadencia > 2) {
 	    nueva_cadencia = 2;
-	    
-	    
+
 	}
 	cadencia = nueva_cadencia;
     }
-    public void frenar(double cantidad,double tiempo)
-    {
+
+    public void frenar(double cantidad, double tiempo) {
 	bici.frenar(cantidad, tiempo);
     }
 
@@ -211,7 +209,8 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     }
 
     /**
-     * @param fuerza_ciclista the fuerza_ciclista to set
+     * @param fuerza_ciclista
+     *            the fuerza_ciclista to set
      */
     public void setFuerza_ciclista(double fuerza_ciclista) {
 	this.fuerza_ciclista = fuerza_ciclista;

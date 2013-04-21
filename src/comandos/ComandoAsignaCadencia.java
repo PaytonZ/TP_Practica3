@@ -5,18 +5,17 @@ import persona.Ciclista;
 public class ComandoAsignaCadencia implements InterfazCommand {
     Ciclista miciclista;
     double micadencia;
+
     public ComandoAsignaCadencia(Ciclista cic, double cadencia) {
 	miciclista = cic;
 	micadencia = cadencia;
 	// TODO Auto-generated constructor stub
     }
 
-   
-
     @Override
     public void execute() {
-	if(micadencia <= 2 && micadencia >=0)
-	miciclista.setCadencia(micadencia);
+	if (micadencia <= 2 && micadencia >= 0)
+	    miciclista.setCadencia(micadencia);
 
 	// TODO Auto-generated method stub
 
@@ -39,19 +38,17 @@ public class ComandoAsignaCadencia implements InterfazCommand {
 	// TODO Auto-generated method stub
 
 	return "cadencia aumentada en el ciclista "
-		+ miciclista.getIdentificador_ciclista() + "\ncadencia actual :"
-		+ miciclista.getCadencia();
+		+ miciclista.getIdentificador_ciclista()
+		+ "\ncadencia actual :" + miciclista.getCadencia();
     }
+
     @Override
-    public boolean parse(String nombre)
-    {
+    public boolean parse(String nombre) {
 	boolean iguales = false;
-	if(nombre.equalsIgnoreCase("asignacadencia"))
-	{
+	if (nombre.equalsIgnoreCase("asignacadencia")) {
 	    iguales = true;
 	}
 	return iguales;
     }
-
 
 }

@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 
-import comandos.Parser;
+import comandos.CommandManager;
 import constantes.Constantes;
 
 import factoresExternos.Carretera;
@@ -22,7 +22,7 @@ public class Test {
     private Bicicleta bici;
     private Viento viento;
     private Carretera carretera;
-    private Parser parse;
+    private CommandManager parse;
     private int dientesporpinon[] = { 6, 5, 4, 3, 2, 1 };
     private int dientesporplato[] = { 2, 3, 4 };
     Ventana ventana;
@@ -31,7 +31,8 @@ public class Test {
     public void setUp() {
 
 	bici = new Bicicleta(dientesporpinon.length, dientesporplato.length, 1,
-		dientesporpinon, dientesporplato, 0.6858,Constantes.MASA_BICICLETA_ESTANDAR);
+		dientesporpinon, dientesporplato, 0.6858,
+		Constantes.MASA_BICICLETA_ESTANDAR);
 	reloj = new Reloj();
 	ciclista = new Ciclista(bici, 0);
     }

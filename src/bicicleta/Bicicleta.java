@@ -47,8 +47,9 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
     private Viento viento;
     double velocidad_anterior;
     double aceleracion;
+
     public Bicicleta(int numeropinones, int numeroplatos, double radiorueda,
-	    int midientepinon[], int midienteplato[], double radio,double masa) {
+	    int midientepinon[], int midienteplato[], double radio, double masa) {
 
 	super(masa);
 	dientesplato = new int[numeroplatos];
@@ -197,50 +198,52 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 
 	// asignamos la relacion de marchas actuales
 	calculaRelacionTransmision();
-	//calculamos la aceleracion
-	
-	
+	// calculamos la aceleracion
+
 	calculaEspacioPorCadaPedalada();
 	calculaVelocidadActual();
 	calculaAceleracion();
 	espaciorecorrido = espaciorecorrido + velocidad;
     }
-    public void calculaAceleracion()
-    {
+
+    public void calculaAceleracion() {
 	aceleracion = velocidad - velocidad_anterior;
-	
+
     }
-   
+
     /**
      * sirve para asignar el numero de pedales
      * 
      * @param numero
      */
-    public double getRecorridoLinealDeLaRueda()
-    {
+    public double getRecorridoLinealDeLaRueda() {
 	return radiorueda * Math.PI;
     }
-    public void calculaEspacioPorCadaPedalada()
-    {
-	espacioporpedalada = getRecorridoLinealDeLaRueda() * getRelacionTransmision();
+
+    public void calculaEspacioPorCadaPedalada() {
+	espacioporpedalada = getRecorridoLinealDeLaRueda()
+		* getRelacionTransmision();
     }
-    public void frenar(double cantidad,double tiempo)
-    {
+
+    public void frenar(double cantidad, double tiempo) {
 	/**
 	 * implementar
 	 */
     }
+
     public void calculaVelocidadActual() {
 	// la velocidad es el radio de la rueda * 2 PI * relacion de la
 	// transmision * cadencia de pedaleo
-/*
-	velocidad = ((2 * Math.PI * radiorueda * relaciontransmision)
-		* cadencia - factorpendiente - factorviento);*/
-	//velocidad =aceleracion + velocidad_anterior;
-	
-	velocidad = espacioporpedalada * cadencia - factorpendiente - factorviento;
+	/*
+	 * velocidad = ((2 * Math.PI * radiorueda * relaciontransmision)
+	 * cadencia - factorpendiente - factorviento);
+	 */
+	// velocidad =aceleracion + velocidad_anterior;
+
+	velocidad = espacioporpedalada * cadencia - factorpendiente
+		- factorviento;
 	velocidad_anterior = velocidad;
-	
+
     }
 
     public void setPedales(int numero) {
@@ -264,7 +267,7 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
     public void setPinon(char accion) {
 	// aumentamos el pinon
 
-	if (accion == 'a') {	
+	if (accion == 'a') {
 	    if (pinonact < dientespinon.length - 1) {
 		pinonact++;
 	    }
@@ -428,7 +431,7 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 
     public void setCadencia(double micadencia) {
 
-	cadencia = (micadencia>=0) ? micadencia:-micadencia;
+	cadencia = (micadencia >= 0) ? micadencia : -micadencia;
 
     }
 

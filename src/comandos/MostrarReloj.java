@@ -4,6 +4,7 @@ import tiempo.Reloj;
 
 public class MostrarReloj implements InterfazCommand {
     Reloj mireloj;
+
     public MostrarReloj(Reloj rel) {
 	mireloj = rel;
     }
@@ -13,11 +14,9 @@ public class MostrarReloj implements InterfazCommand {
     }
 
     @Override
-    public boolean parse(String nombre)
-    {
+    public boolean parse(String nombre) {
 	boolean iguales = false;
-	if(nombre.equalsIgnoreCase("mostrarreloj"))
-	{
+	if (nombre.equalsIgnoreCase("mostrarreloj")) {
 	    iguales = true;
 	}
 	return iguales;
@@ -25,7 +24,7 @@ public class MostrarReloj implements InterfazCommand {
 
     @Override
     public void execute() {
-	 
+
 	// mireloj.mostrarReloj();
 	// TODO Auto-generated method stub
 
@@ -48,8 +47,8 @@ public class MostrarReloj implements InterfazCommand {
 	// TODO Auto-generated method stub
 	return null;
     }
-    public String getNombreComando()
-    {
+
+    public String getNombreComando() {
 	return "mostrarreloj";
     }
 }

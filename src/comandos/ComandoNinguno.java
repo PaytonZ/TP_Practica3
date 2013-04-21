@@ -6,15 +6,14 @@ public class ComandoNinguno implements InterfazCommand {
     }
 
     @Override
-    public boolean parse(String nombre)
-    {
+    public boolean parse(String nombre) {
 	boolean iguales = false;
-	if(nombre.equalsIgnoreCase("ninguno"))
-	{
+	if (nombre.equalsIgnoreCase("ninguno")) {
 	    iguales = true;
 	}
 	return iguales;
     }
+
     @Override
     public void execute() {
 
@@ -40,8 +39,8 @@ public class ComandoNinguno implements InterfazCommand {
 	// System.out.print("hola");
 	return "";
     }
-    public String getNombreComando()
-    {
+
+    public String getNombreComando() {
 	return "ninguno";
     }
 }

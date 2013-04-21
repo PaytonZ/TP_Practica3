@@ -7,15 +7,14 @@ public class ComandoIncompleto implements InterfazCommand {
     }
 
     @Override
-    public boolean parse(String nombre)
-    {
+    public boolean parse(String nombre) {
 	boolean iguales = false;
-	if(nombre.equalsIgnoreCase("incompleto"))
-	{
+	if (nombre.equalsIgnoreCase("incompleto")) {
 	    iguales = true;
 	}
 	return iguales;
     }
+
     @Override
     public void execute() {
 	// System.out.println("DESCONOCIDO");
@@ -40,8 +39,8 @@ public class ComandoIncompleto implements InterfazCommand {
 	// TODO Auto-generated method stub
 	return "comando incompleto";
     }
-    public String getNombreComando()
-    {
+
+    public String getNombreComando() {
 	return "incompleto";
     }
 }

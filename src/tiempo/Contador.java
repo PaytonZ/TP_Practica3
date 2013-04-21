@@ -9,7 +9,7 @@ import interfaceMain.InterfaceEjecuta;
  * @author Juan Carlos Marco y Juan Luis Pérez
  * 
  */
-public class Contador implements InterfaceEjecuta
+public class Contador
 
 {
 
@@ -50,12 +50,6 @@ public class Contador implements InterfaceEjecuta
      */
     public int getUnidad() {
 	return unidad;
-    }
-
-    @Override
-    public void ejecuta() {
-	// TODO Auto-generated method stub
-
     }
 
 }

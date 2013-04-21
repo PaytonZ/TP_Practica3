@@ -1,9 +1,9 @@
 package principal;
 
-//import operacionesConFicheros.*;
 import interfaceMain.InterfaceEjecuta;
 import interfaceMain.InterfaceSalida;
 
+import java.awt.Container;
 import java.util.ArrayList;
 import persona.Ciclista;
 import tiempo.Reloj;
@@ -13,13 +13,13 @@ import vista.SalidaDeDatosPorSwing;
 import vista.Ventana;
 import bicicleta.Bicicleta;
 import java.util.*;
+
 import constantes.Constantes;
 import mapas.MiMapa;
 /*
  import comandos.Comandos;
  import comandos.InterfazOrden;*/
-import comandos.Parser;
-import constantes.Constantes;
+import comandos.CommandManager;
 
 import entradaDeDatos.EntradaFichero;
 
@@ -34,17 +34,19 @@ public class CiclistaManager {
 
     private ArrayList<InterfaceEjecuta> listaejecuta;
     private ArrayList<InterfaceSalida> listasalida;
-    private Vector<Object> vectorobjetos;
+    private static CommandManager commandManager;
 
     SalidaDeDatosPorSwing output;
+    private Vector<Object> vectorobjetos;
     static Lienzo lienzo;
 
     public static void main(String args[]) {
 
-	CiclistaManager p = new CiclistaManager();
-	p.inicia();
-	p.ejecuta();
-	p.finaliza();
+	CiclistaManager manager = new CiclistaManager();
+
+	manager.inicia();
+	manager.ejecuta();
+	manager.finaliza();
 
     }
 
@@ -53,11 +55,14 @@ public class CiclistaManager {
 	listasalida = new ArrayList<InterfaceSalida>();
 	vectorobjetos = new Vector<Object>();
 
-	int dientesporpinon[] = { Constantes.NUM_PIN_0, Constantes.NUM_PIN_1, Constantes.NUM_PIN_2, Constantes.NUM_PIN_3, Constantes.NUM_PIN_4, Constantes.NUM_PIN_5};
-	int dientesporplato[] = { Constantes.NUM_PLA_0, Constantes.NUM_PLA_1, Constantes.NUM_PLA_2 };
+	int dientesporpinon[] = { Constantes.NUM_PIN_0, Constantes.NUM_PIN_1,
+		Constantes.NUM_PIN_2, Constantes.NUM_PIN_3,
+		Constantes.NUM_PIN_4, Constantes.NUM_PIN_5 };
+	int dientesporplato[] = { Constantes.NUM_PLA_0, Constantes.NUM_PLA_1,
+		Constantes.NUM_PLA_2 };
 	Bicicleta bici0 = new Bicicleta(dientesporpinon.length,
 		dientesporplato.length, 1, dientesporpinon, dientesporplato,
-		0.6858,Constantes.MASA_BICICLETA_ESTANDAR);
+		0.6858, Constantes.MASA_BICICLETA_ESTANDAR);
 	Bicicleta bici1 = new Bicicleta(dientesporpinon.length,
 		dientesporplato.length, 1, dientesporpinon, dientesporplato,
 		0.6858, Constantes.MASA_BICICLETA_ESTANDAR);
@@ -90,8 +95,7 @@ public class CiclistaManager {
 	vectorobjetos.add(ciclista3);
 	vectorobjetos.add(ciclista4);
 	vectorobjetos.add(ciclista5);
-
-	Ventana ventana = new Ventana(new Parser(vectorobjetos));
+	Ventana ventana = new Ventana(new CommandManager(vectorobjetos));
 
 	listaejecuta.add(reloj);
 	listaejecuta.add(ciclista0);
@@ -139,7 +143,42 @@ public class CiclistaManager {
     }
 
     public void finaliza() {
-	//lienzo = new Lienzo();
+
+    }
+
+    /**
+     * Metodo utilizado en el parser para devolver el objeto adecuado para
+     * configurar el contexto de un comando
+     * 
+     * @return El Objeto reloj en cuestión
+     */
+    public Reloj getReloj() {
+	for (InterfaceEjecuta r : listaejecuta) {
+	    if (r instanceof Reloj)
+		return (Reloj) r;
+	}
+	return null;
+
+    }
+
+    /**
+     * Metodo utilizado en el parser para devolver el objeto adecuado para
+     * configurar el contexto de un comando
+     * 
+     * @param identificador
+     *            el numero de ciclista afectado por el comando
+     * @return El Objeto ciclista en cuestión
+     **/
+
+    public Ciclista getCiclista(int identificador) {
+	for (InterfaceEjecuta c : listaejecuta) {
+	    if (c instanceof Ciclista) {
+		if (((Ciclista) c).getIdentificador_ciclista() == identificador)
+		    return (Ciclista) c;
+	    }
+	}
+	return null;
+
     }
 
 }

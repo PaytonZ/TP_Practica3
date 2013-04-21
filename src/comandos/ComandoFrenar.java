@@ -6,6 +6,7 @@ public class ComandoFrenar implements InterfazCommand {
     Ciclista cic;
     double valor;
     double tiempo;
+
     public ComandoFrenar(Ciclista miciclista, double mivalor, double mitiempo) {
 	cic = miciclista;
 	valor = mivalor;
@@ -14,21 +15,17 @@ public class ComandoFrenar implements InterfazCommand {
     }
 
     @Override
-    public boolean parse(String nombre)
-    {
+    public boolean parse(String nombre) {
 	boolean iguales = false;
-	if(nombre.equalsIgnoreCase("frenar"))
-	{
+	if (nombre.equalsIgnoreCase("frenar")) {
 	    iguales = true;
 	}
 	return iguales;
     }
 
     @Override
-    public void execute() 
-    {
+    public void execute() {
 
-	
 	cic.frenar(valor, tiempo);
 
 	// TODO Auto-generated method stub
@@ -53,8 +50,8 @@ public class ComandoFrenar implements InterfazCommand {
 
 	return "freno aplicado en ciclista" + cic.getIdentificador_ciclista();
     }
-    public String getNombreComando()
-    {
+
+    public String getNombreComando() {
 	return "frenar";
     }
 }

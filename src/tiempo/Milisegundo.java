@@ -1,5 +1,7 @@
 package tiempo;
 
+import constantes.*;
+
 /**
  * esta clase cuenta los milisegundos actuales de ejecucion.
  * 
@@ -7,8 +9,8 @@ package tiempo;
  * 
  */
 public class Milisegundo {
-    private long milisegundosactuales;
-    private long milisegundos;
+    private double milisegundosactuales;
+    private double milisegundos;
 
     /**
      * este metodo cuenta milisegundos y devuelve 1 cuando se cuenta un segundo
@@ -25,13 +27,14 @@ public class Milisegundo {
 	    milisegundos = System.currentTimeMillis();
 	    if (milisegundosactuales == milisegundos) {
 		// 1000 milisegundos = 1 segundo
-		milisegundosactuales = milisegundos + 1000;
+		milisegundosactuales = milisegundos
+			+ Constantes.IMPULSO_RELOJ_MILISEGUNDOS;
 
 		// System.out.println(segundo);
 		segundo++;
 	    }
 	    // metodo para evitar que se detenga el contador
-	    else if ((milisegundosactuales + 1000) < milisegundos) {
+	    else if ((milisegundosactuales + Constantes.IMPULSO_RELOJ_MILISEGUNDOS) < milisegundos) {
 		milisegundosactuales = System.currentTimeMillis();
 	    }
 	}

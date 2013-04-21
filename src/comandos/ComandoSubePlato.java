@@ -11,11 +11,9 @@ public class ComandoSubePlato implements InterfazCommand {
     }
 
     @Override
-    public boolean parse(String nombre)
-    {
+    public boolean parse(String nombre) {
 	boolean iguales = false;
-	if(nombre.equalsIgnoreCase("subeplato"))
-	{
+	if (nombre.equalsIgnoreCase("subeplato")) {
 	    iguales = true;
 	}
 	return iguales;
@@ -24,7 +22,7 @@ public class ComandoSubePlato implements InterfazCommand {
     @Override
     public void execute() {
 	// TODO Auto-generated method stub
-	
+
 	cic.aumentaPlato();
     }
 
@@ -46,8 +44,8 @@ public class ComandoSubePlato implements InterfazCommand {
 	return "plato subido en el ciclista" + cic.getIdentificador_ciclista()
 		+ "\nplato actual :" + cic.getPlatoActualBici();
     }
-    public String getNombreComando()
-    {
+
+    public String getNombreComando() {
 	return "subeplato";
     }
 }

@@ -11,10 +11,9 @@ import constantes.Constantes;
 public class Persona {
     protected double peso;
     protected double masa;
-    
 
     public void persona(double nueva_masa) {
-	masa= nueva_masa;
+	masa = nueva_masa;
 	peso = masa * Constantes.FUERZA_G;
     }
 
@@ -36,6 +35,5 @@ public class Persona {
     public double getPeso() {
 	return peso;
     }
-
 
 }
