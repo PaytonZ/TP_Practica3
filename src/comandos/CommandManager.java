@@ -192,7 +192,6 @@ public class CommandManager {
 		double velMax = Double.valueOf(args.nextToken());
 		
 		instruccion = new ComandoCurva(curva,PK,velMax);
-		System.out.print("entrasss");
 	    }
 
 	    break;
