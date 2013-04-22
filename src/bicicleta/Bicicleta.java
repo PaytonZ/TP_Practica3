@@ -1,7 +1,6 @@
 package bicicleta;
 
 import factoresExternos.Carretera;
-import factoresExternos.Viento;
 import vista.SalidaDeDatosPorSwing;
 import vista.Ventana;
 import interfaceMain.InterfaceEjecuta;
@@ -44,7 +43,6 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
     protected double factorpendiente;
     protected double factorviento;
     private Carretera carretera;
-    private Viento viento;
     double velocidad_anterior;
     double aceleracion;
 
@@ -69,7 +67,7 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 	setRadioRueda((double) radio);
 	factorpendiente = 0;
 	setCarretera(new Carretera("carretera.txt", this));
-	setViento(new Viento("vientos.txt", this));
+	//setViento(new Viento("vientos.txt", this));
     }
 
     /**
@@ -241,7 +239,7 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 	// velocidad =aceleracion + velocidad_anterior;
 
 	velocidad = espacioporpedalada * cadencia - factorpendiente
-		- factorviento;
+		+ factorviento;
 	velocidad_anterior = velocidad;
 
     }
@@ -471,19 +469,6 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 	this.carretera = carretera;
     }
 
-    /**
-     * @return the viento
-     */
-    public Viento getViento() {
-	return viento;
-    }
-
-    /**
-     * @param viento
-     *            the viento to set
-     */
-    public void setViento(Viento viento) {
-	this.viento = viento;
-    }
+  
 
 }

@@ -22,6 +22,7 @@ import mapas.MiMapa;
 import comandos.CommandManager;
 
 import entradaDeDatos.EntradaFichero;
+import factoresExternos.Viento;
 
 /**
  * Clase Principal del programa
@@ -37,7 +38,8 @@ public class CiclistaManager {
     private static CommandManager commandManager;
 
     SalidaDeDatosPorSwing output;
-    private Vector<Object> vectorobjetos;
+    private Vector<Ciclista> vectorCiclistas;
+    private Vector<Bicicleta> vectorBicis;
     static Lienzo lienzo;
 
     public static void main(String args[]) {
@@ -53,7 +55,8 @@ public class CiclistaManager {
     public void inicia() {
 	listaejecuta = new ArrayList<InterfaceEjecuta>();
 	listasalida = new ArrayList<InterfaceSalida>();
-	vectorobjetos = new Vector<Object>();
+	vectorCiclistas = new Vector<Ciclista>();
+	vectorBicis = new Vector<Bicicleta>();
 
 	int dientesporpinon[] = { Constantes.NUM_PIN_0, Constantes.NUM_PIN_1,
 		Constantes.NUM_PIN_2, Constantes.NUM_PIN_3,
@@ -88,15 +91,24 @@ public class CiclistaManager {
 
 	Lienzo mapa = new Lienzo();
 	mapa.setVisible(true);
-
-	vectorobjetos.add(ciclista0);
-	vectorobjetos.add(ciclista1);
-	vectorobjetos.add(ciclista2);
-	vectorobjetos.add(ciclista3);
-	vectorobjetos.add(ciclista4);
-	vectorobjetos.add(ciclista5);
-	Ventana ventana = new Ventana(new CommandManager(vectorobjetos));
-
+	
+	vectorBicis.add(bici0);
+	vectorBicis.add(bici1);
+	vectorBicis.add(bici2);
+	vectorBicis.add(bici3);
+	vectorBicis.add(bici4);
+	vectorBicis.add(bici5);
+	
+	Viento viento = new Viento(vectorBicis,reloj);
+	
+	vectorCiclistas.add(ciclista0);
+	vectorCiclistas.add(ciclista1);
+	vectorCiclistas.add(ciclista2);
+	vectorCiclistas.add(ciclista3);
+	vectorCiclistas.add(ciclista4);
+	vectorCiclistas.add(ciclista5);
+	
+	Ventana ventana = new Ventana(new CommandManager(vectorCiclistas,viento));
 	listaejecuta.add(reloj);
 	listaejecuta.add(ciclista0);
 	listaejecuta.add(ciclista1);
@@ -105,9 +117,10 @@ public class CiclistaManager {
 	listaejecuta.add(ciclista4);
 	listaejecuta.add(ciclista5);
 	listaejecuta.add(ventana);
-
+	listaejecuta.add(viento);
+	listaejecuta.add(mapa);
+	
 	listasalida.add(reloj);
-
 	listasalida.add(ciclista0);
 	listasalida.add(ciclista1);
 	listasalida.add(ciclista2);
@@ -115,7 +128,7 @@ public class CiclistaManager {
 	listasalida.add(ciclista4);
 	listasalida.add(ciclista5);
 
-	listaejecuta.add(mapa);
+	
 
 	output = new SalidaDeDatosPorSwing(ventana, listasalida);
 
@@ -126,9 +139,10 @@ public class CiclistaManager {
 	int limite = 300; // Se establecera el limite en SEGUNDOS de la
 			  // ejecucion
 	// del programa
+	/*
 	EntradaFichero entrada = new EntradaFichero();
 	new MiMapa<Double, Double>(entrada.cargarFicheroEnStringTokenizer(
-		"carretera.txt", ":;"));
+		"carretera.txt", ":;"));*/
 
 	while (contador < limite) {
 
@@ -146,39 +160,6 @@ public class CiclistaManager {
 
     }
 
-    /**
-     * Metodo utilizado en el parser para devolver el objeto adecuado para
-     * configurar el contexto de un comando
-     * 
-     * @return El Objeto reloj en cuestión
-     */
-    public Reloj getReloj() {
-	for (InterfaceEjecuta r : listaejecuta) {
-	    if (r instanceof Reloj)
-		return (Reloj) r;
-	}
-	return null;
 
-    }
-
-    /**
-     * Metodo utilizado en el parser para devolver el objeto adecuado para
-     * configurar el contexto de un comando
-     * 
-     * @param identificador
-     *            el numero de ciclista afectado por el comando
-     * @return El Objeto ciclista en cuestión
-     **/
-
-    public Ciclista getCiclista(int identificador) {
-	for (InterfaceEjecuta c : listaejecuta) {
-	    if (c instanceof Ciclista) {
-		if (((Ciclista) c).getIdentificador_ciclista() == identificador)
-		    return (Ciclista) c;
-	    }
-	}
-	return null;
-
-    }
 
 }

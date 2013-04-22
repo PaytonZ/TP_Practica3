@@ -10,6 +10,7 @@ import principal.CiclistaManager;
 
 import vista.Ventana;
 import entradaDeDatos.SuperLectura;
+import factoresExternos.Viento;
 
 /**
  * 
@@ -30,17 +31,18 @@ public class CommandManager {
     String cadena;
     StringTokenizer comandosYatributos;
     String comandoElegido;
-    Vector<Object> vector;
-
+    Vector<Ciclista> vector;
+    Viento viento;
     /**
      * clase capaz de dado un string, formatearlo de tal forma, para ejecutar un
      * comando.
      * 
      * @param manager
      */
-    public CommandManager(Vector<Object> mivector) {
+    public CommandManager(Vector<Ciclista> vectorCiclistas,Viento miviento) {
 	instruccion = new ComandoNinguno();
-	vector = mivector;
+	vector = vectorCiclistas;
+	viento = miviento;
 	array = new ArrayList<InterfazCommand>();
 	// añadimos los objetos de cada tipo de comando que tenemos
 
@@ -54,6 +56,7 @@ public class CommandManager {
 	array.add(new ComandoNinguno());
 	array.add(new ComandoSubePinon(null));
 	array.add(new ComandoSubePlato(null));
+	array.add(new ComandoViento(null,"","",""));
 
     }
 
@@ -132,11 +135,11 @@ public class CommandManager {
 		double param1 = 0;
 
 		if (auxpar1.equalsIgnoreCase("+")) {
-		    auxpar1 = ((Ciclista) vector.elementAt(numciclista))
+		    auxpar1 = vector.elementAt(numciclista)
 			    .getCadencia();
 		    param1 = Double.parseDouble(auxpar1) + 1;
 		} else if (auxpar1.equalsIgnoreCase("-")) {
-		    auxpar1 = ((Ciclista) vector.elementAt(numciclista))
+		    auxpar1 = vector.elementAt(numciclista)
 			    .getCadencia();
 		    param1 = Double.parseDouble(auxpar1) - 1;
 
@@ -144,7 +147,7 @@ public class CommandManager {
 		    param1 = Double.parseDouble(auxpar1);
 		}
 		instruccion = new ComandoAsignaCadencia(
-			(Ciclista) vector.elementAt(numciclista), (int) param1);
+			vector.elementAt(numciclista), (int) param1);
 
 	    }
 	    break;
@@ -162,7 +165,7 @@ public class CommandManager {
 
 		int numciclista = Integer.parseInt(args.nextToken());
 		instruccion = new ComandoBajaPinon(
-			(Ciclista) vector.elementAt(numciclista));
+			 vector.elementAt(numciclista));
 
 	    }
 
@@ -173,7 +176,7 @@ public class CommandManager {
 
 		int numciclista = Integer.parseInt(args.nextToken());
 		instruccion = new ComandoBajaPlato(
-			(Ciclista) vector.elementAt(numciclista));
+			vector.elementAt(numciclista));
 
 	    }
 
@@ -191,7 +194,7 @@ public class CommandManager {
 		int par1 = Integer.parseInt(args.nextToken());
 		int par2 = Integer.parseInt(args.nextToken());
 		instruccion = new ComandoFrenar(
-			(Ciclista) vector.elementAt(numciclista), par1, par2);
+			 vector.elementAt(numciclista), par1, par2);
 
 	    }
 
@@ -211,7 +214,7 @@ public class CommandManager {
 	    if (args.countTokens() == 1) {
 		int numciclista = Integer.parseInt(args.nextToken());
 		instruccion = new ComandoSubePinon(
-			(Ciclista) vector.elementAt(numciclista));
+			 vector.elementAt(numciclista));
 
 	    }
 
@@ -222,7 +225,18 @@ public class CommandManager {
 
 		int numciclista = Integer.parseInt(args.nextToken());
 		instruccion = new ComandoSubePlato(
-			(Ciclista) vector.elementAt(numciclista));
+			 vector.elementAt(numciclista));
+
+	    }
+
+	    break;
+	}
+	case "viento": {
+	    if (args.countTokens() == 3) {
+		String hora = args.nextToken();
+		String tipo = args.nextToken();
+		String velocidad = args.nextToken();
+		instruccion = new ComandoViento(viento,hora,tipo,velocidad);
 
 	    }
 

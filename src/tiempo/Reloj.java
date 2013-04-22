@@ -58,6 +58,18 @@ public class Reloj extends Contador implements InterfaceEjecuta,
     }
 
     /**
+     * este metodo devuelve el tiempo actual en un array , el cual contiene en
+     * tiempo[0] = segundos, tiempo[1] = minutos, tiempo[2] = horas
+     * 
+     * @return
+     */
+    public String devuelveTiempoEnString() {
+	String tiempo= String.valueOf(hora.getUnidad());
+	tiempo = tiempo +":" +String.valueOf(minuto.getUnidad());
+	tiempo = tiempo + ":" +String.valueOf(segundo.getUnidad());
+	return tiempo;
+    }
+    /**
      * devuelve el tiempo actual en segundos
      * 
      * @return
