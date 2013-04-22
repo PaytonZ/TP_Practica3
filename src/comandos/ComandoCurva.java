@@ -38,8 +38,8 @@ public class ComandoCurva implements InterfazCommand{
 
     @Override
     public String getInformacionInstruccion() {
-	// TODO Auto-generated method stub
-	return null;
+	return "curva añadida en el metro "+ PK + "\n con velocidad maxima de " + velMax + " m/s";
+
     }
 
     @Override

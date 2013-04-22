@@ -96,6 +96,7 @@ public class Viento implements InterfaceEjecuta {
 		    viento = Float.parseFloat(tipo[1]) *-1;
 		    break;
 		case "NULO":
+		    viento = 0;
 		    break;
 		}
 		vectorBicis.elementAt(i).setFactorViento(viento);

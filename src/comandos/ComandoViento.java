@@ -41,8 +41,8 @@ public class ComandoViento implements InterfazCommand{
 
     @Override
     public String getInformacionInstruccion() {
-	// TODO Auto-generated method stub
-	return null;
+	return "Aviso de viento " + tipoViento + " con velocidad\n" + velocidad + " m/s a las " + hora;
+
     }
 
     @Override

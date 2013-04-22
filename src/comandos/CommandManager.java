@@ -60,7 +60,7 @@ public class CommandManager {
 	array.add(new ComandoSubePinon(null));
 	array.add(new ComandoSubePlato(null));
 	array.add(new ComandoViento(null,"","",""));
-	array.add(new ComandoCurva(null,0,0));
+	array.add(new ComandoCurva(null,0, 0));
 
     }
 
@@ -247,7 +247,14 @@ public class CommandManager {
 	    break;
 	}
 	case "viento": {
-	    if (args.countTokens() == 3) {
+	    if (args.countTokens() == 2)
+	    {
+		String hora = args.nextToken();
+		String nulo =  args.nextToken();
+		if(nulo.equalsIgnoreCase("NULO"))
+		instruccion = new ComandoViento(viento,hora,"NULO","0");
+	    }
+	    else if (args.countTokens() == 3) {
 		String hora = args.nextToken();
 		String tipo = args.nextToken();
 		String velocidad = args.nextToken();
