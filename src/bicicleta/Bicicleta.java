@@ -468,6 +468,11 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
     public void setCarretera(Carretera carretera) {
 	this.carretera = carretera;
     }
+    
+    public void setVelocidad(double vel)
+    {
+	velocidad = vel;
+    }
 
   
 

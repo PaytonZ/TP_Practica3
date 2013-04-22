@@ -10,6 +10,7 @@ import principal.CiclistaManager;
 
 import vista.Ventana;
 import entradaDeDatos.SuperLectura;
+import factoresExternos.Curva;
 import factoresExternos.Viento;
 
 /**
@@ -33,16 +34,18 @@ public class CommandManager {
     String comandoElegido;
     Vector<Ciclista> vector;
     Viento viento;
+    Curva curva;
     /**
      * clase capaz de dado un string, formatearlo de tal forma, para ejecutar un
      * comando.
      * 
      * @param manager
      */
-    public CommandManager(Vector<Ciclista> vectorCiclistas,Viento miviento) {
+    public CommandManager(Vector<Ciclista> vectorCiclistas,Viento miviento,Curva micurva) {
 	instruccion = new ComandoNinguno();
 	vector = vectorCiclistas;
 	viento = miviento;
+	curva = micurva;
 	array = new ArrayList<InterfazCommand>();
 	// añadimos los objetos de cada tipo de comando que tenemos
 
@@ -57,6 +60,7 @@ public class CommandManager {
 	array.add(new ComandoSubePinon(null));
 	array.add(new ComandoSubePlato(null));
 	array.add(new ComandoViento(null,"","",""));
+	array.add(new ComandoCurva(null,0,0));
 
     }
 
@@ -125,7 +129,6 @@ public class CommandManager {
      */
     public void asignaAtributos(String comando, StringTokenizer args) {
 	instruccion = new ComandoIncompleto();
-
 	switch (comando) {
 	case "asignacadencia": {
 	    if (args.countTokens() == 2) {
@@ -178,6 +181,18 @@ public class CommandManager {
 		instruccion = new ComandoBajaPlato(
 			vector.elementAt(numciclista));
 
+	    }
+
+	    break;
+	}
+	case "curva": {
+	    if (args.countTokens() == 2) {
+
+		double PK = Double.valueOf(args.nextToken());
+		double velMax = Double.valueOf(args.nextToken());
+		
+		instruccion = new ComandoCurva(curva,PK,velMax);
+		System.out.print("entrasss");
 	    }
 
 	    break;

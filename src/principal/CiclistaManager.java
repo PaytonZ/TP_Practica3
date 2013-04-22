@@ -22,6 +22,7 @@ import mapas.MiMapa;
 import comandos.CommandManager;
 
 import entradaDeDatos.EntradaFichero;
+import factoresExternos.Curva;
 import factoresExternos.Viento;
 
 /**
@@ -100,6 +101,7 @@ public class CiclistaManager {
 	vectorBicis.add(bici5);
 	
 	Viento viento = new Viento(vectorBicis,reloj);
+	Curva curva = new Curva(vectorBicis);
 	
 	vectorCiclistas.add(ciclista0);
 	vectorCiclistas.add(ciclista1);
@@ -108,7 +110,7 @@ public class CiclistaManager {
 	vectorCiclistas.add(ciclista4);
 	vectorCiclistas.add(ciclista5);
 	
-	Ventana ventana = new Ventana(new CommandManager(vectorCiclistas,viento));
+	Ventana ventana = new Ventana(new CommandManager(vectorCiclistas,viento,curva));
 	listaejecuta.add(reloj);
 	listaejecuta.add(ciclista0);
 	listaejecuta.add(ciclista1);
@@ -119,6 +121,7 @@ public class CiclistaManager {
 	listaejecuta.add(ventana);
 	listaejecuta.add(viento);
 	listaejecuta.add(mapa);
+	listaejecuta.add(curva);
 	
 	listasalida.add(reloj);
 	listasalida.add(ciclista0);
