@@ -32,6 +32,7 @@ cola_de_comandos = new LinkedList<>();
 	if(!cola_de_comandos.isEmpty())
 	{
 	    InterfazCommand siguiente_comando_a_ejecutar= cola_de_comandos.poll();
+	    siguiente_comando_a_ejecutar.configurarContexto(cm);
 	    siguiente_comando_a_ejecutar.execute();
 	}
     }

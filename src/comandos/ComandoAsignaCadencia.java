@@ -3,6 +3,7 @@ package comandos;
 import java.util.StringTokenizer;
 
 import persona.Ciclista;
+import principal.CiclistaManager;
 
 public class ComandoAsignaCadencia implements InterfazCommand {
     Ciclista ciclista;
@@ -17,18 +18,21 @@ public class ComandoAsignaCadencia implements InterfazCommand {
 
     @Override
     public void execute() {
+	
+	
+	
 	if (cadencia <= 2 && cadencia >= 0)
-	    ciclista.setCadencia
-	    (cadencia);
+	    ciclista.setCadencia(cadencia);
 
 	
 
     }
 
     @Override
-    public void configurarContexto() {
+    public void configurarContexto(CiclistaManager cm) {
 	
-
+	ciclista=cm.getCiclista(identificador_ciclista);
+	
     }
 
     @Override
@@ -51,18 +55,21 @@ public class ComandoAsignaCadencia implements InterfazCommand {
 	
 	StringTokenizer comandosYatributos = new StringTokenizer(nombre, "\n\r ");
 	int numciclista = -1;
-	double cadencia = 0;
+	double nueva_cadencia = 0;
 	
 	if (comandosYatributos.nextToken().equalsIgnoreCase("asignacadencia")) {
-	    if (comandosYatributos.countTokens() == 3) {
+	    if (comandosYatributos.countTokens() == 2) {
 		numciclista = Integer.parseInt(comandosYatributos.nextToken());
-		String auxpar1 = comandosYatributos.nextToken();
-		 cadencia = Double.parseDouble(auxpar1);
+		//String auxpar1 = comandosYatributos.nextToken();
+		 nueva_cadencia = Integer.parseInt(comandosYatributos.nextToken());
+		 
+		 
 					
 	}
 }
+
 	
-	return new ComandoAsignaCadencia(cadencia, numciclista );
+	return new ComandoAsignaCadencia(nueva_cadencia, numciclista );
    
   }
 

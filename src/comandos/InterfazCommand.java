@@ -1,5 +1,7 @@
 package comandos;
 
+import principal.CiclistaManager;
+
 /**
  * esta interfaz, contiene todos los metodos que debe tener un comando
  * 
@@ -12,7 +14,7 @@ public interface InterfazCommand {
 
     public void execute();
 
-    public void configurarContexto();
+    public void configurarContexto(CiclistaManager cm);
 
     public String getInformacionInstruccion();
 

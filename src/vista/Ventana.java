@@ -96,7 +96,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumCad0.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 0 +");
+		comandero.recibir_comando("asignacadencia 0 2");
 	    }
 	});
 	botonAumCad0.setText(Constantes.CADENCIA_MAS);
@@ -945,7 +945,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	textArea_ciclista4.setText("");
 
 	textArea_ciclista5.setText("");
-	//tFconsola.setText();
+	tFconsola.setText("");
 	tFreloj.setText("");
 
     }

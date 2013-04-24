@@ -14,6 +14,8 @@ import vista.Ventana;
 import bicicleta.Bicicleta;
 import java.util.*;
 
+import org.hamcrest.core.IsInstanceOf;
+
 import constantes.Constantes;
 import mapas.MiMapa;
 import comandos.Comandero;
@@ -111,8 +113,9 @@ public class CiclistaManager {
 	vectorCiclistas.add(ciclista4);
 	vectorCiclistas.add(ciclista5);
 	
-	Ventana ventana = new Ventana(comandero);
 	comandero = new Comandero(this, new Parser());
+	Ventana ventana = new Ventana(comandero);
+	
 	listaejecuta.add(reloj);
 	listaejecuta.add(ciclista0);
 	listaejecuta.add(ciclista1);
@@ -123,7 +126,7 @@ public class CiclistaManager {
 	
 	
 	listaejecuta.add(comandero);
-	//listaejecuta.add(ventana);
+	listaejecuta.add(ventana);
 	listaejecuta.add(viento);
 	listaejecuta.add(mapa);
 	listaejecuta.add(curva);
@@ -169,5 +172,22 @@ public class CiclistaManager {
     }
 
 
+    public Ciclista getCiclista(int identificador)
+    {
+	Ciclista ciclista_a_devolver = null;
+	for(InterfaceEjecuta c: listaejecuta)
+	
+	{
+	    if (c instanceof Ciclista) {
+		if(identificador == ((Ciclista) c).getIdentificador_ciclista())
+	    {
+		ciclista_a_devolver=(Ciclista) c;
+	    }
+	    }
+	    
+	}
+	return ciclista_a_devolver;
+	
+    }
 
 }
