@@ -286,7 +286,7 @@ import factoresExternos.Viento;
 
  public Parser()
  {
-
+     lista_de_comandos= new ArrayList<InterfazCommand>();
  
  lista_de_comandos.add(new ComandoAsignaCadencia(0, 0));
  lista_de_comandos.add(new ComandoAyuda());

@@ -2,6 +2,7 @@ package comandos;
 
 import interfaceMain.InterfaceEjecuta;
 
+import java.util.LinkedList;
 import java.util.Queue;
 
 import principal.CiclistaManager;
@@ -19,6 +20,7 @@ public class Comandero implements InterfaceEjecuta {
     public Comandero(CiclistaManager nuevo_cm , Parser nuevo_parser) {
 cm = nuevo_cm;	
 parser = nuevo_parser;
+cola_de_comandos = new LinkedList<>();
 
     }
 

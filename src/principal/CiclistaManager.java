@@ -111,7 +111,7 @@ public class CiclistaManager {
 	vectorCiclistas.add(ciclista4);
 	vectorCiclistas.add(ciclista5);
 	
-	//Ventana ventana = new Ventana(new Parser(vectorCiclistas,viento,curva));
+	Ventana ventana = new Ventana(comandero);
 	comandero = new Comandero(this, new Parser());
 	listaejecuta.add(reloj);
 	listaejecuta.add(ciclista0);
@@ -138,7 +138,7 @@ public class CiclistaManager {
 
 	
 
-	//output = new SalidaDeDatosPorSwing(ventana, listasalida);
+	output = new SalidaDeDatosPorSwing(ventana, listasalida);
 
     }
 
@@ -158,7 +158,7 @@ public class CiclistaManager {
 		c.ejecuta();
 	    }
 
-	  //  output.mostrarObjetos();
+	   output.mostrarObjetos();
 
 	    contador++;
 	}
