@@ -18,6 +18,6 @@ public interface InterfazCommand {
 
     public String getInformacionInstruccion();
 
-    public void obtenerAyuda();
+    public String obtenerAyuda();
 
 }

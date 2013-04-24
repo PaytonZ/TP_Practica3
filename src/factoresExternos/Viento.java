@@ -29,71 +29,69 @@ import entradaDeDatos.*;
 public class Viento implements InterfaceEjecuta {
 
     private EntradaFichero fichero;
-    Map<String,String> mapaVientos;
+    Map<String, String> mapaVientos;
     Reloj reloj;
     float viento;
     private Vector<Bicicleta> vectorBicis;
 
     /**
      * se recibe el vector de bicis y el reloj
+     * 
      * @param bicis
      * @param rel
      */
 
-    public Viento(Vector<Bicicleta> bicis,Reloj rel) {
+    public Viento(Vector<Bicicleta> bicis, Reloj rel) {
 	viento = 0;
 	fichero = new EntradaFichero();
-	mapaVientos = new HashMap<String,String>();
+	mapaVientos = new HashMap<String, String>();
 	vectorBicis = bicis;
 	reloj = rel;
     }
-    
+
     /**
-     * añade el viento al mapaVientos con la hora, tipo de viento (AFAVO,ENCONTRA,NULO) y
-     * su velocidad
+     * añade el viento al mapaVientos con la hora, tipo de viento
+     * (AFAVO,ENCONTRA,NULO) y su velocidad
+     * 
      * @param hora
      * @param tipo
      * @param velocidad
      */
-    public void setViento(String hora,String tipo,String velocidad)
-    {
+    public void setViento(String hora, String tipo, String velocidad) {
 	mapaVientos.put(hora, tipo + "#" + velocidad);
-	
+
     }
-   
+
     /**
      * devuelve el tipo y la velocidad en este formato tipo#velocidad
+     * 
      * @param hora
      * @return
      */
-    public String getViento(String hora)
-    {
+    public String getViento(String hora) {
 	return mapaVientos.get(hora);
-	
-    }
 
+    }
 
     @Override
     public void ejecuta() {
-	
+
 	/**
-	 * si la hora actual, esta en nuestro mapa de vientos, asignaremos el viento
-	 * a las bicicletas
+	 * si la hora actual, esta en nuestro mapa de vientos, asignaremos el
+	 * viento a las bicicletas
 	 */
-	if(mapaVientos.containsKey(reloj.devuelveTiempoEnString()))
-	{
-	    String[] tipo = mapaVientos.get(reloj.devuelveTiempoEnString()).split("#");
+	if (mapaVientos.containsKey(reloj.devuelveTiempoEnString())) {
+	    String[] tipo = mapaVientos.get(reloj.devuelveTiempoEnString())
+		    .split("#");
 	    int i = 0;
-	    for(i = 0; i < vectorBicis.size();i++)
-	    {
-		
-		switch(tipo[0])
-		{
+	    for (i = 0; i < vectorBicis.size(); i++) {
+
+		switch (tipo[0]) {
 		case "AFAVOR":
-		    	viento = Float.parseFloat(tipo[1]);
+		    viento = Float.parseFloat(tipo[1]);
 		    break;
 		case "ENCONTRA":
-		    viento = Float.parseFloat(tipo[1]) *-1;
+		    viento = Float.parseFloat(tipo[1]) * -1;
 		    break;
 		case "NULO":
 		    viento = 0;
@@ -101,13 +99,10 @@ public class Viento implements InterfaceEjecuta {
 		}
 		vectorBicis.elementAt(i).setFactorViento(viento);
 	    }
-	    
-	}
-	else
-	{
+
+	} else {
 	    int i = 0;
-	    for(i = 0; i < vectorBicis.size();i++)
-	    {
+	    for (i = 0; i < vectorBicis.size(); i++) {
 		vectorBicis.elementAt(i).setFactorViento(viento);
 	    }
 	}

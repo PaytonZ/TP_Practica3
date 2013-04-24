@@ -67,7 +67,7 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 	setRadioRueda((double) radio);
 	factorpendiente = 0;
 	setCarretera(new Carretera("carretera.txt", this));
-	//setViento(new Viento("vientos.txt", this));
+	// setViento(new Viento("vientos.txt", this));
     }
 
     /**
@@ -468,12 +468,9 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
     public void setCarretera(Carretera carretera) {
 	this.carretera = carretera;
     }
-    
-    public void setVelocidad(double vel)
-    {
+
+    public void setVelocidad(double vel) {
 	velocidad = vel;
     }
-
-  
 
 }

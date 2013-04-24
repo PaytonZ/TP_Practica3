@@ -218,16 +218,19 @@ public class SalidaDeDatosPorSwing {
 	}
 	case "velocidad": {
 	    mensajefinal.append("Velocidad actual:"
-		    
-		    +//mensaje.substring(0, posicionempiezaformato) + " m/s ");
-		    mensaje.substring(0, mensaje.indexOf(".")+ Constantes.NUM_DECIMALES + 1) + " m/s ");
-		    
+
+	    + // mensaje.substring(0, posicionempiezaformato) + " m/s ");
+		    mensaje.substring(0, mensaje.indexOf(".")
+			    + Constantes.NUM_DECIMALES + 1) + " m/s ");
+
 	    break;
 	}
 	case "distancia": {
-	    mensajefinal.append("Distancia recorrida:"
-		    + //mensaje.substring(0, posicionempiezaformato) + " m ");
-		    mensaje.substring(0, mensaje.indexOf(".")+ Constantes.NUM_DECIMALES + 1) + " m ");
+	    mensajefinal.append("Distancia recorrida:" + // mensaje.substring(0,
+							 // posicionempiezaformato)
+							 // + " m ");
+		    mensaje.substring(0, mensaje.indexOf(".")
+			    + Constantes.NUM_DECIMALES + 1) + " m ");
 	    break;
 	}
 	case "hh:mm:ss": {

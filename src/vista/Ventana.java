@@ -54,11 +54,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
      * este metodo,crea y coloca los componentes de la interfaz grafica.
      */
     private void init() {
-	
-	
-	
-	
-	
+
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setBounds(0, 0, 1366, 768);
 	contentPane = new JPanel();
@@ -844,18 +840,23 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	contentPane.add(botonFrenaMas5);
 
 	lblTiempo = new JLabel("Tiempo");
-	lblTiempo.setBounds(textArea_ciclista3.getX(), textArea_ciclista3.getY()+textArea_ciclista3.getHeight(), 70, 15);
+	lblTiempo.setBounds(textArea_ciclista3.getX(),
+		textArea_ciclista3.getY() + textArea_ciclista3.getHeight(), 70,
+		15);
 	contentPane.add(lblTiempo);
 
 	tFreloj = new JTextField();
 	tFreloj.setEditable(false);
-	tFreloj.setBounds(lblTiempo.getX(), lblTiempo.getY()+lblTiempo.getHeight(), 114, 19);
+	tFreloj.setBounds(lblTiempo.getX(),
+		lblTiempo.getY() + lblTiempo.getHeight(), 114, 19);
 	contentPane.add(tFreloj);
 	tFreloj.setColumns(10);
 	cadena = "";
 
 	lblComandos = new JLabel("Comandos");
-	lblComandos.setBounds(textArea_ciclista4.getX(), textArea_ciclista4.getY()+textArea_ciclista4.getHeight(), 114, 15);
+	lblComandos.setBounds(textArea_ciclista4.getX(),
+		textArea_ciclista4.getY() + textArea_ciclista4.getHeight(),
+		114, 15);
 	contentPane.add(lblComandos);
 	tFcomando = new JTextField();
 	tFcomando.addKeyListener(new KeyAdapter() {
@@ -868,17 +869,23 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	    }
 	});
 
-	tFcomando.setBounds(lblComandos.getX(), lblComandos.getY()+lblComandos.getHeight(), Constantes.ANCHO_TEXTBOX, Constantes.ALTO_TEXTBOX);
+	tFcomando.setBounds(lblComandos.getX(), lblComandos.getY()
+		+ lblComandos.getHeight(), Constantes.ANCHO_TEXTBOX,
+		Constantes.ALTO_TEXTBOX);
 	contentPane.add(tFcomando);
 	// tFcomando.setColumns(10);
 
 	JLabel lblConsola = new JLabel("Consola");
-	lblConsola.setBounds(textArea_ciclista5.getX(), textArea_ciclista4.getY()+textArea_ciclista4.getHeight(), 114, 15);
+	lblConsola.setBounds(textArea_ciclista5.getX(),
+		textArea_ciclista4.getY() + textArea_ciclista4.getHeight(),
+		114, 15);
 	contentPane.add(lblConsola);
 
 	tFconsola = new JTextArea();
-	//tFconsola.setColumns(10);
-	tFconsola.setBounds(lblConsola.getX(), lblConsola.getY()+lblConsola.getHeight(), Constantes.ANCHO_TEXTBOX, Constantes.ALTO_TEXTBOX);
+	// tFconsola.setColumns(10);
+	tFconsola.setBounds(lblConsola.getX(),
+		lblConsola.getY() + lblConsola.getHeight(),
+		Constantes.ANCHO_TEXTBOX, Constantes.ALTO_TEXTBOX);
 	contentPane.add(tFconsola);
 	this.setVisible(true);
 

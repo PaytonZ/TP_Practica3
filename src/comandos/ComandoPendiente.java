@@ -3,13 +3,11 @@ package comandos;
 import factoresExternos.Viento;
 import persona.Ciclista;
 
-public class ComandoPendiente implements InterfazCommand{
+public class ComandoPendiente implements InterfazCommand {
 
-    
-    
-    public ComandoPendiente()
-    {
+    public ComandoPendiente() {
     }
+
     @Override
     public boolean parse(String nombre) {
 	boolean iguales = false;
@@ -22,13 +20,13 @@ public class ComandoPendiente implements InterfazCommand{
     @Override
     public void execute() {
 	// TODO Auto-generated method stub
-	
+
     }
 
     @Override
     public void configurarContexto() {
 	// TODO Auto-generated method stub
-	
+
     }
 
     @Override
@@ -40,7 +38,7 @@ public class ComandoPendiente implements InterfazCommand{
     @Override
     public void obtenerAyuda() {
 	// TODO Auto-generated method stub
-	
+
     }
 
 }

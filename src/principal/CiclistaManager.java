@@ -95,27 +95,27 @@ public class CiclistaManager {
 
 	Lienzo mapa = new Lienzo();
 	mapa.setVisible(true);
-	
+
 	vectorBicis.add(bici0);
 	vectorBicis.add(bici1);
 	vectorBicis.add(bici2);
 	vectorBicis.add(bici3);
 	vectorBicis.add(bici4);
 	vectorBicis.add(bici5);
-	
-	Viento viento = new Viento(vectorBicis,reloj);
+
+	Viento viento = new Viento(vectorBicis, reloj);
 	Curva curva = new Curva(vectorBicis);
-	
+
 	vectorCiclistas.add(ciclista0);
 	vectorCiclistas.add(ciclista1);
 	vectorCiclistas.add(ciclista2);
 	vectorCiclistas.add(ciclista3);
 	vectorCiclistas.add(ciclista4);
 	vectorCiclistas.add(ciclista5);
-	
+
 	comandero = new Comandero(this, new Parser());
 	Ventana ventana = new Ventana(comandero);
-	
+
 	listaejecuta.add(reloj);
 	listaejecuta.add(ciclista0);
 	listaejecuta.add(ciclista1);
@@ -123,14 +123,13 @@ public class CiclistaManager {
 	listaejecuta.add(ciclista3);
 	listaejecuta.add(ciclista4);
 	listaejecuta.add(ciclista5);
-	
-	
+
 	listaejecuta.add(comandero);
 	listaejecuta.add(ventana);
 	listaejecuta.add(viento);
 	listaejecuta.add(mapa);
 	listaejecuta.add(curva);
-	
+
 	listasalida.add(reloj);
 	listasalida.add(ciclista0);
 	listasalida.add(ciclista1);
@@ -138,8 +137,6 @@ public class CiclistaManager {
 	listasalida.add(ciclista3);
 	listasalida.add(ciclista4);
 	listasalida.add(ciclista5);
-
-	
 
 	output = new SalidaDeDatosPorSwing(ventana, listasalida);
 
@@ -151,9 +148,10 @@ public class CiclistaManager {
 			  // ejecucion
 	// del programa
 	/*
-	EntradaFichero entrada = new EntradaFichero();
-	new MiMapa<Double, Double>(entrada.cargarFicheroEnStringTokenizer(
-		"carretera.txt", ":;"));*/
+	 * EntradaFichero entrada = new EntradaFichero(); new MiMapa<Double,
+	 * Double>(entrada.cargarFicheroEnStringTokenizer( "carretera.txt",
+	 * ":;"));
+	 */
 
 	while (contador < limite) {
 
@@ -161,7 +159,7 @@ public class CiclistaManager {
 		c.ejecuta();
 	    }
 
-	   output.mostrarObjetos();
+	    output.mostrarObjetos();
 
 	    contador++;
 	}
@@ -171,23 +169,20 @@ public class CiclistaManager {
 
     }
 
-
-    public Ciclista getCiclista(int identificador)
-    {
+    public Ciclista getCiclista(int identificador) {
 	Ciclista ciclista_a_devolver = null;
-	for(InterfaceEjecuta c: listaejecuta)
-	
+	for (InterfaceEjecuta c : listaejecuta)
+
 	{
 	    if (c instanceof Ciclista) {
-		if(identificador == ((Ciclista) c).getIdentificador_ciclista())
-	    {
-		ciclista_a_devolver=(Ciclista) c;
+		if (identificador == ((Ciclista) c).getIdentificador_ciclista()) {
+		    ciclista_a_devolver = (Ciclista) c;
+		}
 	    }
-	    }
-	    
+
 	}
 	return ciclista_a_devolver;
-	
+
     }
 
 }

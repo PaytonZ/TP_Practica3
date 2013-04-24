@@ -52,5 +52,5 @@ public class EntradaTeclado {
 	}
 	return Salida;
     }
- 
+
 }

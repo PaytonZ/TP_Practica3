@@ -64,11 +64,12 @@ public class Reloj extends Contador implements InterfaceEjecuta,
      * @return
      */
     public String devuelveTiempoEnString() {
-	String tiempo= String.valueOf(hora.getUnidad());
-	tiempo = tiempo +":" +String.valueOf(minuto.getUnidad());
-	tiempo = tiempo + ":" +String.valueOf(segundo.getUnidad());
+	String tiempo = String.valueOf(hora.getUnidad());
+	tiempo = tiempo + ":" + String.valueOf(minuto.getUnidad());
+	tiempo = tiempo + ":" + String.valueOf(segundo.getUnidad());
 	return tiempo;
     }
+
     /**
      * devuelve el tiempo actual en segundos
      * 

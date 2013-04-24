@@ -106,7 +106,7 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	bici.calculaEspacioRecorrido();
 	bici.calculaVelocidadActual();
 	bici.getCarretera().calculaFactor();
-	//bici.getViento().calculaFactor();
+	// bici.getViento().calculaFactor();
 	// cambiarPlato('d');
 	// cambiarPinon('a');
 

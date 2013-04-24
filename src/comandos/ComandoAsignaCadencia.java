@@ -10,34 +10,31 @@ public class ComandoAsignaCadencia implements InterfazCommand {
     double cadencia;
     int identificador_ciclista;
 
-    public ComandoAsignaCadencia(double nueva_cadencia, int nuevo_identificador_ciclista) {
-	
-	cadencia= nueva_cadencia;
-	identificador_ciclista= nuevo_identificador_ciclista;
-       }
+    public ComandoAsignaCadencia(double nueva_cadencia,
+	    int nuevo_identificador_ciclista) {
+
+	cadencia = nueva_cadencia;
+	identificador_ciclista = nuevo_identificador_ciclista;
+    }
 
     @Override
     public void execute() {
-	
-	
-	
+
 	if (cadencia <= 2 && cadencia >= 0)
 	    ciclista.setCadencia(cadencia);
-
-	
 
     }
 
     @Override
     public void configurarContexto(CiclistaManager cm) {
-	
-	ciclista=cm.getCiclista(identificador_ciclista);
-	
+
+	ciclista = cm.getCiclista(identificador_ciclista);
+
     }
 
     @Override
-    public void obtenerAyuda() {
-	
+    public String obtenerAyuda() {
+	return "asignacadencia <numero_de_ciclista> <nueva_cadencia>";
 
     }
 
@@ -46,31 +43,38 @@ public class ComandoAsignaCadencia implements InterfazCommand {
 	// TODO Auto-generated method stub
 
 	return "cadencia aumentada en el ciclista "
-		+ ciclista.getIdentificador_ciclista()
-		+ "\ncadencia actual :" + ciclista.getCadencia();
+		+ ciclista.getIdentificador_ciclista() + "\ncadencia actual :"
+		+ ciclista.getCadencia();
     }
 
     @Override
     public InterfazCommand parse(String nombre) {
-	
-	StringTokenizer comandosYatributos = new StringTokenizer(nombre, "\n\r ");
+
+	StringTokenizer comandosYatributos = new StringTokenizer(nombre,
+		"\n\r ");
 	int numciclista = -1;
 	double nueva_cadencia = 0;
-	
+
 	if (comandosYatributos.nextToken().equalsIgnoreCase("asignacadencia")) {
 	    if (comandosYatributos.countTokens() == 2) {
 		numciclista = Integer.parseInt(comandosYatributos.nextToken());
-		//String auxpar1 = comandosYatributos.nextToken();
-		 nueva_cadencia = Integer.parseInt(comandosYatributos.nextToken());
-		 
-		 
-					
-	}
-}
+		// String auxpar1 = comandosYatributos.nextToken();
+		nueva_cadencia = Integer.parseInt(comandosYatributos
+			.nextToken());
 
-	
-	return new ComandoAsignaCadencia(nueva_cadencia, numciclista );
-   
-  }
+	    }
+	}
+
+	return new ComandoAsignaCadencia(nueva_cadencia, numciclista);
+
+    }
+
+    public int getIdentificador_ciclista() {
+        return identificador_ciclista;
+    }
+
+    public void setIdentificador_ciclista(int identificador_ciclista) {
+        this.identificador_ciclista = identificador_ciclista;
+    }
 
 }
