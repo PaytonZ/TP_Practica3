@@ -14,7 +14,7 @@ import java.io.*;
  * @author Emilio Alvarez
  * 
  */
-public class EntradaTeclado implements InterfaceEjecuta {
+public class EntradaTeclado {
 
     BufferedReader lectura;
 
@@ -52,12 +52,5 @@ public class EntradaTeclado implements InterfaceEjecuta {
 	}
 	return Salida;
     }
-
-    @Override
-    public void ejecuta() {
-	leer();
-	// TODO Auto-generated method stub
-
-    }
-
+ 
 }

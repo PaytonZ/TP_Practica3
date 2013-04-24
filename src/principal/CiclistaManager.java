@@ -16,10 +16,11 @@ import java.util.*;
 
 import constantes.Constantes;
 import mapas.MiMapa;
+import comandos.Comandero;
 /*
  import comandos.Comandos;
  import comandos.InterfazOrden;*/
-import comandos.CommandManager;
+import comandos.Parser;
 
 import entradaDeDatos.EntradaFichero;
 import factoresExternos.Curva;
@@ -36,7 +37,7 @@ public class CiclistaManager {
 
     private ArrayList<InterfaceEjecuta> listaejecuta;
     private ArrayList<InterfaceSalida> listasalida;
-    private static CommandManager commandManager;
+    private Comandero comandero;
 
     SalidaDeDatosPorSwing output;
     private Vector<Ciclista> vectorCiclistas;
@@ -110,7 +111,8 @@ public class CiclistaManager {
 	vectorCiclistas.add(ciclista4);
 	vectorCiclistas.add(ciclista5);
 	
-	Ventana ventana = new Ventana(new CommandManager(vectorCiclistas,viento,curva));
+	//Ventana ventana = new Ventana(new Parser(vectorCiclistas,viento,curva));
+	comandero = new Comandero(this, new Parser());
 	listaejecuta.add(reloj);
 	listaejecuta.add(ciclista0);
 	listaejecuta.add(ciclista1);
@@ -118,7 +120,10 @@ public class CiclistaManager {
 	listaejecuta.add(ciclista3);
 	listaejecuta.add(ciclista4);
 	listaejecuta.add(ciclista5);
-	listaejecuta.add(ventana);
+	
+	
+	listaejecuta.add(comandero);
+	//listaejecuta.add(ventana);
 	listaejecuta.add(viento);
 	listaejecuta.add(mapa);
 	listaejecuta.add(curva);
@@ -133,7 +138,7 @@ public class CiclistaManager {
 
 	
 
-	output = new SalidaDeDatosPorSwing(ventana, listasalida);
+	//output = new SalidaDeDatosPorSwing(ventana, listasalida);
 
     }
 
@@ -153,7 +158,7 @@ public class CiclistaManager {
 		c.ejecuta();
 	    }
 
-	    output.mostrarObjetos();
+	  //  output.mostrarObjetos();
 
 	    contador++;
 	}

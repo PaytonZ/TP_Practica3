@@ -9,7 +9,8 @@ import java.awt.event.KeyEvent;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-import comandos.CommandManager;
+import comandos.Comandero;
+import comandos.Parser;
 import constantes.Constantes;
 
 import java.awt.event.MouseAdapter;
@@ -23,7 +24,7 @@ import java.awt.event.MouseEvent;
  */
 public class Ventana extends JFrame implements InterfaceEjecuta {
 
-    private CommandManager commandManager;
+    private Comandero comandero;
 
     private static final long serialVersionUID = -8170475180669923771L;
 
@@ -42,9 +43,9 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     private JLabel lblTiempo;
     private JLabel lblconsola;
 
-    public Ventana(CommandManager nuevo_parser) {
+    public Ventana(Comandero nuevo_comandero) {
 
-	commandManager = nuevo_parser;
+	comandero = nuevo_comandero;
 
 	init();
     }
@@ -53,6 +54,11 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
      * este metodo,crea y coloca los componentes de la interfaz grafica.
      */
     private void init() {
+	
+	
+	
+	
+	
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setBounds(0, 0, 1366, 768);
 	contentPane = new JPanel();
@@ -75,7 +81,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisCad0.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("asignacadencia 0 -");
+		parser.compruebaComando("asignacadencia 0 -");
 	    }
 	});
 
@@ -90,7 +96,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumCad0.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("asignacadencia 0 +");
+		parser.compruebaComando("asignacadencia 0 +");
 	    }
 	});
 	botonAumCad0.setText(Constantes.CADENCIA_MAS);
@@ -105,7 +111,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisPin0.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("bajapinon 0");
+		parser.compruebaComando("bajapinon 0");
 	    }
 	});
 	botonDisPin0.setText(Constantes.PINON_MENOS);
@@ -120,7 +126,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumPin0.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("subepinon 0");
+		parser.compruebaComando("subepinon 0");
 	    }
 	});
 	botonAumPin0.setText(Constantes.PINON_MAS);
@@ -135,7 +141,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisPla0.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("bajaplato 0");
+		parser.compruebaComando("bajaplato 0");
 	    }
 	});
 	botonDisPla0.setText(Constantes.PLATO_MENOS);
@@ -149,7 +155,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumPla0.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("subeplato 0");
+		parser.compruebaComando("subeplato 0");
 	    }
 	});
 	botonAumPla0.setText(Constantes.PLATO_MAS);
@@ -163,7 +169,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonFrenaPoco0.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("frenar 0 1");
+		parser.compruebaComando("frenar 0 1");
 	    }
 	});
 	botonFrenaPoco0.setText(Constantes.FRENO_MENOS);
@@ -178,7 +184,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonFrenaMas0.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("frenar 0 1");
+		parser.compruebaComando("frenar 0 1");
 	    }
 	});
 	botonFrenaMas0.setText(Constantes.FRENO_MAS);
@@ -206,7 +212,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisCad1.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("asignacadencia 1 -");
+		parser.compruebaComando("asignacadencia 1 -");
 	    }
 	});
 	botonDisCad1.setText(Constantes.CADENCIA_MENOS);
@@ -220,7 +226,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumCad1.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("asignacadencia 1 +");
+		parser.compruebaComando("asignacadencia 1 +");
 	    }
 	});
 	botonAumCad1.setText(Constantes.CADENCIA_MAS);
@@ -235,7 +241,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisPin1.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("bajapinon 1");
+		parser.compruebaComando("bajapinon 1");
 	    }
 	});
 	botonDisPin1.setText(Constantes.PINON_MENOS);
@@ -250,7 +256,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumPin1.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("subepinon 1");
+		parser.compruebaComando("subepinon 1");
 	    }
 	});
 	botonAumPin1.setText(Constantes.PINON_MAS);
@@ -265,7 +271,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisPla1.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("bajaplato 1");
+		parser.compruebaComando("bajaplato 1");
 	    }
 	});
 	botonDisPla1.setText(Constantes.PLATO_MENOS);
@@ -279,7 +285,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumPla1.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("subeplato 1");
+		parser.compruebaComando("subeplato 1");
 	    }
 	});
 	botonAumPla1.setText(Constantes.PLATO_MAS);
@@ -293,7 +299,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonFrenaPoco1.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("frenar 1 1");
+		parser.compruebaComando("frenar 1 1");
 	    }
 	});
 	botonFrenaPoco1.setText(Constantes.FRENO_MENOS);
@@ -308,7 +314,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonFrenaMas1.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("frenar 1 1");
+		parser.compruebaComando("frenar 1 1");
 	    }
 	});
 	botonFrenaMas1.setText(Constantes.FRENO_MAS);
@@ -336,7 +342,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisCad2.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("asignacadencia 2 -");
+		parser.compruebaComando("asignacadencia 2 -");
 	    }
 	});
 	botonDisCad2.setText(Constantes.CADENCIA_MENOS);
@@ -350,7 +356,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumCad2.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("asignacadencia 2 +");
+		parser.compruebaComando("asignacadencia 2 +");
 	    }
 	});
 	botonAumCad2.setText(Constantes.CADENCIA_MAS);
@@ -365,7 +371,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisPin2.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("bajapinon 2");
+		parser.compruebaComando("bajapinon 2");
 	    }
 	});
 	botonDisPin2.setText(Constantes.PINON_MENOS);
@@ -380,7 +386,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumPin2.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("subepinon 2");
+		parser.compruebaComando("subepinon 2");
 	    }
 	});
 	botonAumPin2.setText(Constantes.PINON_MAS);
@@ -395,7 +401,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisPla2.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("bajaplato 2");
+		parser.compruebaComando("bajaplato 2");
 	    }
 	});
 	botonDisPla2.setText(Constantes.PLATO_MENOS);
@@ -409,7 +415,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumPla2.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("subeplato 2");
+		parser.compruebaComando("subeplato 2");
 	    }
 	});
 	botonAumPla2.setText(Constantes.PLATO_MAS);
@@ -423,7 +429,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonFrenaPoco2.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("frenar 2 2");
+		parser.compruebaComando("frenar 2 2");
 	    }
 	});
 	botonFrenaPoco2.setText(Constantes.FRENO_MENOS);
@@ -438,7 +444,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonFrenaMas2.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("frenar 2 2");
+		parser.compruebaComando("frenar 2 2");
 	    }
 	});
 	botonFrenaMas2.setText(Constantes.FRENO_MAS);
@@ -465,7 +471,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisCad3.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("asignacadencia 3 -");
+		parser.compruebaComando("asignacadencia 3 -");
 	    }
 	});
 	botonDisCad3.setText(Constantes.CADENCIA_MENOS);
@@ -479,7 +485,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumCad3.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("asignacadencia 3 +");
+		parser.compruebaComando("asignacadencia 3 +");
 	    }
 	});
 	botonAumCad3.setText(Constantes.CADENCIA_MAS);
@@ -494,7 +500,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisPin3.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("bajapinon 3");
+		parser.compruebaComando("bajapinon 3");
 	    }
 	});
 	botonDisPin3.setText(Constantes.PINON_MENOS);
@@ -509,7 +515,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumPin3.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("subepinon 3");
+		parser.compruebaComando("subepinon 3");
 	    }
 	});
 	botonAumPin3.setText(Constantes.PINON_MAS);
@@ -524,7 +530,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisPla3.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("bajaplato 3");
+		parser.compruebaComando("bajaplato 3");
 	    }
 	});
 	botonDisPla3.setText(Constantes.PLATO_MENOS);
@@ -538,7 +544,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumPla3.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("subeplato 3");
+		parser.compruebaComando("subeplato 3");
 	    }
 	});
 	botonAumPla3.setText(Constantes.PLATO_MAS);
@@ -552,7 +558,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonFrenaPoco3.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("frenar 3 1");
+		parser.compruebaComando("frenar 3 1");
 	    }
 	});
 	botonFrenaPoco3.setText(Constantes.FRENO_MENOS);
@@ -567,7 +573,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonFrenaMas3.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("frenar 3 1");
+		parser.compruebaComando("frenar 3 1");
 	    }
 	});
 	botonFrenaMas3.setText(Constantes.FRENO_MAS);
@@ -595,7 +601,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisCad4.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("asignacadencia 4 -");
+		parser.compruebaComando("asignacadencia 4 -");
 	    }
 	});
 	botonDisCad4.setText(Constantes.CADENCIA_MENOS);
@@ -609,7 +615,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumCad4.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("asignacadencia 4 +");
+		parser.compruebaComando("asignacadencia 4 +");
 	    }
 	});
 	botonAumCad4.setText(Constantes.CADENCIA_MAS);
@@ -624,7 +630,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisPin4.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("bajapinon 4");
+		parser.compruebaComando("bajapinon 4");
 	    }
 	});
 	botonDisPin4.setText(Constantes.PINON_MENOS);
@@ -639,7 +645,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumPin4.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("subepinon 4");
+		parser.compruebaComando("subepinon 4");
 	    }
 	});
 	botonAumPin4.setText(Constantes.PINON_MAS);
@@ -654,7 +660,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisPla4.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("bajaplato 4");
+		parser.compruebaComando("bajaplato 4");
 	    }
 	});
 	botonDisPla4.setText(Constantes.PLATO_MENOS);
@@ -668,7 +674,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumPla4.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("subeplato 4");
+		parser.compruebaComando("subeplato 4");
 	    }
 	});
 	botonAumPla4.setText(Constantes.PLATO_MAS);
@@ -682,7 +688,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonFrenaPoco4.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("frenar 4 4");
+		parser.compruebaComando("frenar 4 4");
 	    }
 	});
 	botonFrenaPoco4.setText(Constantes.FRENO_MENOS);
@@ -697,7 +703,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonFrenaMas4.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("frenar 4 4");
+		parser.compruebaComando("frenar 4 4");
 	    }
 	});
 	botonFrenaMas4.setText(Constantes.FRENO_MAS);
@@ -725,7 +731,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisCad5.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("asignacadencia 5 -");
+		parser.compruebaComando("asignacadencia 5 -");
 	    }
 	});
 	botonDisCad5.setText(Constantes.CADENCIA_MENOS);
@@ -739,7 +745,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumCad5.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("asignacadencia 5 +");
+		parser.compruebaComando("asignacadencia 5 +");
 	    }
 	});
 	botonAumCad5.setText(Constantes.CADENCIA_MAS);
@@ -754,7 +760,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisPin5.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("bajapinon 5");
+		parser.compruebaComando("bajapinon 5");
 	    }
 	});
 	botonDisPin5.setText(Constantes.PINON_MENOS);
@@ -769,7 +775,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumPin5.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("subepinon 5");
+		parser.compruebaComando("subepinon 5");
 	    }
 	});
 	botonAumPin5.setText(Constantes.PINON_MAS);
@@ -784,7 +790,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisPla5.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("bajaplato 5");
+		parser.compruebaComando("bajaplato 5");
 	    }
 	});
 	botonDisPla5.setText(Constantes.PLATO_MENOS);
@@ -798,7 +804,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumPla5.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("subeplato 5");
+		parser.compruebaComando("subeplato 5");
 	    }
 	});
 	botonAumPla5.setText(Constantes.PLATO_MAS);
@@ -812,7 +818,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonFrenaPoco5.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("frenar 5 5");
+		parser.compruebaComando("frenar 5 5");
 	    }
 	});
 	botonFrenaPoco5.setText(Constantes.FRENO_MENOS);
@@ -827,7 +833,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonFrenaMas5.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		commandManager.compruebaComando("frenar 5 5");
+		parser.compruebaComando("frenar 5 5");
 	    }
 	});
 	botonFrenaMas5.setText(Constantes.FRENO_MAS);
@@ -856,7 +862,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	    @Override
 	    public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == 10) {
-		    commandManager.compruebaComando(tFcomando.getText());
+		    parser.compruebaComando(tFcomando.getText());
 		    tFcomando.setText("");
 		}
 	    }
@@ -939,7 +945,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	textArea_ciclista4.setText("");
 
 	textArea_ciclista5.setText("");
-	tFconsola.setText(commandManager.getInstruccion());
+	tFconsola.setText(parser.getInstruccion());
 	tFreloj.setText("");
 
     }

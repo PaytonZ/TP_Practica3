@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 
-import comandos.CommandManager;
+import comandos.Parser;
 import constantes.Constantes;
 
 import factoresExternos.Carretera;
@@ -22,7 +22,7 @@ public class Test {
     private Bicicleta bici;
     private Viento viento;
     private Carretera carretera;
-    private CommandManager parse;
+    private Parser parse;
     private int dientesporpinon[] = { 6, 5, 4, 3, 2, 1 };
     private int dientesporplato[] = { 2, 3, 4 };
     Ventana ventana;

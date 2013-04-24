@@ -18,7 +18,7 @@ public class ComandoViento implements InterfazCommand{
 	// TODO Auto-generated constructor stub
     }
     @Override
-    public boolean parse(String nombre) {
+    public InterfazCommand parse(String nombre) {
 	boolean iguales = false;
 	if (nombre.equalsIgnoreCase("viento")) {
 	    iguales = true;

@@ -8,7 +8,7 @@ package comandos;
  */
 public interface InterfazCommand {
 
-    public boolean parse(String nombre);
+    public InterfazCommand parse(String nombre);
 
     public void execute();
 
