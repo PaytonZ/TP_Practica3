@@ -63,7 +63,6 @@ public class Curva implements InterfaceEjecuta {
 	 * si la hora actual, esta en nuestro mapa de vientos, asignaremos el
 	 * viento a las bicicletas
 	 */
-
 	int i = 0;
 	int j = 0;
 	for (i = 0; i < vectorBicis.size(); i++) {
@@ -84,7 +83,9 @@ public class Curva implements InterfaceEjecuta {
 			&& espacio_recorrido < elemento.getKey()) {
 		    // si la velocidad es mayor que la de la curva, la reducimos
 		    if (vectorBicis.get(i).getVelocidad() > elemento.getValue())
+		    {
 			vectorBicis.get(i).setVelocidad(elemento.getValue());
+		    }
 		}
 	    }
 	}

@@ -46,7 +46,8 @@ public class CiclistaManager {
     SalidaDeDatosPorSwing output;
     private Vector<Ciclista> vectorCiclistas;
     private Vector<Bicicleta> vectorBicis;
-
+    Curva curva;
+    Viento viento;
     public static void main(String args[]) {
 
 	CiclistaManager manager = new CiclistaManager();
@@ -101,8 +102,8 @@ public class CiclistaManager {
 	vectorBicis.add(bici4);
 	vectorBicis.add(bici5);
 
-	Viento viento = new Viento(vectorBicis, reloj);
-	Curva curva = new Curva(vectorBicis);
+	viento = new Viento(vectorBicis, reloj);
+	curva = new Curva(vectorBicis);
 
 	vectorCiclistas.add(ciclista0);
 	vectorCiclistas.add(ciclista1);
@@ -181,6 +182,11 @@ public class CiclistaManager {
 
 	}
 	return ciclista_a_devolver;
+
+    }
+    public Curva getCurva() {
+	
+	return curva;
 
     }
 

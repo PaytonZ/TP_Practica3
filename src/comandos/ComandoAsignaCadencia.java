@@ -58,7 +58,7 @@ public class ComandoAsignaCadencia implements InterfazCommand {
     public String getInformacionInstruccion() {
 	// TODO Auto-generated method stub
 
-	return "cadencia aumentada en el ciclista "
+	return "cadencia cambiada en el ciclista "
 		+ ciclista.getIdentificador_ciclista() + "\ncadencia actual :"
 		+ ciclista.getCadencia();
     }

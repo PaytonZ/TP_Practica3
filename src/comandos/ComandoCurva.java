@@ -1,5 +1,7 @@
 package comandos;
 
+import java.util.StringTokenizer;
+
 import factoresExternos.Curva;
 import factoresExternos.Viento;
 import persona.Ciclista;
@@ -10,17 +12,29 @@ public class ComandoCurva implements InterfazCommand {
     double PK;
     double velMax;
     Curva curva;
-
-    public ComandoCurva(Curva micurva, double miPK, double velocidadMax) {
+    int identificador_ciclista;
+    Ciclista ciclista;
+    public ComandoCurva(double miPK, double velocidadMax) {
 	PK = miPK;
 	velMax = velocidadMax;
-	curva = micurva;
 	// TODO Auto-generated constructor stub
     }
 
     @Override
     public InterfazCommand parse(String nombre) {
-	return null;
+	StringTokenizer args  = new StringTokenizer (nombre,"\n\r ");
+	InterfazCommand c = null;
+	if (args.nextToken().equalsIgnoreCase("curva"))
+	{
+	    if (args.countTokens() == 2) {
+	    
+	        double PK = Double.valueOf(args.nextToken());
+	        double velMax = Double.valueOf(args.nextToken());
+	        
+	        c = new ComandoCurva(PK,velMax);
+	    } 
+	}
+	return c;
     }
 
     @Override
@@ -38,7 +52,8 @@ public class ComandoCurva implements InterfazCommand {
 
     @Override
     public void configurarContexto(CiclistaManager cm) {
-	// TODO Auto-generated method stub
+	
+	curva = cm.getCurva();
 
     }
 

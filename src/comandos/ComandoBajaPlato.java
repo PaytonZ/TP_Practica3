@@ -6,11 +6,12 @@ import persona.Ciclista;
 import principal.CiclistaManager;
 
 public class ComandoBajaPlato implements InterfazCommand {
-    Ciclista cic;
+    Ciclista ciclista;
     int identificador_ciclista;
+
     public ComandoBajaPlato(int nuevo_identificador_ciclista) {
+
 	identificador_ciclista = nuevo_identificador_ciclista;
-	// TODO Auto-generated constructor stub
     }
 
     @Override
@@ -25,8 +26,7 @@ public class ComandoBajaPlato implements InterfazCommand {
 		int numciclista = Integer.parseInt(comandosYatributos
 			.nextToken());
 
-		c = new ComandoBajaPlato(numciclista); 
-		
+		c = new ComandoBajaPlato(numciclista);
 	    }
 	}
 	return c;
@@ -35,13 +35,19 @@ public class ComandoBajaPlato implements InterfazCommand {
     @Override
     public void execute() {
 
-	cic.disminuyePlato();// TODO Auto-generated method stub
+	ciclista.disminuyePlato();
+
+    }
+
+    @Override
+    public void configurarContexto(CiclistaManager cm) {
+	ciclista = cm.getCiclista(identificador_ciclista);
 
     }
 
     @Override
     public String obtenerAyuda() {
-	return null;
+	return "bajaplato <num_ciclista>";
 	// TODO Auto-generated method stub
 
     }
@@ -49,14 +55,9 @@ public class ComandoBajaPlato implements InterfazCommand {
     @Override
     public String getInformacionInstruccion() {
 	// TODO Auto-generated method stub
-	return "plato bajado en el ciclista" + cic.getIdentificador_ciclista()
-		+ "\n plato actual :" + cic.getPlatoActualBici();
-    }
-
-    @Override
-    public void configurarContexto(CiclistaManager cm) {
-	// TODO Auto-generated method stub
-
+	return "plato bajado en el ciclista"
+		+ ciclista.getIdentificador_ciclista() + "\n plato actual :"
+		+ ciclista.getPlatoActualBici();
     }
 
 }

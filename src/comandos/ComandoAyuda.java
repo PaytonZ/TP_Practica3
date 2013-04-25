@@ -1,41 +1,60 @@
 package comandos;
 
+import java.util.StringTokenizer;
+
+import persona.Ciclista;
 import principal.CiclistaManager;
 
 public class ComandoAyuda implements InterfazCommand {
 
+    
+    Ciclista ciclista;
+    int identificador_ciclista;
+
+    public ComandoAyuda() {
+
+    }
+
     @Override
     public InterfazCommand parse(String nombre) {
-	return null;
 
+	InterfazCommand c = null;
+	StringTokenizer comandosYatributos = new StringTokenizer(nombre,
+		"\n\r ");
+	if (comandosYatributos.nextToken().equalsIgnoreCase("ayuda")) {
+	  
+
+		c = new ComandoAyuda();
+	    
+	}
+	return c;
     }
 
     @Override
     public void execute() {
-	// TODO Auto-generated method stub
-	// System.out.print("asdf");
-    }
 
-    @Override
-    public String getInformacionInstruccion() {
-
-	return "asignacadencia <num_ciclista> <cadencia> \n "
-		+ "bajapinon <num_ciclista> \n" + "bajaplato <num_ciclista> \n"
-		+ "subeplato <num_ciclista> \n" + "subepinon <num_ciclista> \n"
-		+ "frenar <num_ciclista> <cantidad> <tiempo>";
 
     }
 
     @Override
     public void configurarContexto(CiclistaManager cm) {
-	// TODO Auto-generated method stub
+	
 
     }
 
     @Override
     public String obtenerAyuda() {
+	return "";
 	// TODO Auto-generated method stub
-	return null;
+
+    }
+
+    @Override
+    public String getInformacionInstruccion() {
+	return "asignacadencia <num_ciclista> <cadencia> \n "
+		+ "bajapinon <num_ciclista> \n" + "bajaplato <num_ciclista> \n"
+		+ "subeplato <num_ciclista> \n" + "subepinon <num_ciclista> \n"
+		+ "frenar <num_ciclista> <cantidad> <tiempo>";
     }
 
 }

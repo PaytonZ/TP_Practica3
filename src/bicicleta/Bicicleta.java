@@ -45,6 +45,7 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
     private Carretera carretera;
     double velocidad_anterior;
     double aceleracion;
+    double freno;
 
     public Bicicleta(int numeropinones, int numeroplatos, double radiorueda,
 	    int midientepinon[], int midienteplato[], double radio, double masa) {
@@ -201,7 +202,7 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 	calculaEspacioPorCadaPedalada();
 	calculaVelocidadActual();
 	calculaAceleracion();
-	espaciorecorrido = espaciorecorrido + velocidad;
+	espaciorecorrido = espaciorecorrido + velocidad ;
     }
 
     public void calculaAceleracion() {
@@ -471,6 +472,9 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 
     public void setVelocidad(double vel) {
 	velocidad = vel;
+    }
+    public void setFreno(double fre) {
+	freno = fre;
     }
 
 }
