@@ -25,7 +25,8 @@ public class ComandoBajaPlato implements InterfazCommand {
 		int numciclista = Integer.parseInt(comandosYatributos
 			.nextToken());
 
-		c = new ComandoBajaPlato(numciclista);
+		c = new ComandoBajaPlato(numciclista); 
+		
 	    }
 	}
 	return c;
