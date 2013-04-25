@@ -65,12 +65,9 @@ public class ComandoAsignaCadencia implements InterfazCommand {
 		c = new ComandoAsignaCadencia(nueva_cadencia, numciclista);
 	    }
 	}
-	
 
-	return c; 
+	return c;
 
     }
 
-   
-  
 }

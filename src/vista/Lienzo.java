@@ -45,7 +45,7 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	contentPane = new JPanel();
 	contentPane.setLayout(null);
 	contentPane.setAutoscrolls(true);
-	setBounds(0, 0, Constantes.ANCHO_VENTANA, Constantes.ALTO_VENTANA/2);
+	setBounds(0, 0, Constantes.ANCHO_VENTANA, Constantes.ALTO_VENTANA / 2);
 	entrada = new EntradaFichero();
 	matriz = entrada.convertirAArrayFichero("carretera.txt", ":;");
     }
@@ -55,7 +55,7 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	super.paint(g);
 
 	int x = 0;
-	int y = Constantes.ALTO_VENTANA/4;
+	int y = Constantes.ALTO_VENTANA / 4;
 
 	int i = 0;
 	while (x < matriz[matriz.length - 3] / FACTORESCALA) {
@@ -67,17 +67,15 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	}
 	g.drawLine((int) x, y, (int) matriz[matriz.length - 1] / FACTORESCALA,
 		y - (int) matriz[matriz.length - 2]);
-	
-	//aqui se pondra la informacion del ciclista para que se vaya pintando, 
-	//ahora solo se pinta un punto en pantalla
-	for(i = 0;i< cic.size();i++)
-	{
-	    g.drawLine((int) cic.elementAt(i).getBici().getEspacioRecorrido(), 20, (int) cic.elementAt(i).getBici().getEspacioRecorrido(),
-			20 );
+
+	// aqui se pondra la informacion del ciclista para que se vaya pintando,
+	// ahora solo se pinta un punto en pantalla
+	for (i = 0; i < cic.size(); i++) {
+	    g.drawLine((int) cic.elementAt(i).getBici().getEspacioRecorrido(),
+		    20, (int) cic.elementAt(i).getBici().getEspacioRecorrido(),
+		    20);
 	}
     }
-
-   
 
     @Override
     public void ejecuta() {

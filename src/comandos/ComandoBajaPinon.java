@@ -8,35 +8,34 @@ import principal.CiclistaManager;
 public class ComandoBajaPinon implements InterfazCommand {
     Ciclista ciclista;
     int identificador_ciclista;
-    
+
     public ComandoBajaPinon(int nuevo_identificador_ciclista) {
-	
-	identificador_ciclista=nuevo_identificador_ciclista;
+
+	identificador_ciclista = nuevo_identificador_ciclista;
     }
 
     @Override
     public InterfazCommand parse(String nombre) {
-	
+
 	InterfazCommand c = null;
 	StringTokenizer comandosYatributos = new StringTokenizer(nombre,
 		"\n\r ");
 	if (comandosYatributos.nextToken().equalsIgnoreCase("bajapinon")) {
-	if (comandosYatributos.countTokens() == 1) {
-	    
-	    
-	     int numciclista = Integer.parseInt(comandosYatributos.nextToken());
-	     
-	     c = new ComandoBajaPinon(numciclista);
+	    if (comandosYatributos.countTokens() == 1) {
+
+		int numciclista = Integer.parseInt(comandosYatributos
+			.nextToken());
+
+		c = new ComandoBajaPinon(numciclista);
+	    }
 	}
-    }
 	return c;
-   }
+    }
 
     @Override
     public void execute() {
 
 	ciclista.disminuyePinon();
-	
 
     }
 
@@ -56,8 +55,9 @@ public class ComandoBajaPinon implements InterfazCommand {
     @Override
     public String getInformacionInstruccion() {
 	// TODO Auto-generated method stub
-	return "pinon bajado en el ciclista" + ciclista.getIdentificador_ciclista()
-		+ "\n pinon actual :" + ciclista.getPinonActualBici();
+	return "pinon bajado en el ciclista"
+		+ ciclista.getIdentificador_ciclista() + "\n pinon actual :"
+		+ ciclista.getPinonActualBici();
     }
 
 }

@@ -18,7 +18,7 @@ public class ComandoFrenar implements InterfazCommand {
     @Override
     public InterfazCommand parse(String nombre) {
 	return null;
-	
+
     }
 
     @Override
@@ -26,15 +26,10 @@ public class ComandoFrenar implements InterfazCommand {
 
 	cic.frenar(valor, tiempo);
 
-
-
     }
-
-   
 
     @Override
     public String getInformacionInstruccion() {
-	
 
 	return "freno aplicado en ciclista" + cic.getIdentificador_ciclista();
     }
@@ -42,7 +37,7 @@ public class ComandoFrenar implements InterfazCommand {
     @Override
     public void configurarContexto(CiclistaManager cm) {
 	// TODO Auto-generated method stub
-	
+
     }
 
     @Override
@@ -51,5 +46,4 @@ public class ComandoFrenar implements InterfazCommand {
 	return null;
     }
 
-   
 }

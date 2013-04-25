@@ -288,15 +288,15 @@ public class Parser {
 	lista_de_comandos = new ArrayList<InterfazCommand>();
 
 	lista_de_comandos.add(new ComandoAsignaCadencia(0, 0));
-//	lista_de_comandos.add(new ComandoAyuda());
+	// lista_de_comandos.add(new ComandoAyuda());
 	lista_de_comandos.add(new ComandoBajaPinon(0));
-//	lista_de_comandos.add(new ComandoBajaPlato(null));
-//	lista_de_comandos.add(new ComandoDesconocido());
-//	lista_de_comandos.add(new ComandoFrenar(null, 0, 0));
-//	lista_de_comandos.add(new ComandoIncompleto());
+	// lista_de_comandos.add(new ComandoBajaPlato(null));
+	// lista_de_comandos.add(new ComandoDesconocido());
+	// lista_de_comandos.add(new ComandoFrenar(null, 0, 0));
+	// lista_de_comandos.add(new ComandoIncompleto());
 	lista_de_comandos.add(new ComandoNinguno());
-//	lista_de_comandos.add(new ComandoSubePinon(null));
-//	lista_de_comandos.add(new ComandoSubePlato(null));
+	// lista_de_comandos.add(new ComandoSubePinon(null));
+	// lista_de_comandos.add(new ComandoSubePlato(null));
 
     }
 

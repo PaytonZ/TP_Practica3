@@ -11,12 +11,9 @@ public class ComandoIncompleto implements InterfazCommand {
     @Override
     public InterfazCommand parse(String nombre) {
 	return null;
-	
+
     }
 
-  
-
-  
     public String getInformacionInstruccion() {
 	// TODO Auto-generated method stub
 	return "comando incompleto";
@@ -25,13 +22,13 @@ public class ComandoIncompleto implements InterfazCommand {
     @Override
     public void execute() {
 	// TODO Auto-generated method stub
-	
+
     }
 
     @Override
     public void configurarContexto(CiclistaManager cm) {
 	// TODO Auto-generated method stub
-	
+
     }
 
     @Override
@@ -40,5 +37,4 @@ public class ComandoIncompleto implements InterfazCommand {
 	return null;
     }
 
-   
 }

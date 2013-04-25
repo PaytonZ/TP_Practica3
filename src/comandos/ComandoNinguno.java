@@ -15,13 +15,13 @@ public class ComandoNinguno implements InterfazCommand {
     @Override
     public void execute() {
 	// TODO Auto-generated method stub
-	
+
     }
 
     @Override
     public void configurarContexto(CiclistaManager cm) {
 	// TODO Auto-generated method stub
-	
+
     }
 
     @Override
@@ -35,7 +35,5 @@ public class ComandoNinguno implements InterfazCommand {
 	// TODO Auto-generated method stub
 	return null;
     }
-    
+
 }
-    
-    

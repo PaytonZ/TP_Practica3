@@ -29,8 +29,6 @@ public class ComandoCurva implements InterfazCommand {
 
     }
 
- 
-
     @Override
     public String getInformacionInstruccion() {
 	return "curva añadida en el metro " + PK
@@ -41,7 +39,7 @@ public class ComandoCurva implements InterfazCommand {
     @Override
     public void configurarContexto(CiclistaManager cm) {
 	// TODO Auto-generated method stub
-	
+
     }
 
     @Override
@@ -49,7 +47,5 @@ public class ComandoCurva implements InterfazCommand {
 	// TODO Auto-generated method stub
 	return null;
     }
-
-  
 
 }

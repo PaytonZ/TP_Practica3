@@ -7,7 +7,7 @@ public class ComandoAyuda implements InterfazCommand {
     @Override
     public InterfazCommand parse(String nombre) {
 	return null;
-	
+
     }
 
     @Override
@@ -15,8 +15,6 @@ public class ComandoAyuda implements InterfazCommand {
 	// TODO Auto-generated method stub
 	// System.out.print("asdf");
     }
-
-
 
     @Override
     public String getInformacionInstruccion() {
@@ -31,7 +29,7 @@ public class ComandoAyuda implements InterfazCommand {
     @Override
     public void configurarContexto(CiclistaManager cm) {
 	// TODO Auto-generated method stub
-	
+
     }
 
     @Override
@@ -39,7 +37,5 @@ public class ComandoAyuda implements InterfazCommand {
 	// TODO Auto-generated method stub
 	return null;
     }
-
-
 
 }

@@ -24,7 +24,6 @@ public class ComandoSubePinon implements InterfazCommand {
 
     }
 
-
     @Override
     public String getInformacionInstruccion() {
 	// TODO Auto-generated method stub
@@ -39,7 +38,7 @@ public class ComandoSubePinon implements InterfazCommand {
     @Override
     public void configurarContexto(CiclistaManager cm) {
 	// TODO Auto-generated method stub
-	
+
     }
 
     @Override

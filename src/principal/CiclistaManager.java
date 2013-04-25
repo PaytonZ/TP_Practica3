@@ -94,7 +94,6 @@ public class CiclistaManager {
 	Ciclista ciclista4 = new Ciclista(bici4, 4);
 	Ciclista ciclista5 = new Ciclista(bici5, 5);
 
-
 	vectorBicis.add(bici0);
 	vectorBicis.add(bici1);
 	vectorBicis.add(bici2);
@@ -114,7 +113,7 @@ public class CiclistaManager {
 
 	comandero = new Comandero(this, new Parser());
 	Lienzo lienzo = new Lienzo(vectorCiclistas);
-	Ventana ventana = new Ventana(comandero,lienzo);
+	Ventana ventana = new Ventana(comandero, lienzo);
 
 	listaejecuta.add(reloj);
 	listaejecuta.add(ciclista0);

@@ -13,7 +13,7 @@ public class ComandoBajaPlato implements InterfazCommand {
 
     @Override
     public InterfazCommand parse(String nombre) {
-	
+
 	return null;
     }
 
@@ -24,7 +24,6 @@ public class ComandoBajaPlato implements InterfazCommand {
 
     }
 
-   
     @Override
     public String obtenerAyuda() {
 	return null;
@@ -42,8 +41,7 @@ public class ComandoBajaPlato implements InterfazCommand {
     @Override
     public void configurarContexto(CiclistaManager cm) {
 	// TODO Auto-generated method stub
-	
+
     }
 
-    
 }

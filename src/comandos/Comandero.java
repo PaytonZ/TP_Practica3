@@ -10,24 +10,24 @@ import principal.CiclistaManager;
 import vista.SalidaDeDatosPorSwing;
 
 import entradaDeDatos.*;
+
 /**
  * 
- * Esta clase es la encargada la gestion de los comandos. 
- * Recibe un string por mensaje , utiliza la clase parser para identificar cual es el adecuado y 
- * lo añade a una cola FIFO para que se ejecute uno cada vez.
+ * Esta clase es la encargada la gestion de los comandos. Recibe un string por
+ * mensaje , utiliza la clase parser para identificar cual es el adecuado y lo
+ * añade a una cola FIFO para que se ejecute uno cada vez.
  * 
  * @author Juan Carlos Marco
  * @author Juan Luis Perez
  * @author Emilio Alvarez Pinerio
  * 
  */
-public class Comandero implements InterfaceEjecuta , InterfaceSalida{
+public class Comandero implements InterfaceEjecuta, InterfaceSalida {
 
     CiclistaManager cm;
     Queue<InterfazCommand> cola_de_comandos;
     Parser parser;
     String salida_de_datos;
-  
 
     public Comandero(CiclistaManager nuevo_cm, Parser nuevo_parser) {
 	cm = nuevo_cm;
@@ -44,7 +44,8 @@ public class Comandero implements InterfaceEjecuta , InterfaceSalida{
 		    .poll();
 	    siguiente_comando_a_ejecutar.configurarContexto(cm);
 	    siguiente_comando_a_ejecutar.execute();
-	    salida_de_datos= siguiente_comando_a_ejecutar.getInformacionInstruccion();
+	    salida_de_datos = siguiente_comando_a_ejecutar
+		    .getInformacionInstruccion();
 	}
     }
 
@@ -53,19 +54,19 @@ public class Comandero implements InterfaceEjecuta , InterfaceSalida{
 	if (c != null) {
 	    cola_de_comandos.add(c);
 	}
-	
+
     }
 
     @Override
     public String muestra() {
-	String salida ="";
-	if (salida_de_datos != null) { 
-	    salida= salida_de_datos;
-	    salida_de_datos="";
-	    
-	     } 
-	
-	return "consola" +"%"+ salida + "#" + ",";
+	String salida = "";
+	if (salida_de_datos != null) {
+	    salida = salida_de_datos;
+	    salida_de_datos = "";
+
+	}
+
+	return "consola" + "%" + salida + "#" + ",";
     }
 
 }

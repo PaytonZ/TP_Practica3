@@ -23,8 +23,6 @@ public class ComandoSubePlato implements InterfazCommand {
 	cic.aumentaPlato();
     }
 
-
-
     @Override
     public String getInformacionInstruccion() {
 	// TODO Auto-generated method stub
@@ -39,7 +37,7 @@ public class ComandoSubePlato implements InterfazCommand {
     @Override
     public void configurarContexto(CiclistaManager cm) {
 	// TODO Auto-generated method stub
-	
+
     }
 
     @Override

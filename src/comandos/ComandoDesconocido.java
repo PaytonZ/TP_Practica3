@@ -21,8 +21,6 @@ public class ComandoDesconocido implements InterfazCommand {
 
     }
 
- 
-
     @Override
     public String getInformacionInstruccion() {
 	// TODO Auto-generated method stub
@@ -32,7 +30,7 @@ public class ComandoDesconocido implements InterfazCommand {
     @Override
     public void configurarContexto(CiclistaManager cm) {
 	// TODO Auto-generated method stub
-	
+
     }
 
     @Override
@@ -41,5 +39,4 @@ public class ComandoDesconocido implements InterfazCommand {
 	return null;
     }
 
-   
 }

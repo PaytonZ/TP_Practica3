@@ -50,7 +50,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     private JScrollPane sbrText;
     Lienzo lienzo;
 
-    public Ventana(Comandero nuevo_comandero,Lienzo lien) {
+    public Ventana(Comandero nuevo_comandero, Lienzo lien) {
 
 	comandero = nuevo_comandero;
 	lienzo = lien;
@@ -61,34 +61,31 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
      * este metodo,crea y coloca los componentes de la interfaz grafica.
      */
     private void init() {
-	
-	
-	
-	
-	
+
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setBounds(0, 0, Constantes.ANCHO_VENTANA, Constantes.ALTO_VENTANA);
-	
+
 	contentPrincipal = new JPanel();
 	contentPrincipal.setBorder(new EmptyBorder(0, 0, 0, 0));
 	setContentPane(contentPrincipal);
 	contentPrincipal.setLayout(null);
-	
+
 	contentPane = new JPanel();
-	contentPane.setBounds(0, 0, Constantes.ANCHO_VENTANA, Constantes.ALTO_VENTANA/2);
+	contentPane.setBounds(0, 0, Constantes.ANCHO_VENTANA,
+		Constantes.ALTO_VENTANA / 2);
 	contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 	contentPrincipal.add(contentPane);
 	contentPane.setLayout(null);
-	
-	
+
 	contentLienzo = new JPanel();
-	contentLienzo.setBounds(0, contentPane.getHeight(), Constantes.ANCHO_VENTANA,Constantes.ALTO_VENTANA/2);
-	
+	contentLienzo.setBounds(0, contentPane.getHeight(),
+		Constantes.ANCHO_VENTANA, Constantes.ALTO_VENTANA / 2);
+
 	contentPrincipal.add(contentLienzo);
 	contentLienzo.setLayout(null);
 
 	contentLienzo.add(lienzo);
-	
+
 	JLabel lblCiclista0 = new JLabel("Ciclista0");
 	lblCiclista0.setBounds(Constantes.X_INICIAL, Constantes.Y_INICIAL,
 		Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
@@ -913,15 +910,12 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	tFconsola.setBounds(lblConsola.getX(),
 		lblConsola.getY() + lblConsola.getHeight(),
 		Constantes.ANCHO_TEXTBOX, Constantes.ALTO_TEXTBOX);
-	
-	
+
 	tFconsola.setLineWrap(true);
 	sbrText = new JScrollPane(tFconsola);
 	sbrText.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 	contentPane.add(sbrText);
 	this.setVisible(true);
-	
-	
 
     }
 
@@ -963,8 +957,8 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	    tFreloj.setText(mensaje);
 	    break;
 	case "consola":
-//	    if(mensaje!="") mensaje+="\n";
-	    tFconsola.setText(tFconsola.getText().toString() + mensaje );
+	    // if(mensaje!="") mensaje+="\n";
+	    tFconsola.setText(tFconsola.getText().toString() + mensaje);
 	    break;
 
 	}
@@ -987,7 +981,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	textArea_ciclista4.setText("");
 
 	textArea_ciclista5.setText("");
-//	tFconsola.setText("");
+	// tFconsola.setText("");
 	tFreloj.setText("");
 
     }

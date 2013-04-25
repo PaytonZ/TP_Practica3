@@ -32,10 +32,10 @@ public final class Constantes {
     public static final int ALTO_BOTON = 25;
     public static final int ANCHO_TEXTBOX = 275;
     public static final int ALTO_TEXTBOX = ALTO_BOTON * 4;
-    
+
     public static final int ANCHO_VENTANA = 1366;
     public static final int ALTO_VENTANA = 768;
-    
+
     public static final String CADENCIA_MENOS = "Caden-";
     public static final String CADENCIA_MAS = "Caden+";
     public static final String PINON_MAS = "Pin+";

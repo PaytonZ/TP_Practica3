@@ -32,7 +32,6 @@ public class ComandoViento implements InterfazCommand {
 
     }
 
-   
     @Override
     public String getInformacionInstruccion() {
 	return "Aviso de viento " + tipoViento + " con velocidad\n" + velocidad
@@ -43,7 +42,7 @@ public class ComandoViento implements InterfazCommand {
     @Override
     public void configurarContexto(CiclistaManager cm) {
 	// TODO Auto-generated method stub
-	
+
     }
 
     @Override
@@ -52,5 +51,4 @@ public class ComandoViento implements InterfazCommand {
 	return null;
     }
 
- 
 }
