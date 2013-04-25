@@ -56,7 +56,7 @@ public class CiclistaManager {
 
     }
 
-    public void inicia() {
+    private void inicia() {
 	listaejecuta = new ArrayList<InterfaceEjecuta>();
 	listasalida = new ArrayList<InterfaceSalida>();
 	vectorCiclistas = new Vector<Ciclista>();
@@ -137,12 +137,13 @@ public class CiclistaManager {
 	listasalida.add(ciclista3);
 	listasalida.add(ciclista4);
 	listasalida.add(ciclista5);
+	listasalida.add(comandero);
 
 	output = new SalidaDeDatosPorSwing(ventana, listasalida);
 
     }
 
-    public void ejecuta() {
+    private void ejecuta() {
 	int contador = 0; // Contara los segundos de ejecucion del programa
 	int limite = 300; // Se establecera el limite en SEGUNDOS de la
 			  // ejecucion
@@ -165,7 +166,7 @@ public class CiclistaManager {
 	}
     }
 
-    public void finaliza() {
+    private void finaliza() {
 
     }
 

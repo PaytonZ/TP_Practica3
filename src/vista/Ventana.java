@@ -42,6 +42,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     private JLabel lblComandos;
     private JLabel lblTiempo;
     private JLabel lblconsola;
+    private JScrollPane sbrText;
 
     public Ventana(Comandero nuevo_comandero) {
 
@@ -54,7 +55,11 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
      * este metodo,crea y coloca los componentes de la interfaz grafica.
      */
     private void init() {
-
+	
+	
+	
+	
+	
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setBounds(0, 0, 1366, 768);
 	contentPane = new JPanel();
@@ -886,8 +891,15 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	tFconsola.setBounds(lblConsola.getX(),
 		lblConsola.getY() + lblConsola.getHeight(),
 		Constantes.ANCHO_TEXTBOX, Constantes.ALTO_TEXTBOX);
-	contentPane.add(tFconsola);
+	
+	
+	tFconsola.setLineWrap(true);
+	sbrText = new JScrollPane(tFconsola);
+	sbrText.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+	contentPane.add(sbrText);
 	this.setVisible(true);
+	
+	
 
     }
 
@@ -929,7 +941,8 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	    tFreloj.setText(mensaje);
 	    break;
 	case "consola":
-	    tFconsola.setText(mensaje);
+//	    if(mensaje!="") mensaje+="\n";
+	    tFconsola.setText(tFconsola.getText().toString() + mensaje );
 	    break;
 
 	}
@@ -952,7 +965,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	textArea_ciclista4.setText("");
 
 	textArea_ciclista5.setText("");
-	tFconsola.setText("");
+//	tFconsola.setText("");
 	tFreloj.setText("");
 
     }

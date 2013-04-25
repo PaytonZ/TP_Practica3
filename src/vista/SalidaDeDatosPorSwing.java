@@ -246,10 +246,16 @@ public class SalidaDeDatosPorSwing {
 
 		caractermensaje++;
 	    }
-
 	    break;
 	}
+	default: mensajefinal =   mensajefinal.append(mensaje.substring(0, posicionempiezaformato)); 
+	break;
+	 
+
+	
+	
 	}
+
 	miventana.ponTextoEnTextArea(id, mensajefinal.toString());
 	// System.out.println(mensajefinal.toString());
     }
@@ -258,6 +264,10 @@ public class SalidaDeDatosPorSwing {
      * este metodo hace un for each del arraylist dela propia clase y ejecuta el
      * metodo muestra de los objetos que contiene
      */
+ 
+/*  Formatos admitidos :  ciclistaX , reloj , consola	*/
+   
+    
     public void mostrarObjetos() {
 	String salida;
 	String[] aux, mensaje_final;
@@ -266,6 +276,8 @@ public class SalidaDeDatosPorSwing {
 	for (InterfaceSalida listaobjetos : lista_salida) {
 
 	    salida = listaobjetos.muestra();
+	   
+	    
 	    aux = salida.split("%");
 	    id = aux[0];
 	    mensaje_final = aux[1].split(",");

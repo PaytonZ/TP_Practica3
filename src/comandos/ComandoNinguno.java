@@ -1,46 +1,41 @@
 package comandos;
 
+import principal.CiclistaManager;
+
 public class ComandoNinguno implements InterfazCommand {
     public ComandoNinguno() {
-	// System.out.println("hola");
     }
 
     @Override
-    public boolean parse(String nombre) {
-	boolean iguales = false;
-	if (nombre.equalsIgnoreCase("ninguno")) {
-	    iguales = true;
-	}
-	return iguales;
+    public InterfazCommand parse(String nombre) {
+	// TODO Auto-generated method stub
+	return null;
     }
 
     @Override
     public void execute() {
-
 	// TODO Auto-generated method stub
-
+	
     }
 
     @Override
-    public void configurarContexto() {
+    public void configurarContexto(CiclistaManager cm) {
 	// TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void obtenerAyuda() {
-	// TODO Auto-generated method stub
-
+	
     }
 
     @Override
     public String getInformacionInstruccion() {
 	// TODO Auto-generated method stub
-	// System.out.print("hola");
-	return "";
+	return null;
     }
 
-    public String getNombreComando() {
-	return "ninguno";
+    @Override
+    public String obtenerAyuda() {
+	// TODO Auto-generated method stub
+	return null;
     }
+    
 }
+    
+    

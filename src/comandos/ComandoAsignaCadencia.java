@@ -50,6 +50,7 @@ public class ComandoAsignaCadencia implements InterfazCommand {
     @Override
     public InterfazCommand parse(String nombre) {
 
+	InterfazCommand c = null;
 	StringTokenizer comandosYatributos = new StringTokenizer(nombre,
 		"\n\r ");
 	int numciclista = -1;
@@ -61,20 +62,15 @@ public class ComandoAsignaCadencia implements InterfazCommand {
 		// String auxpar1 = comandosYatributos.nextToken();
 		nueva_cadencia = Integer.parseInt(comandosYatributos
 			.nextToken());
-
+		c = new ComandoAsignaCadencia(nueva_cadencia, numciclista);
 	    }
 	}
+	
 
-	return new ComandoAsignaCadencia(nueva_cadencia, numciclista);
+	return c; 
 
     }
 
-    public int getIdentificador_ciclista() {
-        return identificador_ciclista;
-    }
-
-    public void setIdentificador_ciclista(int identificador_ciclista) {
-        this.identificador_ciclista = identificador_ciclista;
-    }
-
+   
+  
 }
