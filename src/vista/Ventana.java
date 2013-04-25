@@ -72,23 +72,20 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	contentPrincipal.setLayout(null);
 	
 	contentPane = new JPanel();
-	contentPane.setBounds(0, 0, Constantes.ANCHO_VENTANA, 400);
+	contentPane.setBounds(0, 0, Constantes.ANCHO_VENTANA, Constantes.ALTO_VENTANA/2);
 	contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 	contentPrincipal.add(contentPane);
 	contentPane.setLayout(null);
 	
 	
 	contentLienzo = new JPanel();
-	contentLienzo.setBounds(0, 400, Constantes.ANCHO_VENTANA, 400);
-	contentLienzo.setBorder(new EmptyBorder(0, 0, 0, 0));
+	contentLienzo.setBounds(0, contentPane.getHeight(), Constantes.ANCHO_VENTANA,Constantes.ALTO_VENTANA/2);
+	
 	contentPrincipal.add(contentLienzo);
 	contentLienzo.setLayout(null);
-	
+	Lienzo lienzo = new Lienzo();
 
-	JLabel lblMapa = new JLabel("Mapa");
-	lblMapa.setBounds(Constantes.ANCHO_VENTANA/2, 0,
-		Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-	contentLienzo.add(lblMapa);
+	contentLienzo.add(lienzo);
 	
 	JLabel lblCiclista0 = new JLabel("Ciclista0");
 	lblCiclista0.setBounds(Constantes.X_INICIAL, Constantes.Y_INICIAL,

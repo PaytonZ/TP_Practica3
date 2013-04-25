@@ -3,6 +3,7 @@ package vista;
 import interfaceMain.InterfaceEjecuta;
 
 import java.awt.BorderLayout;
+import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Graphics;
@@ -10,6 +11,8 @@ import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import constantes.Constantes;
 
 import entradaDeDatos.EntradaFichero;
 
@@ -23,7 +26,7 @@ import entradaDeDatos.EntradaFichero;
  * 
  */
 
-public class Lienzo extends JFrame implements InterfaceEjecuta {
+public class Lienzo extends Canvas implements InterfaceEjecuta {
 
     private static final long serialVersionUID = 1L;
     final int FACTORESCALA;
@@ -34,14 +37,11 @@ public class Lienzo extends JFrame implements InterfaceEjecuta {
 
     public Lienzo() {
 	FACTORESCALA = 10;
-	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	setBounds(100, 100, 450, 300);
+
 	contentPane = new JPanel();
-	contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-	setContentPane(contentPane);
 	contentPane.setLayout(null);
 	contentPane.setAutoscrolls(true);
-	setBounds(0, 0, 1300, 600);
+	setBounds(0, 0, Constantes.ANCHO_VENTANA, Constantes.ALTO_VENTANA/2);
 	entrada = new EntradaFichero();
 	matriz = entrada.convertirAArrayFichero("carretera.txt", ":;");
     }
@@ -50,8 +50,8 @@ public class Lienzo extends JFrame implements InterfaceEjecuta {
     public void paint(Graphics g) {
 	super.paint(g);
 
-	int x = 10;
-	int y = 400;
+	int x = 0;
+	int y = Constantes.ALTO_VENTANA/4;
 
 	int i = 0;
 	while (x < matriz[matriz.length - 3] / FACTORESCALA) {
