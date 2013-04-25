@@ -29,6 +29,8 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     private static final long serialVersionUID = -8170475180669923771L;
 
     private JPanel contentPane;
+    private JPanel contentPrincipal;
+    private JPanel contentLienzo;
     private JTextField tFreloj;
     private JTextField tFcomando;
     private JTextArea tFconsola;
@@ -43,6 +45,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     private JLabel lblTiempo;
     private JLabel lblconsola;
     private JScrollPane sbrText;
+  
 
     public Ventana(Comandero nuevo_comandero) {
 
@@ -61,12 +64,32 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	
 	
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	setBounds(0, 0, 1366, 768);
+	setBounds(0, 0, Constantes.ANCHO_VENTANA, Constantes.ALTO_VENTANA);
+	
+	contentPrincipal = new JPanel();
+	contentPrincipal.setBorder(new EmptyBorder(0, 0, 0, 0));
+	setContentPane(contentPrincipal);
+	contentPrincipal.setLayout(null);
+	
 	contentPane = new JPanel();
+	contentPane.setBounds(0, 0, Constantes.ANCHO_VENTANA, 400);
 	contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
-	setContentPane(contentPane);
+	contentPrincipal.add(contentPane);
 	contentPane.setLayout(null);
+	
+	
+	contentLienzo = new JPanel();
+	contentLienzo.setBounds(0, 400, Constantes.ANCHO_VENTANA, 400);
+	contentLienzo.setBorder(new EmptyBorder(0, 0, 0, 0));
+	contentPrincipal.add(contentLienzo);
+	contentLienzo.setLayout(null);
+	
 
+	JLabel lblMapa = new JLabel("Mapa");
+	lblMapa.setBounds(Constantes.ANCHO_VENTANA/2, 0,
+		Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
+	contentLienzo.add(lblMapa);
+	
 	JLabel lblCiclista0 = new JLabel("Ciclista0");
 	lblCiclista0.setBounds(Constantes.X_INICIAL, Constantes.Y_INICIAL,
 		Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
