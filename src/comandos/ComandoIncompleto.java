@@ -1,5 +1,7 @@
 package comandos;
 
+import principal.CiclistaManager;
+
 public class ComandoIncompleto implements InterfazCommand {
 
     public ComandoIncompleto() {
@@ -7,40 +9,36 @@ public class ComandoIncompleto implements InterfazCommand {
     }
 
     @Override
-    public boolean parse(String nombre) {
-	boolean iguales = false;
-	if (nombre.equalsIgnoreCase("incompleto")) {
-	    iguales = true;
-	}
-	return iguales;
+    public InterfazCommand parse(String nombre) {
+	return null;
+	
     }
 
-    @Override
-    public void execute() {
-	// System.out.println("DESCONOCIDO");
-	// TODO Auto-generated method stub
+  
 
-    }
-
-    @Override
-    public void configurarContexto() {
-	// TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void obtenerAyuda() {
-	// TODO Auto-generated method stub
-
-    }
-
-    @Override
+  
     public String getInformacionInstruccion() {
 	// TODO Auto-generated method stub
 	return "comando incompleto";
     }
 
-    public String getNombreComando() {
-	return "incompleto";
+    @Override
+    public void execute() {
+	// TODO Auto-generated method stub
+	
     }
+
+    @Override
+    public void configurarContexto(CiclistaManager cm) {
+	// TODO Auto-generated method stub
+	
+    }
+
+    @Override
+    public String obtenerAyuda() {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+   
 }

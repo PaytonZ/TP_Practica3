@@ -1,14 +1,13 @@
 package comandos;
 
+import principal.CiclistaManager;
+
 public class ComandoAyuda implements InterfazCommand {
 
     @Override
-    public boolean parse(String nombre) {
-	boolean iguales = false;
-	if (nombre.equalsIgnoreCase("ayuda")) {
-	    iguales = true;
-	}
-	return iguales;
+    public InterfazCommand parse(String nombre) {
+	return null;
+	
     }
 
     @Override
@@ -17,11 +16,7 @@ public class ComandoAyuda implements InterfazCommand {
 	// System.out.print("asdf");
     }
 
-    @Override
-    public void configurarContexto() {
-	// TODO Auto-generated method stub
 
-    }
 
     @Override
     public String getInformacionInstruccion() {
@@ -34,9 +29,17 @@ public class ComandoAyuda implements InterfazCommand {
     }
 
     @Override
-    public void obtenerAyuda() {
+    public void configurarContexto(CiclistaManager cm) {
 	// TODO Auto-generated method stub
-
+	
     }
+
+    @Override
+    public String obtenerAyuda() {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+
 
 }

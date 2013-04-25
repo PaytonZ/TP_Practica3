@@ -1,6 +1,7 @@
 package comandos;
 
 import persona.Ciclista;
+import principal.CiclistaManager;
 
 public class ComandoSubePlato implements InterfazCommand {
     Ciclista cic;
@@ -11,12 +12,8 @@ public class ComandoSubePlato implements InterfazCommand {
     }
 
     @Override
-    public boolean parse(String nombre) {
-	boolean iguales = false;
-	if (nombre.equalsIgnoreCase("subeplato")) {
-	    iguales = true;
-	}
-	return iguales;
+    public InterfazCommand parse(String nombre) {
+	return null;
     }
 
     @Override
@@ -26,17 +23,7 @@ public class ComandoSubePlato implements InterfazCommand {
 	cic.aumentaPlato();
     }
 
-    @Override
-    public void configurarContexto() {
-	// TODO Auto-generated method stub
 
-    }
-
-    @Override
-    public void obtenerAyuda() {
-	// TODO Auto-generated method stub
-
-    }
 
     @Override
     public String getInformacionInstruccion() {
@@ -47,5 +34,17 @@ public class ComandoSubePlato implements InterfazCommand {
 
     public String getNombreComando() {
 	return "subeplato";
+    }
+
+    @Override
+    public void configurarContexto(CiclistaManager cm) {
+	// TODO Auto-generated method stub
+	
+    }
+
+    @Override
+    public String obtenerAyuda() {
+	// TODO Auto-generated method stub
+	return null;
     }
 }

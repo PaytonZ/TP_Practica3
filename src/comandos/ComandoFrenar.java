@@ -1,6 +1,7 @@
 package comandos;
 
 import persona.Ciclista;
+import principal.CiclistaManager;
 
 public class ComandoFrenar implements InterfazCommand {
     Ciclista cic;
@@ -15,12 +16,9 @@ public class ComandoFrenar implements InterfazCommand {
     }
 
     @Override
-    public boolean parse(String nombre) {
-	boolean iguales = false;
-	if (nombre.equalsIgnoreCase("frenar")) {
-	    iguales = true;
-	}
-	return iguales;
+    public InterfazCommand parse(String nombre) {
+	return null;
+	
     }
 
     @Override
@@ -28,30 +26,30 @@ public class ComandoFrenar implements InterfazCommand {
 
 	cic.frenar(valor, tiempo);
 
-	// TODO Auto-generated method stub
+
 
     }
 
-    @Override
-    public void configurarContexto() {
-	// TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void obtenerAyuda() {
-	// TODO Auto-generated method stub
-
-    }
+   
 
     @Override
     public String getInformacionInstruccion() {
-	// TODO Auto-generated method stub
+	
 
 	return "freno aplicado en ciclista" + cic.getIdentificador_ciclista();
     }
 
-    public String getNombreComando() {
-	return "frenar";
+    @Override
+    public void configurarContexto(CiclistaManager cm) {
+	// TODO Auto-generated method stub
+	
     }
+
+    @Override
+    public String obtenerAyuda() {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+   
 }

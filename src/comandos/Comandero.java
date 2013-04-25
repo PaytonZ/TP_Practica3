@@ -10,7 +10,17 @@ import principal.CiclistaManager;
 import vista.SalidaDeDatosPorSwing;
 
 import entradaDeDatos.*;
-
+/**
+ * 
+ * Esta clase es la encargada la gestion de los comandos. 
+ * Recibe un string por mensaje , utiliza la clase parser para identificar cual es el adecuado y 
+ * lo añade a una cola FIFO para que se ejecute uno cada vez.
+ * 
+ * @author Juan Carlos Marco
+ * @author Juan Luis Perez
+ * @author Emilio Alvarez Pinerio
+ * 
+ */
 public class Comandero implements InterfaceEjecuta , InterfaceSalida{
 
     CiclistaManager cm;

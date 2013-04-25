@@ -1,5 +1,7 @@
 package comandos;
 
+import principal.CiclistaManager;
+
 public class ComandoDesconocido implements InterfazCommand {
 
     public ComandoDesconocido() {
@@ -7,12 +9,9 @@ public class ComandoDesconocido implements InterfazCommand {
     }
 
     @Override
-    public boolean parse(String nombre) {
-	boolean iguales = false;
-	if (nombre.equalsIgnoreCase("desconocido")) {
-	    iguales = true;
-	}
-	return iguales;
+    public InterfazCommand parse(String nombre) {
+	return null;
+
     }
 
     @Override
@@ -22,17 +21,7 @@ public class ComandoDesconocido implements InterfazCommand {
 
     }
 
-    @Override
-    public void configurarContexto() {
-	// TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void obtenerAyuda() {
-	// TODO Auto-generated method stub
-
-    }
+ 
 
     @Override
     public String getInformacionInstruccion() {
@@ -40,7 +29,17 @@ public class ComandoDesconocido implements InterfazCommand {
 	return "comando desconocido";
     }
 
-    public String getNombreComando() {
-	return "desconocido";
+    @Override
+    public void configurarContexto(CiclistaManager cm) {
+	// TODO Auto-generated method stub
+	
     }
+
+    @Override
+    public String obtenerAyuda() {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+   
 }

@@ -2,6 +2,7 @@ package comandos;
 
 import factoresExternos.Viento;
 import persona.Ciclista;
+import principal.CiclistaManager;
 
 public class ComandoViento implements InterfazCommand {
 
@@ -21,11 +22,7 @@ public class ComandoViento implements InterfazCommand {
 
     @Override
     public InterfazCommand parse(String nombre) {
-	boolean iguales = false;
-	if (nombre.equalsIgnoreCase("viento")) {
-	    iguales = true;
-	}
-	return iguales;
+	return null;
     }
 
     @Override
@@ -35,12 +32,7 @@ public class ComandoViento implements InterfazCommand {
 
     }
 
-    @Override
-    public void configurarContexto() {
-	// TODO Auto-generated method stub
-
-    }
-
+   
     @Override
     public String getInformacionInstruccion() {
 	return "Aviso de viento " + tipoViento + " con velocidad\n" + velocidad
@@ -49,9 +41,16 @@ public class ComandoViento implements InterfazCommand {
     }
 
     @Override
-    public void obtenerAyuda() {
+    public void configurarContexto(CiclistaManager cm) {
 	// TODO Auto-generated method stub
-
+	
     }
 
+    @Override
+    public String obtenerAyuda() {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+ 
 }

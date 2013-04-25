@@ -31,7 +31,9 @@ import factoresExternos.Viento;
 /**
  * Clase Principal del programa
  * 
- * @author Juan Carlos Marco, Juan Luis Perez, Emilio Ã�lvarez PiÃ±eiro
+ * @author Juan Carlos Marco
+ * @author Juan Luis Perez
+ * @author Emilio Alvarez Pinerio
  * 
  */
 
