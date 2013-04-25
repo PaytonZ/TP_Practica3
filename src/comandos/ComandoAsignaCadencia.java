@@ -2,6 +2,8 @@ package comandos;
 
 import java.util.StringTokenizer;
 
+import constantes.Constantes;
+
 import persona.Ciclista;
 import principal.CiclistaManager;
 
@@ -20,8 +22,22 @@ public class ComandoAsignaCadencia implements InterfazCommand {
     @Override
     public void execute() {
 
-	if (cadencia <= 2 && cadencia >= 0)
+	if(cadencia == Constantes.SUBE_CADENCIA)
+	{
+	    if(ciclista.getCadencia() < 2)
+		
+		ciclista.setCadencia(ciclista.getCadencia()+1);
+	}
+	else if(cadencia == Constantes.BAJA_CADENCIA)
+	{
+	    if(ciclista.getCadencia() > 0)
+		
+		ciclista.setCadencia(ciclista.getCadencia()-1);
+	}
+	else if (cadencia <= 2 && cadencia >= 0)
+	{
 	    ciclista.setCadencia(cadencia);
+	}
 
     }
 

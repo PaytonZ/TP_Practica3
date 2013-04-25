@@ -101,7 +101,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisCad0.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 0 -");
+		comandero.recibir_comando("asignacadencia 0 "+Constantes.BAJA_CADENCIA);
 	    }
 	});
 
@@ -116,7 +116,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumCad0.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 0 2");
+		comandero.recibir_comando("asignacadencia 0 "+Constantes.SUBE_CADENCIA);
 	    }
 	});
 	botonAumCad0.setText(Constantes.CADENCIA_MAS);
@@ -232,7 +232,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisCad1.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 1 -");
+		comandero.recibir_comando("asignacadencia 1 "+Constantes.BAJA_CADENCIA);
 	    }
 	});
 	botonDisCad1.setText(Constantes.CADENCIA_MENOS);
@@ -246,7 +246,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumCad1.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 1 +");
+		comandero.recibir_comando("asignacadencia 1 "+Constantes.SUBE_CADENCIA);
 	    }
 	});
 	botonAumCad1.setText(Constantes.CADENCIA_MAS);
@@ -362,7 +362,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisCad2.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 2 -");
+		comandero.recibir_comando("asignacadencia 2 "+Constantes.BAJA_CADENCIA);
 	    }
 	});
 	botonDisCad2.setText(Constantes.CADENCIA_MENOS);
@@ -376,7 +376,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumCad2.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 2 +");
+		comandero.recibir_comando("asignacadencia 2 "+Constantes.SUBE_CADENCIA);
 	    }
 	});
 	botonAumCad2.setText(Constantes.CADENCIA_MAS);
@@ -491,7 +491,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisCad3.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 3 -");
+		comandero.recibir_comando("asignacadencia 3 "+Constantes.BAJA_CADENCIA);
 	    }
 	});
 	botonDisCad3.setText(Constantes.CADENCIA_MENOS);
@@ -505,7 +505,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumCad3.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 3 +");
+		comandero.recibir_comando("asignacadencia 3 "+Constantes.SUBE_CADENCIA);
 	    }
 	});
 	botonAumCad3.setText(Constantes.CADENCIA_MAS);
@@ -621,7 +621,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisCad4.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 4 -");
+		comandero.recibir_comando("asignacadencia 4 "+Constantes.BAJA_CADENCIA);
 	    }
 	});
 	botonDisCad4.setText(Constantes.CADENCIA_MENOS);
@@ -635,7 +635,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumCad4.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 4 +");
+		comandero.recibir_comando("asignacadencia 4 "+Constantes.SUBE_CADENCIA);
 	    }
 	});
 	botonAumCad4.setText(Constantes.CADENCIA_MAS);
@@ -751,7 +751,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonDisCad5.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 5 -");
+		comandero.recibir_comando("asignacadencia 5 "+Constantes.BAJA_CADENCIA);
 	    }
 	});
 	botonDisCad5.setText(Constantes.CADENCIA_MENOS);
@@ -765,7 +765,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumCad5.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 5 +");
+		comandero.recibir_comando("asignacadencia 5 "+Constantes.SUBE_CADENCIA);
 	    }
 	});
 	botonAumCad5.setText(Constantes.CADENCIA_MAS);
@@ -913,6 +913,9 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 
 	tFconsola.setLineWrap(true);
 	sbrText = new JScrollPane(tFconsola);
+	sbrText.setBounds(lblConsola.getX(),
+		lblConsola.getY() + lblConsola.getHeight(),
+		Constantes.ANCHO_TEXTBOX, Constantes.ALTO_TEXTBOX);
 	sbrText.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 	contentPane.add(sbrText);
 	this.setVisible(true);
@@ -958,11 +961,10 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	    break;
 	case "consola":
 	    // if(mensaje!="") mensaje+="\n";
-	    tFconsola.setText(tFconsola.getText().toString() + mensaje);
+	    tFconsola.setText(tFconsola.getText().toString() + mensaje );
 	    break;
 
 	}
-
     }
 
     /**
@@ -981,7 +983,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	textArea_ciclista4.setText("");
 
 	textArea_ciclista5.setText("");
-	// tFconsola.setText("");
+        //tFconsola.setText("");
 	tFreloj.setText("");
 
     }

@@ -49,6 +49,9 @@ public final class Constantes {
     public static final double FACTORVIENTO = 0.1;
 
     public static final int NUM_DECIMALES = 3;
+    
+    public static final int SUBE_CADENCIA = -2;
+    public static final int BAJA_CADENCIA = -1;
 
     public static double IMPULSO_RELOJ_SEGUNDOS = 1;
     public static double IMPULSO_RELOJ_MILISEGUNDOS = IMPULSO_RELOJ_SEGUNDOS * 1000;

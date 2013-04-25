@@ -171,8 +171,8 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	return String.valueOf(bici.getPlatoAct());
     }
 
-    public String getCadencia() {
-	return String.valueOf(cadencia);
+    public double getCadencia() {
+	return cadencia;
     }
 
     /**

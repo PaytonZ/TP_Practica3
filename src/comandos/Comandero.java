@@ -65,7 +65,6 @@ public class Comandero implements InterfaceEjecuta, InterfaceSalida {
 	    salida_de_datos = "";
 
 	}
-
 	return "consola" + "%" + salida + "#" + ",";
     }
 
