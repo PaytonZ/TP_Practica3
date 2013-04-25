@@ -44,7 +44,6 @@ public class CiclistaManager {
     SalidaDeDatosPorSwing output;
     private Vector<Ciclista> vectorCiclistas;
     private Vector<Bicicleta> vectorBicis;
-    static Lienzo lienzo;
 
     public static void main(String args[]) {
 
@@ -93,8 +92,6 @@ public class CiclistaManager {
 	Ciclista ciclista4 = new Ciclista(bici4, 4);
 	Ciclista ciclista5 = new Ciclista(bici5, 5);
 
-	Lienzo mapa = new Lienzo();
-	mapa.setVisible(true);
 
 	vectorBicis.add(bici0);
 	vectorBicis.add(bici1);
@@ -114,7 +111,8 @@ public class CiclistaManager {
 	vectorCiclistas.add(ciclista5);
 
 	comandero = new Comandero(this, new Parser());
-	Ventana ventana = new Ventana(comandero);
+	Lienzo lienzo = new Lienzo(vectorCiclistas);
+	Ventana ventana = new Ventana(comandero,lienzo);
 
 	listaejecuta.add(reloj);
 	listaejecuta.add(ciclista0);
@@ -123,11 +121,10 @@ public class CiclistaManager {
 	listaejecuta.add(ciclista3);
 	listaejecuta.add(ciclista4);
 	listaejecuta.add(ciclista5);
-
+	listaejecuta.add(lienzo);
 	listaejecuta.add(comandero);
 	listaejecuta.add(ventana);
 	listaejecuta.add(viento);
-	listaejecuta.add(mapa);
 	listaejecuta.add(curva);
 
 	listasalida.add(reloj);
