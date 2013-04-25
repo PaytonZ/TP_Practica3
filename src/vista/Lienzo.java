@@ -7,10 +7,13 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Graphics;
+import java.util.Vector;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import persona.Ciclista;
 
 import constantes.Constantes;
 
@@ -34,10 +37,11 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
     EntradaFichero entrada;
     double[] matriz;
     Graphics g;
+    Vector<Ciclista> cic;
 
-    public Lienzo() {
+    public Lienzo(Vector<Ciclista> micic) {
 	FACTORESCALA = 10;
-
+	cic = micic;
 	contentPane = new JPanel();
 	contentPane.setLayout(null);
 	contentPane.setAutoscrolls(true);
@@ -63,13 +67,17 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	}
 	g.drawLine((int) x, y, (int) matriz[matriz.length - 1] / FACTORESCALA,
 		y - (int) matriz[matriz.length - 2]);
-
+	
+	//aqui se pondra la informacion del ciclista para que se vaya pintando, 
+	//ahora solo se pinta un punto en pantalla
+	for(i = 0;i< cic.size();i++)
+	{
+	    g.drawLine((int) cic.elementAt(i).getBici().getEspacioRecorrido(), 20, (int) cic.elementAt(i).getBici().getEspacioRecorrido(),
+			20 );
+	}
     }
 
-    @Override
-    public void repaint() {
-
-    }
+   
 
     @Override
     public void ejecuta() {

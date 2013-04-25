@@ -9,12 +9,15 @@ import java.awt.event.KeyEvent;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
+import persona.Ciclista;
+
 import comandos.Comandero;
 import comandos.Parser;
 import constantes.Constantes;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Vector;
 
 /**
  * esta clase corresponde a la interfaz grafica de la aplicacion
@@ -45,12 +48,12 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     private JLabel lblTiempo;
     private JLabel lblconsola;
     private JScrollPane sbrText;
-  
+    Lienzo lienzo;
 
-    public Ventana(Comandero nuevo_comandero) {
+    public Ventana(Comandero nuevo_comandero,Lienzo lien) {
 
 	comandero = nuevo_comandero;
-
+	lienzo = lien;
 	init();
     }
 
@@ -83,7 +86,6 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	
 	contentPrincipal.add(contentLienzo);
 	contentLienzo.setLayout(null);
-	Lienzo lienzo = new Lienzo();
 
 	contentLienzo.add(lienzo);
 	
