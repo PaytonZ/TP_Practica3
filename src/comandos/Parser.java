@@ -296,6 +296,7 @@ public class Parser {
 	// lista_de_comandos.add(new ComandoFrenar(null, 0, 0));
 	// lista_de_comandos.add(new ComandoIncompleto());
 	lista_de_comandos.add(new ComandoNinguno());
+	// lista_de_comandos.add(new ComandoPendiente());
 	lista_de_comandos.add(new ComandoSubePinon(0));
 	lista_de_comandos.add(new ComandoSubePlato(0));
 

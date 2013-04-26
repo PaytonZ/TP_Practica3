@@ -14,6 +14,7 @@ import persona.Ciclista;
 import comandos.Comandero;
 import comandos.Parser;
 import constantes.Constantes;
+import entradaDeDatos.Escuchador;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -49,305 +50,215 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     private JLabel lblconsola;
     private JScrollPane sbrText;
     Lienzo lienzo;
-
+    Escuchador escuchador;
     public Ventana(Comandero nuevo_comandero, Lienzo lien) {
 
 	comandero = nuevo_comandero;
 	lienzo = lien;
+	escuchador = new Escuchador(comandero);
 	init();
     }
 
+    private void init()
+    {
+	crearGUI();
+    }
     /**
      * este metodo,crea y coloca los componentes de la interfaz grafica.
      */
-    private void init() {
+    private void crearGUI() {
 
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setBounds(0, 0, Constantes.ANCHO_VENTANA, Constantes.ALTO_VENTANA);
 
-	contentPrincipal = new JPanel();
-	contentPrincipal.setBorder(new EmptyBorder(0, 0, 0, 0));
-	setContentPane(contentPrincipal);
-	contentPrincipal.setLayout(null);
 
-	contentPane = new JPanel();
-	contentPane.setBounds(0, 0, Constantes.ANCHO_VENTANA,
-		Constantes.ALTO_VENTANA / 2);
-	contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
-	contentPrincipal.add(contentPane);
-	contentPane.setLayout(null);
+	contentPrincipal = crearJPanel(contentPrincipal,0,0,0,0);
+	colocarJPanelEnJFrame(contentPrincipal);
+	
+	contentPane = crearJPanel(contentPrincipal,0,0,Constantes.ANCHO_VENTANA,Constantes.ALTO_VENTANA / 2);
+	
+	colocarJPanelEnJPanel(contentPane,contentPrincipal);
+	
 
-	contentLienzo = new JPanel();
-	contentLienzo.setBounds(0, contentPane.getHeight(),
+	contentLienzo = crearJPanel(contentPrincipal,0,contentPane.getHeight(),
 		Constantes.ANCHO_VENTANA, Constantes.ALTO_VENTANA / 2);
-
-	contentPrincipal.add(contentLienzo);
-	contentLienzo.setLayout(null);
+	colocarJPanelEnJPanel(contentLienzo,contentPrincipal);
 
 	contentLienzo.add(lienzo);
 
-	JLabel lblCiclista0 = new JLabel("Ciclista0");
-	lblCiclista0.setBounds(Constantes.X_INICIAL, Constantes.Y_INICIAL,
+	JLabel lblCiclista0 = null;
+	lblCiclista0  = crearJLabel(lblCiclista0,"Ciclista0",Constantes.X_INICIAL, Constantes.Y_INICIAL,
 		Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-	contentPane.add(lblCiclista0);
+	colocarJLabelEnJPanel(lblCiclista0, contentPane);
 
-	textArea_ciclista0 = new JTextArea();
-	textArea_ciclista0.setBounds(lblCiclista0.getX(),
-		lblCiclista0.getHeight(), Constantes.ANCHO_TEXTBOX,
-		Constantes.ALTO_TEXTBOX);
-	contentPane.add(textArea_ciclista0);
-
-	JButton botonDisCad0 = new JButton();
-	botonDisCad0.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 0 "+Constantes.BAJA_CADENCIA);
-	    }
-	});
-
-	botonDisCad0.setText(Constantes.CADENCIA_MENOS);
-	botonDisCad0.setVisible(true);
-	botonDisCad0.setBounds(textArea_ciclista0.getWidth()
+	textArea_ciclista0 = crearJTextArea(textArea_ciclista0,lblCiclista0.getX(),
+		lblCiclista0.getHeight(), Constantes.ANCHO_TEXTBOX,Constantes.ALTO_TEXTBOX);
+	colocarJTextAreaEnJPanel(textArea_ciclista0,contentPane);
+	
+	JButton botonDisCad0 = null;
+	botonDisCad0 = crearJButton(botonDisCad0,Constantes.CADENCIA_MENOS,textArea_ciclista0.getWidth()
 		+ textArea_ciclista0.getX(), textArea_ciclista0.getY(),
 		Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-	contentPane.add(botonDisCad0);
-
-	JButton botonAumCad0 = new JButton();
-	botonAumCad0.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 0 "+Constantes.SUBE_CADENCIA);
-	    }
-	});
-	botonAumCad0.setText(Constantes.CADENCIA_MAS);
-	botonAumCad0.setVisible(true);
-	botonAumCad0.setBounds(textArea_ciclista0.getWidth()
+		    
+	
+	escuchador.asignaMouseClicked(botonDisCad0,"asignacadencia 0 "+Constantes.BAJA_CADENCIA);
+	
+	colocarJButtonEnJPanel(botonDisCad0,contentPane);
+//
+	JButton botonAumCad0 = null;
+	botonAumCad0 = crearJButton(botonAumCad0,Constantes.CADENCIA_MAS,textArea_ciclista0.getWidth()
 		+ textArea_ciclista0.getX(), botonDisCad0.getY()
 		+ Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonAumCad0);
+	escuchador.asignaMouseClicked(botonAumCad0,"asignacadencia 0 "+Constantes.SUBE_CADENCIA);
+	
+	colocarJButtonEnJPanel(botonAumCad0,contentPane);
 
-	JButton botonDisPin0 = new JButton();
-	botonDisPin0.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("bajapinon 0");
-	    }
-	});
-	botonDisPin0.setText(Constantes.PINON_MENOS);
-	botonDisPin0.setVisible(true);
-	botonDisPin0.setBounds(textArea_ciclista0.getWidth()
+	//
+	JButton botonDisPin0 = null;
+	botonDisPin0 = crearJButton(botonDisPin0,Constantes.PINON_MENOS,textArea_ciclista0.getWidth()
 		+ textArea_ciclista0.getX(), botonAumCad0.getY()
 		+ Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonDisPin0);
-
-	JButton botonAumPin0 = new JButton();
-	botonAumPin0.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("subepinon 0");
-	    }
-	});
-	botonAumPin0.setText(Constantes.PINON_MAS);
-	botonAumPin0.setVisible(true);
-	botonAumPin0.setBounds(textArea_ciclista0.getWidth()
+	escuchador.asignaMouseClicked(botonDisPin0,"bajapinon 0");
+	
+	colocarJButtonEnJPanel(botonDisPin0,contentPane);
+	//
+	JButton botonAumPin0 = null;
+	botonAumPin0 = crearJButton(botonAumPin0,Constantes.PINON_MAS,textArea_ciclista0.getWidth()
 		+ textArea_ciclista0.getX(), botonDisPin0.getY()
 		+ Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonAumPin0);
+	escuchador.asignaMouseClicked(botonAumPin0,"subepinon 0");
+	colocarJButtonEnJPanel(botonAumPin0,contentPane);
 
-	JButton botonDisPla0 = new JButton();
-	botonDisPla0.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("bajaplato 0");
-	    }
-	});
-	botonDisPla0.setText(Constantes.PLATO_MENOS);
-	botonDisPla0.setVisible(true);
-	botonDisPla0.setBounds(botonDisCad0.getWidth() + botonDisCad0.getX(),
+	//
+	JButton botonDisPla0 = null;
+	botonDisPla0 = crearJButton(botonDisPla0,Constantes.PLATO_MENOS,botonDisCad0.getWidth() + botonDisCad0.getX(),
 		textArea_ciclista0.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonDisPla0);
+	escuchador.asignaMouseClicked(botonDisPla0,"bajaplato 0");
+	
+	colocarJButtonEnJPanel(botonDisPla0,contentPane);
 
-	JButton botonAumPla0 = new JButton();
-	botonAumPla0.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("subeplato 0");
-	    }
-	});
-	botonAumPla0.setText(Constantes.PLATO_MAS);
-	botonAumPla0.setVisible(true);
-	botonAumPla0.setBounds(botonAumCad0.getWidth() + botonAumCad0.getX(),
+	//
+
+	JButton botonAumPla0 = null;
+	botonAumPla0 = crearJButton(botonAumPla0,Constantes.PLATO_MAS,botonAumCad0.getWidth() + botonAumCad0.getX(),
 		botonAumCad0.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonAumPla0);
-
-	JButton botonFrenaPoco0 = new JButton();
-	botonFrenaPoco0.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("frenar 0 1");
-	    }
-	});
-	botonFrenaPoco0.setText(Constantes.FRENO_MENOS);
-	botonFrenaPoco0.setVisible(true);
-	botonFrenaPoco0.setBounds(
-		botonDisPin0.getWidth() + botonDisPin0.getX(),
+	escuchador.asignaMouseClicked(botonAumPla0,"subeplato 0");
+	
+	colocarJButtonEnJPanel(botonAumPla0,contentPane);
+	
+	//
+	JButton botonFrenaPoco0 = null;
+	botonFrenaPoco0 = crearJButton(botonFrenaPoco0,Constantes.FRENO_MENOS,botonDisPin0.getWidth() + botonDisPin0.getX(),
 		botonDisPin0.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonFrenaPoco0);
+	escuchador.asignaMouseClicked(botonFrenaPoco0,"frenar 0 1");
+	
+	colocarJButtonEnJPanel(botonFrenaPoco0,contentPane);
 
-	JButton botonFrenaMas0 = new JButton();
-	botonFrenaMas0.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("frenar 0 1");
-	    }
-	});
-	botonFrenaMas0.setText(Constantes.FRENO_MAS);
-	botonFrenaMas0.setVisible(true);
-	botonFrenaMas0.setBounds(botonAumPin0.getWidth() + botonAumPin0.getX(),
+	//
+
+	JButton botonFrenaMas0 = null;
+	botonFrenaMas0 = crearJButton(botonFrenaMas0,Constantes.FRENO_MAS,botonAumPin0.getWidth() + botonAumPin0.getX(),
 		botonAumPin0.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonFrenaMas0);
-
-	JLabel lblCiclista_1 = new JLabel("Ciclista1");
-	lblCiclista_1.setBounds(
+	escuchador.asignaMouseClicked(botonFrenaMas0,"frenar 0 1");	  
+	colocarJButtonEnJPanel(botonFrenaMas0,contentPane);
+	
+	JLabel lblCiclista1 = null;
+	lblCiclista1  = crearJLabel(lblCiclista1,"Ciclista1",
 		textArea_ciclista0.getX() + textArea_ciclista0.getWidth() + 2
-			* Constantes.ANCHO_BOTON, lblCiclista0.getY(),
-		Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-	contentPane.add(lblCiclista_1);
-
-	textArea_ciclista1 = new JTextArea();
-	textArea_ciclista1.setBounds(textArea_ciclista0.getX()
+		* Constantes.ANCHO_BOTON, lblCiclista0.getY(),
+	Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
+	colocarJLabelEnJPanel(lblCiclista1, contentPane);
+//
+	textArea_ciclista1 = crearJTextArea(textArea_ciclista1,textArea_ciclista0.getX()
 		+ textArea_ciclista0.getWidth() + 2 * Constantes.ANCHO_BOTON,
 		textArea_ciclista0.getY(), Constantes.ANCHO_TEXTBOX,
 		Constantes.ALTO_TEXTBOX);
-	contentPane.add(textArea_ciclista1);
-
-	JButton botonDisCad1 = new JButton();
-	botonDisCad1.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 1 "+Constantes.BAJA_CADENCIA);
-	    }
-	});
-	botonDisCad1.setText(Constantes.CADENCIA_MENOS);
-	botonDisCad1.setVisible(true);
-	botonDisCad1.setBounds(textArea_ciclista1.getWidth()
+	colocarJTextAreaEnJPanel(textArea_ciclista1,contentPane);
+	//
+	JButton botonDisCad1 = null;
+	botonDisCad1 = crearJButton(botonDisCad1,Constantes.CADENCIA_MENOS,textArea_ciclista1.getWidth()
 		+ textArea_ciclista1.getX(), textArea_ciclista1.getY(),
 		Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-	contentPane.add(botonDisCad1);
-
-	JButton botonAumCad1 = new JButton();
-	botonAumCad1.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 1 "+Constantes.SUBE_CADENCIA);
-	    }
-	});
-	botonAumCad1.setText(Constantes.CADENCIA_MAS);
-	botonAumCad1.setVisible(true);
-	botonAumCad1.setBounds(textArea_ciclista1.getWidth()
+		    
+	escuchador.asignaMouseClicked(botonDisCad1,"asignacadencia 1 "+Constantes.BAJA_CADENCIA);
+	
+	colocarJButtonEnJPanel(botonDisCad1,contentPane);
+//
+	JButton botonAumCad1 = null;
+	botonAumCad1 = crearJButton(botonAumCad1,Constantes.CADENCIA_MAS,textArea_ciclista1.getWidth()
 		+ textArea_ciclista1.getX(), botonDisCad1.getY()
 		+ Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonAumCad1);
-
-	JButton botonDisPin1 = new JButton();
-	botonDisPin1.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("bajapinon 1");
-	    }
-	});
-	botonDisPin1.setText(Constantes.PINON_MENOS);
-	botonDisPin1.setVisible(true);
-	botonDisPin1.setBounds(textArea_ciclista1.getWidth()
+	escuchador.asignaMouseClicked(botonAumCad1,"asignacadencia 1 "+Constantes.SUBE_CADENCIA);
+	
+	colocarJButtonEnJPanel(botonAumCad1,contentPane);
+	//
+	JButton botonDisPin1 = null;
+	botonDisPin1 = crearJButton(botonDisPin1,Constantes.PINON_MENOS,textArea_ciclista1.getWidth()
 		+ textArea_ciclista1.getX(), botonAumCad1.getY()
 		+ Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonDisPin1);
-
-	JButton botonAumPin1 = new JButton();
-	botonAumPin1.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("subepinon 1");
-	    }
-	});
-	botonAumPin1.setText(Constantes.PINON_MAS);
-	botonAumPin1.setVisible(true);
-	botonAumPin1.setBounds(textArea_ciclista1.getWidth()
+	escuchador.asignaMouseClicked(botonDisPin1,"bajapinon 1");
+	
+	colocarJButtonEnJPanel(botonDisPin1,contentPane);
+	//
+	JButton botonAumPin1 = null;
+	botonAumPin1 = crearJButton(botonAumPin1,Constantes.PINON_MAS,textArea_ciclista1.getWidth()
 		+ textArea_ciclista1.getX(), botonDisPin1.getY()
 		+ Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonAumPin1);
+	escuchador.asignaMouseClicked(botonAumPin1,"subepinon 1");
+	colocarJButtonEnJPanel(botonAumPin1,contentPane);
 
-	JButton botonDisPla1 = new JButton();
-	botonDisPla1.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("bajaplato 1");
-	    }
-	});
-	botonDisPla1.setText(Constantes.PLATO_MENOS);
-	botonDisPla1.setVisible(true);
-	botonDisPla1.setBounds(botonDisCad1.getWidth() + botonDisCad1.getX(),
+	//
+	JButton botonDisPla1 = null;
+	botonDisPla1 = crearJButton(botonDisPla1,Constantes.PLATO_MENOS,botonDisCad1.getWidth() + botonDisCad1.getX(),
 		textArea_ciclista1.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonDisPla1);
+	escuchador.asignaMouseClicked(botonDisPla1,"bajaplato 1");
+	
+	colocarJButtonEnJPanel(botonDisPla1,contentPane);
 
-	JButton botonAumPla1 = new JButton();
-	botonAumPla1.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("subeplato 1");
-	    }
-	});
-	botonAumPla1.setText(Constantes.PLATO_MAS);
-	botonAumPla1.setVisible(true);
-	botonAumPla1.setBounds(botonAumCad1.getWidth() + botonAumCad1.getX(),
+	//
+
+	JButton botonAumPla1 = null;
+	botonAumPla1 = crearJButton(botonAumPla1,Constantes.PLATO_MAS,botonAumCad1.getWidth() + botonAumCad1.getX(),
 		botonAumCad1.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonAumPla1);
-
-	JButton botonFrenaPoco1 = new JButton();
-	botonFrenaPoco1.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("frenar 1 1");
-	    }
-	});
-	botonFrenaPoco1.setText(Constantes.FRENO_MENOS);
-	botonFrenaPoco1.setVisible(true);
-	botonFrenaPoco1.setBounds(
-		botonDisPin1.getWidth() + botonDisPin1.getX(),
+	escuchador.asignaMouseClicked(botonAumPla1,"subeplato 1");
+	
+	colocarJButtonEnJPanel(botonAumPla1,contentPane);
+	
+	//
+	JButton botonFrenaPoco1 = null;
+	botonFrenaPoco1 = crearJButton(botonFrenaPoco1,Constantes.FRENO_MENOS,botonDisPin1.getWidth() + botonDisPin1.getX(),
 		botonDisPin1.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonFrenaPoco1);
+	escuchador.asignaMouseClicked(botonFrenaPoco1,"frenar 1 1");
+	
+	colocarJButtonEnJPanel(botonFrenaPoco1,contentPane);
 
-	JButton botonFrenaMas1 = new JButton();
-	botonFrenaMas1.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("frenar 1 1");
-	    }
-	});
-	botonFrenaMas1.setText(Constantes.FRENO_MAS);
-	botonFrenaMas1.setVisible(true);
-	botonFrenaMas1.setBounds(botonAumPin1.getWidth() + botonAumPin1.getX(),
+	//
+
+	JButton botonFrenaMas1 = null;
+	botonFrenaMas1 = crearJButton(botonFrenaMas1,Constantes.FRENO_MAS,botonAumPin1.getWidth() + botonAumPin1.getX(),
 		botonAumPin1.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonFrenaMas1);
+	escuchador.asignaMouseClicked(botonFrenaMas1,"frenar 1 1");	  
+	colocarJButtonEnJPanel(botonFrenaMas1,contentPane);
 
+	
 	JLabel lblCiclista_2 = new JLabel("Ciclista2");
 	lblCiclista_2.setBounds(
 		textArea_ciclista1.getX() + textArea_ciclista1.getWidth() + 2
-			* Constantes.ANCHO_BOTON, lblCiclista_1.getY(),
+			* Constantes.ANCHO_BOTON, lblCiclista1.getY(),
 		Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
 	contentPane.add(lblCiclista_2);
 
@@ -357,124 +268,80 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 		textArea_ciclista1.getY(), Constantes.ANCHO_TEXTBOX,
 		Constantes.ALTO_TEXTBOX);
 	contentPane.add(textArea_ciclista2);
-
-	JButton botonDisCad2 = new JButton();
-	botonDisCad2.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 2 "+Constantes.BAJA_CADENCIA);
-	    }
-	});
-	botonDisCad2.setText(Constantes.CADENCIA_MENOS);
-	botonDisCad2.setVisible(true);
-	botonDisCad2.setBounds(textArea_ciclista2.getWidth()
+	
+	JButton botonDisCad2 = null;
+	botonDisCad2 = crearJButton(botonDisCad2,Constantes.CADENCIA_MENOS,textArea_ciclista2.getWidth()
 		+ textArea_ciclista2.getX(), textArea_ciclista2.getY(),
 		Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-	contentPane.add(botonDisCad2);
-
-	JButton botonAumCad2 = new JButton();
-	botonAumCad2.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 2 "+Constantes.SUBE_CADENCIA);
-	    }
-	});
-	botonAumCad2.setText(Constantes.CADENCIA_MAS);
-	botonAumCad2.setVisible(true);
-	botonAumCad2.setBounds(textArea_ciclista2.getWidth()
+		    
+	escuchador.asignaMouseClicked(botonDisCad2,"asignacadencia 2 "+Constantes.BAJA_CADENCIA);
+	
+	colocarJButtonEnJPanel(botonDisCad2,contentPane);
+//
+	JButton botonAumCad2 = null;
+	botonAumCad2 = crearJButton(botonAumCad2,Constantes.CADENCIA_MAS,textArea_ciclista2.getWidth()
 		+ textArea_ciclista2.getX(), botonDisCad2.getY()
 		+ Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonAumCad2);
-
-	JButton botonDisPin2 = new JButton();
-	botonDisPin2.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("bajapinon 2");
-	    }
-	});
-	botonDisPin2.setText(Constantes.PINON_MENOS);
-	botonDisPin2.setVisible(true);
-	botonDisPin2.setBounds(textArea_ciclista2.getWidth()
+	escuchador.asignaMouseClicked(botonAumCad2,"asignacadencia 2 "+Constantes.SUBE_CADENCIA);
+	
+	colocarJButtonEnJPanel(botonAumCad2,contentPane);
+	//
+	JButton botonDisPin2 = null;
+	botonDisPin2 = crearJButton(botonDisPin2,Constantes.PINON_MENOS,textArea_ciclista2.getWidth()
 		+ textArea_ciclista2.getX(), botonAumCad2.getY()
 		+ Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonDisPin2);
-
-	JButton botonAumPin2 = new JButton();
-	botonAumPin2.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("subepinon 2");
-	    }
-	});
-	botonAumPin2.setText(Constantes.PINON_MAS);
-	botonAumPin2.setVisible(true);
-	botonAumPin2.setBounds(textArea_ciclista2.getWidth()
+	escuchador.asignaMouseClicked(botonDisPin2,"bajapinon 2");
+	
+	colocarJButtonEnJPanel(botonDisPin2,contentPane);
+	//
+	JButton botonAumPin2 = null;
+	botonAumPin2 = crearJButton(botonAumPin2,Constantes.PINON_MAS,textArea_ciclista2.getWidth()
 		+ textArea_ciclista2.getX(), botonDisPin2.getY()
 		+ Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonAumPin2);
+	escuchador.asignaMouseClicked(botonAumPin2,"subepinon 2");
+	colocarJButtonEnJPanel(botonAumPin2,contentPane);
 
-	JButton botonDisPla2 = new JButton();
-	botonDisPla2.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("bajaplato 2");
-	    }
-	});
-	botonDisPla2.setText(Constantes.PLATO_MENOS);
-	botonDisPla2.setVisible(true);
-	botonDisPla2.setBounds(botonDisCad2.getWidth() + botonDisCad2.getX(),
+	//
+	JButton botonDisPla2 = null;
+	botonDisPla2 = crearJButton(botonDisPla2,Constantes.PLATO_MENOS,botonDisCad2.getWidth() + botonDisCad2.getX(),
 		textArea_ciclista2.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonDisPla2);
+	escuchador.asignaMouseClicked(botonDisPla2,"bajaplato 2");
+	
+	colocarJButtonEnJPanel(botonDisPla2,contentPane);
 
-	JButton botonAumPla2 = new JButton();
-	botonAumPla2.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("subeplato 2");
-	    }
-	});
-	botonAumPla2.setText(Constantes.PLATO_MAS);
-	botonAumPla2.setVisible(true);
-	botonAumPla2.setBounds(botonAumCad2.getWidth() + botonAumCad2.getX(),
+	//
+
+	JButton botonAumPla2 = null;
+	botonAumPla2 = crearJButton(botonAumPla2,Constantes.PLATO_MAS,botonAumCad2.getWidth() + botonAumCad2.getX(),
 		botonAumCad2.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonAumPla2);
-
-	JButton botonFrenaPoco2 = new JButton();
-	botonFrenaPoco2.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("frenar 2 2");
-	    }
-	});
-	botonFrenaPoco2.setText(Constantes.FRENO_MENOS);
-	botonFrenaPoco2.setVisible(true);
-	botonFrenaPoco2.setBounds(
-		botonDisPin2.getWidth() + botonDisPin2.getX(),
+	escuchador.asignaMouseClicked(botonAumPla2,"subeplato 2");
+	
+	colocarJButtonEnJPanel(botonAumPla2,contentPane);
+	
+	//
+	JButton botonFrenaPoco2 = null;
+	botonFrenaPoco2 = crearJButton(botonFrenaPoco2,Constantes.FRENO_MENOS,botonDisPin2.getWidth() + botonDisPin2.getX(),
 		botonDisPin2.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonFrenaPoco2);
+	escuchador.asignaMouseClicked(botonFrenaPoco2,"frenar 2 1");
+	
+	colocarJButtonEnJPanel(botonFrenaPoco2,contentPane);
 
-	JButton botonFrenaMas2 = new JButton();
-	botonFrenaMas2.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("frenar 2 2");
-	    }
-	});
-	botonFrenaMas2.setText(Constantes.FRENO_MAS);
-	botonFrenaMas2.setVisible(true);
-	botonFrenaMas2.setBounds(botonAumPin2.getWidth() + botonAumPin2.getX(),
+	//
+
+	JButton botonFrenaMas2 = null;
+	botonFrenaMas2 = crearJButton(botonFrenaMas2,Constantes.FRENO_MAS,botonAumPin2.getWidth() + botonAumPin2.getX(),
 		botonAumPin2.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonFrenaMas2);
+	escuchador.asignaMouseClicked(botonFrenaMas2,"frenar 2 1");	  
+	colocarJButtonEnJPanel(botonFrenaMas2,contentPane);
 
-	// /////
+	
 	JLabel lblCiclista3 = new JLabel("Ciclista3");
 	lblCiclista3.setBounds(textArea_ciclista0.getX(), lblCiclista0.getY()
 		+ lblCiclista0.getHeight() + textArea_ciclista0.getHeight(),
@@ -486,123 +353,81 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 		lblCiclista3.getHeight() + lblCiclista3.getY(),
 		Constantes.ANCHO_TEXTBOX, Constantes.ALTO_TEXTBOX);
 	contentPane.add(textArea_ciclista3);
-
-	JButton botonDisCad3 = new JButton();
-	botonDisCad3.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 3 "+Constantes.BAJA_CADENCIA);
-	    }
-	});
-	botonDisCad3.setText(Constantes.CADENCIA_MENOS);
-	botonDisCad3.setVisible(true);
-	botonDisCad3.setBounds(textArea_ciclista3.getWidth()
+//////
+	JButton botonDisCad3 = null;
+	botonDisCad3 = crearJButton(botonDisCad3,Constantes.CADENCIA_MENOS,textArea_ciclista3.getWidth()
 		+ textArea_ciclista3.getX(), textArea_ciclista3.getY(),
 		Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-	contentPane.add(botonDisCad3);
-
-	JButton botonAumCad3 = new JButton();
-	botonAumCad3.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 3 "+Constantes.SUBE_CADENCIA);
-	    }
-	});
-	botonAumCad3.setText(Constantes.CADENCIA_MAS);
-	botonAumCad3.setVisible(true);
-	botonAumCad3.setBounds(textArea_ciclista3.getWidth()
+		    
+	
+	escuchador.asignaMouseClicked(botonDisCad3,"asignacadencia 3 "+Constantes.BAJA_CADENCIA);
+	
+	colocarJButtonEnJPanel(botonDisCad3,contentPane);
+//
+	JButton botonAumCad3 = null;
+	botonAumCad3 = crearJButton(botonAumCad3,Constantes.CADENCIA_MAS,textArea_ciclista3.getWidth()
 		+ textArea_ciclista3.getX(), botonDisCad3.getY()
 		+ Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonAumCad3);
+	escuchador.asignaMouseClicked(botonAumCad3,"asignacadencia 3 "+Constantes.SUBE_CADENCIA);
+	
+	colocarJButtonEnJPanel(botonAumCad3,contentPane);
 
-	JButton botonDisPin3 = new JButton();
-	botonDisPin3.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("bajapinon 3");
-	    }
-	});
-	botonDisPin3.setText(Constantes.PINON_MENOS);
-	botonDisPin3.setVisible(true);
-	botonDisPin3.setBounds(textArea_ciclista3.getWidth()
+	//
+	JButton botonDisPin3 = null;
+	botonDisPin3 = crearJButton(botonDisPin3,Constantes.PINON_MENOS,textArea_ciclista3.getWidth()
 		+ textArea_ciclista3.getX(), botonAumCad3.getY()
 		+ Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonDisPin3);
-
-	JButton botonAumPin3 = new JButton();
-	botonAumPin3.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("subepinon 3");
-	    }
-	});
-	botonAumPin3.setText(Constantes.PINON_MAS);
-	botonAumPin3.setVisible(true);
-	botonAumPin3.setBounds(textArea_ciclista3.getWidth()
+	escuchador.asignaMouseClicked(botonDisPin3,"bajapinon 3");
+	
+	colocarJButtonEnJPanel(botonDisPin3,contentPane);
+	//
+	JButton botonAumPin3 = null;
+	botonAumPin3 = crearJButton(botonAumPin3,Constantes.PINON_MAS,textArea_ciclista3.getWidth()
 		+ textArea_ciclista3.getX(), botonDisPin3.getY()
 		+ Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonAumPin3);
+	escuchador.asignaMouseClicked(botonAumPin3,"subepinon 3");
+	colocarJButtonEnJPanel(botonAumPin3,contentPane);
 
-	JButton botonDisPla3 = new JButton();
-	botonDisPla3.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("bajaplato 3");
-	    }
-	});
-	botonDisPla3.setText(Constantes.PLATO_MENOS);
-	botonDisPla3.setVisible(true);
-	botonDisPla3.setBounds(botonDisCad3.getWidth() + botonDisCad3.getX(),
+	//
+	JButton botonDisPla3 = null;
+	botonDisPla3 = crearJButton(botonDisPla3,Constantes.PLATO_MENOS,botonDisCad3.getWidth() + botonDisCad3.getX(),
 		textArea_ciclista3.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonDisPla3);
+	escuchador.asignaMouseClicked(botonDisPla3,"bajaplato 3");
+	
+	colocarJButtonEnJPanel(botonDisPla3,contentPane);
 
-	JButton botonAumPla3 = new JButton();
-	botonAumPla3.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("subeplato 3");
-	    }
-	});
-	botonAumPla3.setText(Constantes.PLATO_MAS);
-	botonAumPla3.setVisible(true);
-	botonAumPla3.setBounds(botonAumCad3.getWidth() + botonAumCad3.getX(),
+	//
+
+	JButton botonAumPla3 = null;
+	botonAumPla3 = crearJButton(botonAumPla3,Constantes.PLATO_MAS,botonAumCad3.getWidth() + botonAumCad3.getX(),
 		botonAumCad3.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonAumPla3);
-
-	JButton botonFrenaPoco3 = new JButton();
-	botonFrenaPoco3.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("frenar 3 1");
-	    }
-	});
-	botonFrenaPoco3.setText(Constantes.FRENO_MENOS);
-	botonFrenaPoco3.setVisible(true);
-	botonFrenaPoco3.setBounds(
-		botonDisPin3.getWidth() + botonDisPin3.getX(),
+	escuchador.asignaMouseClicked(botonAumPla3,"subeplato 3");
+	
+	colocarJButtonEnJPanel(botonAumPla3,contentPane);
+	
+	//
+	JButton botonFrenaPoco3 = null;
+	botonFrenaPoco3 = crearJButton(botonFrenaPoco3,Constantes.FRENO_MENOS,botonDisPin3.getWidth() + botonDisPin3.getX(),
 		botonDisPin3.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonFrenaPoco3);
+	escuchador.asignaMouseClicked(botonFrenaPoco3,"frenar 3 1");
+	
+	colocarJButtonEnJPanel(botonFrenaPoco3,contentPane);
 
-	JButton botonFrenaMas3 = new JButton();
-	botonFrenaMas3.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("frenar 3 1");
-	    }
-	});
-	botonFrenaMas3.setText(Constantes.FRENO_MAS);
-	botonFrenaMas3.setVisible(true);
-	botonFrenaMas3.setBounds(botonAumPin3.getWidth() + botonAumPin3.getX(),
+	//
+
+	JButton botonFrenaMas3 = null;
+	botonFrenaMas3 = crearJButton(botonFrenaMas3,Constantes.FRENO_MAS,botonAumPin3.getWidth() + botonAumPin3.getX(),
 		botonAumPin3.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonFrenaMas3);
-
+	escuchador.asignaMouseClicked(botonFrenaMas3,"frenar 3 1");	  
+	colocarJButtonEnJPanel(botonFrenaMas3,contentPane);
+	
 	JLabel lblCiclista_4 = new JLabel("Ciclista4");
 	lblCiclista_4.setBounds(
 		textArea_ciclista3.getX() + textArea_ciclista3.getWidth() + 2
@@ -617,122 +442,78 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 		Constantes.ALTO_TEXTBOX);
 	contentPane.add(textArea_ciclista4);
 
-	JButton botonDisCad4 = new JButton();
-	botonDisCad4.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 4 "+Constantes.BAJA_CADENCIA);
-	    }
-	});
-	botonDisCad4.setText(Constantes.CADENCIA_MENOS);
-	botonDisCad4.setVisible(true);
-	botonDisCad4.setBounds(textArea_ciclista4.getWidth()
+	JButton botonDisCad4 = null;
+	botonDisCad4 = crearJButton(botonDisCad4,Constantes.CADENCIA_MENOS,textArea_ciclista4.getWidth()
 		+ textArea_ciclista4.getX(), textArea_ciclista4.getY(),
 		Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-	contentPane.add(botonDisCad4);
-
-	JButton botonAumCad4 = new JButton();
-	botonAumCad4.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 4 "+Constantes.SUBE_CADENCIA);
-	    }
-	});
-	botonAumCad4.setText(Constantes.CADENCIA_MAS);
-	botonAumCad4.setVisible(true);
-	botonAumCad4.setBounds(textArea_ciclista4.getWidth()
+		    
+	escuchador.asignaMouseClicked(botonDisCad4,"asignacadencia 4 "+Constantes.BAJA_CADENCIA);
+	
+	colocarJButtonEnJPanel(botonDisCad4,contentPane);
+//
+	JButton botonAumCad4 = null;
+	botonAumCad4 = crearJButton(botonAumCad4,Constantes.CADENCIA_MAS,textArea_ciclista4.getWidth()
 		+ textArea_ciclista4.getX(), botonDisCad4.getY()
 		+ Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonAumCad4);
-
-	JButton botonDisPin4 = new JButton();
-	botonDisPin4.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("bajapinon 4");
-	    }
-	});
-	botonDisPin4.setText(Constantes.PINON_MENOS);
-	botonDisPin4.setVisible(true);
-	botonDisPin4.setBounds(textArea_ciclista4.getWidth()
+	escuchador.asignaMouseClicked(botonAumCad4,"asignacadencia 4 "+Constantes.SUBE_CADENCIA);
+	
+	colocarJButtonEnJPanel(botonAumCad4,contentPane);
+	//
+	JButton botonDisPin4 = null;
+	botonDisPin4 = crearJButton(botonDisPin4,Constantes.PINON_MENOS,textArea_ciclista4.getWidth()
 		+ textArea_ciclista4.getX(), botonAumCad4.getY()
 		+ Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonDisPin4);
-
-	JButton botonAumPin4 = new JButton();
-	botonAumPin4.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("subepinon 4");
-	    }
-	});
-	botonAumPin4.setText(Constantes.PINON_MAS);
-	botonAumPin4.setVisible(true);
-	botonAumPin4.setBounds(textArea_ciclista4.getWidth()
+	escuchador.asignaMouseClicked(botonDisPin4,"bajapinon 4");
+	
+	colocarJButtonEnJPanel(botonDisPin4,contentPane);
+	//
+	JButton botonAumPin4 = null;
+	botonAumPin4 = crearJButton(botonAumPin4,Constantes.PINON_MAS,textArea_ciclista4.getWidth()
 		+ textArea_ciclista4.getX(), botonDisPin4.getY()
 		+ Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonAumPin4);
+	escuchador.asignaMouseClicked(botonAumPin4,"subepinon 4");
+	colocarJButtonEnJPanel(botonAumPin4,contentPane);
 
-	JButton botonDisPla4 = new JButton();
-	botonDisPla4.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("bajaplato 4");
-	    }
-	});
-	botonDisPla4.setText(Constantes.PLATO_MENOS);
-	botonDisPla4.setVisible(true);
-	botonDisPla4.setBounds(botonDisCad4.getWidth() + botonDisCad4.getX(),
+	//
+	JButton botonDisPla4 = null;
+	botonDisPla4 = crearJButton(botonDisPla4,Constantes.PLATO_MENOS,botonDisCad4.getWidth() + botonDisCad4.getX(),
 		textArea_ciclista4.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonDisPla4);
+	escuchador.asignaMouseClicked(botonDisPla4,"bajaplato 4");
+	
+	colocarJButtonEnJPanel(botonDisPla4,contentPane);
 
-	JButton botonAumPla4 = new JButton();
-	botonAumPla4.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("subeplato 4");
-	    }
-	});
-	botonAumPla4.setText(Constantes.PLATO_MAS);
-	botonAumPla4.setVisible(true);
-	botonAumPla4.setBounds(botonAumCad4.getWidth() + botonAumCad4.getX(),
+	//
+
+	JButton botonAumPla4 = null;
+	botonAumPla4 = crearJButton(botonAumPla4,Constantes.PLATO_MAS,botonAumCad4.getWidth() + botonAumCad4.getX(),
 		botonAumCad4.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonAumPla4);
-
-	JButton botonFrenaPoco4 = new JButton();
-	botonFrenaPoco4.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("frenar 4 4");
-	    }
-	});
-	botonFrenaPoco4.setText(Constantes.FRENO_MENOS);
-	botonFrenaPoco4.setVisible(true);
-	botonFrenaPoco4.setBounds(
-		botonDisPin4.getWidth() + botonDisPin4.getX(),
+	escuchador.asignaMouseClicked(botonAumPla4,"subeplato 4");
+	
+	colocarJButtonEnJPanel(botonAumPla4,contentPane);
+	
+	//
+	JButton botonFrenaPoco4 = null;
+	botonFrenaPoco4 = crearJButton(botonFrenaPoco4,Constantes.FRENO_MENOS,botonDisPin4.getWidth() + botonDisPin4.getX(),
 		botonDisPin4.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonFrenaPoco4);
+	escuchador.asignaMouseClicked(botonFrenaPoco4,"frenar 4 1");
+	
+	colocarJButtonEnJPanel(botonFrenaPoco4,contentPane);
 
-	JButton botonFrenaMas4 = new JButton();
-	botonFrenaMas4.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("frenar 4 4");
-	    }
-	});
-	botonFrenaMas4.setText(Constantes.FRENO_MAS);
-	botonFrenaMas4.setVisible(true);
-	botonFrenaMas4.setBounds(botonAumPin4.getWidth() + botonAumPin4.getX(),
+	//
+
+	JButton botonFrenaMas4 = null;
+	botonFrenaMas4 = crearJButton(botonFrenaMas4,Constantes.FRENO_MAS,botonAumPin4.getWidth() + botonAumPin4.getX(),
 		botonAumPin4.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonFrenaMas4);
-
+	escuchador.asignaMouseClicked(botonFrenaMas4,"frenar 4 1");	  
+	colocarJButtonEnJPanel(botonFrenaMas4,contentPane);
+	
 	JLabel lblCiclista_5 = new JLabel("Ciclista5");
 	lblCiclista_5.setBounds(
 		textArea_ciclista4.getX() + textArea_ciclista4.getWidth() + 2
@@ -747,169 +528,114 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 		Constantes.ALTO_TEXTBOX);
 	contentPane.add(textArea_ciclista5);
 
-	JButton botonDisCad5 = new JButton();
-	botonDisCad5.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 5 "+Constantes.BAJA_CADENCIA);
-	    }
-	});
-	botonDisCad5.setText(Constantes.CADENCIA_MENOS);
-	botonDisCad5.setVisible(true);
-	botonDisCad5.setBounds(textArea_ciclista5.getWidth()
+	JButton botonDisCad5 = null;
+	botonDisCad5 = crearJButton(botonDisCad5,Constantes.CADENCIA_MENOS,textArea_ciclista5.getWidth()
 		+ textArea_ciclista5.getX(), textArea_ciclista5.getY(),
 		Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-	contentPane.add(botonDisCad5);
-
-	JButton botonAumCad5 = new JButton();
-	botonAumCad5.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("asignacadencia 5 "+Constantes.SUBE_CADENCIA);
-	    }
-	});
-	botonAumCad5.setText(Constantes.CADENCIA_MAS);
-	botonAumCad5.setVisible(true);
-	botonAumCad5.setBounds(textArea_ciclista5.getWidth()
+		    
+	escuchador.asignaMouseClicked(botonDisCad5,"asignacadencia 5 "+Constantes.BAJA_CADENCIA);
+	
+	colocarJButtonEnJPanel(botonDisCad5,contentPane);
+//
+	JButton botonAumCad5 = null;
+	botonAumCad5 = crearJButton(botonAumCad5,Constantes.CADENCIA_MAS,textArea_ciclista5.getWidth()
 		+ textArea_ciclista5.getX(), botonDisCad5.getY()
 		+ Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonAumCad5);
-
-	JButton botonDisPin5 = new JButton();
-	botonDisPin5.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("bajapinon 5");
-	    }
-	});
-	botonDisPin5.setText(Constantes.PINON_MENOS);
-	botonDisPin5.setVisible(true);
-	botonDisPin5.setBounds(textArea_ciclista5.getWidth()
+	escuchador.asignaMouseClicked(botonAumCad5,"asignacadencia 5 "+Constantes.SUBE_CADENCIA);
+	
+	colocarJButtonEnJPanel(botonAumCad5,contentPane);
+	//
+	JButton botonDisPin5 = null;
+	botonDisPin5 = crearJButton(botonDisPin5,Constantes.PINON_MENOS,textArea_ciclista5.getWidth()
 		+ textArea_ciclista5.getX(), botonAumCad5.getY()
 		+ Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonDisPin5);
-
-	JButton botonAumPin5 = new JButton();
-	botonAumPin5.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("subepinon 5");
-	    }
-	});
-	botonAumPin5.setText(Constantes.PINON_MAS);
-	botonAumPin5.setVisible(true);
-	botonAumPin5.setBounds(textArea_ciclista5.getWidth()
+	escuchador.asignaMouseClicked(botonDisPin5,"bajapinon 5");
+	
+	colocarJButtonEnJPanel(botonDisPin5,contentPane);
+	//
+	JButton botonAumPin5 = null;
+	botonAumPin5 = crearJButton(botonAumPin5,Constantes.PINON_MAS,textArea_ciclista5.getWidth()
 		+ textArea_ciclista5.getX(), botonDisPin5.getY()
 		+ Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonAumPin5);
+	escuchador.asignaMouseClicked(botonAumPin5,"subepinon 5");
+	colocarJButtonEnJPanel(botonAumPin5,contentPane);
 
-	JButton botonDisPla5 = new JButton();
-	botonDisPla5.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("bajaplato 5");
-	    }
-	});
-	botonDisPla5.setText(Constantes.PLATO_MENOS);
-	botonDisPla5.setVisible(true);
-	botonDisPla5.setBounds(botonDisCad5.getWidth() + botonDisCad5.getX(),
+	//
+	JButton botonDisPla5 = null;
+	botonDisPla5 = crearJButton(botonDisPla5,Constantes.PLATO_MENOS,botonDisCad5.getWidth() + botonDisCad5.getX(),
 		textArea_ciclista5.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonDisPla5);
+	escuchador.asignaMouseClicked(botonDisPla5,"bajaplato 5");
+	
+	colocarJButtonEnJPanel(botonDisPla5,contentPane);
 
-	JButton botonAumPla5 = new JButton();
-	botonAumPla5.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("subeplato 5");
-	    }
-	});
-	botonAumPla5.setText(Constantes.PLATO_MAS);
-	botonAumPla5.setVisible(true);
-	botonAumPla5.setBounds(botonAumCad5.getWidth() + botonAumCad5.getX(),
+	//
+
+	JButton botonAumPla5 = null;
+	botonAumPla5 = crearJButton(botonAumPla5,Constantes.PLATO_MAS,botonAumCad5.getWidth() + botonAumCad5.getX(),
 		botonAumCad5.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonAumPla5);
-
-	JButton botonFrenaPoco5 = new JButton();
-	botonFrenaPoco5.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("frenar 5 5");
-	    }
-	});
-	botonFrenaPoco5.setText(Constantes.FRENO_MENOS);
-	botonFrenaPoco5.setVisible(true);
-	botonFrenaPoco5.setBounds(
-		botonDisPin5.getWidth() + botonDisPin5.getX(),
+	escuchador.asignaMouseClicked(botonAumPla5,"subeplato 5");
+	
+	colocarJButtonEnJPanel(botonAumPla5,contentPane);
+	
+	//
+	JButton botonFrenaPoco5 = null;
+	botonFrenaPoco5 = crearJButton(botonFrenaPoco5,Constantes.FRENO_MENOS,botonDisPin5.getWidth() + botonDisPin5.getX(),
 		botonDisPin5.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonFrenaPoco5);
+	escuchador.asignaMouseClicked(botonFrenaPoco5,"frenar 5 1");
+	
+	colocarJButtonEnJPanel(botonFrenaPoco5,contentPane);
 
-	JButton botonFrenaMas5 = new JButton();
-	botonFrenaMas5.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando("frenar 5 5");
-	    }
-	});
-	botonFrenaMas5.setText(Constantes.FRENO_MAS);
-	botonFrenaMas5.setVisible(true);
-	botonFrenaMas5.setBounds(botonAumPin5.getWidth() + botonAumPin5.getX(),
+	//
+
+	JButton botonFrenaMas5 = null;
+	botonFrenaMas5 = crearJButton(botonFrenaMas5,Constantes.FRENO_MAS,botonAumPin5.getWidth() + botonAumPin5.getX(),
 		botonAumPin5.getY(), Constantes.ANCHO_BOTON,
 		Constantes.ALTO_BOTON);
-	contentPane.add(botonFrenaMas5);
-
-	lblTiempo = new JLabel("Tiempo");
-	lblTiempo.setBounds(textArea_ciclista3.getX(),
+	escuchador.asignaMouseClicked(botonFrenaMas5,"frenar 5 1");	  
+	colocarJButtonEnJPanel(botonFrenaMas5,contentPane);
+	
+	lblTiempo = crearJLabel(lblTiempo,"Tiempo",textArea_ciclista3.getX(),
 		textArea_ciclista3.getY() + textArea_ciclista3.getHeight(), 70,
 		15);
-	contentPane.add(lblTiempo);
 
-	tFreloj = new JTextField();
-	tFreloj.setEditable(false);
-	tFreloj.setBounds(lblTiempo.getX(),
+	colocarJLabelEnJPanel(lblTiempo,contentPane);
+
+	tFreloj = crearJTextField(tFreloj,lblTiempo.getX(),
 		lblTiempo.getY() + lblTiempo.getHeight(), 114, 19);
-	contentPane.add(tFreloj);
-	tFreloj.setColumns(10);
+	tFreloj.setEditable(false);
+	
+	colocarJTextFieldEnJPanel(tFreloj,contentPane);
+
 	cadena = "";
 
-	lblComandos = new JLabel("Comandos");
-	lblComandos.setBounds(textArea_ciclista4.getX(),
+	lblComandos = crearJLabel(lblComandos,"Comandos",textArea_ciclista4.getX(),
 		textArea_ciclista4.getY() + textArea_ciclista4.getHeight(),
 		114, 15);
-	contentPane.add(lblComandos);
-	tFcomando = new JTextField();
-	tFcomando.addKeyListener(new KeyAdapter() {
-	    @Override
-	    public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == 10) {
-		    comandero.recibir_comando(tFcomando.getText());
-		    tFcomando.setText("");
-		}
-	    }
-	});
-
-	tFcomando.setBounds(lblComandos.getX(), lblComandos.getY()
+	
+	colocarJLabelEnJPanel(lblComandos,contentPane);
+	tFcomando = crearJTextField(tFcomando,lblComandos.getX(), lblComandos.getY()
 		+ lblComandos.getHeight(), Constantes.ANCHO_TEXTBOX,
 		Constantes.ALTO_TEXTBOX);
-	contentPane.add(tFcomando);
-	// tFcomando.setColumns(10);
+	escuchador.asignaKeyPressed(tFcomando, tFcomando.getText());
+	
+	colocarJTextFieldEnJPanel(tFcomando,contentPane);
 
-	JLabel lblConsola = new JLabel("Consola");
-	lblConsola.setBounds(textArea_ciclista5.getX(),
+	JLabel lblConsola = crearJLabel(lblComandos,"Consola",textArea_ciclista5.getX(),
 		textArea_ciclista4.getY() + textArea_ciclista4.getHeight(),
 		114, 15);
-	contentPane.add(lblConsola);
+	
+	colocarJLabelEnJPanel(lblConsola,contentPane);
 
-	tFconsola = new JTextArea();
-	// tFconsola.setColumns(10);
-	tFconsola.setBounds(lblConsola.getX(),
+	tFconsola = crearJTextArea(tFconsola,lblConsola.getX(),
 		lblConsola.getY() + lblConsola.getHeight(),
 		Constantes.ANCHO_TEXTBOX, Constantes.ALTO_TEXTBOX);
+	
 
 	tFconsola.setLineWrap(true);
 	sbrText = new JScrollPane(tFconsola);
@@ -986,5 +712,67 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
         //tFconsola.setText("");
 	tFreloj.setText("");
 
+    }
+    private void colocarJButtonEnJPanel(JButton bt,JPanel destino)
+    {
+	destino.add(bt);
+    }
+    private void colocarJPanelEnJFrame(JPanel panel)
+    {
+	setContentPane(panel);
+    }
+    private void colocarJPanelEnJPanel(JPanel origen,JPanel destino)
+    {
+	destino.add(origen);
+    }
+    private void colocarJTextAreaEnJPanel(JTextArea origen,JPanel destino)
+    {
+	destino.add(origen);
+    }
+    private void colocarJTextFieldEnJPanel(JTextField origen,JPanel destino)
+    {
+	destino.add(origen);
+    }
+    private void colocarJLabelEnJPanel(JLabel origen,JPanel destino)
+    {
+	destino.add(origen);
+    }
+    private JPanel crearJPanel(JPanel panel,int x,int y,int ancho,int alto)
+    {
+	panel = new JPanel();
+	panel.setLayout(null);
+	panel.setBounds(x, y, ancho,alto);
+	panel.setBorder(new EmptyBorder(0, 0, 0, 0));
+	
+	return panel;
+    }
+    private JLabel crearJLabel(JLabel label,String nombre,int x,int y,int ancho,int alto)
+    {
+	label = new JLabel(nombre);
+	label.setBounds(x, y,ancho, alto);
+	
+	return label;
+    }
+    private JTextArea crearJTextArea(JTextArea text,int x,int y,int ancho,int alto)
+    {
+	text = new JTextArea();
+	text.setBounds(x,y, ancho,alto);
+	return text;
+    }
+    private JTextField crearJTextField(JTextField text,int x,int y,int ancho,int alto)
+    {
+	text = new JTextField();
+	text.setBounds(x,y, ancho,alto);
+	return text;
+    }
+    private JButton crearJButton(JButton bt,String texto,int x,int y,int ancho,int alto)
+    {
+	bt = new JButton();
+	bt.setBounds(x,y, ancho,alto);
+	
+	bt.setText(texto);
+	bt.setVisible(true);
+	bt.setBounds(x,y,ancho,alto);
+	return bt;
     }
 }
