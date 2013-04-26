@@ -224,11 +224,7 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 		* getRelacionTransmision();
     }
 
-    public void frenar(double cantidad, double tiempo) {
-	/**
-	 * implementar
-	 */
-    }
+   
 
     public void calculaVelocidadActual() {
 	// la velocidad es el radio de la rueda * 2 PI * relacion de la

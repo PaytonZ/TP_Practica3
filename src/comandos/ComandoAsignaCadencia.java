@@ -80,6 +80,11 @@ public class ComandoAsignaCadencia implements InterfazCommand {
 			.nextToken());
 		c = new ComandoAsignaCadencia(nueva_cadencia, numciclista);
 	    }
+	    else
+	    {
+		c = new ComandoIncompleto(this.obtenerAyuda());
+	    }
+		
 	}
 
 	return c;

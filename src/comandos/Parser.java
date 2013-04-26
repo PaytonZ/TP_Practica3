@@ -292,19 +292,20 @@ public class Parser {
 	lista_de_comandos.add(new ComandoBajaPinon(0));
 	lista_de_comandos.add(new ComandoBajaPlato(0));
 	lista_de_comandos.add(new ComandoCurva( 0,0));
-	// lista_de_comandos.add(new ComandoDesconocido());
-	// lista_de_comandos.add(new ComandoFrenar(null, 0, 0));
-	// lista_de_comandos.add(new ComandoIncompleto());
+	lista_de_comandos.add(new ComandoDesconocido());
+	lista_de_comandos.add(new ComandoFrenar(0, 0, 0));
+	lista_de_comandos.add(new ComandoIncompleto(""));
 	lista_de_comandos.add(new ComandoNinguno());
-	// lista_de_comandos.add(new ComandoPendiente());
+	lista_de_comandos.add(new ComandoPendiente(0,0));
 	lista_de_comandos.add(new ComandoSubePinon(0));
 	lista_de_comandos.add(new ComandoSubePlato(0));
+	lista_de_comandos.add(new ComandoViento(null, null, null));
 
     }
 
     // TODO Implementar para un unico return.
     public InterfazCommand parse(String texto_a_parsear) {
-	InterfazCommand comando = new ComandoNinguno();
+	InterfazCommand comando = new ComandoDesconocido();
 
 	for (InterfazCommand c : lista_de_comandos) {
 	    if ((comando = c.parse(texto_a_parsear)) != null) {

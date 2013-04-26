@@ -28,6 +28,10 @@ public class ComandoSubePlato implements InterfazCommand {
 
 		c = new ComandoSubePlato(numciclista);
 	    }
+	    else
+	    {
+		c = new ComandoIncompleto(this.obtenerAyuda());
+	    }
 	}
 	return c;
     }

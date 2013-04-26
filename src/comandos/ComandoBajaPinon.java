@@ -28,6 +28,10 @@ public class ComandoBajaPinon implements InterfazCommand {
 
 		c = new ComandoBajaPinon(numciclista);
 	    }
+	    else
+	    {
+		c = new ComandoIncompleto(this.obtenerAyuda());
+	    }
 	}
 	return c;
     }

@@ -17,12 +17,14 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     private Bicicleta bici;
     private int identificador_ciclista;
     private double fuerza_ciclista;
-
+    private int tiempoFrenado;
+    private double cantidadFreno;
     public Ciclista(Bicicleta nueva_bici, int id) {
 	cadencia = 1;
 	setBici(nueva_bici);
 	identificador_ciclista = id;
-
+	cantidadFreno = 0;
+	tiempoFrenado = 0;
     }
 
     /**
@@ -106,6 +108,12 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	bici.calculaEspacioRecorrido();
 	bici.calculaVelocidadActual();
 	bici.getCarretera().calculaFactor();
+	
+	if(tiempoFrenado >0)
+	{
+	    bici.frenar((float) cantidadFreno);
+	    tiempoFrenado--;
+	}
 	// bici.getViento().calculaFactor();
 	// cambiarPlato('d');
 	// cambiarPinon('a');
@@ -197,9 +205,6 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	cadencia = nueva_cadencia;
     }
 
-    public void frenar(double cantidad, double tiempo) {
-	bici.frenar(cantidad, tiempo);
-    }
 
     /**
      * @return the fuerza_ciclista
@@ -207,7 +212,14 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     public double getFuerza_ciclista() {
 	return fuerza_ciclista;
     }
-
+    public void setCantidadFreno(double fren)
+    {
+	cantidadFreno = fren;
+    }
+    public void setTiempoFreno(int time)
+    {
+	tiempoFrenado = time;
+    }
     /**
      * @param fuerza_ciclista
      *            the fuerza_ciclista to set

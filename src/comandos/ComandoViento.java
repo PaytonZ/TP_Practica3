@@ -1,5 +1,7 @@
 package comandos;
 
+import java.util.StringTokenizer;
+
 import factoresExternos.Viento;
 import persona.Ciclista;
 import principal.CiclistaManager;
@@ -11,9 +13,8 @@ public class ComandoViento implements InterfazCommand {
     String hora;
     String velocidad;
 
-    public ComandoViento(Viento miviento, String mihora, String tipo,
-	    String mivelocidad) {
-	viento = miviento;
+    public ComandoViento(String mihora, String tipo,String mivelocidad) {
+	
 	velocidad = mivelocidad;
 	tipoViento = tipo;
 	hora = mihora;
@@ -22,7 +23,36 @@ public class ComandoViento implements InterfazCommand {
 
     @Override
     public InterfazCommand parse(String nombre) {
-	return null;
+	StringTokenizer args  = new StringTokenizer (nombre,"\n\r ");
+	InterfazCommand c = null;
+	if (args.nextToken().equalsIgnoreCase("viento"))
+	{
+	    if (args.countTokens() == 3) {
+	    
+	        hora = args.nextToken();
+	        tipoViento = args.nextToken();
+	        velocidad = args.nextToken();
+	        c = new ComandoViento(hora,tipoViento,velocidad);
+	    } 
+	    
+	    else if(args.countTokens() == 2)
+	    {
+		 hora = args.nextToken();
+		 tipoViento = args.nextToken();
+		 velocidad = "0";
+		 
+		 if(tipoViento.equalsIgnoreCase("NULO"))
+		 {
+		     c = new ComandoViento(hora,"NULO","0");
+		 }
+		        
+	    }
+	    else
+	    {
+		c = new ComandoIncompleto(this.obtenerAyuda());
+	    }
+	}
+	return c;
     }
 
     @Override
@@ -41,14 +71,14 @@ public class ComandoViento implements InterfazCommand {
 
     @Override
     public void configurarContexto(CiclistaManager cm) {
-	// TODO Auto-generated method stub
+	viento = cm.getViento();
 
     }
 
     @Override
     public String obtenerAyuda() {
 	// TODO Auto-generated method stub
-	return null;
+	return "viento <hora> <tipo> <velocidad>";
     }
 
 }

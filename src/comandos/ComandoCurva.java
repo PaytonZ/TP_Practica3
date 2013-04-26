@@ -33,6 +33,10 @@ public class ComandoCurva implements InterfazCommand {
 	        
 	        c = new ComandoCurva(PK,velMax);
 	    } 
+	    else
+	    {
+		c = new ComandoIncompleto(this.obtenerAyuda());
+	    }
 	}
 	return c;
     }
@@ -60,7 +64,7 @@ public class ComandoCurva implements InterfazCommand {
     @Override
     public String obtenerAyuda() {
 	// TODO Auto-generated method stub
-	return null;
+	return "curva <punto_km> <velmax>";
     }
 
 }

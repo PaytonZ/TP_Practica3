@@ -26,6 +26,7 @@ import comandos.Parser;
 
 import entradaDeDatos.EntradaFichero;
 import factoresExternos.Curva;
+import factoresExternos.Pendiente;
 import factoresExternos.Viento;
 
 /**
@@ -48,6 +49,8 @@ public class CiclistaManager {
     private Vector<Bicicleta> vectorBicis;
     Curva curva;
     Viento viento;
+    Pendiente pendiente;
+    Reloj reloj;
     public static void main(String args[]) {
 
 	CiclistaManager manager = new CiclistaManager();
@@ -87,7 +90,7 @@ public class CiclistaManager {
 	Bicicleta bici5 = new Bicicleta(dientesporpinon.length,
 		dientesporplato.length, 1, dientesporpinon, dientesporplato,
 		0.6858, Constantes.MASA_BICICLETA_ESTANDAR);
-	Reloj reloj = new Reloj();
+	reloj = new Reloj();
 	Ciclista ciclista0 = new Ciclista(bici0, 0);
 	Ciclista ciclista1 = new Ciclista(bici1, 1);
 	Ciclista ciclista2 = new Ciclista(bici2, 2);
@@ -104,6 +107,7 @@ public class CiclistaManager {
 
 	viento = new Viento(vectorBicis, reloj);
 	curva = new Curva(vectorBicis);
+	pendiente = new Pendiente(vectorBicis);
 
 	vectorCiclistas.add(ciclista0);
 	vectorCiclistas.add(ciclista1);
@@ -128,6 +132,7 @@ public class CiclistaManager {
 	listaejecuta.add(ventana);
 	listaejecuta.add(viento);
 	listaejecuta.add(curva);
+	listaejecuta.add(pendiente);
 
 	listasalida.add(reloj);
 	listasalida.add(ciclista0);
@@ -189,5 +194,21 @@ public class CiclistaManager {
 	return curva;
 
     }
+    
+public Pendiente getPendiente() {
+	
+	return pendiente;
+
+    }
+public Reloj getReloj() {
+	
+	return reloj;
+
+}
+public Viento getViento() {
+	
+	return viento;
+
+}
 
 }

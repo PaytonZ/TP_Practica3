@@ -4,8 +4,9 @@ import principal.CiclistaManager;
 
 public class ComandoIncompleto implements InterfazCommand {
 
-    public ComandoIncompleto() {
-
+    String ayudacomando;
+    public ComandoIncompleto(String miayudacomando) {
+	ayudacomando = miayudacomando;
     }
 
     @Override
@@ -16,7 +17,7 @@ public class ComandoIncompleto implements InterfazCommand {
 
     public String getInformacionInstruccion() {
 	// TODO Auto-generated method stub
-	return "comando incompleto";
+	return "comando incompleto\n" + ayudacomando;
     }
 
     @Override
