@@ -51,8 +51,10 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     private JScrollPane sbrText;
     Lienzo lienzo;
     Escuchador escuchador;
+    private String textoAnteriorScroll ;
     public Ventana(Comandero nuevo_comandero, Lienzo lien) {
 
+	textoAnteriorScroll = "";
 	comandero = nuevo_comandero;
 	lienzo = lien;
 	escuchador = new Escuchador(comandero);
@@ -638,12 +640,11 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	
 
 	tFconsola.setLineWrap(true);
-	sbrText = new JScrollPane(tFconsola);
-	sbrText.setBounds(lblConsola.getX(),
+	sbrText = crearJScrollPane(sbrText,tFconsola,lblConsola.getX(),
 		lblConsola.getY() + lblConsola.getHeight(),
 		Constantes.ANCHO_TEXTBOX, Constantes.ALTO_TEXTBOX);
-	sbrText.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-	contentPane.add(sbrText);
+	
+	colocarJScrollPaneEnJPanel(sbrText,contentPane);
 	this.setVisible(true);
 
     }
@@ -686,8 +687,13 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	    tFreloj.setText(mensaje);
 	    break;
 	case "consola":
-	    // if(mensaje!="") mensaje+="\n";
-	    tFconsola.setText(tFconsola.getText().toString() + mensaje );
+	    String mens = tFconsola.getText().toString() + mensaje;
+	    
+	    if(!mensaje.equalsIgnoreCase("")) 
+	    {
+		tFconsola.setText(mens + "\n");
+		
+	    }
 	    break;
 
 	}
@@ -711,11 +717,22 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	textArea_ciclista5.setText("");
         //tFconsola.setText("");
 	tFreloj.setText("");
-
+	//comprobamos que texto que se escribio antes, no corresponde con el texto 
+	//actual, para poder mover el scrollBar y que no se mueva a no ser que se 
+	//introduzca un nuevo comando
+	if(!textoAnteriorScroll.equalsIgnoreCase( tFconsola.getText()))
+	{
+	    sbrText.getVerticalScrollBar().setValue(sbrText.getVerticalScrollBar().getMaximum());
+	}
+	textoAnteriorScroll  = tFconsola.getText();
     }
     private void colocarJButtonEnJPanel(JButton bt,JPanel destino)
     {
 	destino.add(bt);
+    }
+    private void colocarJScrollPaneEnJPanel(JScrollPane sc,JPanel destino)
+    {
+	destino.add(sc);
     }
     private void colocarJPanelEnJFrame(JPanel panel)
     {
@@ -774,5 +791,13 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	bt.setVisible(true);
 	bt.setBounds(x,y,ancho,alto);
 	return bt;
+    }
+    private JScrollPane crearJScrollPane(JScrollPane scroll,JTextArea tf,int x, int y, int ancho, int alto)
+    {
+	scroll = new JScrollPane(tf);
+	scroll = new JScrollPane(tFconsola);
+	scroll.setBounds(x,y,ancho,alto);
+	scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+	return scroll;
     }
 }
