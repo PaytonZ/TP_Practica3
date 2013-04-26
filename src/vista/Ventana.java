@@ -86,6 +86,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 		Constantes.ANCHO_VENTANA, Constantes.ALTO_VENTANA / 2);
 	colocarJPanelEnJPanel(contentLienzo,contentPrincipal);
 
+	
 	contentLienzo.add(lienzo);
 
 	JLabel lblCiclista0 = null;
@@ -645,6 +646,8 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 		Constantes.ANCHO_TEXTBOX, Constantes.ALTO_TEXTBOX);
 	
 	colocarJScrollPaneEnJPanel(sbrText,contentPane);
+	
+	
 	this.setVisible(true);
 
     }
@@ -720,6 +723,10 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	//comprobamos que texto que se escribio antes, no corresponde con el texto 
 	//actual, para poder mover el scrollBar y que no se mueva a no ser que se 
 	//introduzca un nuevo comando
+	
+	//A veces da este error
+	//at javax.swing.BufferStrategyPaintManager.flushAccumulatedRegion
+	
 	if(!textoAnteriorScroll.equalsIgnoreCase( tFconsola.getText()))
 	{
 	    sbrText.getVerticalScrollBar().setValue(sbrText.getVerticalScrollBar().getMaximum());
@@ -795,7 +802,6 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     private JScrollPane crearJScrollPane(JScrollPane scroll,JTextArea tf,int x, int y, int ancho, int alto)
     {
 	scroll = new JScrollPane(tf);
-	scroll = new JScrollPane(tFconsola);
 	scroll.setBounds(x,y,ancho,alto);
 	scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 	return scroll;
