@@ -1,5 +1,7 @@
 package comandos;
 
+import java.util.StringTokenizer;
+
 import principal.CiclistaManager;
 
 public class ComandoDesconocido implements InterfazCommand {
@@ -10,7 +12,12 @@ public class ComandoDesconocido implements InterfazCommand {
 
     @Override
     public InterfazCommand parse(String nombre) {
-	return null;
+	InterfazCommand c = null;
+	
+		c = new ComandoDesconocido();
+	    
+	
+	return c;
 
     }
 

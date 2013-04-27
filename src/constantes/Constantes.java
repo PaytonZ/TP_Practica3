@@ -1,5 +1,7 @@
 package constantes;
 
+import java.awt.Color;
+
 /**
  * esta clase contiene todas las constantes del programa, para poder cambiar de
  * forma eficiente, en todas clases da la aplicacion sus valores, con solo un
@@ -53,7 +55,18 @@ public final class Constantes {
     
     public static final int SUBE_CADENCIA = -2;
     public static final int BAJA_CADENCIA = -1;
-
+    
+    public static final Color COLOR_CIC_0 = Color.MAGENTA;
+    public static final Color COLOR_CIC_1 = Color.blue;
+    public static final Color COLOR_CIC_2 = Color.DARK_GRAY;
+    public static final Color COLOR_CIC_3 = Color.white;
+    public static final Color COLOR_CIC_4 = Color.ORANGE;
+    public static final Color COLOR_CIC_5 = Color.RED;
+    
+    public static final int MAX_METROS_CARRETERA = 15000;
+    
+    public static final int ANCHO_PUNTO= 20;
+    
     public static double IMPULSO_RELOJ_SEGUNDOS = 1;
     public static double IMPULSO_RELOJ_MILISEGUNDOS = IMPULSO_RELOJ_SEGUNDOS * 1000;
 

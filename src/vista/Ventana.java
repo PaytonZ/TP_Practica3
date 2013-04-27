@@ -91,7 +91,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 
 	JLabel lblCiclista0 = null;
 	lblCiclista0  = crearJLabel(lblCiclista0,"Ciclista0",Constantes.X_INICIAL, Constantes.Y_INICIAL,
-		Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
+		Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON,Constantes.COLOR_CIC_0);
 	colocarJLabelEnJPanel(lblCiclista0, contentPane);
 
 	textArea_ciclista0 = crearJTextArea(textArea_ciclista0,lblCiclista0.getX(),
@@ -176,7 +176,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	lblCiclista1  = crearJLabel(lblCiclista1,"Ciclista1",
 		textArea_ciclista0.getX() + textArea_ciclista0.getWidth() + 2
 		* Constantes.ANCHO_BOTON, lblCiclista0.getY(),
-	Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
+	Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON,Constantes.COLOR_CIC_1);
 	colocarJLabelEnJPanel(lblCiclista1, contentPane);
 //
 	textArea_ciclista1 = crearJTextArea(textArea_ciclista1,textArea_ciclista0.getX()
@@ -257,13 +257,14 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	escuchador.asignaMouseClicked(botonFrenaMas1,"frenar 1 1");	  
 	colocarJButtonEnJPanel(botonFrenaMas1,contentPane);
 
-	
-	JLabel lblCiclista_2 = new JLabel("Ciclista2");
-	lblCiclista_2.setBounds(
+	JLabel lblCiclista2 = null;
+	lblCiclista2  = crearJLabel(lblCiclista2,"Ciclista2",
 		textArea_ciclista1.getX() + textArea_ciclista1.getWidth() + 2
-			* Constantes.ANCHO_BOTON, lblCiclista1.getY(),
-		Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-	contentPane.add(lblCiclista_2);
+		* Constantes.ANCHO_BOTON, lblCiclista1.getY(),
+	Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON,Constantes.COLOR_CIC_2);
+	colocarJLabelEnJPanel(lblCiclista2, contentPane);
+	
+	
 
 	textArea_ciclista2 = new JTextArea();
 	textArea_ciclista2.setBounds(textArea_ciclista1.getX()
@@ -344,12 +345,13 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	escuchador.asignaMouseClicked(botonFrenaMas2,"frenar 2 1");	  
 	colocarJButtonEnJPanel(botonFrenaMas2,contentPane);
 
-	
-	JLabel lblCiclista3 = new JLabel("Ciclista3");
-	lblCiclista3.setBounds(textArea_ciclista0.getX(), lblCiclista0.getY()
+	JLabel lblCiclista3 = null;
+	lblCiclista3  = crearJLabel(lblCiclista3,"Ciclista3",
+		textArea_ciclista0.getX(), lblCiclista0.getY()
 		+ lblCiclista0.getHeight() + textArea_ciclista0.getHeight(),
-		Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-	contentPane.add(lblCiclista3);
+		Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON,Constantes.COLOR_CIC_3);
+	colocarJLabelEnJPanel(lblCiclista3, contentPane);
+	
 
 	textArea_ciclista3 = new JTextArea();
 	textArea_ciclista3.setBounds(lblCiclista3.getX(),
@@ -431,12 +433,14 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	escuchador.asignaMouseClicked(botonFrenaMas3,"frenar 3 1");	  
 	colocarJButtonEnJPanel(botonFrenaMas3,contentPane);
 	
-	JLabel lblCiclista_4 = new JLabel("Ciclista4");
-	lblCiclista_4.setBounds(
+	JLabel lblCiclista4 = null;
+	lblCiclista4  = crearJLabel(lblCiclista4,"Ciclista4",
 		textArea_ciclista3.getX() + textArea_ciclista3.getWidth() + 2
-			* Constantes.ANCHO_BOTON, lblCiclista3.getY(),
-		Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-	contentPane.add(lblCiclista_4);
+		* Constantes.ANCHO_BOTON, lblCiclista3.getY(),
+	Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON,Constantes.COLOR_CIC_4);
+	colocarJLabelEnJPanel(lblCiclista4, contentPane);
+	
+	
 
 	textArea_ciclista4 = new JTextArea();
 	textArea_ciclista4.setBounds(textArea_ciclista3.getX()
@@ -517,12 +521,13 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	escuchador.asignaMouseClicked(botonFrenaMas4,"frenar 4 1");	  
 	colocarJButtonEnJPanel(botonFrenaMas4,contentPane);
 	
-	JLabel lblCiclista_5 = new JLabel("Ciclista5");
-	lblCiclista_5.setBounds(
+	JLabel lblCiclista5 = null;
+	lblCiclista5  = crearJLabel(lblCiclista5,"Ciclista5",
 		textArea_ciclista4.getX() + textArea_ciclista4.getWidth() + 2
-			* Constantes.ANCHO_BOTON, lblCiclista_4.getY(),
-		Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-	contentPane.add(lblCiclista_5);
+		* Constantes.ANCHO_BOTON, lblCiclista4.getY(),
+	Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON,Constantes.COLOR_CIC_5);
+	colocarJLabelEnJPanel(lblCiclista5, contentPane);
+	
 
 	textArea_ciclista5 = new JTextArea();
 	textArea_ciclista5.setBounds(textArea_ciclista4.getX()
@@ -605,7 +610,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	
 	lblTiempo = crearJLabel(lblTiempo,"Tiempo",textArea_ciclista3.getX(),
 		textArea_ciclista3.getY() + textArea_ciclista3.getHeight(), 70,
-		15);
+		15,Color.black);
 
 	colocarJLabelEnJPanel(lblTiempo,contentPane);
 
@@ -619,7 +624,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 
 	lblComandos = crearJLabel(lblComandos,"Comandos",textArea_ciclista4.getX(),
 		textArea_ciclista4.getY() + textArea_ciclista4.getHeight(),
-		114, 15);
+		114, 15,Color.black);
 	
 	colocarJLabelEnJPanel(lblComandos,contentPane);
 	tFcomando = crearJTextField(tFcomando,lblComandos.getX(), lblComandos.getY()
@@ -631,7 +636,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 
 	JLabel lblConsola = crearJLabel(lblComandos,"Consola",textArea_ciclista5.getX(),
 		textArea_ciclista4.getY() + textArea_ciclista4.getHeight(),
-		114, 15);
+		114, 15,Color.black);
 	
 	colocarJLabelEnJPanel(lblConsola,contentPane);
 
@@ -770,11 +775,11 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	
 	return panel;
     }
-    private JLabel crearJLabel(JLabel label,String nombre,int x,int y,int ancho,int alto)
+    private JLabel crearJLabel(JLabel label,String nombre,int x,int y,int ancho,int alto,Color color)
     {
 	label = new JLabel(nombre);
 	label.setBounds(x, y,ancho, alto);
-	
+	label.setForeground(color);
 	return label;
     }
     private JTextArea crearJTextArea(JTextArea text,int x,int y,int ancho,int alto)

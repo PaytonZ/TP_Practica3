@@ -292,7 +292,6 @@ public class Parser {
 	lista_de_comandos.add(new ComandoBajaPinon(0));
 	lista_de_comandos.add(new ComandoBajaPlato(0));
 	lista_de_comandos.add(new ComandoCurva( 0,0));
-	lista_de_comandos.add(new ComandoDesconocido());
 	lista_de_comandos.add(new ComandoFrenar(0, 0, 0));
 	lista_de_comandos.add(new ComandoIncompleto(""));
 	lista_de_comandos.add(new ComandoNinguno());
@@ -300,6 +299,8 @@ public class Parser {
 	lista_de_comandos.add(new ComandoSubePinon(0));
 	lista_de_comandos.add(new ComandoSubePlato(0));
 	lista_de_comandos.add(new ComandoViento(null, null, null));
+
+	lista_de_comandos.add(new ComandoDesconocido());
 
     }
 

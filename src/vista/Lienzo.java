@@ -55,6 +55,14 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 
     @Override
     public void paint(Graphics g) {
+	Color colores[] = new Color[6];
+	colores[0] = Constantes.COLOR_CIC_0;
+	colores[1] = Constantes.COLOR_CIC_1;
+	colores[2] = Constantes.COLOR_CIC_2;
+	colores[3] = Constantes.COLOR_CIC_3;
+	colores[4] = Constantes.COLOR_CIC_4;
+	colores[5] = Constantes.COLOR_CIC_5;
+	
 	super.paint(g);
 
 	int x = 0;
@@ -110,9 +118,11 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	// aqui se pondra la informacion del ciclista para que se vaya pintando,
 	// ahora solo se pinta un punto en pantalla
 	for (i = 0; i < cic.size(); i++) {
-	    g.drawLine((int) cic.elementAt(i).getBici().getEspacioRecorrido()/ FACTORESCALA,
-		    20, (int) cic.elementAt(i).getBici().getEspacioRecorrido()/ FACTORESCALA,
-		    20);
+	    g.setColor(colores[i]);
+	 
+	    g.fillOval((int) cic.elementAt(i).getBici().getEspacioRecorrido()/ FACTORESCALA,
+		    20, Constantes.ANCHO_PUNTO, Constantes.ANCHO_PUNTO);
+	  
 	}
     }
     private Polygon creaPoligono(Point p1,Point p2,Point p3, Point p4)
