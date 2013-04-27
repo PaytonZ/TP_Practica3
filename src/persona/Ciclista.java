@@ -107,7 +107,7 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	pedalear(cadencia);
 	bici.calculaEspacioRecorrido();
 	bici.calculaVelocidadActual();
-	bici.getCarretera().calculaFactor();
+	//bici.getCarretera().calculaFactor();
 	
 	if(tiempoFrenado >0)
 	{

@@ -4,6 +4,7 @@ import interfaceMain.InterfaceEjecuta;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.Vector;
 import java.util.Map.Entry;
 
@@ -12,7 +13,7 @@ import constantes.Constantes;
 
 public class Pendiente implements InterfaceEjecuta{
 
-    Map<Double, Double> mapaPendientes;
+    TreeMap<Integer,Integer> arbol;
     private Vector<Bicicleta> vectorBicis;
 
     /**
@@ -23,7 +24,7 @@ public class Pendiente implements InterfaceEjecuta{
      */
 
     public Pendiente(Vector<Bicicleta> bicis) {
-	mapaPendientes = new HashMap<Double, Double>();
+	arbol = new TreeMap<Integer,Integer>();
 	vectorBicis = bicis;
     }
 
@@ -34,8 +35,8 @@ public class Pendiente implements InterfaceEjecuta{
      * @param tipo
      * @param velocidad
      */
-    public void setPendiente(double PK, double pendiente) {
-	mapaPendientes.put(PK, pendiente);
+    public void setPendiente(int PK, int pendiente) {
+	arbol.put(PK, pendiente);
 
     }
 
@@ -50,11 +51,11 @@ public class Pendiente implements InterfaceEjecuta{
 	int i = 0;
 	for (i = 0; i < vectorBicis.size(); i++) 
 	{
-	    java.util.Iterator<Entry<Double, Double>> it = mapaPendientes.entrySet().iterator();
+	    java.util.Iterator<Entry<Integer, Integer>> it = arbol.entrySet().iterator();
 
 	    while (it.hasNext()) 
 	    {
-		Entry<Double, Double> elemento = it.next();
+		Entry<Integer, Integer> elemento = it.next();
 		double espacio_recorrido = vectorBicis.get(i).getEspacioRecorrido();
 		//si hay mas pendientes
 		if(it.hasNext())
@@ -62,7 +63,7 @@ public class Pendiente implements InterfaceEjecuta{
 		    	// comprobamos en que metro nos encontramos del recorrido,
 			// si hemos pasado el punto donde empienza la pendiente,
 			// esta nos empezara a afectar positiva o negativamente
-		    	Entry<Double, Double> elemento2 = it.next();
+		    	Entry<Integer, Integer> elemento2 = it.next();
 		    	if (espacio_recorrido >= elemento.getKey() && espacio_recorrido < elemento2.getKey())
 			{
 			    // si la pendiente es positiva, nos afectara negativamente

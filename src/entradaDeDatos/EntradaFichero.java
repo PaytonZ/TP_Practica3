@@ -4,14 +4,22 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
 import java.util.StringTokenizer;
+import java.util.TreeMap;
+
+import comandos.InterfazCommand;
+import constantes.Constantes;
 
 /**TODO:
  * Juan: Las entradas deberían estar centralizadas y no deberia haber más de una. Aprovecha el "SuperLector" y haz los cambios pertinentes para que solo tengamos un lector.
  * 
  */
 
-/**
+/**lista
  * esta clase es capaz de devolver los datos de un fichero, en un array de
  * enteros.
  * 
@@ -35,6 +43,29 @@ public class EntradaFichero {
 
     }
 
+    public TreeMap<Integer,Integer> convertirFicheroAArbol(String fichero, String delimitadores) {
+	return devuelveArbolDeStringTokenizer(cargarFicheroEnStringTokenizer(
+		fichero, delimitadores)) ;
+		
+	
+
+    }
+    private TreeMap<Integer,Integer> devuelveArbolDeStringTokenizer(StringTokenizer textoConTokens) {
+	TreeMap<Integer,Integer> arbol = new TreeMap<Integer,Integer>();
+	int clave = 0;
+	int valor = 0;
+	while (textoConTokens.hasMoreElements()) {
+	    clave = (Integer.parseInt(textoConTokens.nextToken()));
+	    if(textoConTokens.hasMoreElements())
+		valor = (Integer.parseInt(textoConTokens.nextToken()));
+	    else
+		valor = 0;
+	    arbol.put(clave, valor);
+	    
+
+	}
+	return arbol;
+    }
     /**
      * devuelve un array de enteros dado un texto con tokens
      * 

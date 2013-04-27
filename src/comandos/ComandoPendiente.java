@@ -11,12 +11,12 @@ import principal.CiclistaManager;
 public class ComandoPendiente implements InterfazCommand {
 
 
-	    double PK;
-	    double pend;
+	    int PK;
+	    int pend;
 	    Pendiente pendiente;
 	    int identificador_ciclista;
 	    Ciclista ciclista;
-	    public ComandoPendiente(double miPK, double mipend) {
+	    public ComandoPendiente(int miPK, int mipend) {
 		PK = miPK;
 		pend = mipend;
 		// TODO Auto-generated constructor stub
@@ -30,8 +30,8 @@ public class ComandoPendiente implements InterfazCommand {
 		{
 		    if (args.countTokens() == 2) {
 		    
-		        PK = Double.valueOf(args.nextToken());
-		        pend = Double.valueOf(args.nextToken());
+		        PK = Integer.valueOf(args.nextToken());
+		        pend = Integer.valueOf(args.nextToken());
 		        
 		        c = new ComandoPendiente(PK,pend);
 		    } 
