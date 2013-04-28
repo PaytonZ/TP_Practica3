@@ -19,8 +19,8 @@ import constantes.Constantes;
  * 
  */
 
-/**lista
- * esta clase es capaz de devolver los datos de un fichero, en un array de
+/**
+ * lista esta clase es capaz de devolver los datos de un fichero, en un array de
  * enteros.
  * 
  * @author juancly
@@ -43,29 +43,30 @@ public class EntradaFichero {
 
     }
 
-    public TreeMap<Integer,Integer> convertirFicheroAArbol(String fichero, String delimitadores) {
+    public TreeMap<Integer, Integer> convertirFicheroAArbol(String fichero,
+	    String delimitadores) {
 	return devuelveArbolDeStringTokenizer(cargarFicheroEnStringTokenizer(
-		fichero, delimitadores)) ;
-		
-	
+		fichero, delimitadores));
 
     }
-    private TreeMap<Integer,Integer> devuelveArbolDeStringTokenizer(StringTokenizer textoConTokens) {
-	TreeMap<Integer,Integer> arbol = new TreeMap<Integer,Integer>();
+
+    private TreeMap<Integer, Integer> devuelveArbolDeStringTokenizer(
+	    StringTokenizer textoConTokens) {
+	TreeMap<Integer, Integer> arbol = new TreeMap<Integer, Integer>();
 	int clave = 0;
 	int valor = 0;
 	while (textoConTokens.hasMoreElements()) {
 	    clave = (Integer.parseInt(textoConTokens.nextToken()));
-	    if(textoConTokens.hasMoreElements())
+	    if (textoConTokens.hasMoreElements())
 		valor = (Integer.parseInt(textoConTokens.nextToken()));
 	    else
 		valor = 0;
 	    arbol.put(clave, valor);
-	    
 
 	}
 	return arbol;
     }
+
     /**
      * devuelve un array de enteros dado un texto con tokens
      * 

@@ -7,7 +7,6 @@ import principal.CiclistaManager;
 
 public class ComandoAyuda implements InterfazCommand {
 
-    
     Ciclista ciclista;
     int identificador_ciclista;
 
@@ -22,10 +21,9 @@ public class ComandoAyuda implements InterfazCommand {
 	StringTokenizer comandosYatributos = new StringTokenizer(nombre,
 		"\n\r ");
 	if (comandosYatributos.nextToken().equalsIgnoreCase("ayuda")) {
-	  
 
-		c = new ComandoAyuda();
-	    
+	    c = new ComandoAyuda();
+
 	}
 	return c;
     }
@@ -33,12 +31,10 @@ public class ComandoAyuda implements InterfazCommand {
     @Override
     public void execute() {
 
-
     }
 
     @Override
     public void configurarContexto(CiclistaManager cm) {
-	
 
     }
 

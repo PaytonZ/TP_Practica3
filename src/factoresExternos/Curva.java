@@ -82,8 +82,7 @@ public class Curva implements InterfaceEjecuta {
 			- Constantes.DISTANCIA_FRENADO
 			&& espacio_recorrido < elemento.getKey()) {
 		    // si la velocidad es mayor que la de la curva, la reducimos
-		    if (vectorBicis.get(i).getVelocidad() > elemento.getValue())
-		    {
+		    if (vectorBicis.get(i).getVelocidad() > elemento.getValue()) {
 			vectorBicis.get(i).setVelocidad(elemento.getValue());
 		    }
 		}

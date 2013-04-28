@@ -27,9 +27,7 @@ public class ComandoBajaPlato implements InterfazCommand {
 			.nextToken());
 
 		c = new ComandoBajaPlato(numciclista);
-	    }
-	    else
-	    {
+	    } else {
 		c = new ComandoIncompleto(this.obtenerAyuda());
 	    }
 	}

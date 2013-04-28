@@ -9,7 +9,7 @@ public class ComandoSubePinon implements InterfazCommand {
     Ciclista ciclista;
 
     int identificador_ciclista;
-    
+
     public ComandoSubePinon(int nuevo_identificador_ciclista) {
 	identificador_ciclista = nuevo_identificador_ciclista;
 	// TODO Auto-generated constructor stub
@@ -27,9 +27,7 @@ public class ComandoSubePinon implements InterfazCommand {
 			.nextToken());
 
 		c = new ComandoSubePinon(numciclista);
-	    }
-	    else
-	    {
+	    } else {
 		c = new ComandoIncompleto(this.obtenerAyuda());
 	    }
 	}
@@ -43,8 +41,6 @@ public class ComandoSubePinon implements InterfazCommand {
 	// TODO Auto-generated method stub
 
     }
-
-    
 
     public String getNombreComando() {
 	return "subepinon";
@@ -61,10 +57,12 @@ public class ComandoSubePinon implements InterfazCommand {
 	return "subepinon <num_ciclista>";
 	// TODO Auto-generated method stub
     }
+
     @Override
     public String getInformacionInstruccion() {
 	// TODO Auto-generated method stub
-	return "pinon subido en el ciclista" + ciclista.getIdentificador_ciclista()
-		+ "\npinon actual :" + ciclista.getPinonActualBici();
+	return "pinon subido en el ciclista"
+		+ ciclista.getIdentificador_ciclista() + "\npinon actual :"
+		+ ciclista.getPinonActualBici();
     }
 }

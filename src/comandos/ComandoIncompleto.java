@@ -5,6 +5,7 @@ import principal.CiclistaManager;
 public class ComandoIncompleto implements InterfazCommand {
 
     String ayudacomando;
+
     public ComandoIncompleto(String miayudacomando) {
 	ayudacomando = miayudacomando;
     }

@@ -10,7 +10,9 @@ public class ComandoFrenar implements InterfazCommand {
     double valor;
     int tiempo;
     int id;
-    public ComandoFrenar(int nuevo_identificador_ciclista, double mivalor, int mitiempo) {
+
+    public ComandoFrenar(int nuevo_identificador_ciclista, double mivalor,
+	    int mitiempo) {
 	id = nuevo_identificador_ciclista;
 	valor = mivalor;
 	tiempo = mitiempo;
@@ -22,23 +24,18 @@ public class ComandoFrenar implements InterfazCommand {
 	InterfazCommand c = null;
 	StringTokenizer comandosYatributos = new StringTokenizer(nombre,
 		"\n\r ");
-	
 
 	if (comandosYatributos.nextToken().equalsIgnoreCase("frenar")) {
 	    if (comandosYatributos.countTokens() == 3) {
 		id = Integer.parseInt(comandosYatributos.nextToken());
 		// String auxpar1 = comandosYatributos.nextToken();
-		valor = Integer.parseInt(comandosYatributos
-			.nextToken());
-		tiempo = Integer.parseInt(comandosYatributos
-			.nextToken());
-		c = new ComandoFrenar(id, valor,tiempo);
-	    }
-	    else
-	    {
+		valor = Integer.parseInt(comandosYatributos.nextToken());
+		tiempo = Integer.parseInt(comandosYatributos.nextToken());
+		c = new ComandoFrenar(id, valor, tiempo);
+	    } else {
 		c = new ComandoIncompleto(this.obtenerAyuda());
 	    }
-		
+
 	}
 
 	return c;
@@ -62,7 +59,7 @@ public class ComandoFrenar implements InterfazCommand {
     @Override
     public void configurarContexto(CiclistaManager cm) {
 
-	cic= cm.getCiclista(id);
+	cic = cm.getCiclista(id);
 
     }
 

@@ -202,7 +202,7 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 	calculaEspacioPorCadaPedalada();
 	calculaVelocidadActual();
 	calculaAceleracion();
-	espaciorecorrido = espaciorecorrido + velocidad ;
+	espaciorecorrido = espaciorecorrido + velocidad;
     }
 
     public void calculaAceleracion() {
@@ -223,8 +223,6 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 	espacioporpedalada = getRecorridoLinealDeLaRueda()
 		* getRelacionTransmision();
     }
-
-   
 
     public void calculaVelocidadActual() {
 	// la velocidad es el radio de la rueda * 2 PI * relacion de la
@@ -469,6 +467,7 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
     public void setVelocidad(double vel) {
 	velocidad = vel;
     }
+
     public void setFreno(double fre) {
 	freno = fre;
     }

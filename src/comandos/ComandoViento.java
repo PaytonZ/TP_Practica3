@@ -13,8 +13,8 @@ public class ComandoViento implements InterfazCommand {
     String hora;
     String velocidad;
 
-    public ComandoViento(String mihora, String tipo,String mivelocidad) {
-	
+    public ComandoViento(String mihora, String tipo, String mivelocidad) {
+
 	velocidad = mivelocidad;
 	tipoViento = tipo;
 	hora = mihora;
@@ -23,32 +23,27 @@ public class ComandoViento implements InterfazCommand {
 
     @Override
     public InterfazCommand parse(String nombre) {
-	StringTokenizer args  = new StringTokenizer (nombre,"\n\r ");
+	StringTokenizer args = new StringTokenizer(nombre, "\n\r ");
 	InterfazCommand c = null;
-	if (args.nextToken().equalsIgnoreCase("viento"))
-	{
+	if (args.nextToken().equalsIgnoreCase("viento")) {
 	    if (args.countTokens() == 3) {
-	    
-	        hora = args.nextToken();
-	        tipoViento = args.nextToken();
-	        velocidad = args.nextToken();
-	        c = new ComandoViento(hora,tipoViento,velocidad);
-	    } 
-	    
-	    else if(args.countTokens() == 2)
-	    {
-		 hora = args.nextToken();
-		 tipoViento = args.nextToken();
-		 velocidad = "0";
-		 
-		 if(tipoViento.equalsIgnoreCase("NULO"))
-		 {
-		     c = new ComandoViento(hora,"NULO","0");
-		 }
-		        
+
+		hora = args.nextToken();
+		tipoViento = args.nextToken();
+		velocidad = args.nextToken();
+		c = new ComandoViento(hora, tipoViento, velocidad);
 	    }
-	    else
-	    {
+
+	    else if (args.countTokens() == 2) {
+		hora = args.nextToken();
+		tipoViento = args.nextToken();
+		velocidad = "0";
+
+		if (tipoViento.equalsIgnoreCase("NULO")) {
+		    c = new ComandoViento(hora, "NULO", "0");
+		}
+
+	    } else {
 		c = new ComandoIncompleto(this.obtenerAyuda());
 	    }
 	}

@@ -51,6 +51,11 @@ public class CiclistaManager {
     Viento viento;
     Pendiente pendiente;
     Reloj reloj;
+
+    /*
+     * java CiclistaManager.java numero_de_ciclistas chero_de_comandos
+     * medida_del_tiempo cambio_de_plato cambio_de_piñon radio_rueda
+     */
     public static void main(String args[]) {
 
 	CiclistaManager manager = new CiclistaManager();
@@ -150,13 +155,7 @@ public class CiclistaManager {
     private void ejecuta() {
 	int contador = 0; // Contara los segundos de ejecucion del programa
 	int limite = 300; // Se establecera el limite en SEGUNDOS de la
-			  // ejecucion
-	// del programa
-	/*
-	 * EntradaFichero entrada = new EntradaFichero(); new MiMapa<Double,
-	 * Double>(entrada.cargarFicheroEnStringTokenizer( "carretera.txt",
-	 * ":;"));
-	 */
+			  // ejecucion del programa
 
 	while (contador < limite) {
 
@@ -189,26 +188,29 @@ public class CiclistaManager {
 	return ciclista_a_devolver;
 
     }
+
     public Curva getCurva() {
-	
+
 	return curva;
 
     }
-    
-public Pendiente getPendiente() {
-	
+
+    public Pendiente getPendiente() {
+
 	return pendiente;
 
     }
-public Reloj getReloj() {
-	
+
+    public Reloj getReloj() {
+
 	return reloj;
 
-}
-public Viento getViento() {
-	
+    }
+
+    public Viento getViento() {
+
 	return viento;
 
-}
+    }
 
 }

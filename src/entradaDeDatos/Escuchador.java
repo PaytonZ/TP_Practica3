@@ -14,15 +14,16 @@ import comandos.Comandero;
 import constantes.Constantes;
 
 public class Escuchador {
-  
+
     Comandero comandero;
+
     public Escuchador(Comandero micomandero)
-    
+
     {
 	comandero = micomandero;
     }
-    public void asignaMouseClicked(JButton bt,final String comando)
-    {
+
+    public void asignaMouseClicked(JButton bt, final String comando) {
 	bt.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
@@ -30,8 +31,8 @@ public class Escuchador {
 	    }
 	});
     }
-    public void asignaKeyPressed(JTextField ta,final String comando)
-    {
+
+    public void asignaKeyPressed(JTextField ta, final String comando) {
 	final JTextField tb = ta;
 	tb.addKeyListener(new KeyAdapter() {
 	    @Override

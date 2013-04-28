@@ -14,6 +14,7 @@ public class ComandoCurva implements InterfazCommand {
     Curva curva;
     int identificador_ciclista;
     Ciclista ciclista;
+
     public ComandoCurva(double miPK, double velocidadMax) {
 	PK = miPK;
 	velMax = velocidadMax;
@@ -22,19 +23,16 @@ public class ComandoCurva implements InterfazCommand {
 
     @Override
     public InterfazCommand parse(String nombre) {
-	StringTokenizer args  = new StringTokenizer (nombre,"\n\r ");
+	StringTokenizer args = new StringTokenizer(nombre, "\n\r ");
 	InterfazCommand c = null;
-	if (args.nextToken().equalsIgnoreCase("curva"))
-	{
+	if (args.nextToken().equalsIgnoreCase("curva")) {
 	    if (args.countTokens() == 2) {
-	    
-	        double PK = Double.valueOf(args.nextToken());
-	        double velMax = Double.valueOf(args.nextToken());
-	        
-	        c = new ComandoCurva(PK,velMax);
-	    } 
-	    else
-	    {
+
+		double PK = Double.valueOf(args.nextToken());
+		double velMax = Double.valueOf(args.nextToken());
+
+		c = new ComandoCurva(PK, velMax);
+	    } else {
 		c = new ComandoIncompleto(this.obtenerAyuda());
 	    }
 	}
@@ -56,7 +54,7 @@ public class ComandoCurva implements InterfazCommand {
 
     @Override
     public void configurarContexto(CiclistaManager cm) {
-	
+
 	curva = cm.getCurva();
 
     }

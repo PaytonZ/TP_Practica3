@@ -13,10 +13,9 @@ public class ComandoDesconocido implements InterfazCommand {
     @Override
     public InterfazCommand parse(String nombre) {
 	InterfazCommand c = null;
-	
-		c = new ComandoDesconocido();
-	    
-	
+
+	c = new ComandoDesconocido();
+
 	return c;
 
     }
@@ -25,7 +24,6 @@ public class ComandoDesconocido implements InterfazCommand {
     public void execute() {
 	// System.out.println("DESCONOCIDO");
 	// TODO Auto-generated method stub
-	
 
     }
 

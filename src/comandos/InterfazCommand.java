@@ -17,7 +17,7 @@ public interface InterfazCommand {
      * correctamente configurado E.O.C Devuelve null.
      * 
      * @param nombre
-     * @return
+     * @return Comando Valido.
      */
     public InterfazCommand parse(String nombre);
 
