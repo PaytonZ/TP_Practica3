@@ -50,12 +50,14 @@ public final class Constantes {
     public static final double DISTANCIA_FRENADO = 10;
     public static final double FACTORVIENTO = 0.1;
     public static final double FACTORPENDIENTE = 0.1;
-
+    public static final int FACTORESCALA = 1;
+    
     public static final int NUM_DECIMALES = 3;
     
     public static final int SUBE_CADENCIA = -2;
     public static final int BAJA_CADENCIA = -1;
     
+    public static final int ANCHO_PUNTO_CICLISTA =20;
     public static final Color COLOR_CIC_0 = Color.MAGENTA;
     public static final Color COLOR_CIC_1 = Color.blue;
     public static final Color COLOR_CIC_2 = Color.DARK_GRAY;
@@ -65,7 +67,6 @@ public final class Constantes {
     
     public static final int MAX_METROS_CARRETERA = 15000;
     
-    public static final int ANCHO_PUNTO= 20;
     
     public static double IMPULSO_RELOJ_SEGUNDOS = 1;
     public static double IMPULSO_RELOJ_MILISEGUNDOS = IMPULSO_RELOJ_SEGUNDOS * 1000;

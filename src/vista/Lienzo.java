@@ -40,14 +40,13 @@ import entradaDeDatos.EntradaFichero;
 public class Lienzo extends Canvas implements InterfaceEjecuta {
 
     private static final long serialVersionUID = 1L;
-    final int FACTORESCALA;
     private JPanel contentPane;
     EntradaFichero entrada;
     Graphics g;
     Vector<Ciclista> cic;
     TreeMap<Integer,Integer> arbol;
     public Lienzo(Vector<Ciclista> micic) {
-	FACTORESCALA = 10;
+	
 	cic = micic;
 	contentPane = new JPanel();
 	contentPane.setLayout(null);
@@ -78,35 +77,50 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	int i = 0;
 	
 	java.util.Iterator<Entry<Integer, Integer>> it = arbol.entrySet().iterator();
-	
-	while (it.hasNext()) 
+	java.util.Iterator<Entry<Integer, Integer>> itaux = arbol.entrySet().iterator();
+	if(it.hasNext())
 	{
-		Entry<Integer, Integer> tramo = it.next();
+	    itaux.next();
+	}
+	while (itaux.hasNext()) 
+	{
+	    	
+	    	
+		Entry<Integer, Integer> tramoini = it.next();
+		
+		
+		if(it.hasNext())
+		{
+		    
+		    Entry<Integer, Integer> tramofin = itaux.next();
 		
 		//pintamos la carretera
 		
-		g.setColor(Color.BLACK);
-		g.drawLine((int) x, y, tramo.getKey() / FACTORESCALA, y
-		- tramo.getValue());
+		    g.setColor(Color.BLACK);
+		    g.drawLine((int) x, y, tramofin.getKey() / Constantes.FACTORESCALA, y
+			    - tramoini.getValue());
+		
+		    
 		
 		//pintamos el cielo
 		Polygon polygonCielo ;
-	        polygonCielo = creaPoligono(new Point(x,0),new Point(x, y-1),new Point((int) tramo.getKey() / FACTORESCALA, (y- tramo.getValue())-1),new Point(tramo.getKey() / FACTORESCALA, 0));
-		g.setColor(Color.CYAN);
-		g.fillPolygon(polygonCielo);
-		  
+	        polygonCielo = creaPoligono(new Point(x,0),new Point(x, y-1),new Point((int) tramofin.getKey() / Constantes.FACTORESCALA, (y- tramoini.getValue())-1),new Point(tramofin.getKey() / Constantes.FACTORESCALA, 0));
+		Polygon polygon = new Polygon();
+		
+		pintaPoligono(polygonCielo,g,Color.CYAN);
+	       
+	        
 		
 		//pintamos el suelo
-	    	g.setColor(Color.green);
+	    	
 	    	Polygon polygonSuelo ;
-	    	polygonSuelo = creaPoligono(new Point(x, Constantes.ALTO_VENTANA),new Point(x, y+1),new Point((int)tramo.getKey() / FACTORESCALA, (y- (int) tramo.getValue())+1),new Point((int) tramo.getKey() / FACTORESCALA, Constantes.ALTO_VENTANA));
-
-		g.fillPolygon(polygonSuelo);
+	    	polygonSuelo = creaPoligono(new Point(x, Constantes.ALTO_VENTANA),new Point(x, y+1),new Point((int)tramofin.getKey() / Constantes.FACTORESCALA, (y- (int) tramoini.getValue())+1),new Point((int) tramofin.getKey() / Constantes.FACTORESCALA, Constantes.ALTO_VENTANA));
+	    	pintaPoligono(polygonSuelo,g,Color.GREEN);
 		    
-		x = tramo.getKey() / FACTORESCALA;
-		y = y - tramo.getValue();
-		
-		
+		x = tramofin.getKey() / Constantes.FACTORESCALA;
+		y = y - tramoini.getValue();
+		}
+		System.out.println(x + " " + y);
 		    
 		    
 	}
@@ -114,11 +128,12 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 
 	// aqui se pondra la informacion del ciclista para que se vaya pintando,
 	// ahora solo se pinta un punto en pantalla
+	//for (i = 0; i < cic.size(); i++) {
 	for (i = 0; i < cic.size(); i++) {
 	    g.setColor(colores[i]);
 	    
-	    g.fillOval((int) cic.elementAt(i).getBici().getEspacioRecorrido()/ FACTORESCALA,
-		    calculaYparaPuntoCiclista(cic.elementAt(i), arbol), Constantes.ANCHO_PUNTO, Constantes.ANCHO_PUNTO);
+	    g.fillOval((int) (cic.elementAt(i).getBici().getEspacioRecorrido()/ Constantes.FACTORESCALA) - Constantes.ANCHO_PUNTO_CICLISTA/2,
+		    calculaYparaPuntoCiclista(cic.elementAt(i), arbol), Constantes.ANCHO_PUNTO_CICLISTA, Constantes.ANCHO_PUNTO_CICLISTA);
 	  
 	}
 	
@@ -126,29 +141,54 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
     private int calculaYparaPuntoCiclista(Ciclista cic,TreeMap<Integer,Integer> ar)
     {
 	int yresu = 0;
-	int y =Constantes.ALTO_VENTANA / 4;
+	int dify = 0;
+	int yacum =Constantes.ALTO_VENTANA / 4;
 	boolean encontrado = false;
 	java.util.Iterator<Entry<Integer, Integer>> it = ar.entrySet().iterator();
-	
-	while (it.hasNext() && !encontrado) 
+	java.util.Iterator<Entry<Integer, Integer>> itaux = ar.entrySet().iterator();
+	if(it.hasNext())
 	{
-	   
+	    itaux.next();
+	}
+	while (itaux.hasNext() && !encontrado) 
+	{
+	    	
 	    	
 		Entry<Integer, Integer> tramoini = it.next();
-		java.util.Iterator<Entry<Integer, Integer>> itaux = it;
+		
 		
 		if(it.hasNext())
 		{
-		    Entry<Integer, Integer> tramofin = it.next();
+		    
+		    Entry<Integer, Integer> tramofin = itaux.next();
+		    
+		  
 		    if(cic.getBici().getEspacioRecorrido() >= tramoini.getKey() &&
 			    cic.getBici().getEspacioRecorrido() < tramofin.getKey())
 		    {
-			
 			encontrado = true;
+			
+			int metro_en_el_tramo_del_ciclista = (int) (cic.getBici().getEspacioRecorrido() - tramoini.getKey()  );
+			int diftramos = tramofin.getKey() - tramoini.getKey();
+			
+			    
+			    dify =  tramoini.getValue();
+			
+			int yfintramo = yacum + dify;
+			yresu  = metro_en_el_tramo_del_ciclista * dify/diftramos;
+			//yresu = (yresu + yinitramo)  -Constantes.ANCHO_PUNTO_CICLISTA;
+			 //yresu = yfintramo  - Constantes.ANCHO_PUNTO_CICLISTA;
+			yresu  = yacum - (metro_en_el_tramo_del_ciclista * dify/diftramos) - Constantes.ANCHO_PUNTO_CICLISTA/2;
+			//yresu = iniy ;
+			System.out.println("yinitramo " + yacum +" " + yfintramo + " " + dify + " " + yresu);
+		   	
 		    }
-		    yresu = y - tramoini.getValue();
+		  //  
 		}
-		it = itaux;
+		System.out.println(yacum);
+		yacum= yacum - tramoini.getValue();
+		
+		
 	}
 	
 	return yresu;
@@ -163,6 +203,11 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	return polygon;
     }
    
+    private void pintaPoligono(Polygon p,Graphics mig,Color col)
+    {
+	mig.setColor(col);
+	mig.fillPolygon(p);
+    }
     @Override
     public void ejecuta() {
 	// TODO Auto-generated method stub
