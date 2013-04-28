@@ -131,9 +131,13 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	//for (i = 0; i < cic.size(); i++) {
 	for (i = 0; i < cic.size(); i++) {
 	    g.setColor(colores[i]);
-	    
+	   
+	    if(calculaYparaPuntoCiclista(cic.elementAt(i), arbol) == 0)
+		y = Constantes.ALTO_VENTANA / 4 -  Constantes.ANCHO_PUNTO_CICLISTA /2 ;
+	    else
+		y = calculaYparaPuntoCiclista(cic.elementAt(i), arbol);
 	    g.fillOval((int) (cic.elementAt(i).getBici().getEspacioRecorrido()/ Constantes.FACTORESCALA) - Constantes.ANCHO_PUNTO_CICLISTA/2,
-		    calculaYparaPuntoCiclista(cic.elementAt(i), arbol), Constantes.ANCHO_PUNTO_CICLISTA, Constantes.ANCHO_PUNTO_CICLISTA);
+		  y  , Constantes.ANCHO_PUNTO_CICLISTA, Constantes.ANCHO_PUNTO_CICLISTA);
 	  
 	}
 	
@@ -176,16 +180,11 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 			
 			int yfintramo = yacum + dify;
 			yresu  = metro_en_el_tramo_del_ciclista * dify/diftramos;
-			//yresu = (yresu + yinitramo)  -Constantes.ANCHO_PUNTO_CICLISTA;
-			 //yresu = yfintramo  - Constantes.ANCHO_PUNTO_CICLISTA;
 			yresu  = yacum - (metro_en_el_tramo_del_ciclista * dify/diftramos) - Constantes.ANCHO_PUNTO_CICLISTA/2;
-			//yresu = iniy ;
-			System.out.println("yinitramo " + yacum +" " + yfintramo + " " + dify + " " + yresu);
-		   	
+		
 		    }
-		  //  
+		  
 		}
-		System.out.println(yacum);
 		yacum= yacum - tramoini.getValue();
 		
 		
