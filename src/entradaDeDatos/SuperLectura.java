@@ -64,7 +64,9 @@ public class SuperLectura {
 	    if (lectura.ready()) {
 
 		salida = lectura.readLine();
-
+		String [] salidaaux;
+		salidaaux = salida.split("\n");
+		salida= salidaaux[0];
 	    }
 	} catch (IOException e) {
 

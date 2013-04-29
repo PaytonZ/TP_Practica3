@@ -38,7 +38,9 @@ public class Comandero implements InterfaceEjecuta, InterfaceSalida {
 	entrada_de_datos_por_fichero = new SuperLectura(ruta_del_fichero);
 	cargarComandosDesdeFichero();
     }
-
+/**
+ * Lee todos los comandos de un fichero dado y lo introduce en la cola.
+ */
     private void cargarComandosDesdeFichero() {
 	String entrada_de_comandos = "";
 	String[] lista_de_comandos_por_procesar;
@@ -56,7 +58,7 @@ public class Comandero implements InterfaceEjecuta, InterfaceSalida {
 
     @Override
     public void ejecuta() {
-
+	
 	if (!cola_de_comandos.isEmpty()) {
 	    InterfazCommand siguiente_comando_a_ejecutar = cola_de_comandos
 		    .poll();
@@ -65,8 +67,18 @@ public class Comandero implements InterfaceEjecuta, InterfaceSalida {
 	    salida_de_datos = siguiente_comando_a_ejecutar
 		    .getInformacionInstruccion();
 	}
+	String comando_por_fichero = entrada_de_datos_por_fichero.leerLinea();
+	if (comando_por_fichero != "")
+		{
+	       recibir_comando(comando_por_fichero);
+		}
+	
     }
-
+/**
+ * Función principal del Parser. Recibe un String de cualquier fuente , y lo transforma mediante el uso del parser en un comando valido
+ * El cual añade a la cola
+ * @param comando El String que contiene el comando.
+ */ 
     public void recibir_comando(String comando) {
 	InterfazCommand c = parser.parse(comando);
 	if (c != null) {
