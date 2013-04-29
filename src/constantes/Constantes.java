@@ -7,7 +7,9 @@ import java.awt.Color;
  * forma eficiente, en todas clases da la aplicacion sus valores, con solo un
  * cambio
  * 
- * @author juancly
+ * @author Juan Carlos Marco
+ * @author Juan Luis Perez
+ * @author Emilio Alvarez Pinerio
  * 
  */
 public final class Constantes {

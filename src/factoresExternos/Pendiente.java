@@ -9,7 +9,13 @@ import java.util.TreeMap;
 
 import persona.Ciclista;
 import constantes.Constantes;
-
+/**
+ * 
+ * @author Juan Carlos Marco
+ * @author Juan Luis Perez
+ * @author Emilio Alvarez Pinerio
+ *
+ */
 public class Pendiente implements InterfaceEjecuta {
 
     private TreeMap<Integer, Integer> arbol;
