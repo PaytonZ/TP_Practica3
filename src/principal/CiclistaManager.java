@@ -16,7 +16,7 @@ import vista.Ventana;
 import bicicleta.Bicicleta;
 
 import comandos.Comandero;
-import comandos.Parser;
+
 
 import constantes.Constantes;
 
@@ -40,22 +40,24 @@ public class CiclistaManager {
     private Viento viento;
     private Pendiente pendiente;
     private Reloj reloj;
+    
+    
 
-    /*
-     * java CiclistaManager.java numero_de_ciclistas chero_de_comandos
-     * medida_del_tiempo cambio_de_plato cambio_de_piñon radio_rueda
-     */
+   
     public static void main(String args[]) {
 
 	CiclistaManager manager = new CiclistaManager();
-
+	manager.procesarArgs(args);
+	
 	manager.inicia();
 	manager.ejecuta();
 	manager.finaliza();
-
+	
     }
 
     private void inicia() {
+		
+	
 	listaejecuta = new ArrayList<InterfaceEjecuta>();
 	listasalida = new ArrayList<InterfaceSalida>();
 
@@ -106,7 +108,7 @@ public class CiclistaManager {
 	Presentador presentador = new Presentador(lista_de_ciclistas, reloj,
 		curva, viento, pendiente);
 
-	comandero = new Comandero(presentador, new Parser());
+	comandero = new Comandero(presentador,Constantes.FICHERO_DE_COMANDOS);
 	Lienzo lienzo = new Lienzo(lista_de_ciclistas);
 	Ventana ventana = new Ventana(comandero, lienzo);
 
@@ -161,5 +163,14 @@ public class CiclistaManager {
     private boolean condicionesDeFinal() {
 	return false;
     }
-
+    /*
+     * java CiclistaManager.java numero_de_ciclistas fichero_de_comandos
+     * medida_del_tiempo cambio_de_plato cambio_de_piñon radio_rueda
+     */
+    private void procesarArgs(String args[])
+    {
+	Constantes.MAX_CICLISTAS=Integer.valueOf(args[0]);
+	Constantes.FICHERO_DE_COMANDOS = args[1];
+	
+    }
 }

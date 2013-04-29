@@ -16,7 +16,7 @@ public final class Constantes {
 
     public static final double FUERZA_G = 9.80665;
     public static final double MASA_BICICLETA_ESTANDAR = 0.7138;
-    public static final double MAX_CICLISTAS = 6;
+    public static int MAX_CICLISTAS = 6;
 
     public static final int NUM_PIN_0 = 17;
     public static final int NUM_PIN_1 = 16;
@@ -72,4 +72,5 @@ public final class Constantes {
     public static double IMPULSO_RELOJ_SEGUNDOS = 1;
     public static double IMPULSO_RELOJ_MILISEGUNDOS = IMPULSO_RELOJ_SEGUNDOS * 1000;
 
+    public static String FICHERO_DE_COMANDOS="prueba.txt";
 }

@@ -20,8 +20,13 @@ import java.io.InputStreamReader;
  */
 
 public class SuperLectura {
-    BufferedReader lectura;
+    private BufferedReader lectura;
 
+    /**
+     * Crea una clase Superlectura que usa la entrada estándar del sistema con
+     * todos los métodos utilizables posibles.
+     * 
+     */
     public SuperLectura() {
 	lectura = new BufferedReader(new InputStreamReader(
 		new BufferedInputStream(new DataInputStream(System.in))));
@@ -29,43 +34,36 @@ public class SuperLectura {
     }
 
     /**
-     * * Devuelve un BufferReader que usa la entrada estándar del sistema con
-     * todos los métodos utilizables posibles
-     * 
-     * @return Una referencia a un BufferReader con la descripción anterior
-     */
-    public void CrearLectorPorTeclado() {
-
-    }
-
-    /**
-     * /** Devuelve un BufferReader que usa la entrada un fichero dado por
-     * paramétro con todos los métodos utilizables posibles
+     * /** Crea una clase Superlectura que usa una ruta dada para abrir un
+     * fichero con todos los métodos utilizables posibles.
      * 
      * @param Fichero
      *            El fichero a abrir
-     * @return Una referencia a un BufferReader con la descripción anterior
      */
-    public static BufferedReader CrearLectorPorFichero(String Fichero) {
-	BufferedReader Lector = null;
+    public SuperLectura(String Fichero) {
+	BufferedReader nuevo_lector = null;
 	try {
-	    Lector = new BufferedReader(new InputStreamReader(
+	    nuevo_lector = new BufferedReader(new InputStreamReader(
 		    new BufferedInputStream(new FileInputStream(Fichero))));
 	} catch (FileNotFoundException e) {
 	    // TODO Auto-generated catch block
 	    e.printStackTrace();
 	}
-	return Lector;
+	lectura = nuevo_lector;
+
     }
 
-    public String leer() {
-	String Salida = "NINGUNA";
+    /**
+     * Procede a leer una linea del bufferStream
+     * 
+     * @return Devuelve una linea con un string.
+     */
+    public String leerLinea() {
+	String salida = "";
 	try {
 	    if (lectura.ready()) {
-		char[] buffer_de_lectura = new char[100];
-		lectura.read(buffer_de_lectura);
 
-		Salida = new String(buffer_de_lectura);
+		salida = lectura.readLine();
 
 	    }
 	} catch (IOException e) {
@@ -74,6 +72,21 @@ public class SuperLectura {
 	} finally {
 
 	}
-	return Salida;
+	return salida;
+    }
+
+    public String leerHastaFinalDeFichero() {
+	String salida = "", aux = "";
+	try {
+	    while ((aux = lectura.readLine()) != null) {
+		salida += aux + "\n";
+	    }
+	} catch (IOException e) {
+
+	    e.printStackTrace();
+	} finally {
+
+	}
+	return salida;
     }
 }

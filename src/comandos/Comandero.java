@@ -3,8 +3,11 @@ package comandos;
 import interfaceMain.InterfaceEjecuta;
 import interfaceMain.InterfaceSalida;
 
+
 import java.util.LinkedList;
 import java.util.Queue;
+
+import entradaDeDatos.SuperLectura;
 
 import principal.Presentador;
 
@@ -25,11 +28,29 @@ public class Comandero implements InterfaceEjecuta, InterfaceSalida {
     Queue<InterfazCommand> cola_de_comandos;
     Parser parser;
     String salida_de_datos;
+    SuperLectura entrada_de_datos_por_fichero;
 
-    public Comandero(Presentador nuevo_presentador, Parser nuevo_parser) {
+    public Comandero(Presentador nuevo_presentador,
+	    String ruta_del_fichero) {
 	presentador = nuevo_presentador;
-	parser = nuevo_parser;
+	parser = new Parser();
 	cola_de_comandos = new LinkedList<InterfazCommand>();
+	entrada_de_datos_por_fichero = new SuperLectura(ruta_del_fichero);
+	cargarComandosDesdeFichero();
+    }
+
+    private void cargarComandosDesdeFichero() {
+	String entrada_de_comandos = "";
+	String[] lista_de_comandos_por_procesar;
+
+	entrada_de_comandos = entrada_de_datos_por_fichero
+		.leerHastaFinalDeFichero();
+
+	lista_de_comandos_por_procesar = entrada_de_comandos.split("\n");
+
+	for (String comando : lista_de_comandos_por_procesar) {
+	    recibir_comando(comando);
+	}
 
     }
 
