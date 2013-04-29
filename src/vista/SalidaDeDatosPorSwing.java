@@ -1,10 +1,10 @@
 package vista;
 
+import interfaceMain.InterfaceSalida;
+
 import java.util.ArrayList;
 
 import constantes.Constantes;
-
-import interfaceMain.InterfaceSalida;
 
 /**
  * Esta clase sera la encargada de mostrar la informacion al usuario
@@ -17,8 +17,8 @@ public class SalidaDeDatosPorSwing {
 
     // este arraylist, contiene todos los objetos que se mostraran en el metodo
     // mostrarObjeto()
-    ArrayList<InterfaceSalida> lista_salida;
-    Ventana miventana;
+    private ArrayList<InterfaceSalida> lista_salida;
+    private Ventana miventana;
 
     public SalidaDeDatosPorSwing(Ventana vent,
 	    ArrayList<InterfaceSalida> lista_o) {
@@ -74,70 +74,6 @@ public class SalidaDeDatosPorSwing {
 	System.out.println(mensajefinal.toString());
     }
 
-    /**
-     * este metodo recibe un String con los datos a mostrar y con el formato
-     * inclusive y es capaz de sacarlo formateado de dicha forma
-     * 
-     * @param mensaje
-     *            contiene el mensaje a mostrar y el formato a usar funciona de
-     *            la siguiente manera : mensaje = "mensaje#formato"
-     */
-    /*
-     * public void mostrarPorVentana(String mensaje) {
-     * 
-     * StringBuffer mensajefinal = new StringBuffer(); int posicionempiezacadena
-     * = 0; int posicionempiezaformato = 0; // buscamos la posicion a partir de
-     * la cual empieza el mensaje while (posicionempiezacadena <
-     * mensaje.length() && mensaje.charAt(posicionempiezacadena) != '#') {
-     * posicionempiezacadena++;
-     * 
-     * } posicionempiezaformato = posicionempiezacadena+1; // buscamos la
-     * posicion a partir de la cual empieza el formato while
-     * (posicionempiezaformato < mensaje.length() &&
-     * mensaje.charAt(posicionempiezaformato) != '#') {
-     * posicionempiezaformato++;
-     * 
-     * }
-     * 
-     * //System.out.println(mensaje.substring(posicionempiezaformato +
-     * 1,posicionempiezaformato).toString()); // como ya sabemos donde empieza
-     * el formato, ahora solo comparamos para // sacar la salida formateada //
-     * con dicho formato
-     * System.out.println(mensaje.substring(posicionempiezaformato +
-     * 1).toString());
-     * 
-     * 
-     * switch (mensaje.substring(posicionempiezaformato + 1).toString()) { case
-     * "cadencia":
-     * mensajefinal.append(mensaje.substring(posicionempiezacadena+1,
-     * posicionempiezaformato) + " pedaladas por segundo "); break;
-     * 
-     * case "velocidad": mensajefinal.append("Velocidad actual:" +
-     * mensaje.substring(posicionempiezacadena+1, posicionempiezaformato) +
-     * " m/s "); break;
-     * 
-     * case "distancia": mensajefinal.append("Distancia recorrida:" +
-     * mensaje.substring(posicionempiezacadena+1, posicionempiezaformato) +
-     * " m "); break;
-     * 
-     * case "hh:mm:ss": int caractermensaje = 0; while (caractermensaje <
-     * posicionempiezaformato) { if (mensaje.charAt(caractermensaje) == ' ') {
-     * mensajefinal.insert(caractermensaje, ":");
-     * 
-     * } else { mensajefinal.insert(caractermensaje,
-     * mensaje.charAt(caractermensaje)); }
-     * 
-     * caractermensaje++; }
-     * 
-     * break;
-     * 
-     * }
-     * 
-     * miventana.po //System.out.println(mensajefinal.toString());
-     * 
-     * 
-     * }
-     */
     /**
      * este metodo recibe un String con los datos a mostrar y con el formato
      * inclusive y es capaz de sacarlo formateado de dicha forma

@@ -4,15 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
-
-import comandos.InterfazCommand;
-import constantes.Constantes;
 
 /**TODO:
  * Juan: Las entradas deberían estar centralizadas y no deberia haber más de una. Aprovecha el "SuperLector" y haz los cambios pertinentes para que solo tengamos un lector.

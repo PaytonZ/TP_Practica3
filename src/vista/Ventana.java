@@ -2,23 +2,21 @@ package vista;
 
 import interfaceMain.InterfaceEjecuta;
 
-import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.Color;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import persona.Ciclista;
-
 import comandos.Comandero;
-import comandos.Parser;
+
 import constantes.Constantes;
 import entradaDeDatos.Escuchador;
-
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.Vector;
 
 /**
  * esta clase corresponde a la interfaz grafica de la aplicacion

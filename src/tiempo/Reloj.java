@@ -5,10 +5,9 @@ package tiempo;
  * @author Juan Carlos Marco y Juan Luis Pérez
  *
  */
-import vista.SalidaDeDatosPorSwing;
-import vista.Ventana;
 import interfaceMain.InterfaceEjecuta;
 import interfaceMain.InterfaceSalida;
+import vista.Ventana;
 
 public class Reloj extends Contador implements InterfaceEjecuta,
 	InterfaceSalida {

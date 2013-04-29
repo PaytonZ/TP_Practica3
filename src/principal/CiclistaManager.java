@@ -1,33 +1,24 @@
 package principal;
 
+import factoresExternos.Curva;
+import factoresExternos.Pendiente;
+import factoresExternos.Viento;
 import interfaceMain.InterfaceEjecuta;
 import interfaceMain.InterfaceSalida;
 
-import java.awt.Container;
 import java.util.ArrayList;
+
 import persona.Ciclista;
 import tiempo.Reloj;
-
 import vista.Lienzo;
 import vista.SalidaDeDatosPorSwing;
 import vista.Ventana;
 import bicicleta.Bicicleta;
-import java.util.*;
 
-import org.hamcrest.core.IsInstanceOf;
-
-import constantes.Constantes;
-import mapas.MiMapa;
 import comandos.Comandero;
-/*
- import comandos.Comandos;
- import comandos.InterfazOrden;*/
 import comandos.Parser;
 
-import entradaDeDatos.EntradaFichero;
-import factoresExternos.Curva;
-import factoresExternos.Pendiente;
-import factoresExternos.Viento;
+import constantes.Constantes;
 
 /**
  * Clase Principal del programa
@@ -44,13 +35,11 @@ public class CiclistaManager {
     private ArrayList<InterfaceSalida> listasalida;
     private Comandero comandero;
 
-    SalidaDeDatosPorSwing output;
-    private Vector<Ciclista> vectorCiclistas;
-    private Vector<Bicicleta> vectorBicis;
-    Curva curva;
-    Viento viento;
-    Pendiente pendiente;
-    Reloj reloj;
+    private SalidaDeDatosPorSwing output;
+    private Curva curva;
+    private Viento viento;
+    private Pendiente pendiente;
+    private Reloj reloj;
 
     /*
      * java CiclistaManager.java numero_de_ciclistas chero_de_comandos
@@ -69,8 +58,6 @@ public class CiclistaManager {
     private void inicia() {
 	listaejecuta = new ArrayList<InterfaceEjecuta>();
 	listasalida = new ArrayList<InterfaceSalida>();
-	vectorCiclistas = new Vector<Ciclista>();
-	vectorBicis = new Vector<Bicicleta>();
 
 	int dientesporpinon[] = { Constantes.NUM_PIN_0, Constantes.NUM_PIN_1,
 		Constantes.NUM_PIN_2, Constantes.NUM_PIN_3,
@@ -103,26 +90,24 @@ public class CiclistaManager {
 	Ciclista ciclista4 = new Ciclista(bici4, 4);
 	Ciclista ciclista5 = new Ciclista(bici5, 5);
 
-	vectorBicis.add(bici0);
-	vectorBicis.add(bici1);
-	vectorBicis.add(bici2);
-	vectorBicis.add(bici3);
-	vectorBicis.add(bici4);
-	vectorBicis.add(bici5);
+	ArrayList<Ciclista> lista_de_ciclistas = new ArrayList<Ciclista>();
 
-	viento = new Viento(vectorBicis, reloj);
-	curva = new Curva(vectorBicis);
-	pendiente = new Pendiente(vectorBicis);
+	lista_de_ciclistas.add(ciclista0);
+	lista_de_ciclistas.add(ciclista1);
+	lista_de_ciclistas.add(ciclista2);
+	lista_de_ciclistas.add(ciclista3);
+	lista_de_ciclistas.add(ciclista4);
+	lista_de_ciclistas.add(ciclista5);
 
-	vectorCiclistas.add(ciclista0);
-	vectorCiclistas.add(ciclista1);
-	vectorCiclistas.add(ciclista2);
-	vectorCiclistas.add(ciclista3);
-	vectorCiclistas.add(ciclista4);
-	vectorCiclistas.add(ciclista5);
+	viento = new Viento(lista_de_ciclistas, reloj);
+	curva = new Curva(lista_de_ciclistas);
+	pendiente = new Pendiente(lista_de_ciclistas);
 
-	comandero = new Comandero(this, new Parser());
-	Lienzo lienzo = new Lienzo(vectorCiclistas);
+	Presentador presentador = new Presentador(lista_de_ciclistas, reloj,
+		curva, viento, pendiente);
+
+	comandero = new Comandero(presentador, new Parser());
+	Lienzo lienzo = new Lienzo(lista_de_ciclistas);
 	Ventana ventana = new Ventana(comandero, lienzo);
 
 	listaejecuta.add(reloj);

@@ -1,17 +1,6 @@
 ﻿package comandos;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.StringTokenizer;
-import java.util.Vector;
-
-import persona.Ciclista;
-import principal.CiclistaManager;
-
-import vista.Ventana;
-import entradaDeDatos.SuperLectura;
-import factoresExternos.Curva;
-import factoresExternos.Viento;
 
 /**
  * 

@@ -3,7 +3,7 @@ package comandos;
 import java.util.StringTokenizer;
 
 import persona.Ciclista;
-import principal.CiclistaManager;
+import principal.Presentador;
 
 public class ComandoFrenar implements InterfazCommand {
     Ciclista cic;
@@ -57,9 +57,9 @@ public class ComandoFrenar implements InterfazCommand {
     }
 
     @Override
-    public void configurarContexto(CiclistaManager cm) {
+    public void configurarContexto(Presentador presentador) {
 
-	cic = cm.getCiclista(id);
+	cic = presentador.getCiclista(id);
 
     }
 

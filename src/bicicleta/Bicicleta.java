@@ -1,9 +1,6 @@
 package bicicleta;
 
 import factoresExternos.Carretera;
-import vista.SalidaDeDatosPorSwing;
-import vista.Ventana;
-import interfaceMain.InterfaceEjecuta;
 import interfaceMain.InterfaceSalida;
 
 /**

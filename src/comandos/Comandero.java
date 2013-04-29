@@ -6,10 +6,7 @@ import interfaceMain.InterfaceSalida;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import principal.CiclistaManager;
-import vista.SalidaDeDatosPorSwing;
-
-import entradaDeDatos.*;
+import principal.Presentador;
 
 /**
  * 
@@ -24,13 +21,13 @@ import entradaDeDatos.*;
  */
 public class Comandero implements InterfaceEjecuta, InterfaceSalida {
 
-    CiclistaManager cm;
+    Presentador presentador;
     Queue<InterfazCommand> cola_de_comandos;
     Parser parser;
     String salida_de_datos;
 
-    public Comandero(CiclistaManager nuevo_cm, Parser nuevo_parser) {
-	cm = nuevo_cm;
+    public Comandero(Presentador nuevo_presentador, Parser nuevo_parser) {
+	presentador = nuevo_presentador;
 	parser = nuevo_parser;
 	cola_de_comandos = new LinkedList<InterfazCommand>();
 
@@ -42,7 +39,7 @@ public class Comandero implements InterfaceEjecuta, InterfaceSalida {
 	if (!cola_de_comandos.isEmpty()) {
 	    InterfazCommand siguiente_comando_a_ejecutar = cola_de_comandos
 		    .poll();
-	    siguiente_comando_a_ejecutar.configurarContexto(cm);
+	    siguiente_comando_a_ejecutar.configurarContexto(presentador);
 	    siguiente_comando_a_ejecutar.execute();
 	    salida_de_datos = siguiente_comando_a_ejecutar
 		    .getInformacionInstruccion();

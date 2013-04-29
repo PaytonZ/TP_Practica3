@@ -1,6 +1,6 @@
 package comandos;
 
-import principal.CiclistaManager;
+import principal.Presentador;
 
 /**
  * Siguiendo el patrón command, se define una interfaz para los comandos
@@ -31,10 +31,10 @@ public interface InterfazCommand {
      * dirigido dicho comando. Para ello debe recibir la informacion del
      * presentador.
      * 
-     * @param cm
+     * @param presentador
      *            La referencia del presentador.
      */
-    public void configurarContexto(CiclistaManager cm);
+    public void configurarContexto(Presentador presentador);
 
     /**
      * Devuelve el retorno despues de la ejecucion del comando

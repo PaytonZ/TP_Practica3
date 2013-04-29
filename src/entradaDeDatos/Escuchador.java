@@ -4,14 +4,11 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import comandos.Comandero;
-import constantes.Constantes;
 
 public class Escuchador {
 

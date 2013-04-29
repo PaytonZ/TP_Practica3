@@ -2,10 +2,9 @@ package comandos;
 
 import java.util.StringTokenizer;
 
-import factoresExternos.Curva;
-import factoresExternos.Viento;
 import persona.Ciclista;
-import principal.CiclistaManager;
+import principal.Presentador;
+import factoresExternos.Curva;
 
 public class ComandoCurva implements InterfazCommand {
 
@@ -53,9 +52,9 @@ public class ComandoCurva implements InterfazCommand {
     }
 
     @Override
-    public void configurarContexto(CiclistaManager cm) {
+    public void configurarContexto(Presentador presentador) {
 
-	curva = cm.getCurva();
+	curva = presentador.getCurva();
 
     }
 

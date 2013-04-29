@@ -2,7 +2,7 @@ package persona;
 
 import interfaceMain.InterfaceEjecuta;
 import interfaceMain.InterfaceSalida;
-import bicicleta.*;
+import bicicleta.Bicicleta;
 
 /**
  * Esta clase representa una especializacion de persona , ciclista , es decir ,

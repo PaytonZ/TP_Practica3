@@ -1,6 +1,6 @@
 package comandos;
 
-import principal.CiclistaManager;
+import principal.Presentador;
 
 public class ComandoNinguno implements InterfazCommand {
     public ComandoNinguno() {
@@ -19,7 +19,7 @@ public class ComandoNinguno implements InterfazCommand {
     }
 
     @Override
-    public void configurarContexto(CiclistaManager cm) {
+    public void configurarContexto(Presentador presentador) {
 	// TODO Auto-generated method stub
 
     }

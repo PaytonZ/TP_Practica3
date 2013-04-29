@@ -2,11 +2,9 @@ package comandos;
 
 import java.util.StringTokenizer;
 
-import factoresExternos.Curva;
-import factoresExternos.Pendiente;
-import factoresExternos.Viento;
 import persona.Ciclista;
-import principal.CiclistaManager;
+import principal.Presentador;
+import factoresExternos.Pendiente;
 
 public class ComandoPendiente implements InterfazCommand {
 
@@ -54,9 +52,9 @@ public class ComandoPendiente implements InterfazCommand {
     }
 
     @Override
-    public void configurarContexto(CiclistaManager cm) {
+    public void configurarContexto(Presentador presentador) {
 
-	pendiente = cm.getPendiente();
+	pendiente = presentador.getPendiente();
 
     }
 

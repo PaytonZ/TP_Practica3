@@ -2,9 +2,8 @@ package comandos;
 
 import java.util.StringTokenizer;
 
+import principal.Presentador;
 import factoresExternos.Viento;
-import persona.Ciclista;
-import principal.CiclistaManager;
 
 public class ComandoViento implements InterfazCommand {
 
@@ -65,8 +64,8 @@ public class ComandoViento implements InterfazCommand {
     }
 
     @Override
-    public void configurarContexto(CiclistaManager cm) {
-	viento = cm.getViento();
+    public void configurarContexto(Presentador presentador) {
+	viento = presentador.getViento();
 
     }
 

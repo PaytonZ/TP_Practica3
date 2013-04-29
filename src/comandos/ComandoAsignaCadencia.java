@@ -2,10 +2,9 @@ package comandos;
 
 import java.util.StringTokenizer;
 
-import constantes.Constantes;
-
 import persona.Ciclista;
-import principal.CiclistaManager;
+import principal.Presentador;
+import constantes.Constantes;
 
 public class ComandoAsignaCadencia implements InterfazCommand {
     Ciclista ciclista;
@@ -37,9 +36,9 @@ public class ComandoAsignaCadencia implements InterfazCommand {
     }
 
     @Override
-    public void configurarContexto(CiclistaManager cm) {
+    public void configurarContexto(Presentador presentador) {
 
-	ciclista = cm.getCiclista(identificador_ciclista);
+	ciclista = presentador.getCiclista(identificador_ciclista);
 
     }
 

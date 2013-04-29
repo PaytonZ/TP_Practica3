@@ -3,7 +3,7 @@ package comandos;
 import java.util.StringTokenizer;
 
 import persona.Ciclista;
-import principal.CiclistaManager;
+import principal.Presentador;
 
 public class ComandoAyuda implements InterfazCommand {
 
@@ -34,7 +34,7 @@ public class ComandoAyuda implements InterfazCommand {
     }
 
     @Override
-    public void configurarContexto(CiclistaManager cm) {
+    public void configurarContexto(Presentador presentador) {
 
     }
 

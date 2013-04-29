@@ -1,13 +1,9 @@
 package factoresExternos;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
 import java.util.TreeMap;
 
 import bicicleta.Bicicleta;
-import entradaDeDatos.*;
+import entradaDeDatos.EntradaFichero;
 
 /**
  * esta clase crea una carretera a partir de un fichero
@@ -23,8 +19,8 @@ public class Carretera {
     private String ruta;
     private Bicicleta bici;
     private double[] matriz;
-    TreeMap<Integer, Integer> arbol;
-    private final double FACTORPENDIENTE = 0.1;
+    private TreeMap<Integer, Integer> arbol;
+
     private int tramo;
 
     /**
@@ -40,7 +36,7 @@ public class Carretera {
 	bici = mibici;
 	tramo = 0;
 	arbol = new TreeMap<Integer, Integer>();
-	// mapa = fichero.convertirFicheroAHashMap(ruta, ":;");
+
     }
 
     /**
@@ -62,22 +58,5 @@ public class Carretera {
 
 	return matriz;
     }
-    /*
-     * public void calculaFactor() {
-     * 
-     * 
-     * if (tramo + 2 < matriz.length) { // aplicamos el factor de la pendiente
-     * del tramo en el que se // encuentra la bici if
-     * (bici.getEspacioRecorrido() >= matriz[tramo] &&
-     * bici.getEspacioRecorrido() < matriz[tramo + 2]) {
-     * 
-     * bici.setFactorPendiente(matriz[tramo + 1] * FACTORPENDIENTE); } else {
-     * 
-     * tramo = tramo + 2; bici.setFactorPendiente(matriz[tramo + 1] *
-     * FACTORPENDIENTE); }
-     * 
-     * }
-     * 
-     * }
-     */
+
 }

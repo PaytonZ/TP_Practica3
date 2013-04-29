@@ -1,8 +1,6 @@
 package comandos;
 
-import java.util.StringTokenizer;
-
-import principal.CiclistaManager;
+import principal.Presentador;
 
 public class ComandoDesconocido implements InterfazCommand {
 
@@ -34,7 +32,7 @@ public class ComandoDesconocido implements InterfazCommand {
     }
 
     @Override
-    public void configurarContexto(CiclistaManager cm) {
+    public void configurarContexto(Presentador presentador) {
 	// TODO Auto-generated method stub
 
     }

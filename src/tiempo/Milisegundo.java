@@ -1,6 +1,6 @@
 package tiempo;
 
-import constantes.*;
+import constantes.Constantes;
 
 /**
  * esta clase cuenta los milisegundos actuales de ejecucion.

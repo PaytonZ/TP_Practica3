@@ -2,29 +2,20 @@ package vista;
 
 import interfaceMain.InterfaceEjecuta;
 
-import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Polygon;
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.border.EmptyBorder;
-import javax.swing.text.html.HTMLDocument.Iterator;
 
 import persona.Ciclista;
-
 import constantes.Constantes;
-
 import entradaDeDatos.EntradaFichero;
 
 /**
@@ -41,14 +32,14 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
-    EntradaFichero entrada;
-    Graphics g;
-    Vector<Ciclista> cic;
-    TreeMap<Integer, Integer> arbol;
+    private EntradaFichero entrada;
+    private Graphics g;
+    private ArrayList<Ciclista> lista_de_ciclistas;
+    private TreeMap<Integer, Integer> arbol;
 
-    public Lienzo(Vector<Ciclista> micic) {
+    public Lienzo(ArrayList<Ciclista> micic) {
 
-	cic = micic;
+	lista_de_ciclistas = micic;
 	contentPane = new JPanel();
 	contentPane.setLayout(null);
 	setBounds(0, 0, Constantes.ANCHO_VENTANA, Constantes.ALTO_VENTANA / 2);
@@ -77,10 +68,8 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 
 	int i = 0;
 
-	java.util.Iterator<Entry<Integer, Integer>> it = arbol.entrySet()
-		.iterator();
-	java.util.Iterator<Entry<Integer, Integer>> itaux = arbol.entrySet()
-		.iterator();
+	Iterator<Entry<Integer, Integer>> it = arbol.entrySet().iterator();
+	Iterator<Entry<Integer, Integer>> itaux = arbol.entrySet().iterator();
 	if (it.hasNext()) {
 	    itaux.next();
 	}
@@ -128,23 +117,22 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 		x = tramofin.getKey() / Constantes.FACTORESCALA;
 		y = y - tramoini.getValue();
 	    }
-	    // System.out.println(x + " " + y);
 
 	}
 
 	// aqui se pondra la informacion del ciclista para que se vaya pintando,
 	// ahora solo se pinta un punto en pantalla
 	// for (i = 0; i < cic.size(); i++) {
-	for (i = 0; i < cic.size(); i++) {
+	for (Ciclista c : lista_de_ciclistas) {
 	    g.setColor(colores[i]);
 
-	    if (calculaYparaPuntoCiclista(cic.elementAt(i), arbol) == 0)
+	    if (calculaYparaPuntoCiclista(c, arbol) == 0)
 		y = Constantes.ALTO_VENTANA / 4
 			- Constantes.ANCHO_PUNTO_CICLISTA / 2;
 	    else
-		y = calculaYparaPuntoCiclista(cic.elementAt(i), arbol);
+		y = calculaYparaPuntoCiclista(c, arbol);
 	    g.fillOval(
-		    (int) (cic.elementAt(i).getBici().getEspacioRecorrido() / Constantes.FACTORESCALA)
+		    (int) (c.getBici().getEspacioRecorrido() / Constantes.FACTORESCALA)
 			    - Constantes.ANCHO_PUNTO_CICLISTA / 2, y,
 		    Constantes.ANCHO_PUNTO_CICLISTA,
 		    Constantes.ANCHO_PUNTO_CICLISTA);
@@ -159,10 +147,8 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	int dify = 0;
 	int yacum = Constantes.ALTO_VENTANA / 4;
 	boolean encontrado = false;
-	java.util.Iterator<Entry<Integer, Integer>> it = ar.entrySet()
-		.iterator();
-	java.util.Iterator<Entry<Integer, Integer>> itaux = ar.entrySet()
-		.iterator();
+	Iterator<Entry<Integer, Integer>> it = ar.entrySet().iterator();
+	Iterator<Entry<Integer, Integer>> itaux = ar.entrySet().iterator();
 	if (it.hasNext()) {
 	    itaux.next();
 	}

@@ -1,19 +1,20 @@
 package test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 
-import comandos.Parser;
-import constantes.Constantes;
+import persona.Ciclista;
+import tiempo.Reloj;
+import vista.Ventana;
+import bicicleta.Bicicleta;
 
+import comandos.Parser;
+
+import constantes.Constantes;
 import factoresExternos.Carretera;
 import factoresExternos.Viento;
-
-import persona.*;
-import bicicleta.*;
-import tiempo.*;
-import vista.Ventana;
 
 @SuppressWarnings("unused")
 public class Test {

@@ -3,7 +3,7 @@ package comandos;
 import java.util.StringTokenizer;
 
 import persona.Ciclista;
-import principal.CiclistaManager;
+import principal.Presentador;
 
 public class ComandoSubePlato implements InterfazCommand {
     Ciclista ciclista;
@@ -42,8 +42,8 @@ public class ComandoSubePlato implements InterfazCommand {
     }
 
     @Override
-    public void configurarContexto(CiclistaManager cm) {
-	ciclista = cm.getCiclista(identificador_ciclista);
+    public void configurarContexto(Presentador presentador) {
+	ciclista = presentador.getCiclista(identificador_ciclista);
 
     }
 
