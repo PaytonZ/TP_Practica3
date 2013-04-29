@@ -158,44 +158,8 @@ public class CiclistaManager {
 
     }
 
-    public Ciclista getCiclista(int identificador) {
-	Ciclista ciclista_a_devolver = null;
-	for (InterfaceEjecuta c : listaejecuta)
-
-	{
-	    if (c instanceof Ciclista) {
-		if (identificador == ((Ciclista) c).getIdentificador_ciclista()) {
-		    ciclista_a_devolver = (Ciclista) c;
-		}
-	    }
-
-	}
-	return ciclista_a_devolver;
-
-    }
-
-    public Curva getCurva() {
-
-	return curva;
-
-    }
-
-    public Pendiente getPendiente() {
-
-	return pendiente;
-
-    }
-
-    public Reloj getReloj() {
-
-	return reloj;
-
-    }
-
-    public Viento getViento() {
-
-	return viento;
-
+    private boolean condicionesDeFinal() {
+	return false;
     }
 
 }

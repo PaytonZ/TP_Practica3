@@ -123,8 +123,9 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	// aqui se pondra la informacion del ciclista para que se vaya pintando,
 	// ahora solo se pinta un punto en pantalla
 	// for (i = 0; i < cic.size(); i++) {
+	int id_color_ciclista = 0;
 	for (Ciclista c : lista_de_ciclistas) {
-	    g.setColor(colores[i]);
+	    g.setColor(colores[id_color_ciclista]);
 
 	    if (calculaYparaPuntoCiclista(c, arbol) == 0)
 		y = Constantes.ALTO_VENTANA / 4
@@ -136,6 +137,8 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 			    - Constantes.ANCHO_PUNTO_CICLISTA / 2, y,
 		    Constantes.ANCHO_PUNTO_CICLISTA,
 		    Constantes.ANCHO_PUNTO_CICLISTA);
+
+	    id_color_ciclista++;
 
 	}
 

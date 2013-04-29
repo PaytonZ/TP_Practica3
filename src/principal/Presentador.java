@@ -8,6 +8,17 @@ import factoresExternos.Curva;
 import factoresExternos.Pendiente;
 import factoresExternos.Viento;
 
+/**
+ * La clase presentador contiene las referencias a todos los objetos del
+ * programa . Contiene metodos que aseguran que se devuelve un objeto valido y
+ * que la clase accesora dispone de los permisos necesarios para conocer dicha
+ * referencia
+ * 
+ * @author Juan Luis Perez
+ * @author Juan Carlos Marco
+ * @author Emilio Alvarez
+ * 
+ */
 public class Presentador {
 
     private ArrayList<Ciclista> lista_de_ciclistas;
