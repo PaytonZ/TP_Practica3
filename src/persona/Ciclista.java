@@ -26,6 +26,7 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	identificador_ciclista = id;
 	cantidadFreno = 0;
 	tiempoFrenado = 0;
+	fuerza_ciclista = 100;
     }
 
     /**
@@ -103,20 +104,18 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
      */
     @Override
     public void ejecuta() {
-	// setCadencia('a'); en un futuro servira para aumentar o disminuir la
-	// cadencia
+
 	pedalear(cadencia);
 	bici.calculaEspacioRecorrido();
 	bici.calculaVelocidadActual();
-	// bici.getCarretera().calculaFactor();
 
 	if (tiempoFrenado > 0) {
 	    bici.frenar((float) cantidadFreno);
 	    tiempoFrenado--;
 	}
-	// bici.getViento().calculaFactor();
-	// cambiarPlato('d');
-	// cambiarPinon('a');
+
+	fuerza_ciclista -= ((masa + getBici().getMasa()) * getBici()
+		.getVelocidad()) / 10;
 
     }
 
@@ -146,26 +145,6 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
      * 
      * @return
      */
-    /*
-     * @Override public String muestra() {
-     * 
-     * return ""; }
-     */
-    /*
-     * public void setCadencia(char accion) { if (accion == 'a') { //
-     * if(cadencia < maximocadencia) cadencia++; } else if (accion == 'd') { if
-     * (cadencia > 0) { cadencia--; }
-     * 
-     * } bici.setCadencia(cadencia); }
-     * 
-     * public void aumentarCadencia() { setCadencia('a'); }
-     * 
-     * public void disminuirCadencia() { setCadencia('d'); }
-     * 
-     * /**
-     * 
-     * @return the identificador_ciclista
-     */
 
     public int getIdentificador_ciclista() {
 	return identificador_ciclista;
@@ -194,7 +173,8 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     @Override
     public String muestra() {
 
-	return "ciclista" + identificador_ciclista + "%" + bici.muestra();
+	return "ciclista" + identificador_ciclista + "%" + bici.muestra()
+		+ "Fuerza:" + fuerza_ciclista + "#,";
     }
 
     public void setCadencia(double nueva_cadencia) {

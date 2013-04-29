@@ -15,15 +15,15 @@ public class Vehiculo {
 
     protected double direccion = 0;
     protected double peso;
-    protected double masa;
+    private double masa;
 
     protected double espaciorecorrido;
 
     public Vehiculo(double nueva_masa) {
 	velocidad = 0;
 	espaciorecorrido = 0;
-	masa = nueva_masa;
-	peso = masa * Constantes.FUERZA_G;
+	setMasa(nueva_masa);
+	peso = getMasa() * Constantes.FUERZA_G;
     }
 
     /**
@@ -108,6 +108,21 @@ public class Vehiculo {
 	float espacio = 0;
 	espacio = vinicial * tiempo + (1 / 2) * aceleracion * (tiempo * tiempo);
 	return espacio;
+    }
+
+    /**
+     * @return the masa
+     */
+    public double getMasa() {
+	return masa;
+    }
+
+    /**
+     * @param masa
+     *            the masa to set
+     */
+    public void setMasa(double masa) {
+	this.masa = masa;
     }
 
 }
