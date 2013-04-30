@@ -72,5 +72,5 @@ public final class Constantes {
     public static double IMPULSO_RELOJ_SEGUNDOS = 1;
     public static double IMPULSO_RELOJ_MILISEGUNDOS = IMPULSO_RELOJ_SEGUNDOS * 1000;
 
-    public static String FICHERO_DE_COMANDOS="prueba.txt";
+    public static String FICHERO_DE_COMANDOS = "ficherorandom";
 }
