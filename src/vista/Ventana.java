@@ -47,8 +47,8 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     private JLabel lblTiempo;
     private JLabel lblconsola;
     private JScrollPane sbrText;
-    Lienzo lienzo;
-    Escuchador escuchador;
+    private Lienzo lienzo;
+    private Escuchador escuchador;
     private String textoAnteriorScroll;
 
     public Ventana(Comandero nuevo_comandero, Lienzo lien) {
@@ -109,6 +109,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 		+ Constantes.BAJA_CADENCIA);
 
 	colocarJButtonEnJPanel(botonDisCad0, contentPane);
+
 	//
 	JButton botonAumCad0 = null;
 	botonAumCad0 = crearJButton(botonAumCad0, Constantes.CADENCIA_MAS,
