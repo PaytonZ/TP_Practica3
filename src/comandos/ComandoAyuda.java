@@ -1,5 +1,6 @@
 package comandos;
 
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import persona.Ciclista;
@@ -7,11 +8,12 @@ import principal.Presentador;
 
 public class ComandoAyuda implements InterfazCommand {
 
-    private Ciclista ciclista;
-    private int identificador_ciclista;
+    private ArrayList<InterfazCommand> lista_comandos;
+    private String salida;
 
-    public ComandoAyuda() {
-
+    public ComandoAyuda(ArrayList<InterfazCommand> nueva_lista_comandos) {
+	
+	lista_comandos=nueva_lista_comandos;
     }
 
     @Override
@@ -22,7 +24,7 @@ public class ComandoAyuda implements InterfazCommand {
 		"\n\r ");
 	if (comandosYatributos.nextToken().equalsIgnoreCase("ayuda")) {
 
-	    c = new ComandoAyuda();
+	    c = this;
 
 	}
 	return c;
@@ -31,6 +33,11 @@ public class ComandoAyuda implements InterfazCommand {
     @Override
     public void execute() {
 
+	salida="";
+	for(InterfazCommand c: lista_comandos)
+	{
+	    salida+=c.obtenerAyuda();
+	}
     }
 
     @Override
@@ -40,17 +47,13 @@ public class ComandoAyuda implements InterfazCommand {
 
     @Override
     public String obtenerAyuda() {
+	
 	return "";
-	// TODO Auto-generated method stub
-
     }
 
     @Override
     public String getInformacionInstruccion() {
-	return "asignacadencia <num_ciclista> <cadencia> \n "
-		+ "bajapinon <num_ciclista> \n" + "bajaplato <num_ciclista> \n"
-		+ "subeplato <num_ciclista> \n" + "subepinon <num_ciclista> \n"
-		+ "frenar <num_ciclista> <cantidad> <tiempo>";
+	return salida;
     }
 
 }

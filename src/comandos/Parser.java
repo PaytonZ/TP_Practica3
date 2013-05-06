@@ -20,7 +20,6 @@ public class Parser {
 	lista_de_comandos = new ArrayList<InterfazCommand>();
 
 	lista_de_comandos.add(new ComandoAsignaCadencia(0, 0));
-	lista_de_comandos.add(new ComandoAyuda());
 	lista_de_comandos.add(new ComandoCambiaPinon(0, 0));
 	lista_de_comandos.add(new ComandoCambiaPlato(0, 0));
 	lista_de_comandos.add(new ComandoCurva(0, 0));
@@ -29,9 +28,10 @@ public class Parser {
 	lista_de_comandos.add(new ComandoNinguno());
 	lista_de_comandos.add(new ComandoPendiente(0, 0));
 	lista_de_comandos.add(new ComandoViento(null, null, null));
-	lista_de_comandos.add(new ComandoClembuterol());
-
+	lista_de_comandos.add(new ComandoClembuterol(0));
 	lista_de_comandos.add(new ComandoDesconocido());
+	
+	
 
     }
 
