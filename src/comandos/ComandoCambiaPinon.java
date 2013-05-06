@@ -26,13 +26,16 @@ public class ComandoCambiaPinon implements InterfazCommand {
 	InterfazCommand c = null;
 
 	String[] atributos = nombre.split("\\s");
-	if (atributos[0].equalsIgnoreCase("bicicleta")) {
-	    id_ciclista = Integer.parseInt(atributos[1]);
-	    if (atributos[2].equalsIgnoreCase("cambia")
-		    && atributos[3].equalsIgnoreCase("pinon")) {
-		nuevo_pinon = Integer.parseInt(atributos[4]);
-		if (nuevo_pinon >= 0 && nuevo_pinon < Constantes.NUM_PINONES) {
-		    c = new ComandoCambiaPinon(id_ciclista, nuevo_pinon);
+	if (atributos.length >= 4) {
+	    if (atributos[0].equalsIgnoreCase("bicicleta")) {
+		id_ciclista = Integer.parseInt(atributos[1]);
+		if (atributos[2].equalsIgnoreCase("cambia")
+			&& atributos[3].equalsIgnoreCase("pinon")) {
+		    nuevo_pinon = Integer.parseInt(atributos[4]);
+		    if (nuevo_pinon >= 0
+			    && nuevo_pinon < Constantes.NUM_PINONES) {
+			c = new ComandoCambiaPinon(id_ciclista, nuevo_pinon);
+		    }
 		}
 	    }
 	}

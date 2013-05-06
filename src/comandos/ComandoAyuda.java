@@ -12,31 +12,31 @@ public class ComandoAyuda implements InterfazCommand {
     private String salida;
 
     public ComandoAyuda(ArrayList<InterfazCommand> nueva_lista_comandos) {
-	
-	lista_comandos=nueva_lista_comandos;
+
+	lista_comandos = nueva_lista_comandos;
     }
 
     @Override
     public InterfazCommand parse(String nombre) {
 
 	InterfazCommand c = null;
-	StringTokenizer comandosYatributos = new StringTokenizer(nombre,
-		"\n\r ");
-	if (comandosYatributos.nextToken().equalsIgnoreCase("ayuda")) {
+	String atributos[] = nombre.split("\\n");
 
-	    c = this;
-
+	if (atributos.length >= 0) {
+	    if (atributos[0].equalsIgnoreCase("ayuda")) {
+		c = this;
+	    }
 	}
+
 	return c;
     }
 
     @Override
     public void execute() {
 
-	salida="";
-	for(InterfazCommand c: lista_comandos)
-	{
-	    salida+=c.obtenerAyuda();
+	salida = "";
+	for (InterfazCommand c : lista_comandos) {
+	    salida += c.obtenerAyuda() + "\n";
 	}
     }
 
@@ -47,8 +47,8 @@ public class ComandoAyuda implements InterfazCommand {
 
     @Override
     public String obtenerAyuda() {
-	
-	return "";
+
+	return "ayuda";
     }
 
     @Override

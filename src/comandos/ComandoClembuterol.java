@@ -19,12 +19,14 @@ public class ComandoClembuterol implements InterfazCommand {
 	int num_ciclista;
 
 	String[] atributos = nombre.split("\\s");
-	if (atributos[0].equalsIgnoreCase("ciclista")) {
-	    num_ciclista = Integer.parseInt(atributos[1]);
-	    if (atributos[2].equalsIgnoreCase("clembuterol")) {
-		c = new ComandoClembuterol(num_ciclista);
-	    }
+	if (atributos.length >= 2) {
+	    if (atributos[0].equalsIgnoreCase("ciclista")) {
+		num_ciclista = Integer.parseInt(atributos[1]);
+		if (atributos[2].equalsIgnoreCase("clembuterol")) {
+		    c = new ComandoClembuterol(num_ciclista);
+		}
 
+	    }
 	}
 	return c;
 
@@ -45,14 +47,14 @@ public class ComandoClembuterol implements InterfazCommand {
 
     @Override
     public String getInformacionInstruccion() {
-	return "ciclista <num_ciclista> clembuterol";
+	return "Clembuterol suministrado a ciclista"
+		+ ciclista.getIdentificador_ciclista();
 
     }
 
     @Override
     public String obtenerAyuda() {
-	return "Clembuterol suministrado a ciclista"
-		+ ciclista.getIdentificador_ciclista();
+	return "ciclista <num_ciclista> clembuterol";
 
     }
 

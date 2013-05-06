@@ -26,16 +26,21 @@ public class ComandoFrenar implements InterfazCommand {
 	InterfazCommand c = null;
 	int num_ciclista;
 	double tiempo;
-
 	String[] atributos = nombre.split("\\s");
-	if (atributos[0].equalsIgnoreCase("ciclista")) {
-	    num_ciclista = Integer.parseInt(atributos[1]);
-	    if (num_ciclista >= 0 && num_ciclista < Constantes.MAX_CICLISTAS) {
-		tiempo = Double.parseDouble(atributos[2]);
-		if (tiempo >= 0 && tiempo <= 1) {
-		    c = new ComandoFrenar(num_ciclista, tiempo);
-		}
+	if (atributos.length >= 4) {
 
+	    if (atributos[0].equalsIgnoreCase("ciclista")) {
+		num_ciclista = Integer.parseInt(atributos[1]);
+		if (num_ciclista >= 0
+			&& num_ciclista < Constantes.MAX_CICLISTAS) {
+		    if (atributos[3].equalsIgnoreCase("frena")) {
+			tiempo = Double.parseDouble(atributos[3]);
+			if (tiempo >= 0 && tiempo <= 1) {
+			    c = new ComandoFrenar(num_ciclista, tiempo);
+			}
+
+		    }
+		}
 	    }
 	}
 

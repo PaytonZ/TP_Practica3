@@ -24,15 +24,10 @@ public class Parser {
 	lista_de_comandos.add(new ComandoCambiaPlato(0, 0));
 	lista_de_comandos.add(new ComandoCurva(0, 0));
 	lista_de_comandos.add(new ComandoFrenar(0, 0));
-	lista_de_comandos.add(new ComandoIncompleto(""));
-	lista_de_comandos.add(new ComandoNinguno());
 	lista_de_comandos.add(new ComandoPendiente(0, 0));
 	lista_de_comandos.add(new ComandoViento(null, null, null));
 	lista_de_comandos.add(new ComandoClembuterol(0));
-	lista_de_comandos.add(new ComandoDesconocido());
-	
-	
-
+	lista_de_comandos.add(new ComandoAyuda(lista_de_comandos));
     }
 
     /**

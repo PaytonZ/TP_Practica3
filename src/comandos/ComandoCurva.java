@@ -27,15 +27,16 @@ public class ComandoCurva implements InterfazCommand {
 	double nueva_vel_max;
 	String atributos[] = nombre.split("\\s");
 	InterfazCommand c = null;
+	if (atributos.length >= 3) {
+	    if (atributos[0].equalsIgnoreCase("curva")) {
+		nuevo_pk = Double.parseDouble(atributos[1]);
+		if (nuevo_pk >= 0) {
+		    nueva_vel_max = Double.parseDouble(atributos[2]);
+		    if (nueva_vel_max >= 0) {
+			c = new ComandoCurva(nuevo_pk, nueva_vel_max);
+		    }
 
-	if (atributos[0].equalsIgnoreCase("curva")) {
-	    nuevo_pk = Double.parseDouble(atributos[1]);
-	    if (nuevo_pk >= 0) {
-		nueva_vel_max = Double.parseDouble(atributos[2]);
-		if (nueva_vel_max >= 0) {
-		    c = new ComandoCurva(nuevo_pk, nueva_vel_max);
 		}
-
 	    }
 	}
 	return c;

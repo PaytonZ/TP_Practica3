@@ -37,7 +37,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     private JTextField tFcomando;
     private JTextArea tFconsola;
     private String cadena;
-    
+
     private JLabel lblComandos;
     private JLabel lblTiempo;
     private JLabel lblconsola;
@@ -45,7 +45,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     private Lienzo lienzo;
     private Escuchador escuchador;
     private String textoAnteriorScroll;
-    
+
     private JTextArea textAreas[];
     private JLabel lblCiclistas[];
     private JButton botonAumCad[];
@@ -57,9 +57,9 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     private JButton botonFrenaPoco[];
     private JButton botonFrenaMas[];
     private Color color[];
-    
+
     public Ventana(Comandero nuevo_comandero, Lienzo lien) {
-	textAreas = new JTextArea [Constantes.MAX_CICLISTAS];
+	textAreas = new JTextArea[Constantes.MAX_CICLISTAS];
 	lblCiclistas = new JLabel[Constantes.MAX_CICLISTAS];
 	botonDisCad = new JButton[Constantes.MAX_CICLISTAS];
 	botonAumCad = new JButton[Constantes.MAX_CICLISTAS];
@@ -111,109 +111,116 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	color[5] = Constantes.COLOR_CIC_5;
 	int i = 0;
 	int y = Constantes.Y_INICIAL;
-	for(i = 0; i< Constantes.MAX_CICLISTAS; i++)
-	{
-	    	if(i >2 )
-	    	{
-	    	    y = lblCiclistas[i%3].getY() + Constantes.ALTO_TEXTBOX + Constantes.ALTO_BOTON;
-	    	}
-	        lblCiclistas[i] = null;
-		lblCiclistas[i] = crearJLabel(lblCiclistas[i], "Ciclista" + i,
-			Constantes.X_INICIAL + i%3*(Constantes.ANCHO_TEXTBOX+ Constantes.ANCHO_BOTON*2), y,
-			Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON,
-			color[i]);
-		colocarJLabelEnJPanel(lblCiclistas[i], contentPane);
+	for (i = 0; i < Constantes.MAX_CICLISTAS; i++) {
+	    if (i > 2) {
+		y = lblCiclistas[i % 3].getY() + Constantes.ALTO_TEXTBOX
+			+ Constantes.ALTO_BOTON;
+	    }
+	    lblCiclistas[i] = null;
+	    lblCiclistas[i] = crearJLabel(
+		    lblCiclistas[i],
+		    "Ciclista" + i,
+		    Constantes.X_INICIAL
+			    + i
+			    % 3
+			    * (Constantes.ANCHO_TEXTBOX + Constantes.ANCHO_BOTON * 2),
+		    y, Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON, color[i]);
+	    colocarJLabelEnJPanel(lblCiclistas[i], contentPane);
 
-		textAreas[i] = crearJTextArea(textAreas[i],
-			lblCiclistas[i].getX(), lblCiclistas[i].getHeight() +y,
-			Constantes.ANCHO_TEXTBOX, Constantes.ALTO_TEXTBOX);
-		colocarJTextAreaEnJPanel(textAreas[i], contentPane);
+	    textAreas[i] = crearJTextArea(textAreas[i], lblCiclistas[i].getX(),
+		    lblCiclistas[i].getHeight() + y, Constantes.ANCHO_TEXTBOX,
+		    Constantes.ALTO_TEXTBOX);
+	    colocarJTextAreaEnJPanel(textAreas[i], contentPane);
 
-		botonDisCad[i] = null;
-		botonDisCad[i] = crearJButton(botonDisCad[i], Constantes.CADENCIA_MENOS,
-			textAreas[i].getWidth() +textAreas[i].getX(),
-			textAreas[i].getY(), Constantes.ANCHO_BOTON,
-			Constantes.ALTO_BOTON);
+	    botonDisCad[i] = null;
+	    botonDisCad[i] = crearJButton(botonDisCad[i],
+		    Constantes.CADENCIA_MENOS, textAreas[i].getWidth()
+			    + textAreas[i].getX(), textAreas[i].getY(),
+		    Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
 
-		escuchador.asignaMouseClicked(botonDisCad[i], "asignacadencia "+i+" "
-			+ Constantes.BAJA_CADENCIA);
+	    escuchador.asignaMouseClicked(botonDisCad[i], "asignacadencia " + i
+		    + " " + Constantes.BAJA_CADENCIA);
 
-		colocarJButtonEnJPanel(botonDisCad[i], contentPane);
+	    colocarJButtonEnJPanel(botonDisCad[i], contentPane);
 
-		//
-		botonAumCad[i] = null;
-		botonAumCad[i] = crearJButton(botonAumCad[i], Constantes.CADENCIA_MAS,
-			textAreas[i].getWidth() +textAreas[i].getX(),
-			botonDisCad[i].getY() + Constantes.ALTO_BOTON,
-			Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-		escuchador.asignaMouseClicked(botonAumCad[i], "asignacadencia " + i + " "
-			+ Constantes.SUBE_CADENCIA);
+	    //
+	    botonAumCad[i] = null;
+	    botonAumCad[i] = crearJButton(botonAumCad[i],
+		    Constantes.CADENCIA_MAS, textAreas[i].getWidth()
+			    + textAreas[i].getX(), botonDisCad[i].getY()
+			    + Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
+		    Constantes.ALTO_BOTON);
+	    escuchador.asignaMouseClicked(botonAumCad[i], "asignacadencia " + i
+		    + " " + Constantes.SUBE_CADENCIA);
 
-		colocarJButtonEnJPanel(botonAumCad[i], contentPane);
+	    colocarJButtonEnJPanel(botonAumCad[i], contentPane);
 
-		//
-		botonDisPin[i] = null;
-		botonDisPin[i] = crearJButton(botonDisPin[i], Constantes.PINON_MENOS,
-			textAreas[i].getWidth() +textAreas[i].getX(),
-			botonAumCad[i].getY() + Constantes.ALTO_BOTON,
-			Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-		escuchador.asignaMouseClicked(botonDisPin[i], "bajapinon "+i);
+	    //
+	    botonDisPin[i] = null;
+	    botonDisPin[i] = crearJButton(botonDisPin[i],
+		    Constantes.PINON_MENOS, textAreas[i].getWidth()
+			    + textAreas[i].getX(), botonAumCad[i].getY()
+			    + Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
+		    Constantes.ALTO_BOTON);
+	    escuchador.asignaMouseClicked(botonDisPin[i], "bajapinon " + i);
 
-		colocarJButtonEnJPanel(botonDisPin[i], contentPane);
-		//
-		botonAumPin[i] = null;
-		botonAumPin[i] = crearJButton(botonAumPin[i], Constantes.PINON_MAS,
-			textAreas[i].getWidth() +textAreas[i].getX(),
-			botonDisPin[i].getY() + Constantes.ALTO_BOTON,
-			Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-		escuchador.asignaMouseClicked(botonAumPin[i], "subepinon "+i);
-		colocarJButtonEnJPanel(botonAumPin[i], contentPane);
+	    colocarJButtonEnJPanel(botonDisPin[i], contentPane);
+	    //
+	    botonAumPin[i] = null;
+	    botonAumPin[i] = crearJButton(botonAumPin[i], Constantes.PINON_MAS,
+		    textAreas[i].getWidth() + textAreas[i].getX(),
+		    botonDisPin[i].getY() + Constantes.ALTO_BOTON,
+		    Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
+	    escuchador.asignaMouseClicked(botonAumPin[i], "subepinon " + i);
+	    colocarJButtonEnJPanel(botonAumPin[i], contentPane);
 
-		//
-		botonDisPla[i] = null;
-		botonDisPla[i] = crearJButton(botonDisPla[i], Constantes.PLATO_MENOS,
-			botonDisCad[i].getWidth() + botonDisCad[i].getX(),
-			textAreas[i].getY(), Constantes.ANCHO_BOTON,
-			Constantes.ALTO_BOTON);
-		escuchador.asignaMouseClicked(botonDisPla[i], "bajaplato "+i);
+	    //
+	    botonDisPla[i] = null;
+	    botonDisPla[i] = crearJButton(botonDisPla[i],
+		    Constantes.PLATO_MENOS, botonDisCad[i].getWidth()
+			    + botonDisCad[i].getX(), textAreas[i].getY(),
+		    Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
+	    escuchador.asignaMouseClicked(botonDisPla[i], "bajaplato " + i);
 
-		colocarJButtonEnJPanel(botonDisPla[i], contentPane);
+	    colocarJButtonEnJPanel(botonDisPla[i], contentPane);
 
-		//
+	    //
 
-		botonAumPla[i] = null;
-		botonAumPla[i] = crearJButton(botonAumPla[i], Constantes.PLATO_MAS,
-			botonAumCad[i].getWidth() + botonAumCad[i].getX(),
-			botonAumCad[i].getY(), Constantes.ANCHO_BOTON,
-			Constantes.ALTO_BOTON);
-		escuchador.asignaMouseClicked(botonAumPla[i], "subeplato " + i);
+	    botonAumPla[i] = null;
+	    botonAumPla[i] = crearJButton(botonAumPla[i], Constantes.PLATO_MAS,
+		    botonAumCad[i].getWidth() + botonAumCad[i].getX(),
+		    botonAumCad[i].getY(), Constantes.ANCHO_BOTON,
+		    Constantes.ALTO_BOTON);
+	    escuchador.asignaMouseClicked(botonAumPla[i], "subeplato " + i);
 
-		colocarJButtonEnJPanel(botonAumPla[i], contentPane);
+	    colocarJButtonEnJPanel(botonAumPla[i], contentPane);
 
-		//
-		 botonFrenaPoco[i] = null;
-		botonFrenaPoco[i] = crearJButton(botonFrenaPoco[i], Constantes.FRENO_MENOS,
-			botonDisPin[i].getWidth() + botonDisPin[i].getX(),
-			botonDisPin[i].getY(), Constantes.ANCHO_BOTON,
-			Constantes.ALTO_BOTON);
-		escuchador.asignaMouseClicked(botonFrenaPoco[i], "frenar "+i+" 1");
+	    //
+	    botonFrenaPoco[i] = null;
+	    botonFrenaPoco[i] = crearJButton(botonFrenaPoco[i],
+		    Constantes.FRENO_MENOS, botonDisPin[i].getWidth()
+			    + botonDisPin[i].getX(), botonDisPin[i].getY(),
+		    Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
+	    escuchador.asignaMouseClicked(botonFrenaPoco[i], "frenar " + i
+		    + " 1");
 
-		colocarJButtonEnJPanel(botonFrenaPoco[i], contentPane);
+	    colocarJButtonEnJPanel(botonFrenaPoco[i], contentPane);
 
-		//
+	    //
 
-		botonFrenaMas[i] = null;
-		botonFrenaMas[i] = crearJButton(botonFrenaMas[i], Constantes.FRENO_MAS,
-			botonAumPin[i].getWidth() + botonAumPin[i].getX(),
-			botonAumPin[i].getY(), Constantes.ANCHO_BOTON,
-			Constantes.ALTO_BOTON);
-		escuchador.asignaMouseClicked(botonFrenaMas[i], "frenar "+i+" 1");
-		colocarJButtonEnJPanel(botonFrenaMas[i], contentPane);
+	    botonFrenaMas[i] = null;
+	    botonFrenaMas[i] = crearJButton(botonFrenaMas[i],
+		    Constantes.FRENO_MAS, botonAumPin[i].getWidth()
+			    + botonAumPin[i].getX(), botonAumPin[i].getY(),
+		    Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
+	    escuchador.asignaMouseClicked(botonFrenaMas[i], "frenar " + i
+		    + " 1");
+	    colocarJButtonEnJPanel(botonFrenaMas[i], contentPane);
 	}
-	
+
 	lblTiempo = crearJLabel(lblTiempo, "Tiempo", textAreas[3].getX(),
-		textAreas[3].getY() + textAreas[3].getHeight(), 70,
-		15, Color.black);
+		textAreas[3].getY() + textAreas[3].getHeight(), 70, 15,
+		Color.black);
 
 	colocarJLabelEnJPanel(lblTiempo, contentPane);
 
@@ -225,9 +232,9 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 
 	cadena = "";
 
-	lblComandos = crearJLabel(lblComandos, "Comandos",
-		textAreas[4].getX(), textAreas[4].getY()
-			+ textAreas[4].getHeight(), 114, 15, Color.black);
+	lblComandos = crearJLabel(lblComandos, "Comandos", textAreas[4].getX(),
+		textAreas[4].getY() + textAreas[4].getHeight(), 114, 15,
+		Color.black);
 
 	colocarJLabelEnJPanel(lblComandos, contentPane);
 	tFcomando = crearJTextField(tFcomando, lblComandos.getX(),
@@ -238,8 +245,9 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	colocarJTextFieldEnJPanel(tFcomando, contentPane);
 
 	JLabel lblConsola = crearJLabel(lblComandos, "Consola",
-		textAreas[5].getX(), textAreas[4].getY()
-			+ textAreas[4].getHeight(), 114, 15, Color.black);
+		textAreas[5].getX(),
+		textAreas[4].getY() + textAreas[4].getHeight(), 114, 15,
+		Color.black);
 
 	colocarJLabelEnJPanel(lblConsola, contentPane);
 
@@ -268,28 +276,22 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 
 	switch (id) {
 	case "ciclista0":
-	   textAreas[0].setText(textAreas[0].getText() + "\n"
-		    + mensaje);
+	    textAreas[0].setText(textAreas[0].getText() + "\n" + mensaje);
 	    break;
 	case "ciclista1":
-	    textAreas[1].setText(textAreas[1].getText() + "\n"
-		    + mensaje);
+	    textAreas[1].setText(textAreas[1].getText() + "\n" + mensaje);
 	    break;
 	case "ciclista2":
-	    textAreas[2].setText(textAreas[2].getText() + "\n"
-		    + mensaje);
+	    textAreas[2].setText(textAreas[2].getText() + "\n" + mensaje);
 	    break;
 	case "ciclista3":
-	    textAreas[3].setText(textAreas[3].getText() + "\n"
-		    + mensaje);
+	    textAreas[3].setText(textAreas[3].getText() + "\n" + mensaje);
 	    break;
 	case "ciclista4":
-	    textAreas[4].setText(textAreas[4].getText() + "\n"
-		    + mensaje);
+	    textAreas[4].setText(textAreas[4].getText() + "\n" + mensaje);
 	    break;
 	case "ciclista5":
-	    textAreas[5].setText(textAreas[5].getText() + "\n"
-		    + mensaje);
+	    textAreas[5].setText(textAreas[5].getText() + "\n" + mensaje);
 	    break;
 
 	case "reloj":

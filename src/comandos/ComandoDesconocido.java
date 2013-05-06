@@ -20,8 +20,6 @@ public class ComandoDesconocido implements InterfazCommand {
 
     @Override
     public void execute() {
-	// System.out.println("DESCONOCIDO");
-	// TODO Auto-generated method stub
 
     }
 
