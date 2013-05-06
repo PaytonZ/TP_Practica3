@@ -46,6 +46,15 @@ public class Pendiente implements InterfaceEjecuta {
 
     }
 
+    public void setArbol(TreeMap<Integer,Integer> ar)
+    {
+	arbol = ar;
+    }
+    
+    public TreeMap<Integer,Integer> getArbol()
+    {
+	return arbol;
+    }
     @Override
     public void ejecuta() {
 

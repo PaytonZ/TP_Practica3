@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import persona.Ciclista;
 import constantes.Constantes;
 import entradaDeDatos.EntradaFichero;
+import factoresExternos.Pendiente;
 
 /**
  * Esta clase genera la representación del mapa mediante Swing , utilizando un
@@ -35,9 +36,10 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
     private EntradaFichero entrada;
     private Graphics g;
     private ArrayList<Ciclista> lista_de_ciclistas;
+    private Pendiente pendiente;
     private TreeMap<Integer, Integer> arbol;
 
-    public Lienzo(ArrayList<Ciclista> micic) {
+    public Lienzo(ArrayList<Ciclista> micic,Pendiente pen) {
 
 	lista_de_ciclistas = micic;
 	contentPane = new JPanel();
@@ -45,12 +47,16 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	setBounds(0, 0, Constantes.ANCHO_VENTANA, Constantes.ALTO_VENTANA / 2);
 
 	entrada = new EntradaFichero();
+	pendiente = pen;
+	pendiente.setArbol(entrada.convertirFicheroAArbol("carretera.txt", ":;"));
+	arbol = pendiente.getArbol();
 	// matriz = entrada.convertirAArrayFichero("carretera.txt", ":;");
-	arbol = entrada.convertirFicheroAArbol("carretera.txt", ":;");
+	
     }
 
     @Override
     public void paint(Graphics g) {
+	
 	Color colores[] = new Color[6];
 	colores[0] = Constantes.COLOR_CIC_0;
 	colores[1] = Constantes.COLOR_CIC_1;
@@ -207,6 +213,7 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
     @Override
     public void ejecuta() {
 	// TODO Auto-generated method stub
+	arbol = pendiente.getArbol();
 	repaint();
     }
 

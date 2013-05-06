@@ -75,6 +75,7 @@ public class ComandoAsignaCadencia implements InterfazCommand {
 			if (cadencia >= 0 && cadencia <= 120) {
 			    if (atributos[4].equalsIgnoreCase("periodo")) {
 				periodo = Double.parseDouble(atributos[5]);
+				
 				if (periodo > 0 && periodo <= 1) {
 				    cadencia = cadencia / (periodo * 60);
 				    c = new ComandoAsignaCadencia(cadencia,
