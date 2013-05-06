@@ -61,8 +61,9 @@ public final class Constantes {
 
     public static final int NUM_DECIMALES = 3;
 
-    public static final int SUBE_CADENCIA = -2;
-    public static final int BAJA_CADENCIA = -1;
+    //sirven para subir o bajar plato, cadncia, pinon...
+    public static final int SUBIR = -2;
+    public static final int BAJAR = -1;
 
     public static final int ANCHO_PUNTO_CICLISTA = 20;
     public static final Color COLOR_CIC_0 = Color.MAGENTA;

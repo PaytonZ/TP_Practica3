@@ -139,7 +139,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 		    Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
 
 	    escuchador.asignaMouseClicked(botonDisCad[i], "asignacadencia " + i
-		    + " " + Constantes.BAJA_CADENCIA);
+		    + " " + Constantes.BAJAR);
 
 	    colocarJButtonEnJPanel(botonDisCad[i], contentPane);
 
@@ -151,7 +151,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 			    + Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		    Constantes.ALTO_BOTON);
 	    escuchador.asignaMouseClicked(botonAumCad[i], "asignacadencia " + i
-		    + " " + Constantes.SUBE_CADENCIA);
+		    + " " + Constantes.SUBIR);
 
 	    colocarJButtonEnJPanel(botonAumCad[i], contentPane);
 
@@ -162,7 +162,8 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 			    + textAreas[i].getX(), botonAumCad[i].getY()
 			    + Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		    Constantes.ALTO_BOTON);
-	    escuchador.asignaMouseClicked(botonDisPin[i], "bajapinon " + i);
+	    
+	    escuchador.asignaMouseClicked(botonDisPin[i], "bicicleta " + i + " cambia pinon " + Constantes.BAJAR );
 
 	    colocarJButtonEnJPanel(botonDisPin[i], contentPane);
 	    //
@@ -171,7 +172,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 		    textAreas[i].getWidth() + textAreas[i].getX(),
 		    botonDisPin[i].getY() + Constantes.ALTO_BOTON,
 		    Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-	    escuchador.asignaMouseClicked(botonAumPin[i], "subepinon " + i);
+	    escuchador.asignaMouseClicked(botonAumPin[i], "bicicleta " + i + " cambia pinon " + Constantes.SUBIR );
 	    colocarJButtonEnJPanel(botonAumPin[i], contentPane);
 
 	    //

@@ -19,11 +19,11 @@ public class ComandoAsignaCadencia implements InterfazCommand {
     @Override
     public void execute() {
 
-	if (cadencia == Constantes.SUBE_CADENCIA) {
+	if (cadencia == Constantes.SUBIR) {
 	    if (ciclista.getCadencia() < 2)
 
 		ciclista.setCadencia(ciclista.getCadencia() + 1);
-	} else if (cadencia == Constantes.BAJA_CADENCIA) {
+	} else if (cadencia == Constantes.BAJAR) {
 	    if (ciclista.getCadencia() > 0)
 
 		ciclista.setCadencia(ciclista.getCadencia() - 1);
