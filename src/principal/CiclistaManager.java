@@ -104,7 +104,7 @@ public class CiclistaManager {
 		curva, viento, pendiente);
 
 	comandero = new Comandero(presentador, Constantes.FICHERO_DE_COMANDOS);
-	Lienzo lienzo = new Lienzo(lista_de_ciclistas,pendiente);
+	Lienzo lienzo = new Lienzo(lista_de_ciclistas,pendiente,curva);
 	Ventana ventana = new Ventana(comandero, lienzo);
 
 	listaejecuta.add(reloj);

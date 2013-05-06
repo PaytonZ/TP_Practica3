@@ -5,11 +5,11 @@ import factoresExternos.Curva;
 
 public class ComandoCurva implements InterfazCommand {
 
-    private double PK;
-    private double velMax;
+    private int PK;
+    private int velMax;
     private Curva curva;
 
-    public ComandoCurva(double miPK, double velocidadMax) {
+    public ComandoCurva(int miPK, int velocidadMax) {
 	PK = miPK;
 	velMax = velocidadMax;
 	// TODO Auto-generated constructor stub
@@ -18,15 +18,15 @@ public class ComandoCurva implements InterfazCommand {
     @Override
     public InterfazCommand parse(String nombre) {
 
-	double nuevo_pk;
-	double nueva_vel_max;
+	int nuevo_pk;
+	int nueva_vel_max;
 	String atributos[] = nombre.split("\\s");
 	InterfazCommand c = null;
 	if (atributos.length >= 3) {
 	    if (atributos[0].equalsIgnoreCase("curva")) {
-		nuevo_pk = Double.parseDouble(atributos[1]);
+		nuevo_pk = Integer.parseInt(atributos[1]);
 		if (nuevo_pk >= 0) {
-		    nueva_vel_max = Double.parseDouble(atributos[2]);
+		    nueva_vel_max = Integer.parseInt(atributos[2]);
 		    if (nueva_vel_max >= 0) {
 			c = new ComandoCurva(nuevo_pk, nueva_vel_max);
 		    }

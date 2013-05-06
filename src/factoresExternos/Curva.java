@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.Map.Entry;
 
 import persona.Ciclista;
@@ -22,7 +23,7 @@ import constantes.Constantes;
 
 public class Curva implements InterfaceEjecuta {
 
-    private Map<Double, Double> mapaCurvas;
+    private TreeMap<Integer, Integer> arbolCurvas;
     private ArrayList<Ciclista> lista_de_ciclistas;
 
     /**
@@ -31,7 +32,7 @@ public class Curva implements InterfaceEjecuta {
      * @param nueva_lista_de_ciclistas
      */
     public Curva(ArrayList<Ciclista> nueva_lista_de_ciclistas) {
-	mapaCurvas = new HashMap<Double, Double>();
+	arbolCurvas = new TreeMap<Integer, Integer>();
 	lista_de_ciclistas = nueva_lista_de_ciclistas;
     }
 
@@ -43,11 +44,15 @@ public class Curva implements InterfaceEjecuta {
      * @param velocidadMax
      *            Velocidad maxima a la que puede atravesar.
      */
-    public void setCurva(double PK, double velocidadMax) {
-	mapaCurvas.put(PK, velocidadMax);
+    public void setCurva(int PK, int velocidadMax) {
+	arbolCurvas.put(PK, velocidadMax);
 
     }
 
+    public TreeMap<Integer, Integer> getArbolCurvas()
+    {
+	return arbolCurvas;
+    }
     @Override
     public void ejecuta() {
 
@@ -57,11 +62,11 @@ public class Curva implements InterfaceEjecuta {
 	 */
 
 	for (Ciclista c : lista_de_ciclistas) {
-	    Iterator<Entry<Double, Double>> it = mapaCurvas.entrySet()
+	    Iterator<Entry<Integer, Integer>> it = arbolCurvas.entrySet()
 		    .iterator();
 
 	    while (it.hasNext()) {
-		Entry<Double, Double> elemento = it.next();
+		Entry<Integer, Integer> elemento = it.next();
 		double espacio_recorrido = c.getBici().getEspacioRecorrido();
 		// comprobamos que llevamos una velocidad adecuada a la curva en
 		// su

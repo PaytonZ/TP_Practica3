@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import persona.Ciclista;
 import constantes.Constantes;
 import entradaDeDatos.EntradaFichero;
+import factoresExternos.Curva;
 import factoresExternos.Pendiente;
 
 /**
@@ -38,9 +39,10 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
     private ArrayList<Ciclista> lista_de_ciclistas;
     private Pendiente pendiente;
     private TreeMap<Integer, Integer> arbol;
+    private Curva curva;
+    public Lienzo(ArrayList<Ciclista> micic,Pendiente pen,Curva curv) {
 
-    public Lienzo(ArrayList<Ciclista> micic,Pendiente pen) {
-
+	curva = curv;
 	lista_de_ciclistas = micic;
 	contentPane = new JPanel();
 	contentPane.setLayout(null);
@@ -126,6 +128,20 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 
 	}
 
+	//pintamos los PK de las curvas
+	
+	Iterator<Entry<Integer, Integer>> itcurva = curva.getArbolCurvas().entrySet().iterator();
+	while (itcurva.hasNext()) 
+	{
+	    Entry<Integer, Integer> tramocurva =  itcurva.next();
+	    g.setColor(Color.black);
+	    g.drawLine(tramocurva.getKey(), 0, tramocurva.getKey(),
+		    Constantes.ALTO_VENTANA);
+	    g.drawString("Curva en PK "+ tramocurva.getKey() , tramocurva.getKey()-60, 30);
+	    g.drawString("con velocidad maxima " 
+		    + tramocurva.getValue() , tramocurva.getKey()-80, 40);
+	  
+	}
 	// aqui se pondra la informacion del ciclista para que se vaya pintando,
 	// ahora solo se pinta un punto en pantalla
 	// for (i = 0; i < cic.size(); i++) {
