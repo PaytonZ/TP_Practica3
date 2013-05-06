@@ -15,7 +15,7 @@ import java.io.IOException;
  */
 public class EntradaTeclado {
 
-    BufferedReader lectura;
+    private BufferedReader lectura;
 
     public EntradaTeclado() {
 

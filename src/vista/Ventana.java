@@ -3,6 +3,7 @@ package vista;
 import interfaceMain.InterfaceEjecuta;
 
 import java.awt.Color;
+import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -51,12 +52,15 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     private Escuchador escuchador;
     private String textoAnteriorScroll;
 
+    // private Map<String,JTextArea> mapa_textarea;
+
     public Ventana(Comandero nuevo_comandero, Lienzo lien) {
 
 	textoAnteriorScroll = "";
 	comandero = nuevo_comandero;
 	lienzo = lien;
 	escuchador = new Escuchador(comandero);
+
 	init();
     }
 
@@ -187,6 +191,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 		Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON,
 		Constantes.COLOR_CIC_1);
 	colocarJLabelEnJPanel(lblCiclista1, contentPane);
+
 	//
 	textArea_ciclista1 = crearJTextArea(textArea_ciclista1,
 		textArea_ciclista0.getX() + textArea_ciclista0.getWidth() + 2

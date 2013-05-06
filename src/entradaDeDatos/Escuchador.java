@@ -12,7 +12,7 @@ import comandos.Comandero;
 
 public class Escuchador {
 
-    Comandero comandero;
+    private Comandero comandero;
 
     public Escuchador(Comandero micomandero)
 

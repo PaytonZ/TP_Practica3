@@ -1,5 +1,6 @@
 package persona;
 
+import constantes.Constantes;
 import interfaceMain.InterfaceEjecuta;
 import interfaceMain.InterfaceSalida;
 import bicicleta.Bicicleta;
@@ -17,7 +18,7 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     private Bicicleta bici;
     private int identificador_ciclista;
     private double fuerza_ciclista;
-    private int tiempoFrenado;
+    private double tiempoFrenado;
     private double cantidadFreno;
 
     public Ciclista(Bicicleta nueva_bici, int id) {
@@ -196,7 +197,7 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	cantidadFreno = fren;
     }
 
-    public void setTiempoFreno(int time) {
+    public void setTiempoFreno(double time) {
 	tiempoFrenado = time;
     }
 
@@ -207,4 +208,18 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     public void setFuerza_ciclista(double fuerza_ciclista) {
 	this.fuerza_ciclista = fuerza_ciclista;
     }
+
+    public void cambiaPlato(int nuevo_plato) {
+	if (nuevo_plato >= 0 && nuevo_plato < Constantes.NUM_PLATOS) {
+	    bici.setPlatoact(nuevo_plato);
+	}
+    }
+
+    public void cambiaPinon(int nuevo_pinon) {
+	if (nuevo_pinon >= 0 && nuevo_pinon < Constantes.NUM_PINONES) {
+
+	    bici.setPinonact(nuevo_pinon);
+	}
+    }
+
 }

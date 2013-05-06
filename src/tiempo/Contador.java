@@ -11,7 +11,7 @@ public class Contador
 
 {
 
-    int unidad = 0;
+    private int unidad = 0;
 
     /**
      * este metodo devuelve 1 si la unidad es igual al limite y 0 si no lo es

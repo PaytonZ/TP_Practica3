@@ -12,11 +12,11 @@ import vista.Ventana;
 public class Reloj extends Contador implements InterfaceEjecuta,
 	InterfaceSalida {
 
-    Milisegundo milisegundo = new Milisegundo();
-    Contador segundo = new Contador();
-    Contador minuto = new Contador();
-    Contador hora = new Contador();
-    Ventana ventana;
+    private Milisegundo milisegundo = new Milisegundo();
+    private Contador segundo = new Contador();
+    private Contador minuto = new Contador();
+    private Contador hora = new Contador();
+    private Ventana ventana;
 
     public Reloj() {
 

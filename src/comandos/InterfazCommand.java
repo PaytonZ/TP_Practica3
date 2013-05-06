@@ -16,10 +16,10 @@ public interface InterfazCommand {
      * Este metodo recibe un string y si es valido , devuelve un comando valido
      * correctamente configurado E.O.C Devuelve null.
      * 
-     * @param nombre
+     * @param comando
      * @return Comando Valido.
      */
-    public InterfazCommand parse(String nombre);
+    public InterfazCommand parse(String comando);
 
     /**
      * Se provoca la ejecucion del comando en cuestion

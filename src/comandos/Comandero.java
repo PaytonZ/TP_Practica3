@@ -24,11 +24,11 @@ import principal.Presentador;
  */
 public class Comandero implements InterfaceEjecuta, InterfaceSalida {
 
-    Presentador presentador;
-    Queue<InterfazCommand> cola_de_comandos;
-    Parser parser;
-    String salida_de_datos;
-    SuperLectura entrada_de_datos_por_fichero;
+    private Presentador presentador;
+    private Queue<InterfazCommand> cola_de_comandos;
+    private Parser parser;
+    private String salida_de_datos;
+    private SuperLectura entrada_de_datos_por_fichero;
 
     public Comandero(Presentador nuevo_presentador, String ruta_del_fichero) {
 	presentador = nuevo_presentador;

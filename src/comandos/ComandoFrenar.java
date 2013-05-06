@@ -2,40 +2,41 @@ package comandos;
 
 import java.util.StringTokenizer;
 
+import constantes.Constantes;
+
 import persona.Ciclista;
 import principal.Presentador;
 
 public class ComandoFrenar implements InterfazCommand {
-    Ciclista cic;
-    double valor;
-    int tiempo;
-    int id;
+    private Ciclista cic;
+    private double tiempo;
+    private int id;
 
-    public ComandoFrenar(int nuevo_identificador_ciclista, double mivalor,
-	    int mitiempo) {
+    public ComandoFrenar(int nuevo_identificador_ciclista, double mitiempo) {
 	id = nuevo_identificador_ciclista;
-	valor = mivalor;
+
 	tiempo = mitiempo;
 	// TODO Auto-generated constructor stub
     }
 
     @Override
+    // ciclista n frena
+    // CANTIDAD en tiempo
     public InterfazCommand parse(String nombre) {
 	InterfazCommand c = null;
-	StringTokenizer comandosYatributos = new StringTokenizer(nombre,
-		"\n\r ");
+	int num_ciclista;
+	double tiempo;
 
-	if (comandosYatributos.nextToken().equalsIgnoreCase("frenar")) {
-	    if (comandosYatributos.countTokens() == 3) {
-		id = Integer.parseInt(comandosYatributos.nextToken());
-		// String auxpar1 = comandosYatributos.nextToken();
-		valor = Integer.parseInt(comandosYatributos.nextToken());
-		tiempo = Integer.parseInt(comandosYatributos.nextToken());
-		c = new ComandoFrenar(id, valor, tiempo);
-	    } else {
-		c = new ComandoIncompleto(this.obtenerAyuda());
+	String[] atributos = nombre.split("\\s");
+	if (atributos[0].equalsIgnoreCase("ciclista")) {
+	    num_ciclista = Integer.parseInt(atributos[1]);
+	    if (num_ciclista >= 0 && num_ciclista < Constantes.MAX_CICLISTAS) {
+		tiempo = Double.parseDouble(atributos[2]);
+		if (tiempo >= 0 && tiempo <= 1) {
+		    c = new ComandoFrenar(num_ciclista, tiempo);
+		}
+
 	    }
-
 	}
 
 	return c;
@@ -44,9 +45,6 @@ public class ComandoFrenar implements InterfazCommand {
 
     @Override
     public void execute() {
-
-	cic.setCantidadFreno(valor);
-	cic.setTiempoFreno(tiempo);
 
     }
 

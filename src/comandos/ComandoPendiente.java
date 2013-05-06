@@ -8,11 +8,11 @@ import factoresExternos.Pendiente;
 
 public class ComandoPendiente implements InterfazCommand {
 
-    int PK;
-    int pend;
-    Pendiente pendiente;
-    int identificador_ciclista;
-    Ciclista ciclista;
+    private int PK;
+    private int pend;
+    private Pendiente pendiente;
+    private int identificador_ciclista;
+    private Ciclista ciclista;
 
     public ComandoPendiente(int miPK, int mipend) {
 	PK = miPK;

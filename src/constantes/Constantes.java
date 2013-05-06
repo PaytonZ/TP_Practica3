@@ -16,6 +16,7 @@ public final class Constantes {
 
     public static final double FUERZA_G = 9.80665;
     public static final double MASA_BICICLETA_ESTANDAR = 0.7138;
+
     public static int MAX_CICLISTAS = 6;
 
     public static final int NUM_PIN_0 = 17;
@@ -25,9 +26,13 @@ public final class Constantes {
     public static final int NUM_PIN_4 = 13;
     public static final int NUM_PIN_5 = 12;
 
+    public static final int NUM_PINONES = 6;
+
     public static final int NUM_PLA_0 = 36;
     public static final int NUM_PLA_1 = 40;
     public static final int NUM_PLA_2 = 44;
+
+    public static final int NUM_PLATOS = 3;
 
     public static final int X_INICIAL = 5;
     public static final int Y_INICIAL = 5;

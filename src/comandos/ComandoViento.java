@@ -7,10 +7,10 @@ import factoresExternos.Viento;
 
 public class ComandoViento implements InterfazCommand {
 
-    Viento viento;
-    String tipoViento;
-    String hora;
-    String velocidad;
+    private Viento viento;
+    private String tipoViento;
+    private String hora;
+    private String velocidad;
 
     public ComandoViento(String mihora, String tipo, String mivelocidad) {
 
@@ -21,6 +21,7 @@ public class ComandoViento implements InterfazCommand {
     }
 
     @Override
+    // Viento HORA ESTADO KMS/H
     public InterfazCommand parse(String nombre) {
 	StringTokenizer args = new StringTokenizer(nombre, "\n\r ");
 	InterfazCommand c = null;

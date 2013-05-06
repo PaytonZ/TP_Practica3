@@ -2,42 +2,48 @@ package comandos;
 
 import java.util.StringTokenizer;
 
+import constantes.Constantes;
+
 import persona.Ciclista;
 import principal.Presentador;
 
-public class ComandoBajaPlato implements InterfazCommand {
-    Ciclista ciclista;
-    int identificador_ciclista;
+public class ComandoCambiaPlato implements InterfazCommand {
+    private Ciclista ciclista;
+    private int identificador_ciclista;
+    private int plato;
 
-    public ComandoBajaPlato(int nuevo_identificador_ciclista) {
+    public ComandoCambiaPlato(int nuevo_identificador_ciclista, int nuevo_plato) {
 
 	identificador_ciclista = nuevo_identificador_ciclista;
+	plato = nuevo_plato;
     }
 
     @Override
     public InterfazCommand parse(String nombre) {
 
+	int id_ciclista;
+	int nuevo_plato;
 	InterfazCommand c = null;
-	StringTokenizer comandosYatributos = new StringTokenizer(nombre,
-		"\n\r ");
-	if (comandosYatributos.nextToken().equalsIgnoreCase("bajaplato")) {
-	    if (comandosYatributos.countTokens() == 1) {
 
-		int numciclista = Integer.parseInt(comandosYatributos
-			.nextToken());
-
-		c = new ComandoBajaPlato(numciclista);
-	    } else {
-		c = new ComandoIncompleto(this.obtenerAyuda());
+	String[] atributos = nombre.split("\\s");
+	if (atributos[0].equalsIgnoreCase("bicicleta")) {
+	    id_ciclista = Integer.parseInt(atributos[1]);
+	    if (atributos[2].equalsIgnoreCase("cambia")
+		    && atributos[3].equalsIgnoreCase("plato")) {
+		nuevo_plato = Integer.parseInt(atributos[4]);
+		if (nuevo_plato >= 0 && nuevo_plato < Constantes.NUM_PLATOS) {
+		    c = new ComandoCambiaPlato(id_ciclista, nuevo_plato);
+		}
 	    }
 	}
 	return c;
+
     }
 
     @Override
     public void execute() {
 
-	ciclista.disminuyePlato();
+	ciclista.cambiaPlato(plato);
 
     }
 
@@ -57,7 +63,7 @@ public class ComandoBajaPlato implements InterfazCommand {
     @Override
     public String getInformacionInstruccion() {
 	// TODO Auto-generated method stub
-	return "plato bajado en el ciclista"
+	return "Plato cambiado en el ciclista "
 		+ ciclista.getIdentificador_ciclista() + "\n plato actual :"
 		+ ciclista.getPlatoActualBici();
     }

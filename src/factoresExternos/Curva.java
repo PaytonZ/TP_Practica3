@@ -26,23 +26,22 @@ public class Curva implements InterfaceEjecuta {
     private ArrayList<Ciclista> lista_de_ciclistas;
 
     /**
-     * se recibe el vector de bicis
+     * Crea una clase curva y requiere los ciclistas afectados.
      * 
-     * @param bicis
-     * @param rel
+     * @param nueva_lista_de_ciclistas
      */
-
     public Curva(ArrayList<Ciclista> nueva_lista_de_ciclistas) {
 	mapaCurvas = new HashMap<Double, Double>();
 	lista_de_ciclistas = nueva_lista_de_ciclistas;
     }
 
     /**
-     * añade la curva a su mapaDeCurvas con su PK y su velocidad maxima
+     * Añade una curva al mapa de curvas
      * 
-     * @param hora
-     * @param tipo
-     * @param velocidad
+     * @param PK
+     *            El punto kilometrico
+     * @param velocidadMax
+     *            Velocidad maxima a la que puede atravesar.
      */
     public void setCurva(double PK, double velocidadMax) {
 	mapaCurvas.put(PK, velocidadMax);

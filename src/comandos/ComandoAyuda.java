@@ -7,8 +7,8 @@ import principal.Presentador;
 
 public class ComandoAyuda implements InterfazCommand {
 
-    Ciclista ciclista;
-    int identificador_ciclista;
+    private Ciclista ciclista;
+    private int identificador_ciclista;
 
     public ComandoAyuda() {
 

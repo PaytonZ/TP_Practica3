@@ -17,8 +17,8 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
     protected int numsillin = 1;
     // el numero actual del pinon y plato activos
 
-    protected int pinonact = 0;
-    protected int platoact = 0;
+    private int pinonact = 0;
+    private int platoact = 0;
 
     // los dientes que tiene cada plato y pinon
     protected int dientesplato[];
@@ -40,9 +40,9 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
     protected double factorpendiente;
     protected double factorviento;
     private Carretera carretera;
-    double velocidad_anterior;
-    double aceleracion;
-    double freno;
+    private double velocidad_anterior;
+    private double aceleracion;
+    private double freno;
 
     public Bicicleta(int numeropinones, int numeroplatos, double radiorueda,
 	    int midientepinon[], int midienteplato[], double radio, double masa) {
@@ -51,7 +51,7 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 	dientesplato = new int[numeroplatos];
 	dientespinon = new int[numeropinones];
 	numruedas = 2;
-	dientesplato[platoact] = 5;
+	dientesplato[getPlatoact()] = 5;
 	espacioporpedalada = 0;
 	velocidad_anterior = 0;
 	velocidad = 0;
@@ -258,14 +258,14 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 	// aumentamos el pinon
 
 	if (accion == 'a') {
-	    if (pinonact < dientespinon.length - 1) {
-		pinonact++;
+	    if (getPinonact() < dientespinon.length - 1) {
+		setPinonact(getPinonact() + 1);
 	    }
 	}
 	// disminuimos el pinon
 	if (accion == 'd') {
-	    if (pinonact > 0) {
-		pinonact--;
+	    if (getPinonact() > 0) {
+		setPinonact(getPinonact() - 1);
 	    }
 	}
     }
@@ -283,14 +283,14 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
     public void setPlato(char accion) {
 	// aumentamos el pinon
 	if (accion == 'a') {
-	    if (platoact < dientesplato.length - 1) {
-		platoact++;
+	    if (getPlatoact() < dientesplato.length - 1) {
+		setPlatoact(getPlatoact() + 1);
 	    }
 	}
 	// disminuimos el pinon
 	if (accion == 'd') {
-	    if (platoact > 0) {
-		platoact--;
+	    if (getPlatoact() > 0) {
+		setPlatoact(getPlatoact() - 1);
 	    }
 	}
     }
@@ -339,19 +339,19 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
     }
 
     public int getPinonAct() {
-	return pinonact;
+	return getPinonact();
     }
 
     public void setPinonAct(int pinonact) {
-	this.pinonact = pinonact;
+	this.setPinonact(pinonact);
     }
 
     public int getPlatoAct() {
-	return platoact;
+	return getPlatoact();
     }
 
     public void setPlatoAct(int platoact) {
-	this.platoact = platoact;
+	this.setPlatoact(platoact);
     }
 
     public int getDientesPlato(int plato) {
@@ -376,7 +376,7 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 
     public void calculaRelacionTransmision() {
 
-	relaciontransmision = ((double) dientesplato[platoact] / (double) dientespinon[pinonact]);
+	relaciontransmision = ((double) dientesplato[getPlatoact()] / (double) dientespinon[getPinonact()]);
 
     }
 
@@ -467,6 +467,36 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 
     public void setFreno(double fre) {
 	freno = fre;
+    }
+
+    /**
+     * @return the platoact
+     */
+    public int getPlatoact() {
+	return platoact;
+    }
+
+    /**
+     * @param platoact
+     *            the platoact to set
+     */
+    public void setPlatoact(int platoact) {
+	this.platoact = platoact;
+    }
+
+    /**
+     * @return the pinonact
+     */
+    public int getPinonact() {
+	return pinonact;
+    }
+
+    /**
+     * @param pinonact
+     *            the pinonact to set
+     */
+    public void setPinonact(int pinonact) {
+	this.pinonact = pinonact;
     }
 
 }

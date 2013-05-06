@@ -7,9 +7,9 @@ import principal.Presentador;
 import constantes.Constantes;
 
 public class ComandoAsignaCadencia implements InterfazCommand {
-    Ciclista ciclista;
-    double cadencia;
-    int identificador_ciclista;
+    private Ciclista ciclista;
+    private double cadencia;
+    private int identificador_ciclista;
 
     public ComandoAsignaCadencia(double nueva_cadencia,
 	    int nuevo_identificador_ciclista) {
@@ -61,24 +61,31 @@ public class ComandoAsignaCadencia implements InterfazCommand {
     public InterfazCommand parse(String nombre) {
 
 	InterfazCommand c = null;
-	StringTokenizer comandosYatributos = new StringTokenizer(nombre,
-		"\n\r ");
-	int numciclista = -1;
-	double nueva_cadencia = 0;
+	int num_ciclista;
+	double cadencia;
+	double periodo;
 
-	if (comandosYatributos.nextToken().equalsIgnoreCase("asignacadencia")) {
-	    if (comandosYatributos.countTokens() == 2) {
-		numciclista = Integer.parseInt(comandosYatributos.nextToken());
-		// String auxpar1 = comandosYatributos.nextToken();
-		nueva_cadencia = Integer.parseInt(comandosYatributos
-			.nextToken());
-		c = new ComandoAsignaCadencia(nueva_cadencia, numciclista);
-	    } else {
-		c = new ComandoIncompleto(this.obtenerAyuda());
+	String[] atributos = nombre.split("\\s");
+	if (atributos[0].equalsIgnoreCase("ciclista")) {
+	    num_ciclista = Integer.parseInt(atributos[1]);
+	    if (num_ciclista >= 0 && num_ciclista < Constantes.MAX_CICLISTAS) {
+		if (atributos[2].equalsIgnoreCase("cadencia")) {
+
+		    cadencia = Double.parseDouble(atributos[3]);
+		    if (cadencia >= 0 && cadencia <= 120) {
+			if (atributos[4].equalsIgnoreCase("periodo")) {
+			    periodo = Double.parseDouble(atributos[5]);
+			    if (periodo > 0 && periodo <= 1) {
+				cadencia = cadencia / (periodo * 60);
+				c = new ComandoAsignaCadencia(cadencia,
+					num_ciclista);
+			    }
+			}
+
+		    }
+		}
 	    }
-
 	}
-
 	return c;
 
     }

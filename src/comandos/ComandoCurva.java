@@ -2,17 +2,17 @@ package comandos;
 
 import java.util.StringTokenizer;
 
+import constantes.Constantes;
+
 import persona.Ciclista;
 import principal.Presentador;
 import factoresExternos.Curva;
 
 public class ComandoCurva implements InterfazCommand {
 
-    double PK;
-    double velMax;
-    Curva curva;
-    int identificador_ciclista;
-    Ciclista ciclista;
+    private double PK;
+    private double velMax;
+    private Curva curva;
 
     public ComandoCurva(double miPK, double velocidadMax) {
 	PK = miPK;
@@ -22,20 +22,24 @@ public class ComandoCurva implements InterfazCommand {
 
     @Override
     public InterfazCommand parse(String nombre) {
-	StringTokenizer args = new StringTokenizer(nombre, "\n\r ");
+
+	double nuevo_pk;
+	double nueva_vel_max;
+	String atributos[] = nombre.split("\\s");
 	InterfazCommand c = null;
-	if (args.nextToken().equalsIgnoreCase("curva")) {
-	    if (args.countTokens() == 2) {
 
-		double PK = Double.valueOf(args.nextToken());
-		double velMax = Double.valueOf(args.nextToken());
+	if (atributos[0].equalsIgnoreCase("curva")) {
+	    nuevo_pk = Double.parseDouble(atributos[1]);
+	    if (nuevo_pk >= 0) {
+		nueva_vel_max = Double.parseDouble(atributos[2]);
+		if (nueva_vel_max >= 0) {
+		    c = new ComandoCurva(nuevo_pk, nueva_vel_max);
+		}
 
-		c = new ComandoCurva(PK, velMax);
-	    } else {
-		c = new ComandoIncompleto(this.obtenerAyuda());
 	    }
 	}
 	return c;
+
     }
 
     @Override
