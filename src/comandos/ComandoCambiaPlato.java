@@ -32,6 +32,17 @@ public class ComandoCambiaPlato implements InterfazCommand {
 		    if (nuevo_plato >= 0 && nuevo_plato < Constantes.NUM_PLATOS) {
 			c = new ComandoCambiaPlato(id_ciclista, nuevo_plato);
 		    }
+		    if(nuevo_plato == Constantes.SUBIR)
+		    {
+			
+			    c = new ComandoCambiaPlato(id_ciclista, Constantes.SUBIR);
+		    }
+		    
+		    if(nuevo_plato == Constantes.BAJAR)
+		    {
+			
+			    c = new ComandoCambiaPlato(id_ciclista, Constantes.BAJAR);
+		    }
 		}
 	    }
 	}
@@ -42,7 +53,22 @@ public class ComandoCambiaPlato implements InterfazCommand {
     @Override
     public void execute() {
 
-	ciclista.cambiaPlato(plato);
+	if(plato == Constantes.SUBIR)
+	{
+	    plato = ciclista.getBici().getPlatoAct();
+	    if(plato < Constantes.NUM_PLATOS)
+		ciclista.cambiaPlato(plato +1);
+	}
+	else if(plato == Constantes.BAJAR)
+	{
+	    plato = ciclista.getBici().getPlatoAct();
+	    if(plato > 0)
+		ciclista.cambiaPlato(plato -1);
+	}
+	else 
+	{
+	    ciclista.cambiaPlato(plato);
+	}
 
     }
 

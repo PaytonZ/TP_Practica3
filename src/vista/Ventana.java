@@ -181,7 +181,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 		    Constantes.PLATO_MENOS, botonDisCad[i].getWidth()
 			    + botonDisCad[i].getX(), textAreas[i].getY(),
 		    Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-	    escuchador.asignaMouseClicked(botonDisPla[i], "bajaplato " + i);
+	    escuchador.asignaMouseClicked(botonDisPla[i], "bicicleta " + i + " cambia plato " + Constantes.BAJAR );
 
 	    colocarJButtonEnJPanel(botonDisPla[i], contentPane);
 
@@ -192,7 +192,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 		    botonAumCad[i].getWidth() + botonAumCad[i].getX(),
 		    botonAumCad[i].getY(), Constantes.ANCHO_BOTON,
 		    Constantes.ALTO_BOTON);
-	    escuchador.asignaMouseClicked(botonAumPla[i], "subeplato " + i);
+	    escuchador.asignaMouseClicked(botonAumPla[i], "bicicleta " + i + " cambia plato " + Constantes.SUBIR );
 
 	    colocarJButtonEnJPanel(botonAumPla[i], contentPane);
 
