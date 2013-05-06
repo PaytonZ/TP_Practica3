@@ -1,10 +1,5 @@
 package comandos;
 
-import java.util.StringTokenizer;
-
-import constantes.Constantes;
-
-import persona.Ciclista;
 import principal.Presentador;
 import factoresExternos.Curva;
 
@@ -66,7 +61,7 @@ public class ComandoCurva implements InterfazCommand {
     @Override
     public String obtenerAyuda() {
 	// TODO Auto-generated method stub
-	return "curva <punto_km> <velmax>";
+	return "curva <punto_km> <vel_max>";
     }
 
 }

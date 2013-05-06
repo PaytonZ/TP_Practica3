@@ -1,7 +1,5 @@
 package comandos;
 
-import java.util.StringTokenizer;
-
 import persona.Ciclista;
 import principal.Presentador;
 import constantes.Constantes;
@@ -58,14 +56,14 @@ public class ComandoCambiaPinon implements InterfazCommand {
 
     @Override
     public String obtenerAyuda() {
-	return "bajapinon <num_ciclista>";
-	// TODO Auto-generated method stub
+	return "bicicleta <num_bicicleta> cambia pinon <num_pinon>";
+	
 
     }
 
     @Override
     public String getInformacionInstruccion() {
-	// TODO Auto-generated method stub
+	
 	return "Pinon cambiado en el ciclista "
 		+ ciclista.getIdentificador_ciclista() + "\n pinon actual :"
 		+ ciclista.getPinonActualBici();

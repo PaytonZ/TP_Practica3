@@ -1,9 +1,7 @@
 package comandos;
 
 import java.util.ArrayList;
-import java.util.StringTokenizer;
 
-import persona.Ciclista;
 import principal.Presentador;
 
 public class ComandoAyuda implements InterfazCommand {

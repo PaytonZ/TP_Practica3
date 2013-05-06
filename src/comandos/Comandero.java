@@ -4,12 +4,10 @@ import interfaceMain.InterfaceEjecuta;
 import interfaceMain.InterfaceSalida;
 
 import java.util.LinkedList;
-import java.util.PriorityQueue;
 import java.util.Queue;
 
-import entradaDeDatos.SuperLectura;
-
 import principal.Presentador;
+import entradaDeDatos.SuperLectura;
 
 /**
  * 

@@ -1,11 +1,8 @@
 package comandos;
 
-import java.util.StringTokenizer;
-
-import constantes.Constantes;
-
 import persona.Ciclista;
 import principal.Presentador;
+import constantes.Constantes;
 
 public class ComandoFrenar implements InterfazCommand {
     private Ciclista cic;
@@ -69,7 +66,7 @@ public class ComandoFrenar implements InterfazCommand {
     @Override
     public String obtenerAyuda() {
 	// TODO Auto-generated method stub
-	return "frenar <id ciclista> <valor> <tiempo>";
+	return "ciclista <num_ciclista> frena <tiempo_de_frenada>";
     }
 
 }

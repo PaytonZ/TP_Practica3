@@ -1,11 +1,8 @@
 package comandos;
 
-import java.util.StringTokenizer;
-
-import constantes.Constantes;
-
 import persona.Ciclista;
 import principal.Presentador;
+import constantes.Constantes;
 
 public class ComandoCambiaPlato implements InterfazCommand {
     private Ciclista ciclista;
@@ -57,8 +54,8 @@ public class ComandoCambiaPlato implements InterfazCommand {
 
     @Override
     public String obtenerAyuda() {
-	return "bajaplato <num_ciclista>";
-	// TODO Auto-generated method stub
+	return "bicicleta <num_bicicleta> cambia plato <num_pinon>";
+	
 
     }
 

@@ -1,9 +1,9 @@
 package persona;
 
-import constantes.Constantes;
 import interfaceMain.InterfaceEjecuta;
 import interfaceMain.InterfaceSalida;
 import bicicleta.Bicicleta;
+import constantes.Constantes;
 
 /**
  * Esta clase representa una especializacion de persona , ciclista , es decir ,

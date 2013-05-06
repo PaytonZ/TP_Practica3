@@ -47,7 +47,7 @@ public class ComandoClembuterol implements InterfazCommand {
 
     @Override
     public String getInformacionInstruccion() {
-	return "Clembuterol suministrado a ciclista"
+	return "Clembuterol suministrado a ciclista "
 		+ ciclista.getIdentificador_ciclista();
 
     }

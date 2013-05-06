@@ -1,7 +1,5 @@
 package comandos;
 
-import java.util.StringTokenizer;
-
 import persona.Ciclista;
 import principal.Presentador;
 import constantes.Constantes;
@@ -44,7 +42,7 @@ public class ComandoAsignaCadencia implements InterfazCommand {
 
     @Override
     public String obtenerAyuda() {
-	return "asignacadencia <numero_de_ciclista> <nueva_cadencia>";
+	return "ciclista <num_ciclista> cadencia <cadencia> periodo <periodo>";
 
     }
 
