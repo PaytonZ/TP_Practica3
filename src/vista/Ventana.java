@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -57,6 +58,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     private JButton botonFrenaPoco[];
     private JButton botonFrenaMas[];
     private Color color[];
+    private JProgressBar barras[];
 
     public Ventana(Comandero nuevo_comandero, Lienzo lien) {
 	textAreas = new JTextArea[Constantes.MAX_CICLISTAS];
@@ -69,6 +71,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	botonAumPla = new JButton[Constantes.MAX_CICLISTAS];
 	botonFrenaPoco = new JButton[Constantes.MAX_CICLISTAS];
 	botonFrenaMas = new JButton[Constantes.MAX_CICLISTAS];
+	barras = new JProgressBar[Constantes.MAX_CICLISTAS];
 	color = new Color[Constantes.MAX_CICLISTAS];
 	textoAnteriorScroll = "";
 	comandero = nuevo_comandero;
@@ -129,14 +132,21 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 
 	    textAreas[i] = crearJTextArea(textAreas[i], lblCiclistas[i].getX(),
 		    lblCiclistas[i].getHeight() + y, Constantes.ANCHO_TEXTBOX,
-		    Constantes.ALTO_TEXTBOX);
+		    Constantes.ALTO_TEXTBOX-Constantes.ALTO_BOTON);
 	    colocarJTextAreaEnJPanel(textAreas[i], contentPane);
+	    
+	    barras[i] = new JProgressBar(0,100);
+	    barras[i].setBounds(textAreas[i].getX(),textAreas[i].getY()+Constantes.ALTO_TEXTBOX-Constantes.ALTO_BOTON
+		    ,Constantes.ANCHO_TEXTBOX,Constantes.ALTO_BOTON);
+	    
+	    contentPane.add(barras[i]);
 
 	    botonDisCad[i] = null;
 	    botonDisCad[i] = crearJButton(botonDisCad[i],
 		    Constantes.CADENCIA_MENOS, textAreas[i].getWidth()
 			    + textAreas[i].getX(), textAreas[i].getY(),
 		    Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
+	    
 
 	    //escuchador.asignaMouseClicked(botonDisCad[i], "asignacadencia " + i
 	    // + " " + Constantes.BAJAR);
