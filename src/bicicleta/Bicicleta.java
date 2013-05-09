@@ -230,7 +230,7 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 	 */
 	// velocidad =aceleracion + velocidad_anterior;
 
-	velocidad = espacioporpedalada * cadencia + factorpendiente
+	velocidad = espacioporpedalada * cadencia - factorpendiente
 		+ factorviento;
 	velocidad_anterior = velocidad;
 

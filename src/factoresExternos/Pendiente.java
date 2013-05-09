@@ -2,6 +2,9 @@ package factoresExternos;
 
 import interfaceMain.InterfaceEjecuta;
 
+import java.awt.Color;
+import java.awt.Point;
+import java.awt.Polygon;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map.Entry;
@@ -63,70 +66,83 @@ public class Pendiente implements InterfaceEjecuta {
 	 * viento a las bicicletas
 	 */
 	int i = 0;
-	for (Ciclista c : lista_de_ciclistas) {
-	    Iterator<Entry<Integer, Integer>> it = arbol.entrySet().iterator();
-
-	    while (it.hasNext()) {
-		Entry<Integer, Integer> elemento = it.next();
-		double espacio_recorrido = c.getBici().getEspacioRecorrido();
-		// si hay mas pendientes
+	for (Ciclista c : lista_de_ciclistas)
+	{
+	  if(c.getIdentificador_ciclista() == 0)
+	  {
+	        Iterator<Entry<Integer, Integer>> it = arbol.entrySet().iterator();
+		Iterator<Entry<Integer, Integer>> itaux = arbol.entrySet().iterator();
 		if (it.hasNext()) {
-		    // comprobamos en que metro nos encontramos del recorrido,
-		    // si hemos pasado el punto donde empienza la pendiente,
-		    // esta nos empezara a afectar positiva o negativamente
-		    Entry<Integer, Integer> elemento2 = it.next();
-		    if (espacio_recorrido >= elemento.getKey()
-			    && espacio_recorrido < elemento2.getKey()) {
-			// si la pendiente es positiva, nos afectara
-			// negativamente
-			if (elemento.getValue() > 0) {
-			    c.getBici().setFactorPendiente(
-				    Constantes.FACTORPENDIENTE
-					    * elemento.getValue() * -1);
-			}
-			// si la pendiente es negativa, nos afectara
-			// positivamente
-			else if (elemento.getValue() < 0) {
-			    c.getBici().setFactorPendiente(
-				    Constantes.FACTORPENDIENTE
-					    * elemento.getValue());
-
-			}
-			// si la pendiente es 0, no afecta
-			else {
-			    c.getBici().setFactorPendiente(0);
-
-			}
-		    }
-		} else {
-		    // comprobamos en que metro nos encontramos del recorrido,
-		    // si hemos pasado el punto donde empienza la pendiente,
-		    // esta nos empezara a afectar positiva o negativamente
-		    if (espacio_recorrido >= elemento.getKey()) {
-			// si la pendiente es positiva, nos afectara
-			// negativamente
-			if (elemento.getValue() > 0) {
-			    c.getBici().setFactorPendiente(
-				    Constantes.FACTORPENDIENTE
-					    * elemento.getValue() * -1);
-			}
-			// si la pendiente es negativa, nos afectara
-			// positivamente
-			else if (elemento.getValue() < 0) {
-			    c.getBici().setFactorPendiente(
-				    Constantes.FACTORPENDIENTE
-					    * elemento.getValue());
-
-			}
-			// si la pendiente es 0, no afecta
-			else {
-			    c.getBici().setFactorPendiente(0);
-
-			}
-		    }
+		    itaux.next();
 		}
+		while (itaux.hasNext()) 
+		{
 
-	    }
+		    Entry<Integer, Integer> elemento = it.next();
+		    double espacio_recorrido = c.getBici().getEspacioRecorrido();
+
+		    if (it.hasNext()) 
+		    {
+
+			Entry<Integer, Integer> elemento2 = itaux.next();
+
+			
+			if (espacio_recorrido >= elemento.getKey()
+				    && espacio_recorrido < elemento2.getKey()) {
+				// si la pendiente es positiva, nos afectara
+				// negativamente
+				if (elemento.getValue() > 0) {
+				    c.getBici().setFactorPendiente(
+					    Constantes.FACTORPENDIENTE
+						    * elemento.getValue());
+				    System.out.println("sube");
+				}
+				// si la pendiente es negativa, nos afectara
+				// positivamente
+				else if (elemento.getValue() < 0) {
+				    c.getBici().setFactorPendiente(
+					    Constantes.FACTORPENDIENTE
+						    * elemento.getValue());
+				    System.out.println("baja");
+				}
+				// si la pendiente es 0, no afecta
+				else {
+				    c.getBici().setFactorPendiente(0);
+				    System.out.println("nada");
+				}
+			    }
+			} else {
+			    // comprobamos en que metro nos encontramos del recorrido,
+			    // si hemos pasado el punto donde empienza la pendiente,
+			    // esta nos empezara a afectar positiva o negativamente
+			    if (espacio_recorrido >= elemento.getKey()) {
+				// si la pendiente es positiva, nos afectara
+				// negativamente
+				if (elemento.getValue() > 0) {
+				    c.getBici().setFactorPendiente(
+					    Constantes.FACTORPENDIENTE
+						    * elemento.getValue());
+				}
+				// si la pendiente es negativa, nos afectara
+				// positivamente
+				else if (elemento.getValue() < 0) {
+				    c.getBici().setFactorPendiente(
+					    Constantes.FACTORPENDIENTE
+						    * elemento.getValue());
+
+				}
+				// si la pendiente es 0, no afecta
+				else {
+				    c.getBici().setFactorPendiente(0);
+
+				}
+			    }
+
+			
+		    }
+
+		}	
+	}
 	}
 
     }
