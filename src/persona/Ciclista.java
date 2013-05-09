@@ -20,7 +20,7 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     private double fuerza_ciclista;
     private double tiempoFrenado;
     private double cantidadFreno;
-
+    private boolean muerto;
     public Ciclista(Bicicleta nueva_bici, int id) {
 	cadencia = 1;
 	setBici(nueva_bici);
@@ -28,6 +28,7 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	cantidadFreno = 0;
 	tiempoFrenado = 0;
 	fuerza_ciclista = 100;
+	muerto=false;
     }
 
     /**
@@ -105,19 +106,30 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
      */
     @Override
     public void ejecuta() {
-
-	pedalear(cadencia);
-	bici.calculaEspacioRecorrido();
-	bici.calculaVelocidadActual();
-
-	if (tiempoFrenado > 0) {
-	    bici.frenar((float) cantidadFreno);
-	    tiempoFrenado--;
+	
+	//Si el ciclista esta muerto no se ejecuta y su velocidad es 0
+	if(!muerto){
+	    pedalear(cadencia);
+	    bici.calculaEspacioRecorrido();
+	    bici.calculaVelocidadActual();
+        
+	    if (tiempoFrenado > 0) {
+        	bici.frenar((float) cantidadFreno);
+        	tiempoFrenado--;
+	    }
+        
+	    fuerza_ciclista -= ((masa + getBici().getMasa()) * getBici()
+        		.getVelocidad()) / 10;
+	}else{
+	    bici.setVelocidad(0);
 	}
+    }
 
-	fuerza_ciclista -= ((masa + getBici().getMasa()) * getBici()
-		.getVelocidad()) / 10;
-
+    /**
+     * @param muerto the muerto to set
+     */
+    public void setMuerto(boolean muerto) {
+        this.muerto = muerto;
     }
 
     /**

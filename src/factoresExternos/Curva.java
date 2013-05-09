@@ -78,7 +78,8 @@ public class Curva implements InterfaceEjecuta {
 			&& espacio_recorrido < elemento.getKey()) {
 		    // si la velocidad es mayor que la de la curva, la reducimos
 		    if (c.getBici().getVelocidad() > elemento.getValue()) {
-			c.getBici().setVelocidad(elemento.getValue());
+			//c.getBici().setVelocidad(elemento.getValue());
+			c.setMuerto(true);
 		    }
 		}
 	    }
