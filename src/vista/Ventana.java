@@ -138,9 +138,11 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 			    + textAreas[i].getX(), textAreas[i].getY(),
 		    Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
 
-	    escuchador.asignaMouseClicked(botonDisCad[i], "asignacadencia " + i
-		    + " " + Constantes.BAJAR);
-
+	    //escuchador.asignaMouseClicked(botonDisCad[i], "asignacadencia " + i
+	    // + " " + Constantes.BAJAR);
+	    /* Implementacion de prueba que funciona*/
+	    escuchador.asignaMouseClicked(botonDisCad[i], "ciclista " + i
+	    + " cadencia " + 1 + " periodo " + 1);
 	    colocarJButtonEnJPanel(botonDisCad[i], contentPane);
 
 	    //
@@ -150,9 +152,12 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 			    + textAreas[i].getX(), botonDisCad[i].getY()
 			    + Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		    Constantes.ALTO_BOTON);
-	    escuchador.asignaMouseClicked(botonAumCad[i], "asignacadencia " + i
-		    + " " + Constantes.SUBIR);
 
+	    //escuchador.asignaMouseClicked(botonAumCad[i], "asignacadencia " + i
+	    //+ " " + Constantes.SUBIR);
+	    /* Implementacion de prueba que funciona*/
+	    escuchador.asignaMouseClicked(botonAumCad[i], "ciclista " + i
+		    + " cadencia " + 1 + " periodo " + 1);
 	    colocarJButtonEnJPanel(botonAumCad[i], contentPane);
 
 	    //
@@ -202,8 +207,10 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 		    Constantes.FRENO_MENOS, botonDisPin[i].getWidth()
 			    + botonDisPin[i].getX(), botonDisPin[i].getY(),
 		    Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-	    escuchador.asignaMouseClicked(botonFrenaPoco[i], "frenar " + i
-		    + " 1");
+	    //escuchador.asignaMouseClicked(botonFrenaPoco[i], "frenar " + i
+	    //	    + " 1");
+	    /* Implementacion de prueba que funciona*/
+	    escuchador.asignaMouseClicked(botonFrenaPoco[i], "ciclista " + i + " frena " + 0.1);
 
 	    colocarJButtonEnJPanel(botonFrenaPoco[i], contentPane);
 
@@ -214,8 +221,11 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 		    Constantes.FRENO_MAS, botonAumPin[i].getWidth()
 			    + botonAumPin[i].getX(), botonAumPin[i].getY(),
 		    Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-	    escuchador.asignaMouseClicked(botonFrenaMas[i], "frenar " + i
-		    + " 1");
+	    //escuchador.asignaMouseClicked(botonFrenaMas[i], "frenar " + i
+	    //	    + " 1");
+	    /* Implementacion de prueba que funciona*/
+	    escuchador.asignaMouseClicked(botonFrenaMas[i], "ciclista " + i + " frena " + 1);
+	    
 	    colocarJButtonEnJPanel(botonFrenaMas[i], contentPane);
 	}
 
