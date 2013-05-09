@@ -129,18 +129,20 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 			    * (Constantes.ANCHO_TEXTBOX + Constantes.ANCHO_BOTON * 2),
 		    y, Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON, color[i]);
 	    colocarJLabelEnJPanel(lblCiclistas[i], contentPane);
-
+	    
+	    /*TEXT AREA DE CICLISTA*/
 	    textAreas[i] = crearJTextArea(textAreas[i], lblCiclistas[i].getX(),
 		    lblCiclistas[i].getHeight() + y, Constantes.ANCHO_TEXTBOX,
 		    Constantes.ALTO_TEXTBOX-Constantes.ALTO_BOTON);
 	    colocarJTextAreaEnJPanel(textAreas[i], contentPane);
 	    
+	    /*BARRA DE PROGESO*/
 	    barras[i] = new JProgressBar(0,100);
 	    barras[i].setBounds(textAreas[i].getX(),textAreas[i].getY()+Constantes.ALTO_TEXTBOX-Constantes.ALTO_BOTON
 		    ,Constantes.ANCHO_TEXTBOX,Constantes.ALTO_BOTON);
-	    
 	    contentPane.add(barras[i]);
-
+	    
+	    /*BOTON DISMINUYE CADENCIA*/
 	    botonDisCad[i] = null;
 	    botonDisCad[i] = crearJButton(botonDisCad[i],
 		    Constantes.CADENCIA_MENOS, textAreas[i].getWidth()
@@ -155,7 +157,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	    + " cadencia " + 1 + " periodo " + 1);
 	    colocarJButtonEnJPanel(botonDisCad[i], contentPane);
 
-	    //
+	    /*BOTON AUMENTA CADENCIA*/
 	    botonAumCad[i] = null;
 	    botonAumCad[i] = crearJButton(botonAumCad[i],
 		    Constantes.CADENCIA_MAS, textAreas[i].getWidth()
@@ -170,7 +172,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 		    + " cadencia " + 1 + " periodo " + 1);
 	    colocarJButtonEnJPanel(botonAumCad[i], contentPane);
 
-	    //
+	    /*BOTON DISMINUYE PINON*/
 	    botonDisPin[i] = null;
 	    botonDisPin[i] = crearJButton(botonDisPin[i],
 		    Constantes.PINON_MENOS, textAreas[i].getWidth()
@@ -181,7 +183,8 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	    escuchador.asignaMouseClicked(botonDisPin[i], "bicicleta " + i + " cambia pinon " + Constantes.BAJAR );
 
 	    colocarJButtonEnJPanel(botonDisPin[i], contentPane);
-	    //
+	    
+	    /*BOTON AUMENTA PINON*/
 	    botonAumPin[i] = null;
 	    botonAumPin[i] = crearJButton(botonAumPin[i], Constantes.PINON_MAS,
 		    textAreas[i].getWidth() + textAreas[i].getX(),
@@ -190,7 +193,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	    escuchador.asignaMouseClicked(botonAumPin[i], "bicicleta " + i + " cambia pinon " + Constantes.SUBIR );
 	    colocarJButtonEnJPanel(botonAumPin[i], contentPane);
 
-	    //
+	    /*BOTON DISMINUYE PLATO*/
 	    botonDisPla[i] = null;
 	    botonDisPla[i] = crearJButton(botonDisPla[i],
 		    Constantes.PLATO_MENOS, botonDisCad[i].getWidth()
@@ -200,8 +203,8 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 
 	    colocarJButtonEnJPanel(botonDisPla[i], contentPane);
 
-	    //
-
+	    
+	    /*BOTON AUMENTA PLATO*/
 	    botonAumPla[i] = null;
 	    botonAumPla[i] = crearJButton(botonAumPla[i], Constantes.PLATO_MAS,
 		    botonAumCad[i].getWidth() + botonAumCad[i].getX(),
@@ -211,7 +214,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 
 	    colocarJButtonEnJPanel(botonAumPla[i], contentPane);
 
-	    //
+	    /*BOTON FRENA POCO*/
 	    botonFrenaPoco[i] = null;
 	    botonFrenaPoco[i] = crearJButton(botonFrenaPoco[i],
 		    Constantes.FRENO_MENOS, botonDisPin[i].getWidth()
@@ -224,8 +227,8 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 
 	    colocarJButtonEnJPanel(botonFrenaPoco[i], contentPane);
 
-	    //
-
+	    
+	    /*BOTON FRENA MAS*/
 	    botonFrenaMas[i] = null;
 	    botonFrenaMas[i] = crearJButton(botonFrenaMas[i],
 		    Constantes.FRENO_MAS, botonAumPin[i].getWidth()
@@ -240,7 +243,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	}
 
 	lblTiempo = crearJLabel(lblTiempo, "Tiempo", textAreas[3].getX(),
-		textAreas[3].getY() + textAreas[3].getHeight(), 70, 15,
+		textAreas[3].getY() + textAreas[3].getHeight()+Constantes.ALTO_BOTON, 70, 15,
 		Color.black);
 
 	colocarJLabelEnJPanel(lblTiempo, contentPane);
@@ -254,7 +257,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	cadena = "";
 
 	lblComandos = crearJLabel(lblComandos, "Comandos", textAreas[4].getX(),
-		textAreas[4].getY() + textAreas[4].getHeight(), 114, 15,
+		textAreas[4].getY() + textAreas[4].getHeight()+Constantes.ALTO_BOTON, 114, 15,
 		Color.black);
 
 	colocarJLabelEnJPanel(lblComandos, contentPane);
@@ -267,7 +270,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 
 	JLabel lblConsola = crearJLabel(lblComandos, "Consola",
 		textAreas[5].getX(),
-		textAreas[4].getY() + textAreas[4].getHeight(), 114, 15,
+		textAreas[4].getY() + textAreas[4].getHeight()+Constantes.ALTO_BOTON, 114, 15,
 		Color.black);
 
 	colocarJLabelEnJPanel(lblConsola, contentPane);
