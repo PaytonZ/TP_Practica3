@@ -300,31 +300,43 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
      * @param mensaje
      */
     public void ponTextoEnTextArea(String id, String mensaje) {
-
+	
 	switch (id) {
 	case "ciclista0":
+	    if(mensaje.contains("Fuerza"))
 	    obtenFuerzadelMensaje(mensaje,0);
-	    textAreas[0].setText(textAreas[0].getText() + "\n" + mensaje);
+	    else 
+		textAreas[0].setText(textAreas[0].getText() + "\n" + mensaje);
 	    break;
 	case "ciclista1":
-	    obtenFuerzadelMensaje(mensaje,1);
-	    textAreas[1].setText(textAreas[1].getText() + "\n" + mensaje);
+	    if(mensaje.contains("Fuerza"))
+		    obtenFuerzadelMensaje(mensaje,1);
+	    else 
+		textAreas[1].setText(textAreas[1].getText() + "\n" + mensaje);
 	    break;
 	case "ciclista2":
-	    obtenFuerzadelMensaje(mensaje,2);
-	    textAreas[2].setText(textAreas[2].getText() + "\n" + mensaje);
+	    if(mensaje.contains("Fuerza"))
+		    obtenFuerzadelMensaje(mensaje,2);
+	    else 
+		textAreas[2].setText(textAreas[2].getText() + "\n" + mensaje);
 	    break;
 	case "ciclista3":
-	    obtenFuerzadelMensaje(mensaje,3);
-	    textAreas[3].setText(textAreas[3].getText() + "\n" + mensaje);
+	    if(mensaje.contains("Fuerza"))
+		    obtenFuerzadelMensaje(mensaje,3);
+	    else 
+		textAreas[3].setText(textAreas[3].getText() + "\n" + mensaje);
 	    break;
 	case "ciclista4":
-	    obtenFuerzadelMensaje(mensaje,4);
-	    textAreas[4].setText(textAreas[4].getText() + "\n" + mensaje);
+	    if(mensaje.contains("Fuerza"))
+		    obtenFuerzadelMensaje(mensaje,4);
+	    else 
+		textAreas[4].setText(textAreas[4].getText() + "\n" + mensaje);
 	    break;
 	case "ciclista5":
-	    obtenFuerzadelMensaje(mensaje,5);
-	    textAreas[5].setText(textAreas[5].getText() + "\n" + mensaje);
+	    if(mensaje.contains("Fuerza"))
+		    obtenFuerzadelMensaje(mensaje,5);
+	    else 
+		textAreas[5].setText(textAreas[5].getText() + "\n" + mensaje);
 	    break;
 
 	case "reloj":
