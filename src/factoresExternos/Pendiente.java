@@ -68,8 +68,7 @@ public class Pendiente implements InterfaceEjecuta {
 	int i = 0;
 	for (Ciclista c : lista_de_ciclistas)
 	{
-	  if(c.getIdentificador_ciclista() == 0)
-	  {
+	 
 	        Iterator<Entry<Integer, Integer>> it = arbol.entrySet().iterator();
 		Iterator<Entry<Integer, Integer>> itaux = arbol.entrySet().iterator();
 		if (it.hasNext()) {
@@ -95,7 +94,6 @@ public class Pendiente implements InterfaceEjecuta {
 				    c.getBici().setFactorPendiente(
 					    Constantes.FACTORPENDIENTE
 						    * elemento.getValue());
-				    System.out.println("sube");
 				}
 				// si la pendiente es negativa, nos afectara
 				// positivamente
@@ -103,15 +101,16 @@ public class Pendiente implements InterfaceEjecuta {
 				    c.getBici().setFactorPendiente(
 					    Constantes.FACTORPENDIENTE
 						    * elemento.getValue());
-				    System.out.println("baja");
 				}
 				// si la pendiente es 0, no afecta
 				else {
 				    c.getBici().setFactorPendiente(0);
-				    System.out.println("nada");
 				}
 			    }
-			} else {
+			} 
+		    	//este else sirva para la ultima parte del trazado ya que el 
+		    	//iterador avanzaria a null y fallaria la aplicacion
+		    	else {
 			    // comprobamos en que metro nos encontramos del recorrido,
 			    // si hemos pasado el punto donde empienza la pendiente,
 			    // esta nos empezara a afectar positiva o negativamente
@@ -143,7 +142,7 @@ public class Pendiente implements InterfaceEjecuta {
 
 		}	
 	}
-	}
+	
 
     }
 }
