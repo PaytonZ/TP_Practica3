@@ -55,8 +55,8 @@ public final class Constantes {
     public static final String FRENO_MENOS = "Fre-";
 
     public static final double DISTANCIA_FRENADO = 10;
-    public static final double FACTORVIENTO = 0.1;
-    public static final double FACTORPENDIENTE = 0.1;
+    public static final double FACTORVIENTO = 0.01;
+    public static final double FACTORPENDIENTE = 0.01;
     public static final int FACTORESCALA = 1;
 
     public static final int NUM_DECIMALES = 3;

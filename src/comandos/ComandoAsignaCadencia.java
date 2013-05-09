@@ -72,17 +72,49 @@ public class ComandoAsignaCadencia implements InterfazCommand {
 		    if (atributos[2].equalsIgnoreCase("cadencia")) {
 
 			cadencia = Double.parseDouble(atributos[3]);
-			if (cadencia >= 0 && cadencia <= 120) {
-			    if (atributos[4].equalsIgnoreCase("periodo")) {
+			if (cadencia >= 0 && cadencia <= 120) 
+			{
+			    if (atributos[4].equalsIgnoreCase("periodo"))
+			    {
 				periodo = Double.parseDouble(atributos[5]);
 				
-				if (periodo > 0 && periodo <= 1) {
+				if (periodo > 0 && periodo <= 1) 
+				{
 				    cadencia = cadencia / (periodo * 60);
 				    c = new ComandoAsignaCadencia(cadencia,
 					    num_ciclista);
 				}
 			    }
 
+			}
+			else if( cadencia == Constantes.SUBIR)
+			{
+			    
+			    if (atributos[4].equalsIgnoreCase("periodo"))
+			    {
+				periodo = Double.parseDouble(atributos[5]);
+				
+				if (periodo > 0 && periodo <= 1) 
+				{
+				    cadencia = cadencia / (periodo * 60);
+				    c = new ComandoAsignaCadencia(Constantes.SUBIR,
+					    num_ciclista);
+				}
+			    }
+			}
+			else if( cadencia == Constantes.BAJAR)
+			{
+			    if (atributos[4].equalsIgnoreCase("periodo"))
+			    {
+				periodo = Double.parseDouble(atributos[5]);
+				
+				if (periodo > 0 && periodo <= 1) 
+				{
+				    cadencia = cadencia / (periodo * 60);
+				    c = new ComandoAsignaCadencia(Constantes.BAJAR,
+					    num_ciclista);
+				}
+			    }
 			}
 		    }
 		}

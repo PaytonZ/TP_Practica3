@@ -157,7 +157,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	    // + " " + Constantes.BAJAR);
 	    /* Implementacion de prueba que funciona*/
 	    escuchador.asignaMouseClicked(botonDisCad[i], "ciclista " + i
-	    + " cadencia " + 1 + " periodo " + 1);
+	    + " cadencia " + Constantes.BAJAR + " periodo " + 1);
 	    colocarJButtonEnJPanel(botonDisCad[i], contentPane);
 
 	    /*BOTON AUMENTA CADENCIA*/
@@ -172,7 +172,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	    //+ " " + Constantes.SUBIR);
 	    /* Implementacion de prueba que funciona*/
 	    escuchador.asignaMouseClicked(botonAumCad[i], "ciclista " + i
-		    + " cadencia " + 1 + " periodo " + 1);
+		    + " cadencia " + Constantes.SUBIR + " periodo " + 1);
 	    colocarJButtonEnJPanel(botonAumCad[i], contentPane);
 
 	    /*BOTON DISMINUYE PINON*/
