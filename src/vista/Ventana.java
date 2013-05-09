@@ -303,21 +303,27 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 
 	switch (id) {
 	case "ciclista0":
+	    obtenFuerzadelMensaje(mensaje,0);
 	    textAreas[0].setText(textAreas[0].getText() + "\n" + mensaje);
 	    break;
 	case "ciclista1":
+	    obtenFuerzadelMensaje(mensaje,1);
 	    textAreas[1].setText(textAreas[1].getText() + "\n" + mensaje);
 	    break;
 	case "ciclista2":
+	    obtenFuerzadelMensaje(mensaje,2);
 	    textAreas[2].setText(textAreas[2].getText() + "\n" + mensaje);
 	    break;
 	case "ciclista3":
+	    obtenFuerzadelMensaje(mensaje,3);
 	    textAreas[3].setText(textAreas[3].getText() + "\n" + mensaje);
 	    break;
 	case "ciclista4":
+	    obtenFuerzadelMensaje(mensaje,4);
 	    textAreas[4].setText(textAreas[4].getText() + "\n" + mensaje);
 	    break;
 	case "ciclista5":
+	    obtenFuerzadelMensaje(mensaje,5);
 	    textAreas[5].setText(textAreas[5].getText() + "\n" + mensaje);
 	    break;
 
@@ -335,6 +341,8 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 
 	}
     }
+
+
 
     /**
      * metodo heredado de la interfazEjecuta, el cual se ejecuta, cada vuelta
@@ -446,5 +454,16 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	scroll.setBounds(x, y, ancho, alto);
 	scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 	return scroll;
+    }
+    private String obtenFuerzadelMensaje(String mensaje, int id) {
+	if(mensaje.contains("Fuerza:")){
+	    String fuerza = mensaje.substring(mensaje.indexOf(":")+1);
+	    barras[id].setValue((int)(Double.parseDouble(fuerza)));
+	    barras[id].setString(fuerza.substring(0,5)+"%");
+	}
+
+	
+	return "";
+	
     }
 }
