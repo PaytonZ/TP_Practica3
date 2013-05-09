@@ -140,6 +140,9 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	    barras[i] = new JProgressBar(0,100);
 	    barras[i].setBounds(textAreas[i].getX(),textAreas[i].getY()+Constantes.ALTO_TEXTBOX-Constantes.ALTO_BOTON
 		    ,Constantes.ANCHO_TEXTBOX,Constantes.ALTO_BOTON);
+	    barras[i].setValue(100);
+	    barras[i].setString("100%");
+	    barras[i].setStringPainted(true);
 	    contentPane.add(barras[i]);
 	    
 	    /*BOTON DISMINUYE CADENCIA*/
