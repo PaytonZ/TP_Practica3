@@ -137,10 +137,10 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	    colocarJTextAreaEnJPanel(textAreas[i], contentPane);
 	    
 	    /*BARRA DE PROGESO*/
-	    barras[i] = new JProgressBar(0,100);
+	    barras[i] = new JProgressBar(0,10000);
 	    barras[i].setBounds(textAreas[i].getX(),textAreas[i].getY()+Constantes.ALTO_TEXTBOX-Constantes.ALTO_BOTON
 		    ,Constantes.ANCHO_TEXTBOX,Constantes.ALTO_BOTON);
-	    barras[i].setValue(100);
+	    barras[i].setValue(10000);
 	    barras[i].setString("100%");
 	    barras[i].setStringPainted(true);
 	    contentPane.add(barras[i]);
@@ -470,7 +470,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     private String obtenFuerzadelMensaje(String mensaje, int id) {
 	if(mensaje.contains("Fuerza:")){
 	    String fuerza = mensaje.substring(mensaje.indexOf(":")+1);
-	    barras[id].setValue((int)(Double.parseDouble(fuerza)));
+	    barras[id].setValue((int) (Double.parseDouble(fuerza)*100));
 	    barras[id].setString(fuerza.substring(0,5)+"%");
 	}
 
