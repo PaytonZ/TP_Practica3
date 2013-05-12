@@ -225,7 +225,7 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     public void setFuerza_ciclista(double fuerza_ciclista) {
 	if(fuerza_ciclista<=0&&!muerto){
 	    this.fuerza_ciclista = 0;
-	    muerto=true;
+	    this.muerto=true;
 	}
 	else if(!muerto)
 	    this.fuerza_ciclista = fuerza_ciclista;
