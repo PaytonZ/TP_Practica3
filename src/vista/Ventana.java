@@ -471,7 +471,12 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	if(mensaje.contains("Fuerza:")){
 	    String fuerza = mensaje.substring(mensaje.indexOf(":")+1);
 	    barras[id].setValue((int) (Double.parseDouble(fuerza)*100));
-	    barras[id].setString(fuerza.substring(0,5)+"%");
+	    System.out.println(fuerza);
+	    if(fuerza.length()>3)
+	    	barras[id].setString(fuerza.substring(0,5)+"%");
+	    else
+		barras[id].setString("0%");
+		
 	}
 
 	

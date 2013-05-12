@@ -118,8 +118,11 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
         	tiempoFrenado--;
 	    }
         
-	    fuerza_ciclista -= ((masa + getBici().getMasa()) * getBici()
-        		.getVelocidad()) / 10;
+	    // Modificado para que se acabe la fuerza en ejecucion
+	   // fuerza_ciclista -= ((masa + getBici().getMasa()) * getBici()
+        		//.getVelocidad()) / 10;
+	    setFuerza_ciclista(fuerza_ciclista-(((masa + getBici().getMasa()) * getBici()
+        		.getVelocidad()) / 5));
 	}else{
 	    bici.setVelocidad(0);
 	}
@@ -213,12 +216,19 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	tiempoFrenado = time;
     }
 
-    /**
+    /** Si esta muerto no hace nada
+     * Si la fuerza <=0 lo mata
+     * si fuerza >0 actualiza la fuerza
      * @param fuerza_ciclista
      *            the fuerza_ciclista to set
      */
     public void setFuerza_ciclista(double fuerza_ciclista) {
-	this.fuerza_ciclista = fuerza_ciclista;
+	if(fuerza_ciclista<=0&&!muerto){
+	    this.fuerza_ciclista = 0;
+	    muerto=true;
+	}
+	else if(!muerto)
+	    this.fuerza_ciclista = fuerza_ciclista;
     }
 
     public void cambiaPlato(int nuevo_plato) {
