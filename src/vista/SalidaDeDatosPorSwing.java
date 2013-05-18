@@ -20,58 +20,45 @@ public class SalidaDeDatosPorSwing {
     private ArrayList<InterfaceSalida> lista_salida;
     private Ventana miventana;
 
+    public SalidaDeDatosPorSwing(ArrayList<InterfaceSalida> lista) {
+
+	lista_salida = lista;
+    }
+
     public SalidaDeDatosPorSwing(Ventana vent,
 	    ArrayList<InterfaceSalida> lista_o) {
 	lista_salida = lista_o;
 	miventana = vent;
     }
 
-    public SalidaDeDatosPorSwing(ArrayList<InterfaceSalida> lista) {
-
-	lista_salida = lista;
-    }
-
     /**
-     * este metodo saca por pantalla el mensaje introducido con el formato
-     * indicado, el cual debe de existir en el propio metodo
-     * 
-     * @param mensaje
-     *            La informacion a mostrar
-     * @param formato
-     *            El formato para mostrar la informacion
+     * este metodo hace un for each del arraylist dela propia clase y ejecuta el
+     * metodo muestra de los objetos que contiene
      */
-    public void mostrarPorPantalla(String mensaje, String formato) {
 
-	StringBuffer mensajefinal = new StringBuffer();
+    /* Formatos admitidos : ciclistaX , reloj , consola */
 
-	switch (formato) {
-	case "cadencia": {
-	    mensajefinal.append(mensaje + " pedaladas por segundo ");
-	    break;
-	}
-	case "velocidad": {
-	    mensajefinal.append("Velocidad actual:" + mensaje + " m/s ");
-	    break;
-	}
+    public void mostrarObjetos() {
+	String salida;
+	String[] aux, mensaje_final;
+	String id;
 
-	case "hh:mm:ss": {
-	    int i = 0;
-	    while (i < mensaje.length()) {
-		if (mensaje.charAt(i) == ' ') {
-		    mensajefinal.insert(i, ":");
+	for (InterfaceSalida listaobjetos : lista_salida) {
 
-		} else {
-		    mensajefinal.insert(i, mensaje.charAt(i));
-		}
+	    salida = listaobjetos.muestra();
 
-		i++;
+	    aux = salida.split("%");
+	    id = aux[0];
+	    mensaje_final = aux[1].split(",");
+	    salida = "";
+	    for (int i = 0; i < mensaje_final.length; i++) {
+
+		mostrarPorVentana(mensaje_final[i], id);
+
 	    }
 
-	    break;
-	}
 	}
 
-	System.out.println(mensajefinal.toString());
     }
 
     /**
@@ -129,6 +116,49 @@ public class SalidaDeDatosPorSwing {
 	    break;
 	}
 	}
+	System.out.println(mensajefinal.toString());
+    }
+
+    /**
+     * este metodo saca por pantalla el mensaje introducido con el formato
+     * indicado, el cual debe de existir en el propio metodo
+     * 
+     * @param mensaje
+     *            La informacion a mostrar
+     * @param formato
+     *            El formato para mostrar la informacion
+     */
+    public void mostrarPorPantalla(String mensaje, String formato) {
+
+	StringBuffer mensajefinal = new StringBuffer();
+
+	switch (formato) {
+	case "cadencia": {
+	    mensajefinal.append(mensaje + " pedaladas por segundo ");
+	    break;
+	}
+	case "velocidad": {
+	    mensajefinal.append("Velocidad actual:" + mensaje + " m/s ");
+	    break;
+	}
+
+	case "hh:mm:ss": {
+	    int i = 0;
+	    while (i < mensaje.length()) {
+		if (mensaje.charAt(i) == ' ') {
+		    mensajefinal.insert(i, ":");
+
+		} else {
+		    mensajefinal.insert(i, mensaje.charAt(i));
+		}
+
+		i++;
+	    }
+
+	    break;
+	}
+	}
+
 	System.out.println(mensajefinal.toString());
     }
 
@@ -193,36 +223,6 @@ public class SalidaDeDatosPorSwing {
 
 	miventana.ponTextoEnTextArea(id, mensajefinal.toString());
 	// System.out.println(mensajefinal.toString());
-    }
-
-    /**
-     * este metodo hace un for each del arraylist dela propia clase y ejecuta el
-     * metodo muestra de los objetos que contiene
-     */
-
-    /* Formatos admitidos : ciclistaX , reloj , consola */
-
-    public void mostrarObjetos() {
-	String salida;
-	String[] aux, mensaje_final;
-	String id;
-
-	for (InterfaceSalida listaobjetos : lista_salida) {
-
-	    salida = listaobjetos.muestra();
-
-	    aux = salida.split("%");
-	    id = aux[0];
-	    mensaje_final = aux[1].split(",");
-	    salida = "";
-	    for (int i = 0; i < mensaje_final.length; i++) {
-
-		mostrarPorVentana(mensaje_final[i], id);
-
-	    }
-
-	}
-
     }
 
 }

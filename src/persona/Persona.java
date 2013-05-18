@@ -12,6 +12,15 @@ public class Persona {
     protected double peso;
     protected double masa;
 
+    /**
+     * devuelve el peso
+     * 
+     * @return devuelve el peso
+     */
+    public double getPeso() {
+	return peso;
+    }
+
     public void persona(double nueva_masa) {
 	masa = nueva_masa;
 	peso = masa * Constantes.FUERZA_G;
@@ -25,15 +34,6 @@ public class Persona {
      */
     public void setPeso(double miPeso) {
 	peso = miPeso;
-    }
-
-    /**
-     * devuelve el peso
-     * 
-     * @return devuelve el peso
-     */
-    public double getPeso() {
-	return peso;
     }
 
 }

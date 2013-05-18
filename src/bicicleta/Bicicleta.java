@@ -62,10 +62,150 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 
 	setAsignaNumeroDientesPlato(midienteplato);
 
-	setRadioRueda((double) radio);
+	setRadioRueda(radio);
 	factorpendiente = 0;
 	setCarretera(new Carretera("carretera.txt", this));
-	// setViento(new Viento("vientos.txt", this));
+
+    }
+
+    public void acelerarbici(double _aceleracion) {
+	aceleracion += _aceleracion;
+    }
+
+    public void calculaAceleracion() {
+	aceleracion = velocidad - velocidad_anterior;
+
+    }
+
+    public void calculaEspacioPorCadaPedalada() {
+	espacioporpedalada = getRecorridoLinealDeLaRueda()
+		* getRelacionTransmision();
+    }
+
+    /**
+     * Este metodo recibe la cadencia del ciclista . Realizará los cálculos
+     * pertinentes pertenciencientes al Movimiento Rectilineo Uniformente
+     * Acelerado ( MRUA ) y devolverá una modificacion de la velocidad de la
+     * bicicleta.
+     * 
+     * @param cadencia
+     *            pedaladas por segundo que manda el ciclista
+     */
+    public void calculaEspacioRecorrido() {
+
+	double velocidad_maxima;
+
+	velocidad_maxima = velocidad * cadencia;
+
+	if (velocidad < velocidad_maxima) {
+
+	}
+	// velocidad = (double) (( 2 *Math.PI *getRadioRueda() *
+	// getRelacionTransmision() )* getCadencia());
+
+	// asignamos la relacion de marchas actuales
+	calculaRelacionTransmision();
+	// calculamos la aceleracion
+
+	calculaEspacioPorCadaPedalada();
+	calculaVelocidadActual();
+	calculaAceleracion();
+	espaciorecorrido = espaciorecorrido + velocidad;
+    }
+
+    public void calculaRelacionTransmision() {
+
+	relaciontransmision = ((double) dientesplato[getPlatoAct()] / (double) dientespinon[getPinonAct()]);
+
+    }
+
+    public void calculaVelocidadActual() {
+	// la velocidad es el radio de la rueda * 2 PI * relacion de la
+	// transmision * cadencia de pedaleo
+	/*
+	 * velocidad = ((2 * Math.PI * radiorueda * relaciontransmision)
+	 * cadencia - factorpendiente - factorviento);
+	 */
+	// velocidad =aceleracion + velocidad_anterior;
+
+	velocidad = espacioporpedalada * cadencia - factorpendiente
+		+ factorviento;
+	velocidad_anterior = velocidad;
+
+    }
+
+    public double getCadencia() {
+	return cadencia;
+    }
+
+    /**
+     * @return the carretera
+     */
+    public Carretera getCarretera() {
+	return carretera;
+    }
+
+    public int[] getDientesPinon() {
+	return dientespinon;
+    }
+
+    public int getDientesPinon(int pinon) {
+	return dientespinon[pinon];
+    }
+
+    public int[] getDientesPlato() {
+	return dientesplato;
+    }
+
+    public int getDientesPlato(int plato) {
+	return dientesplato[plato];
+    }
+
+    @Override
+    public double getDireccion() {
+	return direccion;
+    }
+
+    /**
+     * @return the espacioporpedalada
+     */
+    public double getEspacioRecorrido() {
+	return espaciorecorrido;
+    }
+
+    /**
+     * este metodo esta heredado de la clase InterfazEjecuta, y todo lo que haya
+     * en el, se ejecutara cuando se realice el for each de la lista
+     * correspondiente
+     */
+    /*
+     * @Override public void ejecuta() { // TODO Auto-generated method stub
+     * //carretera.calculaFactor(); //viento.calculaFactor();
+     * calculaEspacioRecorrido(); calculaVelocidadActual();
+     * getCarretera().calculaFactor(); getViento().calculaFactor(); }
+     */
+
+    public double getFactorPendiente() {
+	return factorpendiente;
+    }
+
+    public double getFactorViento() {
+	return factorviento;
+
+    }
+
+    public double getLongitudRueda() {
+	double longitudrueda = 1;
+	// longitudrueda = 2 *
+	return longitudrueda;
+    }
+
+    public int getNumpedales() {
+	return numpedales;
+    }
+
+    public int getNumsillin() {
+	return numsillin;
     }
 
     /**
@@ -84,6 +224,56 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
      */
     public double getPeso() {
 	return peso;
+    }
+
+    public int getPinonAct() {
+	return pinonact;
+    }
+
+    public int getPlatoAct() {
+	return platoact;
+    }
+
+    public double getRadioRueda() {
+	return radiorueda;
+    }
+
+    /**
+     * sirve para asignar el numero de pedales
+     * 
+     * @param numero
+     */
+    public double getRecorridoLinealDeLaRueda() {
+	return radiorueda * Math.PI;
+    }
+
+    public double getRelacionTransmision() {
+	return relaciontransmision;
+    }
+
+    /**
+     * este metodo esta heredado de la clase InterfazSalida, y todo lo que haya
+     * en el, se mostrara cuando se realice el for each de la lista
+     * correspondiente
+     * 
+     * @return
+     */
+    @Override
+    public String muestra() {
+
+	String mensaje = "";
+
+	mensaje += String.valueOf(getVelocidad());
+	mensaje += "#velocidad" + ",";
+
+	mensaje += String.valueOf(getEspacioRecorrido());
+	mensaje += "#distancia" + ",";
+
+	mensaje += String.valueOf(getCadencia());
+	mensaje += "#cadencia" + ",";
+
+	return mensaje;
+
     }
 
     /**
@@ -171,69 +361,46 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 	}
     }
 
-    /**
-     * Este metodo recibe la cadencia del ciclista . Realizará los cálculos
-     * pertinentes pertenciencientes al Movimiento Rectilineo Uniformente
-     * Acelerado ( MRUA ) y devolverá una modificacion de la velocidad de la
-     * bicicleta.
-     * 
-     * @param cadencia
-     *            pedaladas por segundo que manda el ciclista
-     */
-    public void calculaEspacioRecorrido() {
+    public void setCadencia(double micadencia) {
 
-	double velocidad_maxima;
-
-	velocidad_maxima = velocidad * cadencia;
-
-	if (velocidad < velocidad_maxima) {
-
-	}
-	// velocidad = (double) (( 2 *Math.PI *getRadioRueda() *
-	// getRelacionTransmision() )* getCadencia());
-
-	// asignamos la relacion de marchas actuales
-	calculaRelacionTransmision();
-	// calculamos la aceleracion
-
-	calculaEspacioPorCadaPedalada();
-	calculaVelocidadActual();
-	calculaAceleracion();
-	espaciorecorrido = espaciorecorrido + velocidad;
-    }
-
-    public void calculaAceleracion() {
-	aceleracion = velocidad - velocidad_anterior;
+	cadencia = (micadencia >= 0) ? micadencia : -micadencia;
 
     }
 
     /**
-     * sirve para asignar el numero de pedales
-     * 
-     * @param numero
+     * @param carretera
+     *            the carretera to set
      */
-    public double getRecorridoLinealDeLaRueda() {
-	return radiorueda * Math.PI;
+    public void setCarretera(Carretera carretera) {
+	this.carretera = carretera;
     }
 
-    public void calculaEspacioPorCadaPedalada() {
-	espacioporpedalada = getRecorridoLinealDeLaRueda()
-		* getRelacionTransmision();
+    /**
+     * @param espacioporpedalada
+     *            the espacioporpedalada to set
+     */
+    public void setEspacioPorPedalada(double espacioporpedalada) {
+	this.espaciorecorrido = espacioporpedalada;
     }
 
-    public void calculaVelocidadActual() {
-	// la velocidad es el radio de la rueda * 2 PI * relacion de la
-	// transmision * cadencia de pedaleo
-	/*
-	 * velocidad = ((2 * Math.PI * radiorueda * relaciontransmision)
-	 * cadencia - factorpendiente - factorviento);
-	 */
-	// velocidad =aceleracion + velocidad_anterior;
+    public void setFactorPendiente(double fact) {
+	factorpendiente = fact;
+    }
 
-	velocidad = espacioporpedalada * cadencia - factorpendiente
-		+ factorviento;
-	velocidad_anterior = velocidad;
+    public void setFactorViento(double fact) {
+	factorviento = fact;
+    }
 
+    public void setFreno(double fre) {
+	freno = fre;
+    }
+
+    public void setNumpedales(int numpedales) {
+	this.numpedales = numpedales;
+    }
+
+    public void setNumsillin(int numsillin) {
+	this.numsillin = numsillin;
     }
 
     public void setPedales(int numero) {
@@ -270,8 +437,16 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 	}
     }
 
-    public double getDireccion() {
-	return direccion;
+    /**
+     * @param pinonact
+     *            the pinonact to set
+     */
+    public void setPinonact(int pinonact) {
+	this.pinonact = pinonact;
+    }
+
+    public void setPinonAct(int pinonact) {
+	this.setPinonact(pinonact);
     }
 
     /**
@@ -296,182 +471,6 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
     }
 
     /**
-     * este metodo esta heredado de la clase InterfazEjecuta, y todo lo que haya
-     * en el, se ejecutara cuando se realice el for each de la lista
-     * correspondiente
-     */
-    /*
-     * @Override public void ejecuta() { // TODO Auto-generated method stub
-     * //carretera.calculaFactor(); //viento.calculaFactor();
-     * calculaEspacioRecorrido(); calculaVelocidadActual();
-     * getCarretera().calculaFactor(); getViento().calculaFactor(); }
-     */
-
-    /**
-     * @return the espacioporpedalada
-     */
-    public double getEspacioRecorrido() {
-	return espaciorecorrido;
-    }
-
-    /**
-     * @param espacioporpedalada
-     *            the espacioporpedalada to set
-     */
-    public void setEspacioPorPedalada(double espacioporpedalada) {
-	this.espaciorecorrido = espacioporpedalada;
-    }
-
-    public int getNumpedales() {
-	return numpedales;
-    }
-
-    public void setNumpedales(int numpedales) {
-	this.numpedales = numpedales;
-    }
-
-    public int getNumsillin() {
-	return numsillin;
-    }
-
-    public void setNumsillin(int numsillin) {
-	this.numsillin = numsillin;
-    }
-
-    public int getPinonAct() {
-	return pinonact;
-    }
-
-    public void setPinonAct(int pinonact) {
-	this.setPinonact(pinonact);
-    }
-
-    public int getPlatoAct() {
-	return platoact;
-    }
-
-    public void setPlatoAct(int platoact) {
-	this.setPlatoact(platoact);
-    }
-
-    public int getDientesPlato(int plato) {
-	return dientesplato[plato];
-    }
-
-    public int getDientesPinon(int pinon) {
-	return dientespinon[pinon];
-    }
-
-    public int[] getDientesPlato() {
-	return dientesplato;
-    }
-
-    public int[] getDientesPinon() {
-	return dientespinon;
-    }
-
-    public double getRelacionTransmision() {
-	return relaciontransmision;
-    }
-
-    public void calculaRelacionTransmision() {
-
-	relaciontransmision = ((double) dientesplato[getPlatoAct()] / (double) dientespinon[getPinonAct()]);
-
-    }
-
-    public double getRadioRueda() {
-	return radiorueda;
-    }
-
-    public void setRadioRueda(double radiorueda) {
-	this.radiorueda = radiorueda;
-    }
-
-    public double getLongitudRueda() {
-	double longitudrueda = 1;
-	// longitudrueda = 2 *
-	return longitudrueda;
-    }
-
-    /**
-     * este metodo esta heredado de la clase InterfazSalida, y todo lo que haya
-     * en el, se mostrara cuando se realice el for each de la lista
-     * correspondiente
-     * 
-     * @return
-     */
-    @Override
-    public String muestra() {
-
-	String mensaje = "";
-
-	mensaje += String.valueOf(getVelocidad());
-	mensaje += "#velocidad" + ",";
-
-	mensaje += String.valueOf(getEspacioRecorrido());
-	mensaje += "#distancia" + ",";
-
-	mensaje += String.valueOf(getCadencia());
-	mensaje += "#cadencia" + ",";
-
-	return mensaje;
-
-    }
-
-    public void setCadencia(double micadencia) {
-
-	cadencia = (micadencia >= 0) ? micadencia : -micadencia;
-
-    }
-
-    public double getCadencia() {
-	return cadencia;
-    }
-
-    public void setFactorPendiente(double fact) {
-	factorpendiente = fact;
-    }
-
-    public double getFactorPendiente() {
-	return factorpendiente;
-    }
-
-    public void setFactorViento(double fact) {
-	factorviento = fact;
-    }
-
-    public double getFactorViento() {
-	return factorviento;
-
-    }
-
-    /**
-     * @return the carretera
-     */
-    public Carretera getCarretera() {
-	return carretera;
-    }
-
-    /**
-     * @param carretera
-     *            the carretera to set
-     */
-    public void setCarretera(Carretera carretera) {
-	this.carretera = carretera;
-    }
-
-    public void setVelocidad(double vel) {
-	velocidad = vel;
-    }
-
-    public void setFreno(double fre) {
-	freno = fre;
-    }
-
-    
-
-    /**
      * @param platoact
      *            the platoact to set
      */
@@ -479,14 +478,16 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 	this.platoact = platoact;
     }
 
+    public void setPlatoAct(int platoact) {
+	this.setPlatoact(platoact);
+    }
 
+    public void setRadioRueda(double radiorueda) {
+	this.radiorueda = radiorueda;
+    }
 
-    /**
-     * @param pinonact
-     *            the pinonact to set
-     */
-    public void setPinonact(int pinonact) {
-	this.pinonact = pinonact;
+    public void setVelocidad(double vel) {
+	velocidad = vel;
     }
 
 }

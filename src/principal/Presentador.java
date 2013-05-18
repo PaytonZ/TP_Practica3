@@ -48,16 +48,16 @@ public class Presentador {
 	return ciclista_a_devolver;
     }
 
-    public Reloj getReloj() {
-	return reloj;
-    }
-
     public Curva getCurva() {
 	return curva;
     }
 
     public Pendiente getPendiente() {
 	return pendiente;
+    }
+
+    public Reloj getReloj() {
+	return reloj;
     }
 
     public Viento getViento() {

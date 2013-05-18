@@ -20,15 +20,6 @@ public class Escuchador {
 	comandero = micomandero;
     }
 
-    public void asignaMouseClicked(JButton bt, final String comando) {
-	bt.addMouseListener(new MouseAdapter() {
-	    @Override
-	    public void mouseClicked(MouseEvent e) {
-		comandero.recibir_comando(comando);
-	    }
-	});
-    }
-
     public void asignaKeyPressed(JTextField ta, final String comando) {
 	final JTextField tb = ta;
 	tb.addKeyListener(new KeyAdapter() {
@@ -41,6 +32,15 @@ public class Escuchador {
 	    }
 	});
 	ta = tb;
+    }
+
+    public void asignaMouseClicked(JButton bt, final String comando) {
+	bt.addMouseListener(new MouseAdapter() {
+	    @Override
+	    public void mouseClicked(MouseEvent e) {
+		comandero.recibir_comando(comando);
+	    }
+	});
     }
 
 }

@@ -58,18 +58,36 @@ public class Comandero implements InterfaceEjecuta, InterfaceSalida {
     public void ejecuta() {
 
 	if (!cola_de_comandos.isEmpty()) {
-	    InterfazCommand siguiente_comando_a_ejecutar = cola_de_comandos
-		    .poll();
-	    siguiente_comando_a_ejecutar.configurarContexto(presentador);
-	    siguiente_comando_a_ejecutar.execute();
-	    salida_de_datos = siguiente_comando_a_ejecutar
-		    .getInformacionInstruccion();
+	    procesarComando(cola_de_comandos.poll());
 	}
 	String comando_por_fichero = entrada_de_datos_por_fichero.leerLinea();
 	if (comando_por_fichero != "") {
 	    recibir_comando(comando_por_fichero);
 	}
 
+    }
+
+    @Override
+    public String muestra() {
+	String salida = "";
+	if (salida_de_datos != null) {
+	    salida = salida_de_datos;
+	    salida_de_datos = "";
+
+	}
+	return "consola" + "%" + salida + "#" + ",";
+    }
+
+    /**
+     * Procesa un comando dado
+     * 
+     * @param comando
+     *            El comando para ser procesado.
+     */
+    private void procesarComando(InterfazCommand comando) {
+	comando.configurarContexto(presentador);
+	comando.execute();
+	salida_de_datos = comando.getInformacionInstruccion();
     }
 
     /**
@@ -86,17 +104,6 @@ public class Comandero implements InterfaceEjecuta, InterfaceSalida {
 	    cola_de_comandos.add(c);
 	}
 
-    }
-
-    @Override
-    public String muestra() {
-	String salida = "";
-	if (salida_de_datos != null) {
-	    salida = salida_de_datos;
-	    salida_de_datos = "";
-
-	}
-	return "consola" + "%" + salida + "#" + ",";
     }
 
 }

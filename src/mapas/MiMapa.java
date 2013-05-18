@@ -53,16 +53,6 @@ public class MiMapa<T, E> {
     }
 
     /**
-     * se devuelve el mapa
-     * 
-     * @return
-     */
-    public Map<T, E> getMapa() {
-	return mapa;
-
-    }
-
-    /**
      * dada una clave, se devuelve la informacion oportuna
      * 
      * @param ele
@@ -71,6 +61,16 @@ public class MiMapa<T, E> {
     @SuppressWarnings("unchecked")
     public E getElemento(int ele) {
 	return (E) lista.get(ele);
+
+    }
+
+    /**
+     * se devuelve el mapa
+     * 
+     * @return
+     */
+    public Map<T, E> getMapa() {
+	return mapa;
 
     }
 

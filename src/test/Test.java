@@ -35,7 +35,7 @@ public class Test {
 		dientesporpinon, dientesporplato, 0.6858,
 		Constantes.MASA_BICICLETA_ESTANDAR);
 	reloj = new Reloj();
-	ciclista = new Ciclista(bici, 0);
+	ciclista = new Ciclista(bici, 0, 100);
     }
 
     @org.junit.Test

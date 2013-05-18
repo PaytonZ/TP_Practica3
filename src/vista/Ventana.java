@@ -12,6 +12,7 @@ import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.border.EmptyBorder;
 
 import comandos.Comandero;
@@ -80,8 +81,32 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	init();
     }
 
-    private void init() {
-	crearGUI();
+    private void colocarJButtonEnJPanel(JButton bt, JPanel destino) {
+	destino.add(bt);
+    }
+
+    private void colocarJLabelEnJPanel(JLabel origen, JPanel destino) {
+	destino.add(origen);
+    }
+
+    private void colocarJPanelEnJFrame(JPanel panel) {
+	setContentPane(panel);
+    }
+
+    private void colocarJPanelEnJPanel(JPanel origen, JPanel destino) {
+	destino.add(origen);
+    }
+
+    private void colocarJScrollPaneEnJPanel(JScrollPane sc, JPanel destino) {
+	destino.add(sc);
+    }
+
+    private void colocarJTextAreaEnJPanel(JTextArea origen, JPanel destino) {
+	destino.add(origen);
+    }
+
+    private void colocarJTextFieldEnJPanel(JTextField origen, JPanel destino) {
+	destino.add(origen);
     }
 
     /**
@@ -129,38 +154,39 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 			    * (Constantes.ANCHO_TEXTBOX + Constantes.ANCHO_BOTON * 2),
 		    y, Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON, color[i]);
 	    colocarJLabelEnJPanel(lblCiclistas[i], contentPane);
-	    
-	    /*TEXT AREA DE CICLISTA*/
+
+	    /* TEXT AREA DE CICLISTA */
 	    textAreas[i] = crearJTextArea(textAreas[i], lblCiclistas[i].getX(),
 		    lblCiclistas[i].getHeight() + y, Constantes.ANCHO_TEXTBOX,
-		    Constantes.ALTO_TEXTBOX-Constantes.ALTO_BOTON);
+		    Constantes.ALTO_TEXTBOX - Constantes.ALTO_BOTON);
 	    colocarJTextAreaEnJPanel(textAreas[i], contentPane);
-	    
-	    /*BARRA DE PROGESO*/
-	    barras[i] = new JProgressBar(0,10000);
-	    barras[i].setBounds(textAreas[i].getX(),textAreas[i].getY()+Constantes.ALTO_TEXTBOX-Constantes.ALTO_BOTON
-		    ,Constantes.ANCHO_TEXTBOX,Constantes.ALTO_BOTON);
+
+	    /* BARRA DE PROGESO */
+	    barras[i] = new JProgressBar(0, 10000);
+	    barras[i].setBounds(textAreas[i].getX(), textAreas[i].getY()
+		    + Constantes.ALTO_TEXTBOX - Constantes.ALTO_BOTON,
+		    Constantes.ANCHO_TEXTBOX, Constantes.ALTO_BOTON);
 	    barras[i].setValue(10000);
 	    barras[i].setString("100%");
 	    barras[i].setStringPainted(true);
 	    contentPane.add(barras[i]);
-	    
-	    /*BOTON DISMINUYE CADENCIA*/
+
+	    /* BOTON DISMINUYE CADENCIA */
 	    botonDisCad[i] = null;
 	    botonDisCad[i] = crearJButton(botonDisCad[i],
 		    Constantes.CADENCIA_MENOS, textAreas[i].getWidth()
 			    + textAreas[i].getX(), textAreas[i].getY(),
 		    Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-	    
 
-	    //escuchador.asignaMouseClicked(botonDisCad[i], "asignacadencia " + i
+	    // escuchador.asignaMouseClicked(botonDisCad[i], "asignacadencia " +
+	    // i
 	    // + " " + Constantes.BAJAR);
-	    /* Implementacion de prueba que funciona*/
+	    /* Implementacion de prueba que funciona */
 	    escuchador.asignaMouseClicked(botonDisCad[i], "ciclista " + i
-	    + " cadencia " + Constantes.BAJAR + " periodo " + 1);
+		    + " cadencia " + Constantes.BAJAR + " periodo " + 1);
 	    colocarJButtonEnJPanel(botonDisCad[i], contentPane);
 
-	    /*BOTON AUMENTA CADENCIA*/
+	    /* BOTON AUMENTA CADENCIA */
 	    botonAumCad[i] = null;
 	    botonAumCad[i] = crearJButton(botonAumCad[i],
 		    Constantes.CADENCIA_MAS, textAreas[i].getWidth()
@@ -168,86 +194,91 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 			    + Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		    Constantes.ALTO_BOTON);
 
-	    //escuchador.asignaMouseClicked(botonAumCad[i], "asignacadencia " + i
-	    //+ " " + Constantes.SUBIR);
-	    /* Implementacion de prueba que funciona*/
+	    // escuchador.asignaMouseClicked(botonAumCad[i], "asignacadencia " +
+	    // i
+	    // + " " + Constantes.SUBIR);
+	    /* Implementacion de prueba que funciona */
 	    escuchador.asignaMouseClicked(botonAumCad[i], "ciclista " + i
 		    + " cadencia " + Constantes.SUBIR + " periodo " + 1);
 	    colocarJButtonEnJPanel(botonAumCad[i], contentPane);
 
-	    /*BOTON DISMINUYE PINON*/
+	    /* BOTON DISMINUYE PINON */
 	    botonDisPin[i] = null;
 	    botonDisPin[i] = crearJButton(botonDisPin[i],
 		    Constantes.PINON_MENOS, textAreas[i].getWidth()
 			    + textAreas[i].getX(), botonAumCad[i].getY()
 			    + Constantes.ALTO_BOTON, Constantes.ANCHO_BOTON,
 		    Constantes.ALTO_BOTON);
-	    
-	    escuchador.asignaMouseClicked(botonDisPin[i], "bicicleta " + i + " cambia pinon " + Constantes.BAJAR );
+
+	    escuchador.asignaMouseClicked(botonDisPin[i], "bicicleta " + i
+		    + " cambia pinon " + Constantes.BAJAR);
 
 	    colocarJButtonEnJPanel(botonDisPin[i], contentPane);
-	    
-	    /*BOTON AUMENTA PINON*/
+
+	    /* BOTON AUMENTA PINON */
 	    botonAumPin[i] = null;
 	    botonAumPin[i] = crearJButton(botonAumPin[i], Constantes.PINON_MAS,
 		    textAreas[i].getWidth() + textAreas[i].getX(),
 		    botonDisPin[i].getY() + Constantes.ALTO_BOTON,
 		    Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-	    escuchador.asignaMouseClicked(botonAumPin[i], "bicicleta " + i + " cambia pinon " + Constantes.SUBIR );
+	    escuchador.asignaMouseClicked(botonAumPin[i], "bicicleta " + i
+		    + " cambia pinon " + Constantes.SUBIR);
 	    colocarJButtonEnJPanel(botonAumPin[i], contentPane);
 
-	    /*BOTON DISMINUYE PLATO*/
+	    /* BOTON DISMINUYE PLATO */
 	    botonDisPla[i] = null;
 	    botonDisPla[i] = crearJButton(botonDisPla[i],
 		    Constantes.PLATO_MENOS, botonDisCad[i].getWidth()
 			    + botonDisCad[i].getX(), textAreas[i].getY(),
 		    Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-	    escuchador.asignaMouseClicked(botonDisPla[i], "bicicleta " + i + " cambia plato " + Constantes.BAJAR );
+	    escuchador.asignaMouseClicked(botonDisPla[i], "bicicleta " + i
+		    + " cambia plato " + Constantes.BAJAR);
 
 	    colocarJButtonEnJPanel(botonDisPla[i], contentPane);
 
-	    
-	    /*BOTON AUMENTA PLATO*/
+	    /* BOTON AUMENTA PLATO */
 	    botonAumPla[i] = null;
 	    botonAumPla[i] = crearJButton(botonAumPla[i], Constantes.PLATO_MAS,
 		    botonAumCad[i].getWidth() + botonAumCad[i].getX(),
 		    botonAumCad[i].getY(), Constantes.ANCHO_BOTON,
 		    Constantes.ALTO_BOTON);
-	    escuchador.asignaMouseClicked(botonAumPla[i], "bicicleta " + i + " cambia plato " + Constantes.SUBIR );
+	    escuchador.asignaMouseClicked(botonAumPla[i], "bicicleta " + i
+		    + " cambia plato " + Constantes.SUBIR);
 
 	    colocarJButtonEnJPanel(botonAumPla[i], contentPane);
 
-	    /*BOTON FRENA POCO*/
+	    /* BOTON FRENA POCO */
 	    botonFrenaPoco[i] = null;
 	    botonFrenaPoco[i] = crearJButton(botonFrenaPoco[i],
 		    Constantes.FRENO_MENOS, botonDisPin[i].getWidth()
 			    + botonDisPin[i].getX(), botonDisPin[i].getY(),
 		    Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-	    //escuchador.asignaMouseClicked(botonFrenaPoco[i], "frenar " + i
-	    //	    + " 1");
-	    /* Implementacion de prueba que funciona*/
-	    escuchador.asignaMouseClicked(botonFrenaPoco[i], "ciclista " + i + " frena " + 0.1);
+	    // escuchador.asignaMouseClicked(botonFrenaPoco[i], "frenar " + i
+	    // + " 1");
+	    /* Implementacion de prueba que funciona */
+	    escuchador.asignaMouseClicked(botonFrenaPoco[i], "ciclista " + i
+		    + " frena " + 0.1);
 
 	    colocarJButtonEnJPanel(botonFrenaPoco[i], contentPane);
 
-	    
-	    /*BOTON FRENA MAS*/
+	    /* BOTON FRENA MAS */
 	    botonFrenaMas[i] = null;
 	    botonFrenaMas[i] = crearJButton(botonFrenaMas[i],
 		    Constantes.FRENO_MAS, botonAumPin[i].getWidth()
 			    + botonAumPin[i].getX(), botonAumPin[i].getY(),
 		    Constantes.ANCHO_BOTON, Constantes.ALTO_BOTON);
-	    //escuchador.asignaMouseClicked(botonFrenaMas[i], "frenar " + i
-	    //	    + " 1");
-	    /* Implementacion de prueba que funciona*/
-	    escuchador.asignaMouseClicked(botonFrenaMas[i], "ciclista " + i + " frena " + 1);
-	    
+	    // escuchador.asignaMouseClicked(botonFrenaMas[i], "frenar " + i
+	    // + " 1");
+	    /* Implementacion de prueba que funciona */
+	    escuchador.asignaMouseClicked(botonFrenaMas[i], "ciclista " + i
+		    + " frena " + 1);
+
 	    colocarJButtonEnJPanel(botonFrenaMas[i], contentPane);
 	}
 
 	lblTiempo = crearJLabel(lblTiempo, "Tiempo", textAreas[3].getX(),
-		textAreas[3].getY() + textAreas[3].getHeight()+Constantes.ALTO_BOTON, 70, 15,
-		Color.black);
+		textAreas[3].getY() + textAreas[3].getHeight()
+			+ Constantes.ALTO_BOTON, 70, 15, Color.black);
 
 	colocarJLabelEnJPanel(lblTiempo, contentPane);
 
@@ -260,8 +291,8 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	cadena = "";
 
 	lblComandos = crearJLabel(lblComandos, "Comandos", textAreas[4].getX(),
-		textAreas[4].getY() + textAreas[4].getHeight()+Constantes.ALTO_BOTON, 114, 15,
-		Color.black);
+		textAreas[4].getY() + textAreas[4].getHeight()
+			+ Constantes.ALTO_BOTON, 114, 15, Color.black);
 
 	colocarJLabelEnJPanel(lblComandos, contentPane);
 	tFcomando = crearJTextField(tFcomando, lblComandos.getX(),
@@ -273,8 +304,8 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 
 	JLabel lblConsola = crearJLabel(lblComandos, "Consola",
 		textAreas[5].getX(),
-		textAreas[4].getY() + textAreas[4].getHeight()+Constantes.ALTO_BOTON, 114, 15,
-		Color.black);
+		textAreas[4].getY() + textAreas[4].getHeight()
+			+ Constantes.ALTO_BOTON, 114, 15, Color.black);
 
 	colocarJLabelEnJPanel(lblConsola, contentPane);
 
@@ -293,68 +324,55 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 
     }
 
-    /**
-     * este metodo , asigna un texto al textArea de ciclista que se quiera
-     * 
-     * @param id
-     * @param mensaje
-     */
-    public void ponTextoEnTextArea(String id, String mensaje) {
-	
-	switch (id) {
-	case "ciclista0":
-	    if(mensaje.contains("Fuerza"))
-	    obtenFuerzadelMensaje(mensaje,0);
-	    else 
-		textAreas[0].setText(textAreas[0].getText() + "\n" + mensaje);
-	    break;
-	case "ciclista1":
-	    if(mensaje.contains("Fuerza"))
-		    obtenFuerzadelMensaje(mensaje,1);
-	    else 
-		textAreas[1].setText(textAreas[1].getText() + "\n" + mensaje);
-	    break;
-	case "ciclista2":
-	    if(mensaje.contains("Fuerza"))
-		    obtenFuerzadelMensaje(mensaje,2);
-	    else 
-		textAreas[2].setText(textAreas[2].getText() + "\n" + mensaje);
-	    break;
-	case "ciclista3":
-	    if(mensaje.contains("Fuerza"))
-		    obtenFuerzadelMensaje(mensaje,3);
-	    else 
-		textAreas[3].setText(textAreas[3].getText() + "\n" + mensaje);
-	    break;
-	case "ciclista4":
-	    if(mensaje.contains("Fuerza"))
-		    obtenFuerzadelMensaje(mensaje,4);
-	    else 
-		textAreas[4].setText(textAreas[4].getText() + "\n" + mensaje);
-	    break;
-	case "ciclista5":
-	    if(mensaje.contains("Fuerza"))
-		    obtenFuerzadelMensaje(mensaje,5);
-	    else 
-		textAreas[5].setText(textAreas[5].getText() + "\n" + mensaje);
-	    break;
+    private JButton crearJButton(JButton bt, String texto, int x, int y,
+	    int ancho, int alto) {
+	bt = new JButton();
+	bt.setBounds(x, y, ancho, alto);
 
-	case "reloj":
-	    tFreloj.setText(mensaje);
-	    break;
-	case "consola":
-	    String mens = tFconsola.getText().toString() + mensaje;
-
-	    if (!mensaje.equalsIgnoreCase("")) {
-		tFconsola.setText(mens + "\n");
-
-	    }
-	    break;
-
-	}
+	bt.setText(texto);
+	bt.setVisible(true);
+	bt.setBounds(x, y, ancho, alto);
+	return bt;
     }
 
+    private JLabel crearJLabel(JLabel label, String nombre, int x, int y,
+	    int ancho, int alto, Color color) {
+	label = new JLabel(nombre);
+	label.setBounds(x, y, ancho, alto);
+	label.setForeground(color);
+	return label;
+    }
 
+    private JPanel crearJPanel(JPanel panel, int x, int y, int ancho, int alto) {
+	panel = new JPanel();
+	panel.setLayout(null);
+	panel.setBounds(x, y, ancho, alto);
+	panel.setBorder(new EmptyBorder(0, 0, 0, 0));
+
+	return panel;
+    }
+
+    private JScrollPane crearJScrollPane(JScrollPane scroll, JTextArea tf,
+	    int x, int y, int ancho, int alto) {
+	scroll = new JScrollPane(tf);
+	scroll.setBounds(x, y, ancho, alto);
+	scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+	return scroll;
+    }
+
+    private JTextArea crearJTextArea(JTextArea text, int x, int y, int ancho,
+	    int alto) {
+	text = new JTextArea();
+	text.setBounds(x, y, ancho, alto);
+	return text;
+    }
+
+    private JTextField crearJTextField(JTextField text, int x, int y,
+	    int ancho, int alto) {
+	text = new JTextField();
+	text.setBounds(x, y, ancho, alto);
+	return text;
+    }
 
     /**
      * metodo heredado de la interfazEjecuta, el cual se ejecuta, cada vuelta
@@ -390,96 +408,83 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	textoAnteriorScroll = tFconsola.getText();
     }
 
-    private void colocarJButtonEnJPanel(JButton bt, JPanel destino) {
-	destino.add(bt);
+    private void init() {
+	crearGUI();
     }
 
-    private void colocarJScrollPaneEnJPanel(JScrollPane sc, JPanel destino) {
-	destino.add(sc);
-    }
-
-    private void colocarJPanelEnJFrame(JPanel panel) {
-	setContentPane(panel);
-    }
-
-    private void colocarJPanelEnJPanel(JPanel origen, JPanel destino) {
-	destino.add(origen);
-    }
-
-    private void colocarJTextAreaEnJPanel(JTextArea origen, JPanel destino) {
-	destino.add(origen);
-    }
-
-    private void colocarJTextFieldEnJPanel(JTextField origen, JPanel destino) {
-	destino.add(origen);
-    }
-
-    private void colocarJLabelEnJPanel(JLabel origen, JPanel destino) {
-	destino.add(origen);
-    }
-
-    private JPanel crearJPanel(JPanel panel, int x, int y, int ancho, int alto) {
-	panel = new JPanel();
-	panel.setLayout(null);
-	panel.setBounds(x, y, ancho, alto);
-	panel.setBorder(new EmptyBorder(0, 0, 0, 0));
-
-	return panel;
-    }
-
-    private JLabel crearJLabel(JLabel label, String nombre, int x, int y,
-	    int ancho, int alto, Color color) {
-	label = new JLabel(nombre);
-	label.setBounds(x, y, ancho, alto);
-	label.setForeground(color);
-	return label;
-    }
-
-    private JTextArea crearJTextArea(JTextArea text, int x, int y, int ancho,
-	    int alto) {
-	text = new JTextArea();
-	text.setBounds(x, y, ancho, alto);
-	return text;
-    }
-
-    private JTextField crearJTextField(JTextField text, int x, int y,
-	    int ancho, int alto) {
-	text = new JTextField();
-	text.setBounds(x, y, ancho, alto);
-	return text;
-    }
-
-    private JButton crearJButton(JButton bt, String texto, int x, int y,
-	    int ancho, int alto) {
-	bt = new JButton();
-	bt.setBounds(x, y, ancho, alto);
-
-	bt.setText(texto);
-	bt.setVisible(true);
-	bt.setBounds(x, y, ancho, alto);
-	return bt;
-    }
-
-    private JScrollPane crearJScrollPane(JScrollPane scroll, JTextArea tf,
-	    int x, int y, int ancho, int alto) {
-	scroll = new JScrollPane(tf);
-	scroll.setBounds(x, y, ancho, alto);
-	scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-	return scroll;
-    }
     private String obtenFuerzadelMensaje(String mensaje, int id) {
-	if(mensaje.contains("Fuerza:")){
-	    String fuerza = mensaje.substring(mensaje.indexOf(":")+1);
-	    barras[id].setValue((int) (Double.parseDouble(fuerza)*100));
-	    if(fuerza.length()>3)
-	    	barras[id].setString(fuerza.substring(0,5)+"%");
+	if (mensaje.contains("Fuerza:")) {
+	    String fuerza = mensaje.substring(mensaje.indexOf(":") + 1);
+	    barras[id].setValue((int) (Double.parseDouble(fuerza) * 100));
+	    if (fuerza.length() > 3)
+		barras[id].setString(fuerza.substring(0, 5) + "%");
 	    else
 		barras[id].setString("0%");
-		
+
 	}
 
-	
 	return "";
-	
+
+    }
+
+    /**
+     * este metodo , asigna un texto al textArea de ciclista que se quiera
+     * 
+     * @param id
+     * @param mensaje
+     */
+    public void ponTextoEnTextArea(String id, String mensaje) {
+
+	switch (id) {
+	case "ciclista0":
+	    if (mensaje.contains("Fuerza"))
+		obtenFuerzadelMensaje(mensaje, 0);
+	    else
+		textAreas[0].setText(textAreas[0].getText() + "\n" + mensaje);
+	    break;
+	case "ciclista1":
+	    if (mensaje.contains("Fuerza"))
+		obtenFuerzadelMensaje(mensaje, 1);
+	    else
+		textAreas[1].setText(textAreas[1].getText() + "\n" + mensaje);
+	    break;
+	case "ciclista2":
+	    if (mensaje.contains("Fuerza"))
+		obtenFuerzadelMensaje(mensaje, 2);
+	    else
+		textAreas[2].setText(textAreas[2].getText() + "\n" + mensaje);
+	    break;
+	case "ciclista3":
+	    if (mensaje.contains("Fuerza"))
+		obtenFuerzadelMensaje(mensaje, 3);
+	    else
+		textAreas[3].setText(textAreas[3].getText() + "\n" + mensaje);
+	    break;
+	case "ciclista4":
+	    if (mensaje.contains("Fuerza"))
+		obtenFuerzadelMensaje(mensaje, 4);
+	    else
+		textAreas[4].setText(textAreas[4].getText() + "\n" + mensaje);
+	    break;
+	case "ciclista5":
+	    if (mensaje.contains("Fuerza"))
+		obtenFuerzadelMensaje(mensaje, 5);
+	    else
+		textAreas[5].setText(textAreas[5].getText() + "\n" + mensaje);
+	    break;
+
+	case "reloj":
+	    tFreloj.setText(mensaje);
+	    break;
+	case "consola":
+	    String mens = tFconsola.getText().toString() + mensaje;
+
+	    if (!mensaje.equalsIgnoreCase("")) {
+		tFconsola.setText(mens + "\n");
+
+	    }
+	    break;
+
+	}
     }
 }

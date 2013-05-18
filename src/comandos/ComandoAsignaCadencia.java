@@ -17,6 +17,13 @@ public class ComandoAsignaCadencia implements InterfazCommand {
     }
 
     @Override
+    public void configurarContexto(Presentador presentador) {
+
+	ciclista = presentador.getCiclista(identificador_ciclista);
+
+    }
+
+    @Override
     public void execute() {
 
 	if (cadencia == Constantes.SUBIR) {
@@ -34,25 +41,18 @@ public class ComandoAsignaCadencia implements InterfazCommand {
     }
 
     @Override
-    public void configurarContexto(Presentador presentador) {
-
-	ciclista = presentador.getCiclista(identificador_ciclista);
-
-    }
-
-    @Override
-    public String obtenerAyuda() {
-	return "ciclista <num_ciclista> cadencia <cadencia> periodo <periodo>";
-
-    }
-
-    @Override
     public String getInformacionInstruccion() {
 	// TODO Auto-generated method stub
 
 	return "cadencia cambiada en el ciclista "
 		+ ciclista.getIdentificador_ciclista() + "\ncadencia actual :"
 		+ ciclista.getCadencia();
+    }
+
+    @Override
+    public String obtenerAyuda() {
+	return "ciclista <num_ciclista> cadencia <cadencia> periodo <periodo>";
+
     }
 
     @Override
@@ -72,47 +72,36 @@ public class ComandoAsignaCadencia implements InterfazCommand {
 		    if (atributos[2].equalsIgnoreCase("cadencia")) {
 
 			cadencia = Double.parseDouble(atributos[3]);
-			if (cadencia >= 0 && cadencia <= 120) 
-			{
-			    if (atributos[4].equalsIgnoreCase("periodo"))
-			    {
+			if (cadencia >= 0 && cadencia <= 120) {
+			    if (atributos[4].equalsIgnoreCase("periodo")) {
 				periodo = Double.parseDouble(atributos[5]);
-				
-				if (periodo > 0 && periodo <= 1) 
-				{
+
+				if (periodo > 0 && periodo <= 1) {
 				    cadencia = cadencia / (periodo * 60);
 				    c = new ComandoAsignaCadencia(cadencia,
 					    num_ciclista);
 				}
 			    }
 
-			}
-			else if( cadencia == Constantes.SUBIR)
-			{
-			    
-			    if (atributos[4].equalsIgnoreCase("periodo"))
-			    {
+			} else if (cadencia == Constantes.SUBIR) {
+
+			    if (atributos[4].equalsIgnoreCase("periodo")) {
 				periodo = Double.parseDouble(atributos[5]);
-				
-				if (periodo > 0 && periodo <= 1) 
-				{
+
+				if (periodo > 0 && periodo <= 1) {
 				    cadencia = cadencia / (periodo * 60);
-				    c = new ComandoAsignaCadencia(Constantes.SUBIR,
-					    num_ciclista);
+				    c = new ComandoAsignaCadencia(
+					    Constantes.SUBIR, num_ciclista);
 				}
 			    }
-			}
-			else if( cadencia == Constantes.BAJAR)
-			{
-			    if (atributos[4].equalsIgnoreCase("periodo"))
-			    {
+			} else if (cadencia == Constantes.BAJAR) {
+			    if (atributos[4].equalsIgnoreCase("periodo")) {
 				periodo = Double.parseDouble(atributos[5]);
-				
-				if (periodo > 0 && periodo <= 1) 
-				{
+
+				if (periodo > 0 && periodo <= 1) {
 				    cadencia = cadencia / (periodo * 60);
-				    c = new ComandoAsignaCadencia(Constantes.BAJAR,
-					    num_ciclista);
+				    c = new ComandoAsignaCadencia(
+					    Constantes.BAJAR, num_ciclista);
 				}
 			    }
 			}

@@ -9,12 +9,8 @@ public class ComandoDesconocido implements InterfazCommand {
     }
 
     @Override
-    public InterfazCommand parse(String nombre) {
-	InterfazCommand c = null;
-
-	c = new ComandoDesconocido();
-
-	return c;
+    public void configurarContexto(Presentador presentador) {
+	// TODO Auto-generated method stub
 
     }
 
@@ -30,15 +26,19 @@ public class ComandoDesconocido implements InterfazCommand {
     }
 
     @Override
-    public void configurarContexto(Presentador presentador) {
-	// TODO Auto-generated method stub
-
-    }
-
-    @Override
     public String obtenerAyuda() {
 	// TODO Auto-generated method stub
 	return null;
+    }
+
+    @Override
+    public InterfazCommand parse(String nombre) {
+	InterfazCommand c = null;
+
+	c = new ComandoDesconocido();
+
+	return c;
+
     }
 
 }

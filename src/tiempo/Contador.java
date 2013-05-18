@@ -14,6 +14,25 @@ public class Contador
     private int unidad = 0;
 
     /**
+     * Este metodo devuelve el valor de la unidad
+     * 
+     * @return unidad
+     */
+    public int getUnidad() {
+	return unidad;
+    }
+
+    /**
+     * Este metodo incrementa la variable unidad + el parametro que se le
+     * introduzca
+     * 
+     * @param miunidad
+     */
+    public void incremento(int miunidad) {
+	unidad = unidad + miunidad;
+    }
+
+    /**
      * este metodo devuelve 1 si la unidad es igual al limite y 0 si no lo es
      * 
      * @param limite
@@ -29,25 +48,6 @@ public class Contador
 	    carry = 0;
 	}
 	return carry;
-    }
-
-    /**
-     * Este metodo incrementa la variable unidad + el parametro que se le
-     * introduzca
-     * 
-     * @param miunidad
-     */
-    public void incremento(int miunidad) {
-	unidad = unidad + miunidad;
-    }
-
-    /**
-     * Este metodo devuelve el valor de la unidad
-     * 
-     * @return unidad
-     */
-    public int getUnidad() {
-	return unidad;
     }
 
 }

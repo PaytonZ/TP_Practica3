@@ -13,6 +13,32 @@ public class ComandoClembuterol implements InterfazCommand {
     }
 
     @Override
+    public void configurarContexto(Presentador presentador) {
+	ciclista = presentador.getCiclista(id_ciclista);
+
+    }
+
+    @Override
+    public void execute() {
+
+	ciclista.setFuerza_ciclista(100);
+
+    }
+
+    @Override
+    public String getInformacionInstruccion() {
+	return "Clembuterol suministrado a ciclista "
+		+ ciclista.getIdentificador_ciclista();
+
+    }
+
+    @Override
+    public String obtenerAyuda() {
+	return "ciclista <num_ciclista> clembuterol";
+
+    }
+
+    @Override
     public InterfazCommand parse(String nombre) {
 
 	InterfazCommand c = null;
@@ -29,32 +55,6 @@ public class ComandoClembuterol implements InterfazCommand {
 	    }
 	}
 	return c;
-
-    }
-
-    @Override
-    public void execute() {
-
-	ciclista.setFuerza_ciclista(100);
-
-    }
-
-    @Override
-    public void configurarContexto(Presentador presentador) {
-	ciclista = presentador.getCiclista(id_ciclista);
-
-    }
-
-    @Override
-    public String getInformacionInstruccion() {
-	return "Clembuterol suministrado a ciclista "
-		+ ciclista.getIdentificador_ciclista();
-
-    }
-
-    @Override
-    public String obtenerAyuda() {
-	return "ciclista <num_ciclista> clembuterol";
 
     }
 

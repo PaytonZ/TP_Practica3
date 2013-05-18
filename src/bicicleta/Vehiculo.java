@@ -27,43 +27,37 @@ public class Vehiculo {
     }
 
     /**
-     * asigna el rumbo a seguir , el cual sera desde 0 a 359
+     * este metodo suma a la velocidad el aumento
      * 
-     * @param un
-     *            rumbo
+     * @param la
+     *            nueva velocidad, despues de haber sumado el aumento a la
+     *            velocidad actual
      */
-
-    public void setDireccion(int d) {
-	if (direccion >= 0 && direccion < 360) {
-	    direccion = d;
-	}
+    public void acelerar(double _aceleracion) {
+	velocidad = velocidad + _aceleracion;
     }
 
-    /**
-     * devuelve el rumbo
-     * 
-     * @return el rumbo actual
-     */
-    public double getDireccion() {
-	return direccion;
+    public float calcularAceleracion(float vinicial, float vfinal, int tiempo) {
+	float aceleracion = 0;
+
+	aceleracion = (vfinal - vinicial) / tiempo;
+	return aceleracion;
     }
 
-    /**
-     * este metodo asigna una velocidad a la variable de clase velocidad
-     * 
-     * @param velocidad
-     */
-    public void setVelocidad(float v) {
-	velocidad = v;
+    public float calcularEspacioRecorrido(float vinicial, int tiempo,
+	    float aceleracion) {
+
+	float espacio = 0;
+	espacio = vinicial * tiempo + (1 / 2) * aceleracion * (tiempo * tiempo);
+	return espacio;
     }
 
-    /**
-     * devuelve la velocidad actual
-     * 
-     * @return la velocidad actual
-     */
-    public double getVelocidad() {
-	return velocidad;
+    public float calcularVelocidadFinal(float vinicial, float aceleracion,
+	    int tiempo) {
+	float vfinal = 0;
+
+	vfinal = vinicial + aceleracion * tiempo;
+	return vfinal;
     }
 
     /**
@@ -77,37 +71,12 @@ public class Vehiculo {
     }
 
     /**
-     * este metodo suma a la velocidad el aumento
+     * devuelve el rumbo
      * 
-     * @param la
-     *            nueva velocidad, despues de haber sumado el aumento a la
-     *            velocidad actual
+     * @return el rumbo actual
      */
-    public void acelerar(float aumento) {
-	velocidad = velocidad + aumento;
-    }
-
-    public float calcularAceleracion(float vinicial, float vfinal, int tiempo) {
-	float aceleracion = 0;
-
-	aceleracion = (vfinal - vinicial) / tiempo;
-	return aceleracion;
-    }
-
-    public float calcularVelocidadFinal(float vinicial, float aceleracion,
-	    int tiempo) {
-	float vfinal = 0;
-
-	vfinal = vinicial + aceleracion * tiempo;
-	return vfinal;
-    }
-
-    public float calcularEspacioRecorrido(float vinicial, int tiempo,
-	    float aceleracion) {
-
-	float espacio = 0;
-	espacio = vinicial * tiempo + (1 / 2) * aceleracion * (tiempo * tiempo);
-	return espacio;
+    public double getDireccion() {
+	return direccion;
     }
 
     /**
@@ -118,11 +87,42 @@ public class Vehiculo {
     }
 
     /**
+     * devuelve la velocidad actual
+     * 
+     * @return la velocidad actual
+     */
+    public double getVelocidad() {
+	return velocidad;
+    }
+
+    /**
+     * asigna el rumbo a seguir , el cual sera desde 0 a 359
+     * 
+     * @param un
+     *            rumbo
+     */
+
+    public void setDireccion(int d) {
+	if (direccion >= 0 && direccion < 360) {
+	    direccion = d;
+	}
+    }
+
+    /**
      * @param masa
      *            the masa to set
      */
     public void setMasa(double masa) {
 	this.masa = masa;
+    }
+
+    /**
+     * este metodo asigna una velocidad a la variable de clase velocidad
+     * 
+     * @param velocidad
+     */
+    public void setVelocidad(float v) {
+	velocidad = v;
     }
 
 }

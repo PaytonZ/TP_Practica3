@@ -17,6 +17,31 @@ public class ComandoFrenar implements InterfazCommand {
     }
 
     @Override
+    public void configurarContexto(Presentador presentador) {
+
+	cic = presentador.getCiclista(id);
+
+    }
+
+    @Override
+    public void execute() {
+	cic.setTiempoFreno(tiempo);
+
+    }
+
+    @Override
+    public String getInformacionInstruccion() {
+
+	return "freno aplicado en ciclista" + cic.getIdentificador_ciclista();
+    }
+
+    @Override
+    public String obtenerAyuda() {
+	// TODO Auto-generated method stub
+	return "ciclista <num_ciclista> frena <tiempo_de_frenada>";
+    }
+
+    @Override
     // ciclista n frena
     // CANTIDAD en tiempo
     public InterfazCommand parse(String nombre) {
@@ -43,31 +68,6 @@ public class ComandoFrenar implements InterfazCommand {
 
 	return c;
 
-    }
-
-    @Override
-    public void execute() {
-	cic.setTiempoFreno(tiempo);
-	
-    }
-
-    @Override
-    public String getInformacionInstruccion() {
-
-	return "freno aplicado en ciclista" + cic.getIdentificador_ciclista();
-    }
-
-    @Override
-    public void configurarContexto(Presentador presentador) {
-
-	cic = presentador.getCiclista(id);
-
-    }
-
-    @Override
-    public String obtenerAyuda() {
-	// TODO Auto-generated method stub
-	return "ciclista <num_ciclista> frena <tiempo_de_frenada>";
     }
 
 }

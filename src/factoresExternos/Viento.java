@@ -8,6 +8,7 @@ import java.util.Map;
 
 import persona.Ciclista;
 import tiempo.Reloj;
+import constantes.Constantes;
 import entradaDeDatos.EntradaFichero;
 
 /**
@@ -42,17 +43,39 @@ public class Viento implements InterfaceEjecuta {
 	reloj = rel;
     }
 
-    /**
-     * añade el viento al mapaVientos con la hora, tipo de viento
-     * (AFAVO,ENCONTRA,NULO) y su velocidad
-     * 
-     * @param hora
-     * @param tipo
-     * @param velocidad
-     */
-    public void setViento(String hora, String tipo, String velocidad) {
-	mapaVientos.put(hora, tipo + "#" + velocidad);
+    @Override
+    public void ejecuta() {
 
+	/**
+	 * si la hora actual, esta en nuestro mapa de vientos, asignaremos el
+	 * viento a las bicicletas
+	 */
+	double aceleracion_eolo = 0;
+	if (mapaVientos.containsKey(reloj.devuelveTiempoEnString())) {
+	    String tipo = mapaVientos.get(reloj.devuelveTiempoEnString());
+
+	    for (Ciclista c : lista_de_ciclistas) {
+		switch (tipo) {
+		case "AFAVOR":
+		    aceleracion_eolo = Constantes.CONSTANTE_EOLO
+			    / c.getBici().getVelocidad();
+		    break;
+		case "ENCONTRA":
+		    aceleracion_eolo = -(Constantes.CONSTANTE_EOLO / c
+			    .getBici().getVelocidad());
+		    break;
+		case "NULO":
+		    aceleracion_eolo = 0;
+		    break;
+		}
+		c.getBici().acelerar(aceleracion_eolo);
+	    }
+
+	} else {
+	    for (Ciclista c : lista_de_ciclistas) {
+		c.getBici().acelerar(0);
+	    }
+	}
     }
 
     /**
@@ -66,35 +89,16 @@ public class Viento implements InterfaceEjecuta {
 
     }
 
-    @Override
-    public void ejecuta() {
+    /**
+     * añade el viento al mapaVientos con la hora, tipo de viento
+     * (AFAVO,ENCONTRA,NULO) y su velocidad
+     * 
+     * @param hora
+     * @param tipo
+     * @param velocidad
+     */
+    public void setViento(String hora, String tipo) {
+	mapaVientos.put(hora, tipo);
 
-	/**
-	 * si la hora actual, esta en nuestro mapa de vientos, asignaremos el
-	 * viento a las bicicletas
-	 */
-	if (mapaVientos.containsKey(reloj.devuelveTiempoEnString())) {
-	    String[] tipo = mapaVientos.get(reloj.devuelveTiempoEnString())
-		    .split("#");
-	    for (Ciclista c : lista_de_ciclistas) {
-		switch (tipo[0]) {
-		case "AFAVOR":
-		    viento = Float.parseFloat(tipo[1]);
-		    break;
-		case "ENCONTRA":
-		    viento = Float.parseFloat(tipo[1]) * -1;
-		    break;
-		case "NULO":
-		    viento = 0;
-		    break;
-		}
-		c.getBici().setFactorViento(viento);
-	    }
-
-	} else {
-	    for (Ciclista c : lista_de_ciclistas) {
-		c.getBici().setFactorViento(viento);
-	    }
-	}
     }
 }

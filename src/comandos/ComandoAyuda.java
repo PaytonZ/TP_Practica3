@@ -15,18 +15,8 @@ public class ComandoAyuda implements InterfazCommand {
     }
 
     @Override
-    public InterfazCommand parse(String nombre) {
+    public void configurarContexto(Presentador presentador) {
 
-	InterfazCommand c = null;
-	String atributos[] = nombre.split("\\n");
-
-	if (atributos.length >= 0) {
-	    if (atributos[0].equalsIgnoreCase("ayuda")) {
-		c = this;
-	    }
-	}
-
-	return c;
     }
 
     @Override
@@ -39,8 +29,8 @@ public class ComandoAyuda implements InterfazCommand {
     }
 
     @Override
-    public void configurarContexto(Presentador presentador) {
-
+    public String getInformacionInstruccion() {
+	return salida;
     }
 
     @Override
@@ -50,8 +40,18 @@ public class ComandoAyuda implements InterfazCommand {
     }
 
     @Override
-    public String getInformacionInstruccion() {
-	return salida;
+    public InterfazCommand parse(String nombre) {
+
+	InterfazCommand c = null;
+	String atributos[] = nombre.split("\\n");
+
+	if (atributos.length >= 0) {
+	    if (atributos[0].equalsIgnoreCase("ayuda")) {
+		c = this;
+	    }
+	}
+
+	return c;
     }
 
 }

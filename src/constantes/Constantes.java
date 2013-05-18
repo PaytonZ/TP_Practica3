@@ -14,8 +14,17 @@ import java.awt.Color;
  */
 public final class Constantes {
 
+    /* CONSTANTES FISICAS */
     public static final double FUERZA_G = 9.80665;
     public static final double MASA_BICICLETA_ESTANDAR = 0.7138;
+
+    /* Constantes EOLO */
+    public static double CONSTANTE_EOLO = 0.837;
+    public static String VIENTO_A_FAVOR = "AFAVOR";
+    public static String VIENTO_EN_CONTRA = "ENCONTRA";
+    public static String VIENTO_NULO = "NULO";
+
+    /* CONFIGURACION CICLISTAS */
 
     public static int MAX_CICLISTAS = 6;
 
@@ -33,6 +42,15 @@ public final class Constantes {
     public static final int NUM_PLA_2 = 44;
 
     public static final int NUM_PLATOS = 3;
+
+    public static final double FUERZA_CICLISTA0 = 100;
+    public static final double FUERZA_CICLISTA1 = 105;
+    public static final double FUERZA_CICLISTA2 = 95;
+    public static final double FUERZA_CICLISTA3 = 120;
+    public static final double FUERZA_CICLISTA4 = 80;
+    public static final double FUERZA_CICLISTA5 = 150;
+
+    /** CONFIGURACION INTERFAZ */
 
     public static final int X_INICIAL = 5;
     public static final int Y_INICIAL = 5;
@@ -61,7 +79,7 @@ public final class Constantes {
 
     public static final int NUM_DECIMALES = 3;
 
-    //sirven para subir o bajar plato, cadncia, pinon...
+    // sirven para subir o bajar plato, cadncia, pinon...
     public static final int SUBIR = -2;
     public static final int BAJAR = -1;
 
@@ -79,4 +97,5 @@ public final class Constantes {
     public static double IMPULSO_RELOJ_MILISEGUNDOS = IMPULSO_RELOJ_SEGUNDOS * 1000;
 
     public static String FICHERO_DE_COMANDOS = "ficherorandom";
+
 }

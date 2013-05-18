@@ -13,20 +13,6 @@ import principal.Presentador;
 public interface InterfazCommand {
 
     /**
-     * Este metodo recibe un string y si es valido , devuelve un comando valido
-     * correctamente configurado E.O.C Devuelve null.
-     * 
-     * @param comando
-     * @return Comando Valido.
-     */
-    public InterfazCommand parse(String comando);
-
-    /**
-     * Se provoca la ejecucion del comando en cuestion
-     */
-    public void execute();
-
-    /**
      * Este metodo configura el contexto del comando ,es decir , a quien va
      * dirigido dicho comando. Para ello debe recibir la informacion del
      * presentador.
@@ -35,6 +21,11 @@ public interface InterfazCommand {
      *            La referencia del presentador.
      */
     public void configurarContexto(Presentador presentador);
+
+    /**
+     * Se provoca la ejecucion del comando en cuestion
+     */
+    public void execute();
 
     /**
      * Devuelve el retorno despues de la ejecucion del comando
@@ -49,5 +40,14 @@ public interface InterfazCommand {
      * @return Un string con la sintaxis del comando
      */
     public String obtenerAyuda();
+
+    /**
+     * Este metodo recibe un string y si es valido , devuelve un comando valido
+     * correctamente configurado E.O.C Devuelve null.
+     * 
+     * @param comando
+     * @return Comando Valido.
+     */
+    public InterfazCommand parse(String comando);
 
 }

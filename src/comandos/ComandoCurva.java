@@ -16,6 +16,32 @@ public class ComandoCurva implements InterfazCommand {
     }
 
     @Override
+    public void configurarContexto(Presentador presentador) {
+
+	curva = presentador.getCurva();
+
+    }
+
+    @Override
+    public void execute() {
+	curva.setCurva(PK, velMax);
+
+    }
+
+    @Override
+    public String getInformacionInstruccion() {
+	return "curva añadida en el metro " + PK
+		+ "\n con velocidad maxima de " + velMax + " m/s";
+
+    }
+
+    @Override
+    public String obtenerAyuda() {
+	// TODO Auto-generated method stub
+	return "curva <punto_km> <vel_max>";
+    }
+
+    @Override
     public InterfazCommand parse(String nombre) {
 
 	int nuevo_pk;
@@ -36,32 +62,6 @@ public class ComandoCurva implements InterfazCommand {
 	}
 	return c;
 
-    }
-
-    @Override
-    public void execute() {
-	curva.setCurva(PK, velMax);
-
-    }
-
-    @Override
-    public String getInformacionInstruccion() {
-	return "curva añadida en el metro " + PK
-		+ "\n con velocidad maxima de " + velMax + " m/s";
-
-    }
-
-    @Override
-    public void configurarContexto(Presentador presentador) {
-
-	curva = presentador.getCurva();
-
-    }
-
-    @Override
-    public String obtenerAyuda() {
-	// TODO Auto-generated method stub
-	return "curva <punto_km> <vel_max>";
     }
 
 }

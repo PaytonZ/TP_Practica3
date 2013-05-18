@@ -16,6 +16,43 @@ public class ComandoCambiaPlato implements InterfazCommand {
     }
 
     @Override
+    public void configurarContexto(Presentador presentador) {
+	ciclista = presentador.getCiclista(identificador_ciclista);
+
+    }
+
+    @Override
+    public void execute() {
+
+	if (plato == Constantes.SUBIR) {
+	    plato = ciclista.getBici().getPlatoAct();
+	    if (plato < Constantes.NUM_PLATOS)
+		ciclista.cambiaPlato(plato + 1);
+	} else if (plato == Constantes.BAJAR) {
+	    plato = ciclista.getBici().getPlatoAct();
+	    if (plato > 0)
+		ciclista.cambiaPlato(plato - 1);
+	} else {
+	    ciclista.cambiaPlato(plato);
+	}
+
+    }
+
+    @Override
+    public String getInformacionInstruccion() {
+	// TODO Auto-generated method stub
+	return "Plato cambiado en el ciclista "
+		+ ciclista.getIdentificador_ciclista() + "\n plato actual :"
+		+ ciclista.getPlatoActualBici();
+    }
+
+    @Override
+    public String obtenerAyuda() {
+	return "bicicleta <num_bicicleta> cambia plato <num_pinon>";
+
+    }
+
+    @Override
     public InterfazCommand parse(String nombre) {
 
 	int id_ciclista;
@@ -32,65 +69,22 @@ public class ComandoCambiaPlato implements InterfazCommand {
 		    if (nuevo_plato >= 0 && nuevo_plato < Constantes.NUM_PLATOS) {
 			c = new ComandoCambiaPlato(id_ciclista, nuevo_plato);
 		    }
-		    if(nuevo_plato == Constantes.SUBIR)
-		    {
-			
-			    c = new ComandoCambiaPlato(id_ciclista, Constantes.SUBIR);
+		    if (nuevo_plato == Constantes.SUBIR) {
+
+			c = new ComandoCambiaPlato(id_ciclista,
+				Constantes.SUBIR);
 		    }
-		    
-		    if(nuevo_plato == Constantes.BAJAR)
-		    {
-			
-			    c = new ComandoCambiaPlato(id_ciclista, Constantes.BAJAR);
+
+		    if (nuevo_plato == Constantes.BAJAR) {
+
+			c = new ComandoCambiaPlato(id_ciclista,
+				Constantes.BAJAR);
 		    }
 		}
 	    }
 	}
 	return c;
 
-    }
-
-    @Override
-    public void execute() {
-
-	if(plato == Constantes.SUBIR)
-	{
-	    plato = ciclista.getBici().getPlatoAct();
-	    if(plato < Constantes.NUM_PLATOS)
-		ciclista.cambiaPlato(plato +1);
-	}
-	else if(plato == Constantes.BAJAR)
-	{
-	    plato = ciclista.getBici().getPlatoAct();
-	    if(plato > 0)
-		ciclista.cambiaPlato(plato -1);
-	}
-	else 
-	{
-	    ciclista.cambiaPlato(plato);
-	}
-
-    }
-
-    @Override
-    public void configurarContexto(Presentador presentador) {
-	ciclista = presentador.getCiclista(identificador_ciclista);
-
-    }
-
-    @Override
-    public String obtenerAyuda() {
-	return "bicicleta <num_bicicleta> cambia plato <num_pinon>";
-	
-
-    }
-
-    @Override
-    public String getInformacionInstruccion() {
-	// TODO Auto-generated method stub
-	return "Plato cambiado en el ciclista "
-		+ ciclista.getIdentificador_ciclista() + "\n plato actual :"
-		+ ciclista.getPlatoActualBici();
     }
 
 }

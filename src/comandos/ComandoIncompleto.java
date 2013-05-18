@@ -11,14 +11,9 @@ public class ComandoIncompleto implements InterfazCommand {
     }
 
     @Override
-    public InterfazCommand parse(String nombre) {
-	return null;
-
-    }
-
-    public String getInformacionInstruccion() {
+    public void configurarContexto(Presentador presentador) {
 	// TODO Auto-generated method stub
-	return "comando incompleto\n" + ayudacomando;
+
     }
 
     @Override
@@ -28,15 +23,21 @@ public class ComandoIncompleto implements InterfazCommand {
     }
 
     @Override
-    public void configurarContexto(Presentador presentador) {
+    public String getInformacionInstruccion() {
 	// TODO Auto-generated method stub
-
+	return "comando incompleto\n" + ayudacomando;
     }
 
     @Override
     public String obtenerAyuda() {
 	// TODO Auto-generated method stub
 	return null;
+    }
+
+    @Override
+    public InterfazCommand parse(String nombre) {
+	return null;
+
     }
 
 }

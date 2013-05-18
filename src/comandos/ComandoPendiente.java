@@ -21,21 +21,10 @@ public class ComandoPendiente implements InterfazCommand {
     }
 
     @Override
-    public InterfazCommand parse(String nombre) {
-	StringTokenizer args = new StringTokenizer(nombre, "\n\r ");
-	InterfazCommand c = null;
-	if (args.nextToken().equalsIgnoreCase("pendiente")) {
-	    if (args.countTokens() == 2) {
+    public void configurarContexto(Presentador presentador) {
 
-		PK = Integer.valueOf(args.nextToken());
-		pend = Integer.valueOf(args.nextToken());
+	pendiente = presentador.getPendiente();
 
-		c = new ComandoPendiente(PK, pend);
-	    } else {
-		c = new ComandoIncompleto(this.obtenerAyuda());
-	    }
-	}
-	return c;
     }
 
     @Override
@@ -52,15 +41,26 @@ public class ComandoPendiente implements InterfazCommand {
     }
 
     @Override
-    public void configurarContexto(Presentador presentador) {
-
-	pendiente = presentador.getPendiente();
-
-    }
-
-    @Override
     public String obtenerAyuda() {
 	// TODO Auto-generated method stub
 	return "pendiente <punto_km> <desnivel>";
+    }
+
+    @Override
+    public InterfazCommand parse(String nombre) {
+	StringTokenizer args = new StringTokenizer(nombre, "\n\r ");
+	InterfazCommand c = null;
+	if (args.nextToken().equalsIgnoreCase("pendiente")) {
+	    if (args.countTokens() == 2) {
+
+		PK = Integer.valueOf(args.nextToken());
+		pend = Integer.valueOf(args.nextToken());
+
+		c = new ComandoPendiente(PK, pend);
+	    } else {
+		c = new ComandoIncompleto(this.obtenerAyuda());
+	    }
+	}
+	return c;
     }
 }

@@ -25,7 +25,7 @@ public class Parser {
 	lista_de_comandos.add(new ComandoCurva(0, 0));
 	lista_de_comandos.add(new ComandoFrenar(0, 0));
 	lista_de_comandos.add(new ComandoPendiente(0, 0));
-	lista_de_comandos.add(new ComandoViento(null, null, null));
+	lista_de_comandos.add(new ComandoViento(null, null));
 	lista_de_comandos.add(new ComandoClembuterol(0));
 	lista_de_comandos.add(new ComandoAyuda(lista_de_comandos));
     }

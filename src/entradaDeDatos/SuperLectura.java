@@ -53,6 +53,21 @@ public class SuperLectura {
 
     }
 
+    public String leerHastaFinalDeFichero() {
+	String salida = "", aux = "";
+	try {
+	    while ((aux = lectura.readLine()) != null) {
+		salida += aux + "\n";
+	    }
+	} catch (IOException e) {
+
+	    e.printStackTrace();
+	} finally {
+
+	}
+	return salida;
+    }
+
     /**
      * Procede a leer una linea del bufferStream
      * 
@@ -67,21 +82,6 @@ public class SuperLectura {
 		String[] salidaaux;
 		salidaaux = salida.split("\n");
 		salida = salidaaux[0];
-	    }
-	} catch (IOException e) {
-
-	    e.printStackTrace();
-	} finally {
-
-	}
-	return salida;
-    }
-
-    public String leerHastaFinalDeFichero() {
-	String salida = "", aux = "";
-	try {
-	    while ((aux = lectura.readLine()) != null) {
-		salida += aux + "\n";
 	    }
 	} catch (IOException e) {
 

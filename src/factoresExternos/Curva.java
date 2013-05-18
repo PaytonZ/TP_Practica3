@@ -3,11 +3,9 @@ package factoresExternos;
 import interfaceMain.InterfaceEjecuta;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.TreeMap;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 
 import persona.Ciclista;
 import constantes.Constantes;
@@ -36,23 +34,6 @@ public class Curva implements InterfaceEjecuta {
 	lista_de_ciclistas = nueva_lista_de_ciclistas;
     }
 
-    /**
-     * Añade una curva al mapa de curvas
-     * 
-     * @param PK
-     *            El punto kilometrico
-     * @param velocidadMax
-     *            Velocidad maxima a la que puede atravesar.
-     */
-    public void setCurva(int PK, int velocidadMax) {
-	arbolCurvas.put(PK, velocidadMax);
-
-    }
-
-    public TreeMap<Integer, Integer> getArbolCurvas()
-    {
-	return arbolCurvas;
-    }
     @Override
     public void ejecuta() {
 
@@ -78,12 +59,29 @@ public class Curva implements InterfaceEjecuta {
 			&& espacio_recorrido < elemento.getKey()) {
 		    // si la velocidad es mayor que la de la curva, la reducimos
 		    if (c.getBici().getVelocidad() > elemento.getValue()) {
-			//c.getBici().setVelocidad(elemento.getValue());
+			// c.getBici().setVelocidad(elemento.getValue());
 			c.setMuerto(true);
 		    }
 		}
 	    }
 	}
+
+    }
+
+    public TreeMap<Integer, Integer> getArbolCurvas() {
+	return arbolCurvas;
+    }
+
+    /**
+     * Añade una curva al mapa de curvas
+     * 
+     * @param PK
+     *            El punto kilometrico
+     * @param velocidadMax
+     *            Velocidad maxima a la que puede atravesar.
+     */
+    public void setCurva(int PK, int velocidadMax) {
+	arbolCurvas.put(PK, velocidadMax);
 
     }
 }

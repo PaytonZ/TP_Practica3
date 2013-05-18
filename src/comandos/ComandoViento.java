@@ -1,8 +1,7 @@
 package comandos;
 
-import java.util.StringTokenizer;
-
 import principal.Presentador;
+import constantes.Constantes;
 import factoresExternos.Viento;
 
 public class ComandoViento implements InterfazCommand {
@@ -10,58 +9,12 @@ public class ComandoViento implements InterfazCommand {
     private Viento viento;
     private String tipoViento;
     private String hora;
-    private String velocidad;
 
-    public ComandoViento(String mihora, String tipo, String mivelocidad) {
+    public ComandoViento(String mihora, String tipo) {
 
-	velocidad = mivelocidad;
 	tipoViento = tipo;
 	hora = mihora;
 	// TODO Auto-generated constructor stub
-    }
-
-    @Override
-    // Viento HORA ESTADO KMS/H
-    public InterfazCommand parse(String nombre) {
-	StringTokenizer args = new StringTokenizer(nombre, "\n\r ");
-	InterfazCommand c = null;
-	if (args.nextToken().equalsIgnoreCase("viento")) {
-	    if (args.countTokens() == 3) {
-
-		hora = args.nextToken();
-		tipoViento = args.nextToken();
-		velocidad = args.nextToken();
-		c = new ComandoViento(hora, tipoViento, velocidad);
-	    }
-
-	    else if (args.countTokens() == 2) {
-		hora = args.nextToken();
-		tipoViento = args.nextToken();
-		velocidad = "0";
-
-		if (tipoViento.equalsIgnoreCase("NULO")) {
-		    c = new ComandoViento(hora, "NULO", "0");
-		}
-
-	    } else {
-		c = new ComandoIncompleto(this.obtenerAyuda());
-	    }
-	}
-	return c;
-    }
-
-    @Override
-    public void execute() {
-	viento.setViento(hora, tipoViento, velocidad);
-	// TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public String getInformacionInstruccion() {
-	return "Aviso de viento " + tipoViento + " con velocidad\n" + velocidad
-		+ " m/s a las " + hora;
-
     }
 
     @Override
@@ -71,9 +24,49 @@ public class ComandoViento implements InterfazCommand {
     }
 
     @Override
+    public void execute() {
+	viento.setViento(hora, tipoViento);
+	// TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public String getInformacionInstruccion() {
+	return "Aviso de viento " + tipoViento + " a las " + hora;
+
+    }
+
+    @Override
     public String obtenerAyuda() {
 	// TODO Auto-generated method stub
-	return "viento <hora> <tipo> <velocidad>";
+	return "viento <hh:mm:ss> <tipo>";
+    }
+
+    @Override
+    // Viento HORA ESTADO KMS/H
+    public InterfazCommand parse(String nombre) {
+
+	String tipoviento;
+	String hora;
+	InterfazCommand c = null;
+
+	String[] atributos = nombre.split("\\s");
+	if (atributos.length >= 2) {
+	    if (atributos[0].equalsIgnoreCase("viento")) {
+		hora = atributos[1];
+		if (atributos[3].equalsIgnoreCase(Constantes.VIENTO_A_FAVOR
+			.toString())
+			|| atributos[3]
+				.equalsIgnoreCase(Constantes.VIENTO_EN_CONTRA)
+			|| atributos[3]
+				.equalsIgnoreCase(Constantes.VIENTO_NULO)) {
+		    tipoviento = atributos[3];
+		    c = new ComandoViento(hora, tipoviento);
+
+		}
+	    }
+	}
+	return c;
     }
 
 }

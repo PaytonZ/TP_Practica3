@@ -30,16 +30,6 @@ import constantes.Constantes;
 
 public class CiclistaManager {
 
-    private ArrayList<InterfaceEjecuta> listaejecuta;
-    private ArrayList<InterfaceSalida> listasalida;
-    private Comandero comandero;
-
-    private SalidaDeDatosPorSwing output;
-    private Curva curva;
-    private Viento viento;
-    private Pendiente pendiente;
-    private Reloj reloj;
-
     public static void main(String args[]) {
 
 	CiclistaManager manager = new CiclistaManager();
@@ -50,6 +40,17 @@ public class CiclistaManager {
 	manager.finaliza();
 
     }
+
+    private ArrayList<InterfaceEjecuta> listaejecuta;
+    private ArrayList<InterfaceSalida> listasalida;
+
+    private Comandero comandero;
+    private SalidaDeDatosPorSwing output;
+    private Curva curva;
+    private Viento viento;
+    private Pendiente pendiente;
+
+    private Reloj reloj;
 
     private void inicia() {
 
@@ -80,12 +81,12 @@ public class CiclistaManager {
 		dientesporplato.length, 1, dientesporpinon, dientesporplato,
 		0.6858, Constantes.MASA_BICICLETA_ESTANDAR);
 	reloj = new Reloj();
-	Ciclista ciclista0 = new Ciclista(bici0, 0);
-	Ciclista ciclista1 = new Ciclista(bici1, 1);
-	Ciclista ciclista2 = new Ciclista(bici2, 2);
-	Ciclista ciclista3 = new Ciclista(bici3, 3);
-	Ciclista ciclista4 = new Ciclista(bici4, 4);
-	Ciclista ciclista5 = new Ciclista(bici5, 5);
+	Ciclista ciclista0 = new Ciclista(bici0, 0, Constantes.FUERZA_CICLISTA0);
+	Ciclista ciclista1 = new Ciclista(bici1, 1, Constantes.FUERZA_CICLISTA1);
+	Ciclista ciclista2 = new Ciclista(bici2, 2, Constantes.FUERZA_CICLISTA2);
+	Ciclista ciclista3 = new Ciclista(bici3, 3, Constantes.FUERZA_CICLISTA3);
+	Ciclista ciclista4 = new Ciclista(bici4, 4, Constantes.FUERZA_CICLISTA4);
+	Ciclista ciclista5 = new Ciclista(bici5, 5, Constantes.FUERZA_CICLISTA5);
 
 	ArrayList<Ciclista> lista_de_ciclistas = new ArrayList<Ciclista>();
 
@@ -104,7 +105,7 @@ public class CiclistaManager {
 		curva, viento, pendiente);
 
 	comandero = new Comandero(presentador, Constantes.FICHERO_DE_COMANDOS);
-	Lienzo lienzo = new Lienzo(lista_de_ciclistas,pendiente,curva);
+	Lienzo lienzo = new Lienzo(lista_de_ciclistas, pendiente, curva);
 	Ventana ventana = new Ventana(comandero, lienzo);
 
 	listaejecuta.add(reloj);

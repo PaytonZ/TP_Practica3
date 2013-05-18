@@ -21,33 +21,43 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     private double tiempoFrenado;
     private double cantidadFreno;
     private boolean muerto;
-    public Ciclista(Bicicleta nueva_bici, int id) {
+
+    public Ciclista(Bicicleta nueva_bici, int id, double fuerza) {
 	cadencia = 1;
 	setBici(nueva_bici);
 	identificador_ciclista = id;
 	cantidadFreno = 0;
 	tiempoFrenado = 0;
-	fuerza_ciclista = 100;
-	muerto=false;
+	fuerza_ciclista = fuerza;
+	muerto = false;
     }
 
-    /**
-     * Acción básica del ciclista. Mandará un mensaje a su bicicleta con las
-     * pedaladas por segundo. Si ha alcanzado la velocidad máxima ( relacionada
-     * con la relaciones de piñones y demás especificaciones de la bicicleta )
-     * el pedaleo no tendrá efecto
-     * 
-     */
-    public void pedalear(double cadencia) {
-
-	getBici().setCadencia(cadencia);
-
+    public void aumentaPinon() {
+	cambiarPinon('a');
     }
 
     /*
      * // asigna un rumbo que se enviara a la bicicleta public void setRumbo(int
      * d, Bicicleta bici) { bici.setDireccion(d); }
      */
+
+    public void aumentaPlato() {
+	cambiarPlato('a');
+
+    }
+
+    public void cambiaPinon(int nuevo_pinon) {
+	if (nuevo_pinon >= 0 && nuevo_pinon < Constantes.NUM_PINONES) {
+
+	    bici.setPinonact(nuevo_pinon);
+	}
+    }
+
+    public void cambiaPlato(int nuevo_plato) {
+	if (nuevo_plato >= 0 && nuevo_plato < Constantes.NUM_PLATOS) {
+	    bici.setPlatoact(nuevo_plato);
+	}
+    }
 
     /**
      * este metodo envia la accion a la bicicleta de cambiar piñon,
@@ -63,14 +73,6 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	if (accion == 'd') {
 	    bici.setPinon('d');
 	}
-    }
-
-    public void aumentaPinon() {
-	cambiarPinon('a');
-    }
-
-    public void disminuyePinon() {
-	cambiarPinon('d');
     }
 
     /**
@@ -89,9 +91,8 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	}
     }
 
-    public void aumentaPlato() {
-	cambiarPlato('a');
-
+    public void disminuyePinon() {
+	cambiarPinon('d');
     }
 
     public void disminuyePlato() {
@@ -106,34 +107,26 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
      */
     @Override
     public void ejecuta() {
-	
-	//Si el ciclista esta muerto no se ejecuta y su velocidad es 0
-	if(!muerto){
+
+	// Si el ciclista esta muerto no se ejecuta y su velocidad es 0
+	if (!muerto) {
 	    pedalear(cadencia);
 	    bici.calculaEspacioRecorrido();
 	    bici.calculaVelocidadActual();
-        
+
 	    if (tiempoFrenado > 0) {
-        	bici.frenar((float) cantidadFreno);
-        	tiempoFrenado--;
+		bici.frenar((float) cantidadFreno);
+		tiempoFrenado--;
 	    }
-        
+
 	    // Modificado para que se acabe la fuerza en ejecucion
-	   // fuerza_ciclista -= ((masa + getBici().getMasa()) * getBici()
-        		//.getVelocidad()) / 10;
-	    setFuerza_ciclista(fuerza_ciclista-(((masa + getBici().getMasa()) * getBici()
-        		.getVelocidad()) / 5));
-	}else{
+	    // fuerza_ciclista -= ((masa + getBici().getMasa()) * getBici()
+	    // .getVelocidad()) / 10;
+	    setFuerza_ciclista(fuerza_ciclista
+		    - (((masa + getBici().getMasa()) * getBici().getVelocidad()) / 5));
+	} else {
 	    bici.setVelocidad(0);
 	}
-    }
-
-    /**
-     * @param muerto the muerto to set
-     */
-    public void setMuerto(boolean muerto) {
-        this.muerto = muerto;
-        this.fuerza_ciclista=0;
     }
 
     /**
@@ -145,14 +138,15 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	return bici;
     }
 
+    public double getCadencia() {
+	return cadencia;
+    }
+
     /**
-     * asigna bicicleta al ciclista
-     * 
-     * @param bici
-     *            the bici to set
+     * @return the fuerza_ciclista
      */
-    public void setBici(Bicicleta mibici) {
-	this.bici = mibici;
+    public double getFuerza_ciclista() {
+	return fuerza_ciclista;
     }
 
     /**
@@ -175,23 +169,34 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	return String.valueOf(bici.getPlatoAct());
     }
 
-    public double getCadencia() {
-	return cadencia;
-    }
-
-    /**
-     * @param identificador_ciclista
-     *            the identificador_ciclista to set
-     */
-    public void setIdentificador_ciclista(int nuevo_identificador_ciclista) {
-	identificador_ciclista = nuevo_identificador_ciclista;
-    }
-
     @Override
     public String muestra() {
 
 	return "ciclista" + identificador_ciclista + "%" + bici.muestra()
 		+ "Fuerza:" + fuerza_ciclista + "#,";
+    }
+
+    /**
+     * Acción básica del ciclista. Mandará un mensaje a su bicicleta con las
+     * pedaladas por segundo. Si ha alcanzado la velocidad máxima ( relacionada
+     * con la relaciones de piñones y demás especificaciones de la bicicleta )
+     * el pedaleo no tendrá efecto
+     * 
+     */
+    public void pedalear(double cadencia) {
+
+	getBici().setCadencia(cadencia);
+
+    }
+
+    /**
+     * asigna bicicleta al ciclista
+     * 
+     * @param bici
+     *            the bici to set
+     */
+    public void setBici(Bicicleta mibici) {
+	this.bici = mibici;
     }
 
     public void setCadencia(double nueva_cadencia) {
@@ -202,46 +207,43 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	cadencia = nueva_cadencia;
     }
 
-    /**
-     * @return the fuerza_ciclista
-     */
-    public double getFuerza_ciclista() {
-	return fuerza_ciclista;
-    }
-
     public void setCantidadFreno(double fren) {
 	cantidadFreno = fren;
     }
 
-    public void setTiempoFreno(double time) {
-	tiempoFrenado = time;
-    }
-
-    /** Si esta muerto no hace nada
-     * Si la fuerza <=0 lo mata
-     * si fuerza >0 actualiza la fuerza
+    /**
+     * Si esta muerto no hace nada Si la fuerza <=0 lo mata si fuerza >0
+     * actualiza la fuerza
+     * 
      * @param fuerza_ciclista
      *            the fuerza_ciclista to set
      */
     public void setFuerza_ciclista(double fuerza_ciclista) {
-	if(fuerza_ciclista<=0&&!muerto){
-	   setMuerto(true);
-	}
-	else if(!muerto)
+	if (fuerza_ciclista <= 0 && !muerto) {
+	    setMuerto(true);
+	} else if (!muerto)
 	    this.fuerza_ciclista = fuerza_ciclista;
     }
 
-    public void cambiaPlato(int nuevo_plato) {
-	if (nuevo_plato >= 0 && nuevo_plato < Constantes.NUM_PLATOS) {
-	    bici.setPlatoact(nuevo_plato);
-	}
+    /**
+     * @param identificador_ciclista
+     *            the identificador_ciclista to set
+     */
+    public void setIdentificador_ciclista(int nuevo_identificador_ciclista) {
+	identificador_ciclista = nuevo_identificador_ciclista;
     }
 
-    public void cambiaPinon(int nuevo_pinon) {
-	if (nuevo_pinon >= 0 && nuevo_pinon < Constantes.NUM_PINONES) {
+    /**
+     * @param muerto
+     *            the muerto to set
+     */
+    public void setMuerto(boolean muerto) {
+	this.muerto = muerto;
+	this.fuerza_ciclista = 0;
+    }
 
-	    bici.setPinonact(nuevo_pinon);
-	}
+    public void setTiempoFreno(double time) {
+	tiempoFrenado = time;
     }
 
 }

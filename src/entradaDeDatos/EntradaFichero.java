@@ -21,6 +21,33 @@ import java.util.TreeMap;
  */
 public class EntradaFichero {
 
+    public StringTokenizer cargarFicheroEnStringTokenizer(String fichero,
+	    String delimitadores) {
+
+	String contenidoficherocontokens = new String();
+
+	if (fichero != null) {
+	    BufferedReader bufferdelectura;
+	    try {
+		bufferdelectura = new BufferedReader(new FileReader(fichero));
+		while (bufferdelectura.ready()) {
+
+		    contenidoficherocontokens += bufferdelectura.readLine();
+		}
+	    } catch (FileNotFoundException e) {
+		System.err.println(e + "\nArchivo no encontrado."
+			+ "Escriba el nuevo nombre de archivo y por área.");
+
+	    } catch (IOException e) {
+		System.err.println(e
+			+ "\nError de hardware durante la lectura."
+			+ "Introduzca el nuevo nombre de archivo y por área.");
+	    }
+	}
+
+	return new StringTokenizer(contenidoficherocontokens, delimitadores);
+    }
+
     /**
      * dado un fichero, este se convierte a tokens, y estos son devueltos en un
      * array de enteros
@@ -76,32 +103,5 @@ public class EntradaFichero {
 
 	}
 	return array;
-    }
-
-    public StringTokenizer cargarFicheroEnStringTokenizer(String fichero,
-	    String delimitadores) {
-
-	String contenidoficherocontokens = new String();
-
-	if (fichero != null) {
-	    BufferedReader bufferdelectura;
-	    try {
-		bufferdelectura = new BufferedReader(new FileReader(fichero));
-		while (bufferdelectura.ready()) {
-
-		    contenidoficherocontokens += bufferdelectura.readLine();
-		}
-	    } catch (FileNotFoundException e) {
-		System.err.println(e + "\nArchivo no encontrado."
-			+ "Escriba el nuevo nombre de archivo y por área.");
-
-	    } catch (IOException e) {
-		System.err.println(e
-			+ "\nError de hardware durante la lectura."
-			+ "Introduzca el nuevo nombre de archivo y por área.");
-	    }
-	}
-
-	return new StringTokenizer(contenidoficherocontokens, delimitadores);
     }
 }
