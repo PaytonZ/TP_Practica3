@@ -64,9 +64,9 @@ public final class Constantes {
    
     
     public static final int ANCHO_VENTANA = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
-    public static final int ALTO_VENTANA = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height-50;
+    public static final int ALTO_VENTANA = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height-75;
     public static final int ANCHO_PANEL_CICLISTA=ANCHO_VENTANA/3;
-    public static final int ALTO_PANEL_CICLISTA=(ALTO_VENTANA-50)/2;
+    public static final int ALTO_PANEL_CICLISTA=(ALTO_VENTANA-40)/2;
 
     public static final int ANCHO_BOTON = (ANCHO_PANEL_CICLISTA-10)/5;
     public static final int ALTO_BOTON = ALTO_PANEL_CICLISTA/14;

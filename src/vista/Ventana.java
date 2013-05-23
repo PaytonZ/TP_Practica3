@@ -115,6 +115,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     private void crearGUI() {
 
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	setExtendedState(JFrame.MAXIMIZED_BOTH);
 	setBounds(0, 0, Constantes.ANCHO_VENTANA, Constantes.ALTO_VENTANA);
 
 	contentPrincipal = crearJPanel(contentPrincipal, 0, 0, 0, 0);
