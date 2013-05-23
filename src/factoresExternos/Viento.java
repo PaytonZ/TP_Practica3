@@ -68,12 +68,12 @@ public class Viento implements InterfaceEjecuta {
 		    aceleracion_eolo = 0;
 		    break;
 		}
-		c.getBici().acelerar(aceleracion_eolo);
+		c.getBici().acelerarbici(aceleracion_eolo);
 	    }
 
 	} else {
 	    for (Ciclista c : lista_de_ciclistas) {
-		c.getBici().acelerar(0);
+		c.getBici().acelerarbici(0);
 	    }
 	}
     }

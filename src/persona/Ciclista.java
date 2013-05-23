@@ -21,6 +21,7 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     private double tiempoFrenado;
     private double cantidadFreno;
     private boolean muerto;
+    private double cadenciaaux;
 
     public Ciclista(Bicicleta nueva_bici, int id, double fuerza) {
 	cadencia = 1;
@@ -30,6 +31,7 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	tiempoFrenado = 0;
 	fuerza_ciclista = fuerza;
 	muerto = false;
+	cadenciaaux=0;
     }
 
     public void aumentaPinon() {
@@ -113,17 +115,28 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	    pedalear(cadencia);
 	    bici.calculaEspacioRecorrido();
 	    bici.calculaVelocidadActual();
-
+	    	
+	   /* double espacioporpedalada = bici.getRecorridoLinealDeLaRueda()
+			* bici.getRelacionTransmision();
+	    cadenciaaux =+cadencia;
+	    
+	    bici.acelerarbici(espacioporpedalada);*/
+	    
+	    
+	    
+	    
 	    if (tiempoFrenado > 0) {
 		bici.frenar((float) cantidadFreno);
 		tiempoFrenado--;
 	    }
-
+	    
+	 
 	    // Modificado para que se acabe la fuerza en ejecucion
 	    // fuerza_ciclista -= ((masa + getBici().getMasa()) * getBici()
 	    // .getVelocidad()) / 10;
 	    setFuerza_ciclista(fuerza_ciclista
 		    - (((masa + getBici().getMasa()) * getBici().getVelocidad()) / 5));
+	   
 	} else {
 	    bici.setVelocidad(0);
 	}

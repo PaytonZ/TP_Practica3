@@ -70,6 +70,8 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 
     public void acelerarbici(double _aceleracion) {
 	aceleracion += _aceleracion;
+	
+	
     }
 
     public void calculaAceleracion() {

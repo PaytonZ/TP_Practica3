@@ -37,10 +37,10 @@ public class Pendiente implements InterfaceEjecuta {
     @Override
     public void ejecuta() {
 
-	/**
-	 * si la hora actual, esta en nuestro mapa de vientos, asignaremos el
-	 * viento a las bicicletas
-	 */
+	
+//	  si la hora actual, esta en nuestro mapa de vientos, asignaremos el
+//	 viento a las bicicletas*/
+ 
 
 	for (Ciclista c : lista_de_ciclistas) {
 
@@ -61,27 +61,16 @@ public class Pendiente implements InterfaceEjecuta {
 
 		    if (espacio_recorrido >= elemento.getKey()
 			    && espacio_recorrido < elemento2.getKey()) {
-			// si la pendiente es positiva, nos afectara
-			// negativamente
-			if (elemento.getValue() > 0) {
-			    c.getBici().setFactorPendiente(
-				    Constantes.FACTORPENDIENTE
-					    * elemento.getValue());
-			}
-			// si la pendiente es negativa, nos afectara
-			// positivamente
-			else if (elemento.getValue() < 0) {
-			    c.getBici().setFactorPendiente(
-				    Constantes.FACTORPENDIENTE
-					    * elemento.getValue());
-			}
-			// si la pendiente es 0, no afecta
-			else {
-			    c.getBici().setFactorPendiente(0);
-			}
+			
+			
+			double aceleracion = Constantes.FUERZA_G;
+			double porcentaje = 100 - elemento.getValue();
+			
+			c.getBici().acelerarbici(Math.abs(aceleracion*porcentaje));
 		    }
-		}
-		// este else sirva para la ultima parte del trazado ya que el
+			
+		    }
+				// este else sirva para la ultima parte del trazado ya que el
 		// iterador avanzaria a null y fallaria la aplicacion
 		else {
 		    // comprobamos en que metro nos encontramos del recorrido,
@@ -90,33 +79,24 @@ public class Pendiente implements InterfaceEjecuta {
 		    if (espacio_recorrido >= elemento.getKey()) {
 			// si la pendiente es positiva, nos afectara
 			// negativamente
-			if (elemento.getValue() > 0) {
-			    c.getBici().setFactorPendiente(
-				    Constantes.FACTORPENDIENTE
-					    * elemento.getValue());
-			}
-			// si la pendiente es negativa, nos afectara
-			// positivamente
-			else if (elemento.getValue() < 0) {
-			    c.getBici().setFactorPendiente(
-				    Constantes.FACTORPENDIENTE
-					    * elemento.getValue());
-
-			}
-			// si la pendiente es 0, no afecta
-			else {
-			    c.getBici().setFactorPendiente(0);
-
-			}
+			double aceleracion = Constantes.FUERZA_G;
+			double porcentaje = - elemento.getValue();
+			
+			c.getBici().acelerarbici(aceleracion*porcentaje);
+		    }
+			
+			
 		    }
 
 		}
-
+	
 	    }
-	}
+	
 
     }
+    
 
+    
     public TreeMap<Integer, Integer> getArbol() {
 	return arbol;
     }
