@@ -60,8 +60,8 @@ public final class Constantes {
     public static final int ANCHO_TEXTBOX = 275;
     public static final int ALTO_TEXTBOX = ALTO_BOTON * 4;
 
-    public static final int ANCHO_VENTANA = 1366;
-    public static final int ALTO_VENTANA = 768;
+    public static final int ANCHO_VENTANA = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
+    public static final int ALTO_VENTANA = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
 
     public static final String CADENCIA_MENOS = "Caden-";
     public static final String CADENCIA_MAS = "Caden+";
@@ -75,7 +75,7 @@ public final class Constantes {
     public static final double DISTANCIA_FRENADO = 10;
     public static final double FACTORVIENTO = 0.01;
     public static final double FACTORPENDIENTE = 0.01;
-    public static final int FACTORESCALA = 1;
+    public static final int  FACTORESCALA = 2;
 
     public static final int NUM_DECIMALES = 3;
 
