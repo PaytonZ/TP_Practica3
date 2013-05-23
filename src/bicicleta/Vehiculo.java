@@ -33,9 +33,7 @@ public class Vehiculo {
      *            nueva velocidad, despues de haber sumado el aumento a la
      *            velocidad actual
      */
-    public void acelerar(double _aceleracion) {
-	velocidad = velocidad + _aceleracion;
-    }
+  
 
     public float calcularAceleracion(float vinicial, float vfinal, int tiempo) {
 	float aceleracion = 0;
