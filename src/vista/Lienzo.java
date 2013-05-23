@@ -47,7 +47,7 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	lista_de_ciclistas = micic;
 	contentPane = new JPanel();
 	contentPane.setLayout(null);
-	setBounds(0, 0, Constantes.ANCHO_VENTANA/2, Constantes.ALTO_VENTANA / 2);//Modificado para pruebas de lienzo
+	setBounds(0, 0, Constantes.ANCHO_PANEL_LIENZO, Constantes.ALTO_VENTANA / 2);//Modificado para pruebas de lienzo
 
 	entrada = new EntradaFichero();
 	pendiente = pen;
