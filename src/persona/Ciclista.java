@@ -9,7 +9,7 @@ import constantes.Constantes;
  * Esta clase representa una especializacion de persona , ciclista , es decir ,
  * persona que conduce una bicicleta y conoce su interfaz
  * 
- * @author Juan Carlos Marco y Juan Luis Pérez
+ * @author Juan Carlos Marco, Juan Luis Pérez y Emilio Álvarez Piñeiro
  * 
  */
 public class Ciclista extends Persona implements InterfaceEjecuta,
@@ -18,6 +18,7 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     private Bicicleta bici;
     private int identificador_ciclista;
     private double fuerza_ciclista;
+    private double fuerzaCiclistaTotal;
     private double tiempoFrenado;
     private double cantidadFreno;
     private boolean muerto;
@@ -30,6 +31,7 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	cantidadFreno = 0;
 	tiempoFrenado = 0;
 	fuerza_ciclista = fuerza;
+	fuerzaCiclistaTotal=fuerza;
 	muerto = false;
 	cadenciaaux=0;
     }
@@ -186,7 +188,7 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     public String muestra() {
 
 	return "ciclista" + identificador_ciclista + "%" + bici.muestra()
-		+ "Fuerza:" + fuerza_ciclista + "#,";
+		+ "Fuerza:" + fuerza_ciclista +":"+fuerzaCiclistaTotal+ "#,";
     }
 
     /**
