@@ -55,14 +55,24 @@ public final class Constantes {
     public static final int X_INICIAL = 5;
     public static final int Y_INICIAL = 5;
 
-    public static final int ANCHO_BOTON = 89;
-    public static final int ALTO_BOTON = 25;
-    public static final int ANCHO_TEXTBOX = 275;
-    public static final int ALTO_TEXTBOX = ALTO_BOTON * 4;
+  //  public static final int ANCHO_BOTON = 89;
+  //  public static final int ALTO_BOTON = 25;
+  //  public static final int ANCHO_TEXTBOX = 275;
+  //  public static final int ALTO_TEXTBOX = ALTO_BOTON * 4;
 
+
+   
+    
     public static final int ANCHO_VENTANA = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
-    public static final int ALTO_VENTANA = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
+    public static final int ALTO_VENTANA = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height-50;
+    public static final int ANCHO_PANEL_CICLISTA=ANCHO_VENTANA/3;
+    public static final int ALTO_PANEL_CICLISTA=(ALTO_VENTANA-50)/2;
 
+    public static final int ANCHO_BOTON = (ANCHO_PANEL_CICLISTA-10)/5;
+    public static final int ALTO_BOTON = ALTO_PANEL_CICLISTA/14;
+    public static final int ANCHO_TEXTBOX = ANCHO_BOTON*3;
+    public static final int ALTO_TEXTBOX = ALTO_BOTON * 4;
+    
     public static final String CADENCIA_MENOS = "Caden-";
     public static final String CADENCIA_MAS = "Caden+";
     public static final String PINON_MAS = "Pin+";

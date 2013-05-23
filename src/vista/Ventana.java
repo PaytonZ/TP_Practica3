@@ -126,7 +126,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	colocarJPanelEnJPanel(contentPane, contentPrincipal);
 	
 	contentLienzo = crearJPanel(contentPrincipal, 0,
-		contentPane.getHeight(), Constantes.ANCHO_VENTANA, //Modificado para pruebas de lienzo
+		contentPane.getHeight(), Constantes.ANCHO_VENTANA/2, //Modificado para pruebas de lienzo
 		Constantes.ALTO_VENTANA / 2);
 	colocarJPanelEnJPanel(contentLienzo, contentPrincipal);
 
