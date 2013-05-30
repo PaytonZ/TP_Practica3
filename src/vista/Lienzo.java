@@ -169,11 +169,11 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 		
 		// pintamos el cielo
 		Polygon polygonCielo;
-		polygonCielo = creaPoligono(new Point(x, 0),
-			new Point(x, y - 1),
-			new Point(tramofin.getKey() / Constantes.FACTORESCALA,
+		polygonCielo = creaPoligono(new Point((int)x_aux, 0),
+			new Point((int)x_aux, y - 1),
+			new Point((int)((tramofin.getKey()/(double)max)*Constantes.ANCHO_PANEL_LIENZO),
 				(y - tramoini.getValue()) - 1), new Point(
-				tramofin.getKey() / Constantes.FACTORESCALA, 0));
+					(int)((tramofin.getKey()/(double)max)*Constantes.ANCHO_PANEL_LIENZO), 0));
 		Polygon polygon = new Polygon();
 
 		pintaPoligono(polygonCielo, g, Color.CYAN);
@@ -181,11 +181,11 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 		// pintamos el suelo
 
 		Polygon polygonSuelo;
-		polygonSuelo = creaPoligono(new Point(x,
-			Constantes.ALTO_VENTANA), new Point(x, y + 1),
-			new Point(tramofin.getKey() / Constantes.FACTORESCALA,
+		polygonSuelo = creaPoligono(new Point((int)x_aux,
+			Constantes.ALTO_VENTANA), new Point((int)x_aux, y + 1),
+			new Point((int)((tramofin.getKey()/(double)max)*Constantes.ANCHO_PANEL_LIENZO),
 				(y - tramoini.getValue()) + 1), new Point(
-				tramofin.getKey() / Constantes.FACTORESCALA,
+					(int)((tramofin.getKey()/(double)max)*Constantes.ANCHO_PANEL_LIENZO),
 				Constantes.ALTO_VENTANA));
 		pintaPoligono(polygonSuelo, g, Color.GREEN);
 
