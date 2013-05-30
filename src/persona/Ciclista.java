@@ -19,6 +19,8 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     private int identificador_ciclista;
     private double fuerza_ciclista;
     private double fuerzaCiclistaTotal;
+
+
     private double tiempoFrenado;
     private double cantidadFreno;
     private boolean muerto;
@@ -259,6 +261,12 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 
     public void setTiempoFreno(double time) {
 	tiempoFrenado = time;
+    }
+    /**
+     * @return the fuerzaCiclistaTotal
+     */
+    public double getFuerzaCiclistaTotal() {
+        return fuerzaCiclistaTotal;
     }
 
 }

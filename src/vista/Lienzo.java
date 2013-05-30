@@ -142,9 +142,9 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	int xfin = 0;
 	int y = Constantes.ALTO_VENTANA / 4;
 	int yfin = 0;
-
+	double x_aux = 0;
 	int i = 0;
-
+	int max=arbol.lastEntry().getKey();
 	Iterator<Entry<Integer, Integer>> it = arbol.entrySet().iterator();
 	Iterator<Entry<Integer, Integer>> itaux = arbol.entrySet().iterator();
 	if (it.hasNext()) {
@@ -161,9 +161,12 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 		// pintamos la carretera
 
 		g.setColor(Color.BLACK);
-		g.drawLine(x, y, tramofin.getKey() / Constantes.FACTORESCALA, y
-			- tramoini.getValue());
-
+		//g.drawLine(x, y, (tramofin.getKey() / max)*Constantes.ANCHO_VENTANA, y	
+		//	- tramoini.getValue());
+		g.drawLine((int)x_aux, y, (int)((tramofin.getKey()/(double)max)*Constantes.ANCHO_PANEL_LIENZO), y - tramoini.getValue());
+		System.out.println(x_aux);
+		System.out.println((int)((tramofin.getKey()/(double)max)*Constantes.ANCHO_PANEL_LIENZO));
+		
 		// pintamos el cielo
 		Polygon polygonCielo;
 		polygonCielo = creaPoligono(new Point(x, 0),
@@ -188,6 +191,7 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 
 		x = tramofin.getKey() / Constantes.FACTORESCALA;
 		y = y - tramoini.getValue();
+		x_aux= (tramofin.getKey()/(double)max)* Constantes.ANCHO_PANEL_LIENZO;
 	    }
 
 	}
@@ -220,7 +224,7 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	    else
 		y = calculaYparaPuntoCiclista(c, arbol);
 	    g.fillOval(
-		    (int) (c.getBici().getEspacioRecorrido() / Constantes.FACTORESCALA)
+		    (int) ((c.getBici().getEspacioRecorrido()/max)*Constantes.ANCHO_PANEL_LIENZO)
 			    - Constantes.ANCHO_PUNTO_CICLISTA / 2, y,
 		    Constantes.ANCHO_PUNTO_CICLISTA,
 		    Constantes.ANCHO_PUNTO_CICLISTA);

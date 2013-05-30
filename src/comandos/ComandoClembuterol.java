@@ -21,7 +21,7 @@ public class ComandoClembuterol implements InterfazCommand {
     @Override
     public void execute() {
 
-	ciclista.setFuerza_ciclista(100);
+	ciclista.setFuerza_ciclista(ciclista.getFuerzaCiclistaTotal());
 
     }
 
