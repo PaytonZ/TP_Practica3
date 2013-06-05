@@ -21,7 +21,15 @@ import constantes.Constantes;
 
 public class Curva implements InterfaceEjecuta {
 
+    /**
+	 * @uml.property  name="arbolCurvas"
+	 * @uml.associationEnd  qualifier="valueOf:java.lang.Integer java.lang.Integer"
+	 */
     private TreeMap<Integer, Integer> arbolCurvas;
+    /**
+	 * @uml.property  name="lista_de_ciclistas"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="persona.Ciclista"
+	 */
     private ArrayList<Ciclista> lista_de_ciclistas;
 
     /**

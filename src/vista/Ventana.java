@@ -28,37 +28,142 @@ import entradaDeDatos.Escuchador;
  */
 public class Ventana extends JFrame implements InterfaceEjecuta {
 
+    /**
+	 * @uml.property  name="comandero"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private Comandero comandero;
 
     private static final long serialVersionUID = -8170475180669923771L;
 
+    /**
+	 * @uml.property  name="contentPane"
+	 * @uml.associationEnd  
+	 */
     private JPanel contentPane;
+    /**
+	 * @uml.property  name="contentPrincipal"
+	 * @uml.associationEnd  
+	 */
     private JPanel contentPrincipal;
+    /**
+	 * @uml.property  name="contentLienzo"
+	 * @uml.associationEnd  
+	 */
     private JPanel contentLienzo;
+    /**
+	 * @uml.property  name="tFreloj"
+	 * @uml.associationEnd  
+	 */
     private JTextField tFreloj;
+    /**
+	 * @uml.property  name="tFcomando"
+	 * @uml.associationEnd  
+	 */
     private JTextField tFcomando;
+    /**
+	 * @uml.property  name="tFconsola"
+	 * @uml.associationEnd  
+	 */
     private JTextArea tFconsola;
+    /**
+	 * @uml.property  name="cadena"
+	 */
     private String cadena;
 
+    /**
+	 * @uml.property  name="lblComandos"
+	 * @uml.associationEnd  
+	 */
     private JLabel lblComandos;
+    /**
+	 * @uml.property  name="lblTiempo"
+	 * @uml.associationEnd  
+	 */
     private JLabel lblTiempo;
+    /**
+	 * @uml.property  name="lblconsola"
+	 * @uml.associationEnd  readOnly="true"
+	 */
     private JLabel lblconsola;
+    /**
+	 * @uml.property  name="sbrText"
+	 * @uml.associationEnd  
+	 */
     private JScrollPane sbrText;
+    /**
+	 * @uml.property  name="lienzo"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private Lienzo lienzo;
+    /**
+	 * @uml.property  name="escuchador"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private Escuchador escuchador;
+    /**
+	 * @uml.property  name="textoAnteriorScroll"
+	 */
     private String textoAnteriorScroll;
 
+    /**
+	 * @uml.property  name="textAreas"
+	 * @uml.associationEnd  multiplicity="(0 -1)"
+	 */
     private JTextArea textAreas[];
+    /**
+	 * @uml.property  name="lblCiclistas"
+	 * @uml.associationEnd  multiplicity="(0 -1)"
+	 */
     private JLabel lblCiclistas[];
+    /**
+	 * @uml.property  name="botonAumCad"
+	 * @uml.associationEnd  multiplicity="(0 -1)"
+	 */
     private JButton botonAumCad[];
+    /**
+	 * @uml.property  name="botonDisCad"
+	 * @uml.associationEnd  multiplicity="(0 -1)"
+	 */
     private JButton botonDisCad[];
+    /**
+	 * @uml.property  name="botonDisPin"
+	 * @uml.associationEnd  multiplicity="(0 -1)"
+	 */
     private JButton botonDisPin[];
+    /**
+	 * @uml.property  name="botonAumPin"
+	 * @uml.associationEnd  multiplicity="(0 -1)"
+	 */
     private JButton botonAumPin[];
+    /**
+	 * @uml.property  name="botonDisPla"
+	 * @uml.associationEnd  multiplicity="(0 -1)"
+	 */
     private JButton botonDisPla[];
+    /**
+	 * @uml.property  name="botonAumPla"
+	 * @uml.associationEnd  multiplicity="(0 -1)"
+	 */
     private JButton botonAumPla[];
+    /**
+	 * @uml.property  name="botonFrenaPoco"
+	 * @uml.associationEnd  multiplicity="(0 -1)"
+	 */
     private JButton botonFrenaPoco[];
+    /**
+	 * @uml.property  name="botonFrenaMas"
+	 * @uml.associationEnd  multiplicity="(0 -1)"
+	 */
     private JButton botonFrenaMas[];
+    /**
+	 * @uml.property  name="color" multiplicity="(0 -1)" dimension="1"
+	 */
     private Color color[];
+    /**
+	 * @uml.property  name="barras"
+	 * @uml.associationEnd  multiplicity="(0 -1)"
+	 */
     private JProgressBar barras[];
 
     public Ventana(Comandero nuevo_comandero, Lienzo lien) {

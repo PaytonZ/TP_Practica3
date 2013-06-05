@@ -22,10 +22,29 @@ import entradaDeDatos.SuperLectura;
  */
 public class Comandero implements InterfaceEjecuta, InterfaceSalida {
 
+    /**
+	 * @uml.property  name="presentador"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private Presentador presentador;
+    /**
+	 * @uml.property  name="cola_de_comandos"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="comandos.InterfazCommand"
+	 */
     private Queue<InterfazCommand> cola_de_comandos;
+    /**
+	 * @uml.property  name="parser"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private Parser parser;
+    /**
+	 * @uml.property  name="salida_de_datos"
+	 */
     private String salida_de_datos;
+    /**
+	 * @uml.property  name="entrada_de_datos_por_fichero"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private SuperLectura entrada_de_datos_por_fichero;
 
     public Comandero(Presentador nuevo_presentador, String ruta_del_fichero) {

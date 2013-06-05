@@ -5,7 +5,14 @@ import principal.Presentador;
 
 public class ComandoClembuterol implements InterfazCommand {
 
+    /**
+	 * @uml.property  name="id_ciclista"
+	 */
     private int id_ciclista;
+    /**
+	 * @uml.property  name="ciclista"
+	 * @uml.associationEnd  
+	 */
     private Ciclista ciclista;
 
     public ComandoClembuterol(int nuevo_id_ciclista) {

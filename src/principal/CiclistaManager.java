@@ -41,15 +41,47 @@ public class CiclistaManager {
 
     }
 
+    /**
+	 * @uml.property  name="listaejecuta"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="persona.Ciclista"
+	 */
     private ArrayList<InterfaceEjecuta> listaejecuta;
+    /**
+	 * @uml.property  name="listasalida"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="persona.Ciclista"
+	 */
     private ArrayList<InterfaceSalida> listasalida;
 
+    /**
+	 * @uml.property  name="comandero"
+	 * @uml.associationEnd  
+	 */
     private Comandero comandero;
+    /**
+	 * @uml.property  name="output"
+	 * @uml.associationEnd  
+	 */
     private SalidaDeDatosPorSwing output;
+    /**
+	 * @uml.property  name="curva"
+	 * @uml.associationEnd  
+	 */
     private Curva curva;
+    /**
+	 * @uml.property  name="viento"
+	 * @uml.associationEnd  
+	 */
     private Viento viento;
+    /**
+	 * @uml.property  name="pendiente"
+	 * @uml.associationEnd  
+	 */
     private Pendiente pendiente;
 
+    /**
+	 * @uml.property  name="reloj"
+	 * @uml.associationEnd  
+	 */
     private Reloj reloj;
 
     private void inicia() {

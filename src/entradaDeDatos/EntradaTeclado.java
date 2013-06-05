@@ -15,6 +15,9 @@ import java.io.IOException;
  */
 public class EntradaTeclado {
 
+    /**
+	 * @uml.property  name="lectura"
+	 */
     private BufferedReader lectura;
 
     public EntradaTeclado() {

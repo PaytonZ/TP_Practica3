@@ -4,11 +4,9 @@ import principal.Presentador;
 
 /**
  * Siguiendo el patrón command, se define una interfaz para los comandos
- * 
- * @author Juan Carlos Marco
- * @author Juan Luis Perez
- * @author Emilio Alvarez Pinerio
- * 
+ * @author  Juan Carlos Marco
+ * @author  Juan Luis Perez
+ * @author  Emilio Alvarez Pinerio
  */
 public interface InterfazCommand {
 
@@ -28,10 +26,10 @@ public interface InterfazCommand {
     public void execute();
 
     /**
-     * Devuelve el retorno despues de la ejecucion del comando
-     * 
-     * @return Un string con los datos de salida
-     */
+	 * Devuelve el retorno despues de la ejecucion del comando
+	 * @return  Un string con los datos de salida
+	 * @uml.property  name="informacionInstruccion"
+	 */
     public String getInformacionInstruccion();
 
     /**

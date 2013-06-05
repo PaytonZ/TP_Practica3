@@ -33,12 +33,38 @@ import factoresExternos.Pendiente;
 public class Lienzo extends Canvas implements InterfaceEjecuta {
 
     private static final long serialVersionUID = 1L;
+    /**
+	 * @uml.property  name="contentPane"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private JPanel contentPane;
+    /**
+	 * @uml.property  name="entrada"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private EntradaFichero entrada;
+    /**
+	 * @uml.property  name="g"
+	 */
     private Graphics g;
+    /**
+	 * @uml.property  name="lista_de_ciclistas"
+	 */
     private ArrayList<Ciclista> lista_de_ciclistas;
+    /**
+	 * @uml.property  name="pendiente"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private Pendiente pendiente;
+    /**
+	 * @uml.property  name="arbol"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
+	 */
     private TreeMap<Integer, Integer> arbol;
+    /**
+	 * @uml.property  name="curva"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private Curva curva;
 
     public Lienzo(ArrayList<Ciclista> micic, Pendiente pen, Curva curv) {

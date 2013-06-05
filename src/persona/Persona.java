@@ -9,14 +9,20 @@ import constantes.Constantes;
  * @author Juan Carlos Marco y Juan Luis Pérez
  */
 public class Persona {
+    /**
+	 * @uml.property  name="peso"
+	 */
     protected double peso;
+    /**
+	 * @uml.property  name="masa"
+	 */
     protected double masa;
 
     /**
-     * devuelve el peso
-     * 
-     * @return devuelve el peso
-     */
+	 * devuelve el peso
+	 * @return  devuelve el peso
+	 * @uml.property  name="peso"
+	 */
     public double getPeso() {
 	return peso;
     }
@@ -27,11 +33,10 @@ public class Persona {
     }
 
     /**
-     * asigna el peso
-     * 
-     * @param el
-     *            peso
-     */
+	 * asigna el peso
+	 * @param el  peso
+	 * @uml.property  name="peso"
+	 */
     public void setPeso(double miPeso) {
 	peso = miPeso;
     }

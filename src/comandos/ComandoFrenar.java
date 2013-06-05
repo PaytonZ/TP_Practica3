@@ -5,8 +5,18 @@ import principal.Presentador;
 import constantes.Constantes;
 
 public class ComandoFrenar implements InterfazCommand {
+    /**
+	 * @uml.property  name="cic"
+	 * @uml.associationEnd  
+	 */
     private Ciclista cic;
+    /**
+	 * @uml.property  name="tiempo"
+	 */
     private double tiempo;
+    /**
+	 * @uml.property  name="id"
+	 */
     private int id;
 
     public ComandoFrenar(int nuevo_identificador_ciclista, double mitiempo) {

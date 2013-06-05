@@ -5,8 +5,18 @@ import principal.Presentador;
 import constantes.Constantes;
 
 public class ComandoCambiaPinon implements InterfazCommand {
+    /**
+	 * @uml.property  name="ciclista"
+	 * @uml.associationEnd  
+	 */
     private Ciclista ciclista;
+    /**
+	 * @uml.property  name="identificador_ciclista"
+	 */
     private int identificador_ciclista;
+    /**
+	 * @uml.property  name="pinon"
+	 */
     private int pinon;
 
     public ComandoCambiaPinon(int nuevo_identificador_ciclista, int nuevo_pinon) {

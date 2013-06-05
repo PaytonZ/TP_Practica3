@@ -22,10 +22,28 @@ import entradaDeDatos.EntradaFichero;
 
 public class Viento implements InterfaceEjecuta {
 
+    /**
+	 * @uml.property  name="fichero"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private EntradaFichero fichero;
+    /**
+	 * @uml.property  name="mapaVientos"
+	 * @uml.associationEnd  qualifier="hora:java.lang.String java.lang.String"
+	 */
     private Map<String, String> mapaVientos;
+    /**
+	 * @uml.property  name="reloj"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private Reloj reloj;
+    /**
+	 * @uml.property  name="viento"
+	 */
     private float viento;
+    /**
+	 * @uml.property  name="lista_de_ciclistas"
+	 */
     private ArrayList<Ciclista> lista_de_ciclistas;
 
     /**

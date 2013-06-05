@@ -4,6 +4,9 @@ import principal.Presentador;
 
 public class ComandoIncompleto implements InterfazCommand {
 
+    /**
+	 * @uml.property  name="ayudacomando"
+	 */
     String ayudacomando;
 
     public ComandoIncompleto(String miayudacomando) {

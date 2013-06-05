@@ -11,13 +11,16 @@ public class Contador
 
 {
 
+    /**
+	 * @uml.property  name="unidad"
+	 */
     private int unidad = 0;
 
     /**
-     * Este metodo devuelve el valor de la unidad
-     * 
-     * @return unidad
-     */
+	 * Este metodo devuelve el valor de la unidad
+	 * @return  unidad
+	 * @uml.property  name="unidad"
+	 */
     public int getUnidad() {
 	return unidad;
     }

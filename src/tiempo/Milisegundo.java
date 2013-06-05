@@ -9,7 +9,13 @@ import constantes.Constantes;
  * 
  */
 public class Milisegundo {
+    /**
+	 * @uml.property  name="milisegundosactuales"
+	 */
     private double milisegundosactuales;
+    /**
+	 * @uml.property  name="milisegundos"
+	 */
     private double milisegundos;
 
     /**

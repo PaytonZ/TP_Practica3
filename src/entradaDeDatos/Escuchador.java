@@ -12,6 +12,10 @@ import comandos.Comandero;
 
 public class Escuchador {
 
+    /**
+	 * @uml.property  name="comandero"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private Comandero comandero;
 
     public Escuchador(Comandero micomandero)

@@ -17,7 +17,13 @@ import java.util.StringTokenizer;
  */
 public class MiMapa<T, E> {
 
+    /**
+	 * @uml.property  name="mapa"
+	 */
     private Map<T, E> mapa;
+    /**
+	 * @uml.property  name="lista"
+	 */
     private List<T> lista;
 
     /**

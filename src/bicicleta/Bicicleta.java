@@ -12,36 +12,88 @@ import interfaceMain.InterfaceSalida;
 public class Bicicleta extends Vehiculo implements InterfaceSalida {
 
     // almacena el numero de pedales, ya que puede haber tandems
+    /**
+	 * @uml.property  name="numpedales"
+	 */
     protected int numpedales = 2;
 
+    /**
+	 * @uml.property  name="numsillin"
+	 */
     protected int numsillin = 1;
     // el numero actual del pinon y plato activos
 
+    /**
+	 * @uml.property  name="pinonact"
+	 */
     private int pinonact = 0;
+    /**
+	 * @uml.property  name="platoact"
+	 */
     private int platoact = 0;
 
     // los dientes que tiene cada plato y pinon
+    /**
+	 * @uml.property  name="dientesplato" multiplicity="(0 -1)" dimension="1"
+	 */
     protected int dientesplato[];
+    /**
+	 * @uml.property  name="dientespinon" multiplicity="(0 -1)" dimension="1"
+	 */
     protected int dientespinon[];
 
     // Cada pedalada, la rueda de traccion, arrastrada por el pinon, recorrera
     // un espacio que
     // dependera
     // de la relacion plato / pinon
+    /**
+	 * @uml.property  name="relaciontransmision"
+	 */
     protected double relaciontransmision;
 
     // y del radio de la rueda
+    /**
+	 * @uml.property  name="radiorueda"
+	 */
     protected double radiorueda;
 
     // EspacioporcadaPedalada = RecorridoLinealDelaRueda * RelaciondeTransmisin
+    /**
+	 * @uml.property  name="espaciorecorrido"
+	 */
     private double espaciorecorrido;
+    /**
+	 * @uml.property  name="espacioporpedalada"
+	 */
     private double espacioporpedalada;
+    /**
+	 * @uml.property  name="cadencia"
+	 */
     protected double cadencia;
+    /**
+	 * @uml.property  name="factorpendiente"
+	 */
     protected double factorpendiente;
+    /**
+	 * @uml.property  name="factorviento"
+	 */
     protected double factorviento;
+    /**
+	 * @uml.property  name="carretera"
+	 * @uml.associationEnd  multiplicity="(1 1)" inverse="bici:factoresExternos.Carretera"
+	 */
     private Carretera carretera;
+    /**
+	 * @uml.property  name="velocidad_anterior"
+	 */
     private double velocidad_anterior;
+    /**
+	 * @uml.property  name="aceleracion"
+	 */
     private double aceleracion;
+    /**
+	 * @uml.property  name="freno"
+	 */
     private double freno;
 
     public Bicicleta(int numeropinones, int numeroplatos, double radiorueda,
@@ -136,13 +188,18 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 
     }
 
+    /**
+	 * @return
+	 * @uml.property  name="cadencia"
+	 */
     public double getCadencia() {
 	return cadencia;
     }
 
     /**
-     * @return the carretera
-     */
+	 * @return  the carretera
+	 * @uml.property  name="carretera"
+	 */
     public Carretera getCarretera() {
 	return carretera;
     }
@@ -202,10 +259,18 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 	return longitudrueda;
     }
 
+    /**
+	 * @return
+	 * @uml.property  name="numpedales"
+	 */
     public int getNumpedales() {
 	return numpedales;
     }
 
+    /**
+	 * @return
+	 * @uml.property  name="numsillin"
+	 */
     public int getNumsillin() {
 	return numsillin;
     }
@@ -363,6 +428,10 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 	}
     }
 
+    /**
+	 * @param micadencia
+	 * @uml.property  name="cadencia"
+	 */
     public void setCadencia(double micadencia) {
 
 	cadencia = (micadencia >= 0) ? micadencia : -micadencia;
@@ -370,9 +439,9 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
     }
 
     /**
-     * @param carretera
-     *            the carretera to set
-     */
+	 * @param carretera  the carretera to set
+	 * @uml.property  name="carretera"
+	 */
     public void setCarretera(Carretera carretera) {
 	this.carretera = carretera;
     }
@@ -393,14 +462,26 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 	factorviento = fact;
     }
 
+    /**
+	 * @param fre
+	 * @uml.property  name="freno"
+	 */
     public void setFreno(double fre) {
 	freno = fre;
     }
 
+    /**
+	 * @param numpedales
+	 * @uml.property  name="numpedales"
+	 */
     public void setNumpedales(int numpedales) {
 	this.numpedales = numpedales;
     }
 
+    /**
+	 * @param numsillin
+	 * @uml.property  name="numsillin"
+	 */
     public void setNumsillin(int numsillin) {
 	this.numsillin = numsillin;
     }
@@ -440,9 +521,9 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
     }
 
     /**
-     * @param pinonact
-     *            the pinonact to set
-     */
+	 * @param pinonact  the pinonact to set
+	 * @uml.property  name="pinonact"
+	 */
     public void setPinonact(int pinonact) {
 	this.pinonact = pinonact;
     }
@@ -473,9 +554,9 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
     }
 
     /**
-     * @param platoact
-     *            the platoact to set
-     */
+	 * @param platoact  the platoact to set
+	 * @uml.property  name="platoact"
+	 */
     public void setPlatoact(int platoact) {
 	this.platoact = platoact;
     }

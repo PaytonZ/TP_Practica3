@@ -19,7 +19,15 @@ import constantes.Constantes;
  */
 public class Pendiente implements InterfaceEjecuta {
 
+    /**
+	 * @uml.property  name="arbol"
+	 * @uml.associationEnd  qualifier="valueOf:java.lang.Integer java.lang.Integer"
+	 */
     private TreeMap<Integer, Integer> arbol;
+    /**
+	 * @uml.property  name="lista_de_ciclistas"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="persona.Ciclista"
+	 */
     private ArrayList<Ciclista> lista_de_ciclistas;
 
     /**

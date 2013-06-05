@@ -21,10 +21,29 @@ import factoresExternos.Viento;
  */
 public class Presentador {
 
+    /**
+	 * @uml.property  name="lista_de_ciclistas"
+	 */
     private ArrayList<Ciclista> lista_de_ciclistas;
+    /**
+	 * @uml.property  name="reloj"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private Reloj reloj;
+    /**
+	 * @uml.property  name="curva"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private Curva curva;
+    /**
+	 * @uml.property  name="viento"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private Viento viento;
+    /**
+	 * @uml.property  name="pendiente"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
     private Pendiente pendiente;
 
     public Presentador(ArrayList<Ciclista> nueva_lista_ciclistas,
@@ -48,18 +67,34 @@ public class Presentador {
 	return ciclista_a_devolver;
     }
 
+    /**
+	 * @return
+	 * @uml.property  name="curva"
+	 */
     public Curva getCurva() {
 	return curva;
     }
 
+    /**
+	 * @return
+	 * @uml.property  name="pendiente"
+	 */
     public Pendiente getPendiente() {
 	return pendiente;
     }
 
+    /**
+	 * @return
+	 * @uml.property  name="reloj"
+	 */
     public Reloj getReloj() {
 	return reloj;
     }
 
+    /**
+	 * @return
+	 * @uml.property  name="viento"
+	 */
     public Viento getViento() {
 	return viento;
     }

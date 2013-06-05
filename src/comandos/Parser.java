@@ -14,6 +14,10 @@ import java.util.ArrayList;
  */
 public class Parser {
 
+    /**
+	 * @uml.property  name="lista_de_comandos"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="comandos.ComandoClembuterol"
+	 */
     private ArrayList<InterfazCommand> lista_de_comandos;
 
     public Parser() {

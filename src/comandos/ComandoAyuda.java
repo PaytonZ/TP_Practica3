@@ -6,7 +6,13 @@ import principal.Presentador;
 
 public class ComandoAyuda implements InterfazCommand {
 
+    /**
+	 * @uml.property  name="lista_comandos"
+	 */
     private ArrayList<InterfazCommand> lista_comandos;
+    /**
+	 * @uml.property  name="salida"
+	 */
     private String salida;
 
     public ComandoAyuda(ArrayList<InterfazCommand> nueva_lista_comandos) {
