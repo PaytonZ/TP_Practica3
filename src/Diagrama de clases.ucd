@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="(default package)" size="3788,1700" id="" metadata="uml2-1.0" initialized="true" zoom="0.125" tag="10" key="32303037303533312D313020707261637469636131">
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="Diagrama de clases" size="3788,1700" id="" metadata="uml2-1.0" initialized="true" zoom="0.25" scrolledY="481" tag="10" key="32303037303533312D313020707261637469636131">
   <children xsi:type="editmodel:PackageEditModel" name="bicicleta" location="3059,132" size="1144,1052" id="bicicleta">
-    <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@children.1/@sourceConnections.0" name="Vehiculo" location="127,45" size="191,230" id="bicicleta/Vehiculo">
+    <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@children.1/@sourceConnections.0" name="Vehiculo" location="127,45" size="191,230" id="bicicleta/Vehiculo" runTimeClassModel="direccion,setVelocidad(F),Vehiculo(D),calcularVelocidadFinal(FFI),setDireccion(I),masa,calcularEspacioRecorrido(FIF),calcularAceleracion(FFI),frenar(F),velocidad">
       <children xsi:type="editmodel:CompartmentEditModel" size="117,54">
         <children xsi:type="editmodel:AttributeEditModel" name="direccion" id="bicicleta/Vehiculo#direccion"/>
         <children xsi:type="editmodel:AttributeEditModel" name="masa" id="bicicleta/Vehiculo#masa"/>
@@ -19,7 +19,7 @@
       <children xsi:type="editmodel:CompartmentEditModel"/>
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
-    <children xsi:type="editmodel:ClassEditModel" name="Bicicleta" location="399,149" size="231,824" id="bicicleta/Bicicleta">
+    <children xsi:type="editmodel:ClassEditModel" name="Bicicleta" location="399,149" size="231,824" id="bicicleta/Bicicleta" runTimeClassModel="getPedales(),getPinonAct(),numsillin,setAsignaNumeroDientesPinon([I),setRadioRueda(D),getFactorViento(),platoact,setAsignaNumeroDientesPlato([I),setPinon(C),getRecorridoLinealDeLaRueda(),pinonact,setPedales(I),Bicicleta(IID[I[IDD),getPeso(),muestra(),getRadioRueda(),numpedales,getLongitudRueda(),getPlatoAct(),setPlato(C),setEspacioPorPedalada(D),getDientesPinon(I),calculaEspacioRecorrido(),getDireccion(),getDientesPlato(I),calculaVelocidadActual(),setVelocidad(D),calculaEspacioPorCadaPedalada(),cadencia,getDientesPlato(),setPinonAct(I),getRelacionTransmision(),setPlatoAct(I),acelerarbici(D),freno,getDientesPinon(),setFactorViento(D),setPeso(D),calculaRelacionTransmision(),getFactorPendiente(),getEspacioRecorrido(),calculaAceleracion(),setFactorPendiente(D)">
       <children xsi:type="editmodel:CompartmentEditModel" size="114,108">
         <children xsi:type="editmodel:AttributeEditModel" name="cadencia" id="bicicleta/Bicicleta#cadencia"/>
         <children xsi:type="editmodel:AttributeEditModel" name="freno" id="bicicleta/Bicicleta#freno"/>
@@ -80,7 +80,7 @@
     </children>
   </children>
   <children xsi:type="editmodel:PackageEditModel" name="comandos" location="55,156" size="2239,920" id="comandos">
-    <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.1/@children.2/@sourceConnections.0 //@children.1/@children.3/@sourceConnections.0 //@children.1/@children.4/@sourceConnections.0 //@children.1/@children.5/@sourceConnections.0 //@children.1/@children.6/@sourceConnections.0 //@children.1/@children.7/@sourceConnections.0 //@children.1/@children.8/@sourceConnections.0 //@children.1/@children.9/@sourceConnections.0 //@children.1/@children.10/@sourceConnections.0 //@children.1/@children.11/@sourceConnections.0 //@children.1/@children.12/@sourceConnections.0 //@children.1/@children.13/@sourceConnections.0 //@children.1/@children.14/@sourceConnections.0" name="InterfazCommand" location="1083,146" size="206,153" id="comandos/InterfazCommand">
+    <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.1/@children.2/@sourceConnections.0 //@children.1/@children.3/@sourceConnections.0 //@children.1/@children.4/@sourceConnections.0 //@children.1/@children.5/@sourceConnections.0 //@children.1/@children.6/@sourceConnections.0 //@children.1/@children.7/@sourceConnections.0 //@children.1/@children.8/@sourceConnections.0 //@children.1/@children.9/@sourceConnections.0 //@children.1/@children.10/@sourceConnections.0 //@children.1/@children.11/@sourceConnections.0 //@children.1/@children.12/@sourceConnections.0 //@children.1/@children.13/@sourceConnections.0 //@children.1/@children.14/@sourceConnections.0" name="InterfazCommand" location="1083,146" size="206,153" id="comandos/InterfazCommand" runTimeClassModel="informacionInstruccion,obtenerAyuda(),execute(),configurarContexto(Lprincipal.Presentador;),parse(Ljava.lang.String;)">
       <children xsi:type="editmodel:CompartmentEditModel" size="183,18">
         <children xsi:type="editmodel:AttributeEditModel" name="informacionInstruccion" id="comandos/InterfazCommand#informacionInstruccion"/>
       </children>
@@ -93,7 +93,7 @@
       <children xsi:type="editmodel:CompartmentEditModel"/>
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
-    <children xsi:type="editmodel:ClassEditModel" name="Comandero" location="650,149" size="143,122" id="comandos/Comandero">
+    <children xsi:type="editmodel:ClassEditModel" name="Comandero" location="650,149" size="143,122" id="comandos/Comandero" runTimeClassModel="ejecuta(),recibir_comando(Ljava.lang.String;),muestra(),Comandero(Lprincipal.Presentador;Ljava.lang.String;)">
       <children xsi:type="editmodel:CompartmentEditModel"/>
       <children xsi:type="editmodel:CompartmentEditModel" size="120,72">
         <children xsi:type="editmodel:MethodEditModel" name="Comandero" id="comandos/Comandero#Comandero(Lprincipal.Presentador;Ljava.lang.String;)"/>
@@ -112,7 +112,7 @@
       </sourceConnections>
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
-    <children xsi:type="editmodel:ClassEditModel" name="ComandoAsignaCadencia" location="1960,728" size="232,158" id="comandos/ComandoAsignaCadencia">
+    <children xsi:type="editmodel:ClassEditModel" name="ComandoAsignaCadencia" location="1960,728" size="232,158" id="comandos/ComandoAsignaCadencia" runTimeClassModel="ComandoAsignaCadencia(DI),obtenerAyuda(),getInformacionInstruccion(),execute(),configurarContexto(Lprincipal.Presentador;),parse(Ljava.lang.String;)">
       <children xsi:type="editmodel:CompartmentEditModel"/>
       <children xsi:type="editmodel:CompartmentEditModel" size="173,108">
         <children xsi:type="editmodel:MethodEditModel" name="ComandoAsignaCadencia" id="comandos/ComandoAsignaCadencia#ComandoAsignaCadencia(DI)"/>
@@ -129,7 +129,7 @@
       </sourceConnections>
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
-    <children xsi:type="editmodel:ClassEditModel" name="ComandoAyuda" location="439,732" size="196,158" id="comandos/ComandoAyuda">
+    <children xsi:type="editmodel:ClassEditModel" name="ComandoAyuda" location="439,732" size="196,158" id="comandos/ComandoAyuda" runTimeClassModel="ComandoAyuda(Ljava.util.ArrayList;),obtenerAyuda(),getInformacionInstruccion(),execute(),configurarContexto(Lprincipal.Presentador;),parse(Ljava.lang.String;)">
       <children xsi:type="editmodel:CompartmentEditModel"/>
       <children xsi:type="editmodel:CompartmentEditModel" size="173,108">
         <children xsi:type="editmodel:MethodEditModel" name="ComandoAyuda" id="comandos/ComandoAyuda#ComandoAyuda(Ljava.util.ArrayList;)"/>
@@ -146,7 +146,7 @@
       </sourceConnections>
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
-    <children xsi:type="editmodel:ClassEditModel" name="ComandoCambiaPinon" location="439,223" size="211,158" id="comandos/ComandoCambiaPinon">
+    <children xsi:type="editmodel:ClassEditModel" name="ComandoCambiaPinon" location="439,223" size="211,158" id="comandos/ComandoCambiaPinon" runTimeClassModel="obtenerAyuda(),getInformacionInstruccion(),ComandoCambiaPinon(II),execute(),configurarContexto(Lprincipal.Presentador;),parse(Ljava.lang.String;)">
       <children xsi:type="editmodel:CompartmentEditModel"/>
       <children xsi:type="editmodel:CompartmentEditModel" size="173,108">
         <children xsi:type="editmodel:MethodEditModel" name="ComandoCambiaPinon" id="comandos/ComandoCambiaPinon#ComandoCambiaPinon(II)"/>
@@ -163,7 +163,7 @@
       </sourceConnections>
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
-    <children xsi:type="editmodel:ClassEditModel" name="ComandoCambiaPlato" location="645,722" size="208,158" id="comandos/ComandoCambiaPlato">
+    <children xsi:type="editmodel:ClassEditModel" name="ComandoCambiaPlato" location="645,722" size="208,158" id="comandos/ComandoCambiaPlato" runTimeClassModel="obtenerAyuda(),getInformacionInstruccion(),ComandoCambiaPlato(II),execute(),configurarContexto(Lprincipal.Presentador;),parse(Ljava.lang.String;)">
       <children xsi:type="editmodel:CompartmentEditModel"/>
       <children xsi:type="editmodel:CompartmentEditModel" size="173,108">
         <children xsi:type="editmodel:MethodEditModel" name="ComandoCambiaPlato" id="comandos/ComandoCambiaPlato#ComandoCambiaPlato(II)"/>
@@ -180,7 +180,7 @@
       </sourceConnections>
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
-    <children xsi:type="editmodel:ClassEditModel" name="ComandoClembuterol" location="441,553" size="205,158" id="comandos/ComandoClembuterol">
+    <children xsi:type="editmodel:ClassEditModel" name="ComandoClembuterol" location="441,553" size="205,158" id="comandos/ComandoClembuterol" runTimeClassModel="ComandoClembuterol(I),obtenerAyuda(),getInformacionInstruccion(),execute(),configurarContexto(Lprincipal.Presentador;),parse(Ljava.lang.String;)">
       <children xsi:type="editmodel:CompartmentEditModel"/>
       <children xsi:type="editmodel:CompartmentEditModel" size="173,108">
         <children xsi:type="editmodel:MethodEditModel" name="ComandoClembuterol" id="comandos/ComandoClembuterol#ComandoClembuterol(I)"/>
@@ -197,7 +197,7 @@
       </sourceConnections>
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
-    <children xsi:type="editmodel:ClassEditModel" name="ComandoCurva" location="1300,727" size="196,158" id="comandos/ComandoCurva">
+    <children xsi:type="editmodel:ClassEditModel" name="ComandoCurva" location="1300,727" size="196,158" id="comandos/ComandoCurva" runTimeClassModel="ComandoCurva(II),obtenerAyuda(),getInformacionInstruccion(),execute(),configurarContexto(Lprincipal.Presentador;),parse(Ljava.lang.String;)">
       <children xsi:type="editmodel:CompartmentEditModel"/>
       <children xsi:type="editmodel:CompartmentEditModel" size="173,108">
         <children xsi:type="editmodel:MethodEditModel" name="ComandoCurva" id="comandos/ComandoCurva#ComandoCurva(II)"/>
@@ -214,7 +214,7 @@
       </sourceConnections>
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
-    <children xsi:type="editmodel:ClassEditModel" name="ComandoDesconocido" location="1619,217" size="207,158" id="comandos/ComandoDesconocido">
+    <children xsi:type="editmodel:ClassEditModel" name="ComandoDesconocido" location="1619,217" size="207,158" id="comandos/ComandoDesconocido" runTimeClassModel="obtenerAyuda(),getInformacionInstruccion(),ComandoDesconocido(),execute(),configurarContexto(Lprincipal.Presentador;),parse(Ljava.lang.String;)">
       <children xsi:type="editmodel:CompartmentEditModel"/>
       <children xsi:type="editmodel:CompartmentEditModel" size="173,108">
         <children xsi:type="editmodel:MethodEditModel" name="ComandoDesconocido" id="comandos/ComandoDesconocido#ComandoDesconocido()"/>
@@ -226,12 +226,12 @@
       </children>
       <children xsi:type="editmodel:CompartmentEditModel"/>
       <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="comandos/InterfazCommand&lt;-comandos/ComandoDesconocido" source="//@children.1/@children.8" target="//@children.1/@children.0" targetEnd="//@children.1/@children.8/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@children.8/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
-        <children xsi:type="editmodel:AssociationEndEditModel" location="0,41" attachSource="true"/>
-        <children xsi:type="editmodel:AssociationEndEditModel" location="206,112"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="0,40" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="206,111"/>
       </sourceConnections>
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
-    <children xsi:type="editmodel:ClassEditModel" name="ComandoFrenar" location="1524,733" size="196,158" id="comandos/ComandoFrenar">
+    <children xsi:type="editmodel:ClassEditModel" name="ComandoFrenar" location="1524,733" size="196,158" id="comandos/ComandoFrenar" runTimeClassModel="obtenerAyuda(),getInformacionInstruccion(),ComandoFrenar(ID),execute(),configurarContexto(Lprincipal.Presentador;),parse(Ljava.lang.String;)">
       <children xsi:type="editmodel:CompartmentEditModel"/>
       <children xsi:type="editmodel:CompartmentEditModel" size="173,108">
         <children xsi:type="editmodel:MethodEditModel" name="ComandoFrenar" id="comandos/ComandoFrenar#ComandoFrenar(ID)"/>
@@ -248,7 +248,7 @@
       </sourceConnections>
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
-    <children xsi:type="editmodel:ClassEditModel" name="ComandoIncompleto" location="879,713" size="196,176" id="comandos/ComandoIncompleto">
+    <children xsi:type="editmodel:ClassEditModel" name="ComandoIncompleto" location="879,713" size="196,176" id="comandos/ComandoIncompleto" runTimeClassModel="ayudacomando,ComandoIncompleto(Ljava.lang.String;),obtenerAyuda(),getInformacionInstruccion(),execute(),configurarContexto(Lprincipal.Presentador;),parse(Ljava.lang.String;)">
       <children xsi:type="editmodel:CompartmentEditModel" size="143,18">
         <children xsi:type="editmodel:AttributeEditModel" name="ayudacomando" id="comandos/ComandoIncompleto#ayudacomando"/>
       </children>
@@ -267,7 +267,7 @@
       </sourceConnections>
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
-    <children xsi:type="editmodel:ClassEditModel" name="ComandoMeta" location="1951,580" size="196,140" id="comandos/ComandoMeta">
+    <children xsi:type="editmodel:ClassEditModel" name="ComandoMeta" location="1951,580" size="196,140" id="comandos/ComandoMeta" runTimeClassModel="obtenerAyuda(),getInformacionInstruccion(),execute(),configurarContexto(Lprincipal.Presentador;),parse(Ljava.lang.String;)">
       <children xsi:type="editmodel:CompartmentEditModel"/>
       <children xsi:type="editmodel:CompartmentEditModel" size="173,90">
         <children xsi:type="editmodel:MethodEditModel" name="configurarContexto" id="comandos/ComandoMeta#configurarContexto(Lprincipal.Presentador;)"/>
@@ -283,7 +283,7 @@
       </sourceConnections>
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
-    <children xsi:type="editmodel:ClassEditModel" name="ComandoNinguno" location="1097,727" size="196,158" id="comandos/ComandoNinguno">
+    <children xsi:type="editmodel:ClassEditModel" name="ComandoNinguno" location="1097,727" size="196,158" id="comandos/ComandoNinguno" runTimeClassModel="obtenerAyuda(),getInformacionInstruccion(),execute(),ComandoNinguno(),configurarContexto(Lprincipal.Presentador;),parse(Ljava.lang.String;)">
       <children xsi:type="editmodel:CompartmentEditModel"/>
       <children xsi:type="editmodel:CompartmentEditModel" size="173,108">
         <children xsi:type="editmodel:MethodEditModel" name="ComandoNinguno" id="comandos/ComandoNinguno#ComandoNinguno()"/>
@@ -300,7 +300,7 @@
       </sourceConnections>
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
-    <children xsi:type="editmodel:ClassEditModel" name="ComandoPendiente" location="1949,388" size="196,158" id="comandos/ComandoPendiente">
+    <children xsi:type="editmodel:ClassEditModel" name="ComandoPendiente" location="1949,388" size="196,158" id="comandos/ComandoPendiente" runTimeClassModel="ComandoPendiente(II),obtenerAyuda(),getInformacionInstruccion(),execute(),configurarContexto(Lprincipal.Presentador;),parse(Ljava.lang.String;)">
       <children xsi:type="editmodel:CompartmentEditModel"/>
       <children xsi:type="editmodel:CompartmentEditModel" size="173,108">
         <children xsi:type="editmodel:MethodEditModel" name="ComandoPendiente" id="comandos/ComandoPendiente#ComandoPendiente(II)"/>
@@ -317,7 +317,7 @@
       </sourceConnections>
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
-    <children xsi:type="editmodel:ClassEditModel" name="ComandoViento" location="453,385" size="196,158" id="comandos/ComandoViento">
+    <children xsi:type="editmodel:ClassEditModel" name="ComandoViento" location="453,385" size="196,158" id="comandos/ComandoViento" runTimeClassModel="obtenerAyuda(),getInformacionInstruccion(),ComandoViento(Ljava.lang.String;Ljava.lang.String;),execute(),configurarContexto(Lprincipal.Presentador;),parse(Ljava.lang.String;)">
       <children xsi:type="editmodel:CompartmentEditModel"/>
       <children xsi:type="editmodel:CompartmentEditModel" size="173,108">
         <children xsi:type="editmodel:MethodEditModel" name="ComandoViento" id="comandos/ComandoViento#ComandoViento(Ljava.lang.String;Ljava.lang.String;)"/>
@@ -334,7 +334,7 @@
       </sourceConnections>
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
-    <children xsi:type="editmodel:ClassEditModel" name="Parser" location="804,84" size="92,86" id="comandos/Parser">
+    <children xsi:type="editmodel:ClassEditModel" name="Parser" location="804,84" size="92,86" id="comandos/Parser" runTimeClassModel="Parser(),parse(Ljava.lang.String;)">
       <children xsi:type="editmodel:CompartmentEditModel"/>
       <children xsi:type="editmodel:CompartmentEditModel" size="64,36">
         <children xsi:type="editmodel:MethodEditModel" name="Parser" id="comandos/Parser#Parser()"/>
@@ -345,7 +345,7 @@
     </children>
   </children>
   <children xsi:type="editmodel:PackageEditModel" name="constantes" location="2352,224" size="644,1240" id="constantes">
-    <children xsi:type="editmodel:ClassEditModel" name="Constantes" location="257,145" size="257,1138" id="constantes/Constantes">
+    <children xsi:type="editmodel:ClassEditModel" name="Constantes" location="257,145" size="257,1138" id="constantes/Constantes" runTimeClassModel="pLATO_MENOS,aNCHO_TEXTBOX,aNCHO_PANEL_CICLISTA,vIENTO_NULO,nUM_DECIMALES,nUM_PINONES,fUERZA_G,fUERZA_CICLISTA1,fUERZA_CICLISTA0,nUM_PIN_4,nUM_PIN_3,nUM_PIN_5,sUBIR,cONSTANTE_EOLO,nUM_PLATOS,dISTANCIA_FRENADO,vIENTO_A_FAVOR,fACTORVIENTO,nUM_PIN_0,vIENTO_EN_CONTRA,pINON_MENOS,nUM_PIN_1,nUM_PIN_2,fICHERO_DE_COMANDOS,fUERZA_CICLISTA4,aLTO_PANEL_CICLISTA,pLATO_MAS,fUERZA_CICLISTA5,fUERZA_CICLISTA2,fUERZA_CICLISTA3,aNCHO_BOTON,nUM_PLA_1,aNCHO_PUNTO_CICLISTA,nUM_PLA_2,aLTO_TEXTBOX,cADENCIA_MENOS,nUM_PLA_0,cADENCIA_MAS,fACTORESCALA,x_INICIAL,fRENO_MENOS,iMPULSO_RELOJ_SEGUNDOS,pINON_MAS,y_INICIAL,fACTORPENDIENTE,fRENO_MAS,cOLOR_CIC_0,aLTO_BOTON,cOLOR_CIC_1,mAX_CICLISTAS,cOLOR_CIC_2,cOLOR_CIC_3,cOLOR_CIC_4,mASA_BICICLETA_ESTANDAR,cOLOR_CIC_5,bAJAR,mAX_METROS_CARRETERA,aLTO_VENTANA,aNCHO_PANEL_LIENZO,aNCHO_VENTANA,iMPULSO_RELOJ_MILISEGUNDOS">
       <children xsi:type="editmodel:CompartmentEditModel" size="234,1098">
         <children xsi:type="editmodel:AttributeEditModel" name="aLTO_BOTON" id="constantes/Constantes#aLTO_BOTON"/>
         <children xsi:type="editmodel:AttributeEditModel" name="aLTO_PANEL_CICLISTA" id="constantes/Constantes#aLTO_PANEL_CICLISTA"/>
@@ -458,7 +458,7 @@
     </children>
   </children>
   <children xsi:type="editmodel:PackageEditModel" name="factoresExternos" location="401,2529" size="1604,617" id="factoresExternos">
-    <children xsi:type="editmodel:ClassEditModel" name="Carretera" location="198,159" size="222,122" id="factoresExternos/Carretera" runTimeClassModel="Carretera(Ljava.lang.String;Lbicicleta.Bicicleta;),matriz,getArbol(),arbol">
+    <children xsi:type="editmodel:ClassEditModel" name="Carretera" location="58,81" size="222,122" id="factoresExternos/Carretera" runTimeClassModel="Carretera(Ljava.lang.String;Lbicicleta.Bicicleta;),matriz,getArbol(),arbol">
       <children xsi:type="editmodel:CompartmentEditModel" size="199,36">
         <children xsi:type="editmodel:AttributeEditModel" name="arbol" id="factoresExternos/Carretera#arbol"/>
         <children xsi:type="editmodel:AttributeEditModel" name="matriz" id="factoresExternos/Carretera#matriz"/>
@@ -470,7 +470,7 @@
       <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
-    <children xsi:type="editmodel:ClassEditModel" name="Curva" location="588,248" size="136,122" id="factoresExternos/Curva" runTimeClassModel="ejecuta(),Curva(Ljava.util.ArrayList;),getArbolCurvas(),setCurva(II)">
+    <children xsi:type="editmodel:ClassEditModel" name="Curva" location="186,479" size="136,122" id="factoresExternos/Curva" runTimeClassModel="ejecuta(),Curva(Ljava.util.ArrayList;),getArbolCurvas(),setCurva(II)">
       <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
       <children xsi:type="editmodel:CompartmentEditModel" size="113,72">
         <children xsi:type="editmodel:MethodEditModel" name="Curva" id="factoresExternos/Curva#Curva(Ljava.util.ArrayList;)"/>
@@ -485,7 +485,7 @@
       </sourceConnections>
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
-    <children xsi:type="editmodel:ClassEditModel" name="Pendiente" location="744,248" size="125,140" id="factoresExternos/Pendiente" runTimeClassModel="ejecuta(),Pendiente(Ljava.util.ArrayList;),setArbol(Ljava.util.TreeMap;),setPendiente(II),getArbol()">
+    <children xsi:type="editmodel:ClassEditModel" name="Pendiente" location="612,546" size="125,140" id="factoresExternos/Pendiente" runTimeClassModel="ejecuta(),Pendiente(Ljava.util.ArrayList;),setArbol(Ljava.util.TreeMap;),setPendiente(II),getArbol()">
       <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
       <children xsi:type="editmodel:CompartmentEditModel" size="102,90">
         <children xsi:type="editmodel:MethodEditModel" name="Pendiente" id="factoresExternos/Pendiente#Pendiente(Ljava.util.ArrayList;)"/>
@@ -501,7 +501,7 @@
       </sourceConnections>
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
-    <children xsi:type="editmodel:ClassEditModel" name="Viento" location="744,248" size="108,140" id="factoresExternos/Viento" runTimeClassModel="ejecuta(),viento,getViento(Ljava.lang.String;),setViento(Ljava.lang.String;Ljava.lang.String;),Viento(Ljava.util.ArrayList;Ltiempo.Reloj;)">
+    <children xsi:type="editmodel:ClassEditModel" name="Viento" location="394,497" size="108,140" id="factoresExternos/Viento" runTimeClassModel="ejecuta(),viento,setViento(Ljava.lang.String;Ljava.lang.String;),Viento(Ljava.util.ArrayList;Ltiempo.Reloj;),getViento(Ljava.lang.String;)">
       <children xsi:type="editmodel:CompartmentEditModel" size="85,18">
         <children xsi:type="editmodel:AttributeEditModel" name="viento" id="factoresExternos/Viento#viento"/>
       </children>
@@ -520,7 +520,7 @@
     </children>
   </children>
   <children xsi:type="editmodel:PackageEditModel" name="interfaceMain" location="4585,659" size="1163,676" id="interfaceMain">
-    <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.4/@children.1/@sourceConnections.0 //@children.6/@children.0/@sourceConnections.1 //@children.9/@children.2/@sourceConnections.1 //@children.10/@children.0/@sourceConnections.0 //@children.10/@children.2/@sourceConnections.0" name="InterfaceEjecuta" location="199,157" size="165,81" id="interfaceMain/InterfaceEjecuta">
+    <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.4/@children.1/@sourceConnections.0 //@children.6/@children.0/@sourceConnections.1 //@children.9/@children.2/@sourceConnections.1 //@children.10/@children.0/@sourceConnections.0 //@children.10/@children.2/@sourceConnections.0" name="InterfaceEjecuta" location="199,157" size="165,81" id="interfaceMain/InterfaceEjecuta" runTimeClassModel="ejecuta()">
       <children xsi:type="editmodel:CompartmentEditModel"/>
       <children xsi:type="editmodel:CompartmentEditModel" size="71,18">
         <children xsi:type="editmodel:MethodEditModel" name="ejecuta" id="interfaceMain/InterfaceEjecuta#ejecuta()"/>
@@ -528,7 +528,7 @@
       <children xsi:type="editmodel:CompartmentEditModel"/>
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
-    <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.0/@children.1/@sourceConnections.1 //@children.6/@children.0/@sourceConnections.2 //@children.9/@children.2/@sourceConnections.2" name="InterfaceSalida" location="299,157" size="158,81" id="interfaceMain/InterfaceSalida">
+    <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.0/@children.1/@sourceConnections.1 //@children.6/@children.0/@sourceConnections.2 //@children.9/@children.2/@sourceConnections.2" name="InterfaceSalida" location="299,157" size="158,81" id="interfaceMain/InterfaceSalida" runTimeClassModel="muestra()">
       <children xsi:type="editmodel:CompartmentEditModel"/>
       <children xsi:type="editmodel:CompartmentEditModel" size="75,18">
         <children xsi:type="editmodel:MethodEditModel" name="muestra" id="interfaceMain/InterfaceSalida#muestra()"/>
@@ -537,8 +537,8 @@
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
   </children>
-  <children xsi:type="editmodel:PackageEditModel" name="persona" location="2361,1745" size="1044,817" id="persona">
-    <children xsi:type="editmodel:ClassEditModel" name="Ciclista" location="369,333" size="187,428" id="persona/Ciclista" runTimeClassModel="disminuyePlato(),ejecuta(),cambiaPinon(I),cambiarPlato(C),getPinonActualBici(),identificador_ciclista,Ciclista(Lbicicleta.Bicicleta;ID),fuerzaCiclistaTotal,pedalear(D),setTiempoFreno(D),aumentaPinon(),fuerza_ciclista,cadencia,getPlatoActualBici(),cambiarPinon(C),muestra(),cantidadFreno,disminuyePinon(),muerto,cambiaPlato(I),aumentaPlato()">
+  <children xsi:type="editmodel:PackageEditModel" name="persona" location="2361,1745" size="324,449" id="persona">
+    <children xsi:type="editmodel:ClassEditModel" name="Ciclista" location="369,333" size="187,428" id="persona/Ciclista" runTimeClassModel="disminuyePlato(),ejecuta(),cambiaPinon(I),getPinonActualBici(),cambiarPlato(C),Ciclista(Lbicicleta.Bicicleta;ID),identificador_ciclista,fuerzaCiclistaTotal,pedalear(D),setTiempoFreno(D),fuerza_ciclista,cadencia,aumentaPinon(),getPlatoActualBici(),cambiarPinon(C),cantidadFreno,muestra(),disminuyePinon(),muerto,cambiaPlato(I),aumentaPlato()">
       <children xsi:type="editmodel:CompartmentEditModel" size="164,108">
         <children xsi:type="editmodel:AttributeEditModel" name="cadencia" id="persona/Ciclista#cadencia"/>
         <children xsi:type="editmodel:AttributeEditModel" name="cantidadFreno" id="persona/Ciclista#cantidadFreno"/>
@@ -599,18 +599,20 @@
       <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
-    <children xsi:type="editmodel:ClassEditModel" name="Presentador" location="563,114" size="135,86" id="principal/Presentador" runTimeClassModel="Presentador(Ljava.util.ArrayList;Ltiempo.Reloj;LfactoresExternos.Curva;LfactoresExternos.Viento;LfactoresExternos.Pendiente;),getCiclista(I)">
-      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:ClassEditModel" name="Presentador" location="563,114" size="244,104" id="principal/Presentador" runTimeClassModel="Presentador(Ljava.util.ArrayList;Ltiempo.Reloj;LfactoresExternos.Curva;LfactoresExternos.Viento;LfactoresExternos.Pendiente;),lista_de_ciclistas,getCiclista(I)">
+      <children xsi:type="editmodel:CompartmentEditModel" size="221,18">
+        <children xsi:type="editmodel:AttributeEditModel" name="lista_de_ciclistas" id="principal/Presentador#lista_de_ciclistas"/>
+      </children>
       <children xsi:type="editmodel:CompartmentEditModel" size="96,36">
         <children xsi:type="editmodel:MethodEditModel" name="Presentador" id="principal/Presentador#Presentador(Ljava.util.ArrayList;Ltiempo.Reloj;LfactoresExternos.Curva;LfactoresExternos.Viento;LfactoresExternos.Pendiente;)"/>
         <children xsi:type="editmodel:MethodEditModel" name="getCiclista" id="principal/Presentador#getCiclista(I)"/>
       </children>
       <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
-      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
   </children>
   <children xsi:type="editmodel:PackageEditModel" name="test" location="5838,158" size="1333,795" id="test">
-    <children xsi:type="editmodel:ClassEditModel" name="Test" location="722,210" size="85,86" id="test/Test">
+    <children xsi:type="editmodel:ClassEditModel" name="Test" location="722,210" size="85,86" id="test/Test" runTimeClassModel="test(),setUp()">
       <children xsi:type="editmodel:CompartmentEditModel"/>
       <children xsi:type="editmodel:CompartmentEditModel" size="62,36">
         <children xsi:type="editmodel:MethodEditModel" name="setUp" id="test/Test#setUp()"/>
@@ -667,7 +669,7 @@
       <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
     </children>
   </children>
-  <children xsi:type="editmodel:PackageEditModel" name="vista" location="3686,1838" size="768,419" id="vista">
+  <children xsi:type="editmodel:PackageEditModel" name="vista" location="3686,1838" size="380,290" id="vista">
     <children xsi:type="editmodel:ClassEditModel" name="Lienzo" location="149,83" size="94,104" id="vista/Lienzo" runTimeClassModel="ejecuta(),Lienzo(Ljava.util.ArrayList;LfactoresExternos.Pendiente;LfactoresExternos.Curva;),paint(Ljava.awt.Graphics;)">
       <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
       <children xsi:type="editmodel:CompartmentEditModel" size="71,54">
@@ -713,7 +715,9 @@
   <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=1;Product=eUML2" autoName="false"/>
   <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
     <leftRuler/>
-    <topRuler/>
+    <topRuler>
+      <guides position="4736"/>
+    </topRuler>
   </boardSetting>
-  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
 </editmodel:ClassDiagramEditModel>

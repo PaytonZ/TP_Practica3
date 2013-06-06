@@ -3,6 +3,8 @@ package vista;
 import interfaceMain.InterfaceEjecuta;
 
 import java.awt.Color;
+import java.io.FileWriter;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -507,11 +509,38 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	// A veces da este error
 	// at javax.swing.BufferStrategyPaintManager.flushAccumulatedRegion
 
-	if (!textoAnteriorScroll.equalsIgnoreCase(tFconsola.getText())) {
-	    sbrText.getVerticalScrollBar().setValue(
-		    sbrText.getVerticalScrollBar().getMaximum());
+	try
+	{
+	    if (!textoAnteriorScroll.equalsIgnoreCase(tFconsola.getText())) {
+		    sbrText.getVerticalScrollBar().setValue(
+			    sbrText.getVerticalScrollBar().getMaximum());
+		}
+		textoAnteriorScroll = tFconsola.getText();
 	}
-	textoAnteriorScroll = tFconsola.getText();
+	catch(Exception e)
+	{
+	
+	    
+	    try{
+		 
+		      //Creamos un Nuevo objeto FileWriter dandole
+		      //como parámetros la ruta y nombre del fichero
+		      FileWriter fichero = new FileWriter("log.txt",true);
+
+		      //Insertamos el texto creado y si trabajamos
+		      //en Windows terminaremos cada línea con "\r\n"
+		      java.util.Date fecha = new Date();
+		
+		      fichero.write(fecha + " " + e.getMessage() +"\r\n");
+
+		      //cerramos el fichero
+		      fichero.close();
+
+		    }catch(Exception ex){
+		      ex.printStackTrace();
+		    }
+	}
+	 
     }
 
     private void init() {

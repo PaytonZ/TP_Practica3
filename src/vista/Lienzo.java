@@ -190,8 +190,8 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 		//g.drawLine(x, y, (tramofin.getKey() / max)*Constantes.ANCHO_VENTANA, y	
 		//	- tramoini.getValue());
 		g.drawLine((int)x_aux, y, (int)((tramofin.getKey()/(double)max)*Constantes.ANCHO_PANEL_LIENZO), y - tramoini.getValue());
-		System.out.println(x_aux);
-		System.out.println((int)((tramofin.getKey()/(double)max)*Constantes.ANCHO_PANEL_LIENZO));
+		//System.out.println(x_aux);
+		//System.out.println((int)((tramofin.getKey()/(double)max)*Constantes.ANCHO_PANEL_LIENZO));
 		
 		// pintamos el cielo
 		Polygon polygonCielo;
