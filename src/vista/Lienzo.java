@@ -83,7 +83,13 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	// matriz = entrada.convertirAArrayFichero("carretera.txt", ":;");
 
     }
-
+/**
+ * Este metodo calcula la y correspondiente al punto x del ciclista, para asi pintarlo encima de la linea de la
+ * carretera
+ * @param cic
+ * @param ar
+ * @return
+ */
     private int calculaYparaPuntoCiclista(Ciclista cic,
 	    TreeMap<Integer, Integer> ar) {
 	int yresu = 0;
@@ -229,12 +235,14 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	while (itcurva.hasNext()) {
 	    Entry<Integer, Integer> tramocurva = itcurva.next();
 	    g.setColor(Color.black);
-	    g.drawLine(tramocurva.getKey(), 0, tramocurva.getKey(),
+	    double xcurva = ((double)tramocurva.getKey()/max);
+	    xcurva = xcurva * Constantes.ANCHO_PANEL_LIENZO;
+	    g.drawLine((int)xcurva, 0, (int)xcurva,
 		    Constantes.ALTO_VENTANA);
-	    g.drawString("Curva en PK " + tramocurva.getKey(),
-		    tramocurva.getKey() - 60, 30);
+	    g.drawString("Curva en metro " + tramocurva.getKey(),
+		    (int)xcurva - 60, 30);
 	    g.drawString("con velocidad maxima " + tramocurva.getValue(),
-		    tramocurva.getKey() - 80, 40);
+		    (int)xcurva - 80, 40);
 
 	}
 	// aqui se pondra la informacion del ciclista para que se vaya pintando,
