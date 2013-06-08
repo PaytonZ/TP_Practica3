@@ -13,33 +13,46 @@ public class Reloj extends Contador implements InterfaceEjecuta,
 	InterfaceSalida {
 
     /**
-	 * @uml.property  name="milisegundo"
-	 * @uml.associationEnd  multiplicity="(1 1)"
-	 */
+     * @uml.property name="milisegundo"
+     * @uml.associationEnd multiplicity="(1 1)"
+     */
     private Milisegundo milisegundo = new Milisegundo();
     /**
-	 * @uml.property  name="segundo"
-	 * @uml.associationEnd  multiplicity="(1 1)"
-	 */
+     * @uml.property name="segundo"
+     * @uml.associationEnd multiplicity="(1 1)"
+     */
     private Contador segundo = new Contador();
     /**
-	 * @uml.property  name="minuto"
-	 * @uml.associationEnd  multiplicity="(1 1)"
-	 */
+     * @uml.property name="minuto"
+     * @uml.associationEnd multiplicity="(1 1)"
+     */
     private Contador minuto = new Contador();
     /**
-	 * @uml.property  name="hora"
-	 * @uml.associationEnd  multiplicity="(1 1)"
-	 */
+     * @uml.property name="hora"
+     * @uml.associationEnd multiplicity="(1 1)"
+     */
     private Contador hora = new Contador();
     /**
-	 * @uml.property  name="ventana"
-	 * @uml.associationEnd  readOnly="true"
-	 */
+     * @uml.property name="ventana"
+     * @uml.associationEnd readOnly="true"
+     */
     private Ventana ventana;
+
+    private static Reloj RELOJ = null;
 
     public Reloj() {
 
+    }
+
+    private synchronized static void crearReloj() {
+	if (RELOJ == null) {
+	    RELOJ = new Reloj();
+	}
+    }
+
+    public static Reloj getReloj() {
+	crearReloj();
+	return RELOJ;
     }
 
     /**
@@ -136,6 +149,14 @@ public class Reloj extends Contador implements InterfaceEjecuta,
 
 	return mensaje;
 
+    }
+
+    // Override
+    // El método "clone" es sobreescrito por el siguiente que arroja una
+    // excepción:
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+	throw new CloneNotSupportedException();
     }
 
 }

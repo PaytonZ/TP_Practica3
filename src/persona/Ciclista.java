@@ -15,43 +15,42 @@ import constantes.Constantes;
 public class Ciclista extends Persona implements InterfaceEjecuta,
 	InterfaceSalida {
     /**
-	 * @uml.property  name="cadencia"
-	 */
+     * @uml.property name="cadencia"
+     */
     private double cadencia; // numero de pedaladas por segundo
     /**
-	 * @uml.property  name="bici"
-	 * @uml.associationEnd  multiplicity="(1 1)"
-	 */
+     * @uml.property name="bici"
+     * @uml.associationEnd multiplicity="(1 1)"
+     */
     private Bicicleta bici;
     /**
-	 * @uml.property  name="identificador_ciclista"
-	 */
+     * @uml.property name="identificador_ciclista"
+     */
     private int identificador_ciclista;
     /**
-	 * @uml.property  name="fuerza_ciclista"
-	 */
+     * @uml.property name="fuerza_ciclista"
+     */
     private double fuerza_ciclista;
     /**
-	 * @uml.property  name="fuerzaCiclistaTotal"
-	 */
+     * @uml.property name="fuerzaCiclistaTotal"
+     */
     private double fuerzaCiclistaTotal;
 
-
     /**
-	 * @uml.property  name="tiempoFrenado"
-	 */
+     * @uml.property name="tiempoFrenado"
+     */
     private double tiempoFrenado;
     /**
-	 * @uml.property  name="cantidadFreno"
-	 */
+     * @uml.property name="cantidadFreno"
+     */
     private double cantidadFreno;
     /**
-	 * @uml.property  name="muerto"
-	 */
+     * @uml.property name="muerto"
+     */
     private boolean muerto;
     /**
-	 * @uml.property  name="cadenciaaux"
-	 */
+     * @uml.property name="cadenciaaux"
+     */
     private double cadenciaaux;
 
     public Ciclista(Bicicleta nueva_bici, int id, double fuerza) {
@@ -61,9 +60,9 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	cantidadFreno = 0;
 	tiempoFrenado = 0;
 	fuerza_ciclista = fuerza;
-	fuerzaCiclistaTotal=fuerza;
+	fuerzaCiclistaTotal = fuerza;
 	muerto = false;
-	cadenciaaux=0;
+	cadenciaaux = 0;
     }
 
     public void aumentaPinon() {
@@ -147,63 +146,64 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	    pedalear(cadencia);
 	    bici.calculaEspacioRecorrido();
 	    bici.calculaVelocidadActual();
-	    	
-	   /* double espacioporpedalada = bici.getRecorridoLinealDeLaRueda()
-			* bici.getRelacionTransmision();
-	    cadenciaaux =+cadencia;
-	    
-	    bici.acelerarbici(espacioporpedalada);*/
-	    
-	    
-	    
-	    
+
+	    /*
+	     * double espacioporpedalada = bici.getRecorridoLinealDeLaRueda()
+	     * bici.getRelacionTransmision(); cadenciaaux =+cadencia;
+	     * 
+	     * bici.acelerarbici(espacioporpedalada);
+	     */
+
 	    if (tiempoFrenado > 0) {
 		bici.frenar((float) cantidadFreno);
 		tiempoFrenado--;
 	    }
-	    
-	 
+
 	    // Modificado para que se acabe la fuerza en ejecucion
 	    // fuerza_ciclista -= ((masa + getBici().getMasa()) * getBici()
 	    // .getVelocidad()) / 10;
 	    setFuerza_ciclista(fuerza_ciclista
 		    - (((masa + getBici().getMasa()) * getBici().getVelocidad()) / 5));
-	   
+
 	} else {
 	    bici.setVelocidad(0);
 	}
     }
 
     /**
-	 * devuelve la bicicleta usada por el ciclista
-	 * @return  the bici
-	 * @uml.property  name="bici"
-	 */
+     * devuelve la bicicleta usada por el ciclista
+     * 
+     * @return the bici
+     * @uml.property name="bici"
+     */
     public Bicicleta getBici() {
 	return bici;
     }
 
     /**
-	 * @return
-	 * @uml.property  name="cadencia"
-	 */
+     * @return
+     * @uml.property name="cadencia"
+     */
     public double getCadencia() {
 	return cadencia;
     }
 
     /**
-	 * @return  the fuerza_ciclista
-	 * @uml.property  name="fuerza_ciclista"
-	 */
+     * @return the fuerza_ciclista
+     * @uml.property name="fuerza_ciclista"
+     */
     public double getFuerza_ciclista() {
 	return fuerza_ciclista;
     }
 
     /**
-	 * este metodo esta heredado de la clase InterfazSalida, y todo lo que haya en el, se mostrara cuando se realice el for each de la lista correspondiente
-	 * @return
-	 * @uml.property  name="identificador_ciclista"
-	 */
+     * este metodo esta heredado de la clase InterfazSalida, y todo lo que haya
+     * en el, se mostrara cuando se realice el for each de la lista
+     * correspondiente
+     * 
+     * @return
+     * @uml.property name="identificador_ciclista"
+     */
 
     public int getIdentificador_ciclista() {
 	return identificador_ciclista;
@@ -221,7 +221,8 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     public String muestra() {
 
 	return "ciclista" + identificador_ciclista + "%" + bici.muestra()
-		+ "Fuerza:" + fuerza_ciclista +":"+fuerzaCiclistaTotal+ "#,";
+		+ "Fuerza:" + fuerza_ciclista + ":" + fuerzaCiclistaTotal
+		+ "#,";
     }
 
     /**
@@ -238,18 +239,20 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     }
 
     /**
-	 * asigna bicicleta al ciclista
-	 * @param bici  the bici to set
-	 * @uml.property  name="bici"
-	 */
+     * asigna bicicleta al ciclista
+     * 
+     * @param bici
+     *            the bici to set
+     * @uml.property name="bici"
+     */
     public void setBici(Bicicleta mibici) {
 	this.bici = mibici;
     }
 
     /**
-	 * @param nueva_cadencia
-	 * @uml.property  name="cadencia"
-	 */
+     * @param nueva_cadencia
+     * @uml.property name="cadencia"
+     */
     public void setCadencia(double nueva_cadencia) {
 	if (nueva_cadencia > 2) {
 	    nueva_cadencia = 2;
@@ -259,18 +262,21 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     }
 
     /**
-	 * @param fren
-	 * @uml.property  name="cantidadFreno"
-	 */
+     * @param fren
+     * @uml.property name="cantidadFreno"
+     */
     public void setCantidadFreno(double fren) {
 	cantidadFreno = fren;
     }
 
     /**
-	 * Si esta muerto no hace nada Si la fuerza <=0 lo mata si fuerza >0 actualiza la fuerza
-	 * @param fuerza_ciclista  the fuerza_ciclista to set
-	 * @uml.property  name="fuerza_ciclista"
-	 */
+     * Si esta muerto no hace nada Si la fuerza <=0 lo mata si fuerza >0
+     * actualiza la fuerza
+     * 
+     * @param fuerza_ciclista
+     *            the fuerza_ciclista to set
+     * @uml.property name="fuerza_ciclista"
+     */
     public void setFuerza_ciclista(double fuerza_ciclista) {
 	if (fuerza_ciclista <= 0 && !muerto) {
 	    setMuerto(true);
@@ -279,17 +285,19 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     }
 
     /**
-	 * @param identificador_ciclista  the identificador_ciclista to set
-	 * @uml.property  name="identificador_ciclista"
-	 */
+     * @param identificador_ciclista
+     *            the identificador_ciclista to set
+     * @uml.property name="identificador_ciclista"
+     */
     public void setIdentificador_ciclista(int nuevo_identificador_ciclista) {
 	identificador_ciclista = nuevo_identificador_ciclista;
     }
 
     /**
-	 * @param muerto  the muerto to set
-	 * @uml.property  name="muerto"
-	 */
+     * @param muerto
+     *            the muerto to set
+     * @uml.property name="muerto"
+     */
     public void setMuerto(boolean muerto) {
 	this.muerto = muerto;
 	this.fuerza_ciclista = 0;
@@ -298,12 +306,13 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     public void setTiempoFreno(double time) {
 	tiempoFrenado = time;
     }
+
     /**
-	 * @return  the fuerzaCiclistaTotal
-	 * @uml.property  name="fuerzaCiclistaTotal"
-	 */
+     * @return the fuerzaCiclistaTotal
+     * @uml.property name="fuerzaCiclistaTotal"
+     */
     public double getFuerzaCiclistaTotal() {
-        return fuerzaCiclistaTotal;
+	return fuerzaCiclistaTotal;
     }
 
 }

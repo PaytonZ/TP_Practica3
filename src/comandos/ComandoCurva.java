@@ -6,17 +6,17 @@ import factoresExternos.Curva;
 public class ComandoCurva implements InterfazCommand {
 
     /**
-	 * @uml.property  name="pK"
-	 */
+     * @uml.property name="pK"
+     */
     private int PK;
     /**
-	 * @uml.property  name="velMax"
-	 */
+     * @uml.property name="velMax"
+     */
     private int velMax;
     /**
-	 * @uml.property  name="curva"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="curva"
+     * @uml.associationEnd
+     */
     private Curva curva;
 
     public ComandoCurva(int miPK, int velocidadMax) {

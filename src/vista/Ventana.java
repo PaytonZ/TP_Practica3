@@ -3,6 +3,7 @@ package vista;
 import interfaceMain.InterfaceEjecuta;
 
 import java.awt.Color;
+import java.awt.Frame;
 import java.io.FileWriter;
 import java.util.Date;
 
@@ -31,141 +32,141 @@ import entradaDeDatos.Escuchador;
 public class Ventana extends JFrame implements InterfaceEjecuta {
 
     /**
-	 * @uml.property  name="comandero"
-	 * @uml.associationEnd  multiplicity="(1 1)"
-	 */
+     * @uml.property name="comandero"
+     * @uml.associationEnd multiplicity="(1 1)"
+     */
     private Comandero comandero;
 
     private static final long serialVersionUID = -8170475180669923771L;
 
     /**
-	 * @uml.property  name="contentPane"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="contentPane"
+     * @uml.associationEnd
+     */
     private JPanel contentPane;
     /**
-	 * @uml.property  name="contentPrincipal"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="contentPrincipal"
+     * @uml.associationEnd
+     */
     private JPanel contentPrincipal;
     /**
-	 * @uml.property  name="contentLienzo"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="contentLienzo"
+     * @uml.associationEnd
+     */
     private JPanel contentLienzo;
     /**
-	 * @uml.property  name="tFreloj"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="tFreloj"
+     * @uml.associationEnd
+     */
     private JTextField tFreloj;
     /**
-	 * @uml.property  name="tFcomando"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="tFcomando"
+     * @uml.associationEnd
+     */
     private JTextField tFcomando;
     /**
-	 * @uml.property  name="tFconsola"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="tFconsola"
+     * @uml.associationEnd
+     */
     private JTextArea tFconsola;
     /**
-	 * @uml.property  name="cadena"
-	 */
+     * @uml.property name="cadena"
+     */
     private String cadena;
 
     /**
-	 * @uml.property  name="lblComandos"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="lblComandos"
+     * @uml.associationEnd
+     */
     private JLabel lblComandos;
     /**
-	 * @uml.property  name="lblTiempo"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="lblTiempo"
+     * @uml.associationEnd
+     */
     private JLabel lblTiempo;
     /**
-	 * @uml.property  name="lblconsola"
-	 * @uml.associationEnd  readOnly="true"
-	 */
+     * @uml.property name="lblconsola"
+     * @uml.associationEnd readOnly="true"
+     */
     private JLabel lblconsola;
     /**
-	 * @uml.property  name="sbrText"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="sbrText"
+     * @uml.associationEnd
+     */
     private JScrollPane sbrText;
     /**
-	 * @uml.property  name="lienzo"
-	 * @uml.associationEnd  multiplicity="(1 1)"
-	 */
+     * @uml.property name="lienzo"
+     * @uml.associationEnd multiplicity="(1 1)"
+     */
     private Lienzo lienzo;
     /**
-	 * @uml.property  name="escuchador"
-	 * @uml.associationEnd  multiplicity="(1 1)"
-	 */
+     * @uml.property name="escuchador"
+     * @uml.associationEnd multiplicity="(1 1)"
+     */
     private Escuchador escuchador;
     /**
-	 * @uml.property  name="textoAnteriorScroll"
-	 */
+     * @uml.property name="textoAnteriorScroll"
+     */
     private String textoAnteriorScroll;
 
     /**
-	 * @uml.property  name="textAreas"
-	 * @uml.associationEnd  multiplicity="(0 -1)"
-	 */
+     * @uml.property name="textAreas"
+     * @uml.associationEnd multiplicity="(0 -1)"
+     */
     private JTextArea textAreas[];
     /**
-	 * @uml.property  name="lblCiclistas"
-	 * @uml.associationEnd  multiplicity="(0 -1)"
-	 */
+     * @uml.property name="lblCiclistas"
+     * @uml.associationEnd multiplicity="(0 -1)"
+     */
     private JLabel lblCiclistas[];
     /**
-	 * @uml.property  name="botonAumCad"
-	 * @uml.associationEnd  multiplicity="(0 -1)"
-	 */
+     * @uml.property name="botonAumCad"
+     * @uml.associationEnd multiplicity="(0 -1)"
+     */
     private JButton botonAumCad[];
     /**
-	 * @uml.property  name="botonDisCad"
-	 * @uml.associationEnd  multiplicity="(0 -1)"
-	 */
+     * @uml.property name="botonDisCad"
+     * @uml.associationEnd multiplicity="(0 -1)"
+     */
     private JButton botonDisCad[];
     /**
-	 * @uml.property  name="botonDisPin"
-	 * @uml.associationEnd  multiplicity="(0 -1)"
-	 */
+     * @uml.property name="botonDisPin"
+     * @uml.associationEnd multiplicity="(0 -1)"
+     */
     private JButton botonDisPin[];
     /**
-	 * @uml.property  name="botonAumPin"
-	 * @uml.associationEnd  multiplicity="(0 -1)"
-	 */
+     * @uml.property name="botonAumPin"
+     * @uml.associationEnd multiplicity="(0 -1)"
+     */
     private JButton botonAumPin[];
     /**
-	 * @uml.property  name="botonDisPla"
-	 * @uml.associationEnd  multiplicity="(0 -1)"
-	 */
+     * @uml.property name="botonDisPla"
+     * @uml.associationEnd multiplicity="(0 -1)"
+     */
     private JButton botonDisPla[];
     /**
-	 * @uml.property  name="botonAumPla"
-	 * @uml.associationEnd  multiplicity="(0 -1)"
-	 */
+     * @uml.property name="botonAumPla"
+     * @uml.associationEnd multiplicity="(0 -1)"
+     */
     private JButton botonAumPla[];
     /**
-	 * @uml.property  name="botonFrenaPoco"
-	 * @uml.associationEnd  multiplicity="(0 -1)"
-	 */
+     * @uml.property name="botonFrenaPoco"
+     * @uml.associationEnd multiplicity="(0 -1)"
+     */
     private JButton botonFrenaPoco[];
     /**
-	 * @uml.property  name="botonFrenaMas"
-	 * @uml.associationEnd  multiplicity="(0 -1)"
-	 */
+     * @uml.property name="botonFrenaMas"
+     * @uml.associationEnd multiplicity="(0 -1)"
+     */
     private JButton botonFrenaMas[];
     /**
-	 * @uml.property  name="color" multiplicity="(0 -1)" dimension="1"
-	 */
+     * @uml.property name="color" multiplicity="(0 -1)" dimension="1"
+     */
     private Color color[];
     /**
-	 * @uml.property  name="barras"
-	 * @uml.associationEnd  multiplicity="(0 -1)"
-	 */
+     * @uml.property name="barras"
+     * @uml.associationEnd multiplicity="(0 -1)"
+     */
     private JProgressBar barras[];
 
     public Ventana(Comandero nuevo_comandero, Lienzo lien) {
@@ -222,7 +223,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     private void crearGUI() {
 
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	setExtendedState(JFrame.MAXIMIZED_BOTH);
+	setExtendedState(Frame.MAXIMIZED_BOTH);
 	setBounds(0, 0, Constantes.ANCHO_VENTANA, Constantes.ALTO_VENTANA);
 
 	contentPrincipal = crearJPanel(contentPrincipal, 0, 0, 0, 0);
@@ -232,9 +233,13 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 		Constantes.ANCHO_VENTANA, Constantes.ALTO_VENTANA / 2);
 
 	colocarJPanelEnJPanel(contentPane, contentPrincipal);
-	
+
 	contentLienzo = crearJPanel(contentPrincipal, 0,
-		contentPane.getHeight(), Constantes.ANCHO_VENTANA/2, //Modificado para pruebas de lienzo
+		contentPane.getHeight(), Constantes.ANCHO_VENTANA / 2, // Modificado
+								       // para
+								       // pruebas
+								       // de
+								       // lienzo
 		Constantes.ALTO_VENTANA / 2);
 	colocarJPanelEnJPanel(contentLienzo, contentPrincipal);
 
@@ -509,38 +514,34 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	// A veces da este error
 	// at javax.swing.BufferStrategyPaintManager.flushAccumulatedRegion
 
-	try
-	{
+	try {
 	    if (!textoAnteriorScroll.equalsIgnoreCase(tFconsola.getText())) {
-		    sbrText.getVerticalScrollBar().setValue(
-			    sbrText.getVerticalScrollBar().getMaximum());
-		}
-		textoAnteriorScroll = tFconsola.getText();
+		sbrText.getVerticalScrollBar().setValue(
+			sbrText.getVerticalScrollBar().getMaximum());
+	    }
+	    textoAnteriorScroll = tFconsola.getText();
+	} catch (Exception e) {
+
+	    try {
+
+		// Creamos un Nuevo objeto FileWriter dandole
+		// como parámetros la ruta y nombre del fichero
+		FileWriter fichero = new FileWriter("log.txt", true);
+
+		// Insertamos el texto creado y si trabajamos
+		// en Windows terminaremos cada línea con "\r\n"
+		java.util.Date fecha = new Date();
+
+		fichero.write(fecha + " " + e.getMessage() + "\r\n");
+
+		// cerramos el fichero
+		fichero.close();
+
+	    } catch (Exception ex) {
+		ex.printStackTrace();
+	    }
 	}
-	catch(Exception e)
-	{
-	
-	    
-	    try{
-		 
-		      //Creamos un Nuevo objeto FileWriter dandole
-		      //como parámetros la ruta y nombre del fichero
-		      FileWriter fichero = new FileWriter("log.txt",true);
 
-		      //Insertamos el texto creado y si trabajamos
-		      //en Windows terminaremos cada línea con "\r\n"
-		      java.util.Date fecha = new Date();
-		
-		      fichero.write(fecha + " " + e.getMessage() +"\r\n");
-
-		      //cerramos el fichero
-		      fichero.close();
-
-		    }catch(Exception ex){
-		      ex.printStackTrace();
-		    }
-	}
-	 
     }
 
     private void init() {
@@ -550,11 +551,14 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
     private String obtenFuerzadelMensaje(String mensaje, int id) {
 	if (mensaje.contains("Fuerza:")) {
 	    String fuerza = mensaje.substring(mensaje.indexOf(":") + 1);
-	    String fuerza_res=fuerza.substring(0, fuerza.indexOf(":"));
-	    double fuerza_restante= Double.parseDouble(fuerza_res);
-	    double fuerza_inicial= Double.parseDouble(fuerza.substring(fuerza.indexOf(":")+1));
-	    String mensajeBarra= String.valueOf((fuerza_restante/fuerza_inicial) * 100);
-	    barras[id].setValue((int) ((fuerza_restante/fuerza_inicial) * 10000));
+	    String fuerza_res = fuerza.substring(0, fuerza.indexOf(":"));
+	    double fuerza_restante = Double.parseDouble(fuerza_res);
+	    double fuerza_inicial = Double.parseDouble(fuerza.substring(fuerza
+		    .indexOf(":") + 1));
+	    String mensajeBarra = String
+		    .valueOf((fuerza_restante / fuerza_inicial) * 100);
+	    barras[id]
+		    .setValue((int) ((fuerza_restante / fuerza_inicial) * 10000));
 	    if (fuerza_res.length() > 3)
 		barras[id].setString(mensajeBarra.substring(0, 4) + "%");
 	    else

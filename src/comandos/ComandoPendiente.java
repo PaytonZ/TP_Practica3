@@ -9,26 +9,26 @@ import factoresExternos.Pendiente;
 public class ComandoPendiente implements InterfazCommand {
 
     /**
-	 * @uml.property  name="pK"
-	 */
+     * @uml.property name="pK"
+     */
     private int PK;
     /**
-	 * @uml.property  name="pend"
-	 */
+     * @uml.property name="pend"
+     */
     private int pend;
     /**
-	 * @uml.property  name="pendiente"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="pendiente"
+     * @uml.associationEnd
+     */
     private Pendiente pendiente;
     /**
-	 * @uml.property  name="identificador_ciclista"
-	 */
+     * @uml.property name="identificador_ciclista"
+     */
     private int identificador_ciclista;
     /**
-	 * @uml.property  name="ciclista"
-	 * @uml.associationEnd  readOnly="true"
-	 */
+     * @uml.property name="ciclista"
+     * @uml.associationEnd readOnly="true"
+     */
     private Ciclista ciclista;
 
     public ComandoPendiente(int miPK, int mipend) {

@@ -34,37 +34,37 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 
     private static final long serialVersionUID = 1L;
     /**
-	 * @uml.property  name="contentPane"
-	 * @uml.associationEnd  multiplicity="(1 1)"
-	 */
+     * @uml.property name="contentPane"
+     * @uml.associationEnd multiplicity="(1 1)"
+     */
     private JPanel contentPane;
     /**
-	 * @uml.property  name="entrada"
-	 * @uml.associationEnd  multiplicity="(1 1)"
-	 */
+     * @uml.property name="entrada"
+     * @uml.associationEnd multiplicity="(1 1)"
+     */
     private EntradaFichero entrada;
     /**
-	 * @uml.property  name="g"
-	 */
+     * @uml.property name="g"
+     */
     private Graphics g;
     /**
-	 * @uml.property  name="lista_de_ciclistas"
-	 */
+     * @uml.property name="lista_de_ciclistas"
+     */
     private ArrayList<Ciclista> lista_de_ciclistas;
     /**
-	 * @uml.property  name="pendiente"
-	 * @uml.associationEnd  multiplicity="(1 1)"
-	 */
+     * @uml.property name="pendiente"
+     * @uml.associationEnd multiplicity="(1 1)"
+     */
     private Pendiente pendiente;
     /**
-	 * @uml.property  name="arbol"
-	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.Integer"
-	 */
+     * @uml.property name="arbol"
+     * @uml.associationEnd multiplicity="(0 -1)" elementType="java.lang.Integer"
+     */
     private TreeMap<Integer, Integer> arbol;
     /**
-	 * @uml.property  name="curva"
-	 * @uml.associationEnd  multiplicity="(1 1)"
-	 */
+     * @uml.property name="curva"
+     * @uml.associationEnd multiplicity="(1 1)"
+     */
     private Curva curva;
 
     public Lienzo(ArrayList<Ciclista> micic, Pendiente pen, Curva curv) {
@@ -73,7 +73,9 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	lista_de_ciclistas = micic;
 	contentPane = new JPanel();
 	contentPane.setLayout(null);
-	setBounds(0, 0, Constantes.ANCHO_PANEL_LIENZO, Constantes.ALTO_VENTANA / 2);//Modificado para pruebas de lienzo
+	setBounds(0, 0, Constantes.ANCHO_PANEL_LIENZO,
+		Constantes.ALTO_VENTANA / 2);// Modificado para pruebas de
+					     // lienzo
 
 	entrada = new EntradaFichero();
 	pendiente = pen;
@@ -83,13 +85,15 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	// matriz = entrada.convertirAArrayFichero("carretera.txt", ":;");
 
     }
-/**
- * Este metodo calcula la y correspondiente al punto x del ciclista, para asi pintarlo encima de la linea de la
- * carretera
- * @param cic
- * @param ar
- * @return
- */
+
+    /**
+     * Este metodo calcula la y correspondiente al punto x del ciclista, para
+     * asi pintarlo encima de la linea de la carretera
+     * 
+     * @param cic
+     * @param ar
+     * @return
+     */
     private int calculaYparaPuntoCiclista(Ciclista cic,
 	    TreeMap<Integer, Integer> ar) {
 	int yresu = 0;
@@ -176,7 +180,7 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	int yfin = 0;
 	double x_aux = 0;
 	int i = 0;
-	int max=arbol.lastEntry().getKey();
+	int max = arbol.lastEntry().getKey();
 	Iterator<Entry<Integer, Integer>> it = arbol.entrySet().iterator();
 	Iterator<Entry<Integer, Integer>> itaux = arbol.entrySet().iterator();
 	if (it.hasNext()) {
@@ -193,19 +197,28 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 		// pintamos la carretera
 
 		g.setColor(Color.BLACK);
-		//g.drawLine(x, y, (tramofin.getKey() / max)*Constantes.ANCHO_VENTANA, y	
-		//	- tramoini.getValue());
-		g.drawLine((int)x_aux, y, (int)((tramofin.getKey()/(double)max)*Constantes.ANCHO_PANEL_LIENZO), y - tramoini.getValue());
-		//System.out.println(x_aux);
-		//System.out.println((int)((tramofin.getKey()/(double)max)*Constantes.ANCHO_PANEL_LIENZO));
-		
+		// g.drawLine(x, y, (tramofin.getKey() /
+		// max)*Constantes.ANCHO_VENTANA, y
+		// - tramoini.getValue());
+		g.drawLine(
+			(int) x_aux,
+			y,
+			(int) ((tramofin.getKey() / (double) max) * Constantes.ANCHO_PANEL_LIENZO),
+			y - tramoini.getValue());
+		// System.out.println(x_aux);
+		// System.out.println((int)((tramofin.getKey()/(double)max)*Constantes.ANCHO_PANEL_LIENZO));
+
 		// pintamos el cielo
 		Polygon polygonCielo;
-		polygonCielo = creaPoligono(new Point((int)x_aux, 0),
-			new Point((int)x_aux, y - 1),
-			new Point((int)((tramofin.getKey()/(double)max)*Constantes.ANCHO_PANEL_LIENZO),
-				(y - tramoini.getValue()) - 1), new Point(
-					(int)((tramofin.getKey()/(double)max)*Constantes.ANCHO_PANEL_LIENZO), 0));
+		polygonCielo = creaPoligono(
+			new Point((int) x_aux, 0),
+			new Point((int) x_aux, y - 1),
+			new Point(
+				(int) ((tramofin.getKey() / (double) max) * Constantes.ANCHO_PANEL_LIENZO),
+				(y - tramoini.getValue()) - 1),
+			new Point(
+				(int) ((tramofin.getKey() / (double) max) * Constantes.ANCHO_PANEL_LIENZO),
+				0));
 		Polygon polygon = new Polygon();
 
 		pintaPoligono(polygonCielo, g, Color.CYAN);
@@ -213,17 +226,21 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 		// pintamos el suelo
 
 		Polygon polygonSuelo;
-		polygonSuelo = creaPoligono(new Point((int)x_aux,
-			Constantes.ALTO_VENTANA), new Point((int)x_aux, y + 1),
-			new Point((int)((tramofin.getKey()/(double)max)*Constantes.ANCHO_PANEL_LIENZO),
-				(y - tramoini.getValue()) + 1), new Point(
-					(int)((tramofin.getKey()/(double)max)*Constantes.ANCHO_PANEL_LIENZO),
+		polygonSuelo = creaPoligono(
+			new Point((int) x_aux, Constantes.ALTO_VENTANA),
+			new Point((int) x_aux, y + 1),
+			new Point(
+				(int) ((tramofin.getKey() / (double) max) * Constantes.ANCHO_PANEL_LIENZO),
+				(y - tramoini.getValue()) + 1),
+			new Point(
+				(int) ((tramofin.getKey() / (double) max) * Constantes.ANCHO_PANEL_LIENZO),
 				Constantes.ALTO_VENTANA));
 		pintaPoligono(polygonSuelo, g, Color.GREEN);
 
 		x = tramofin.getKey() / Constantes.FACTORESCALA;
 		y = y - tramoini.getValue();
-		x_aux= (tramofin.getKey()/(double)max)* Constantes.ANCHO_PANEL_LIENZO;
+		x_aux = (tramofin.getKey() / (double) max)
+			* Constantes.ANCHO_PANEL_LIENZO;
 	    }
 
 	}
@@ -235,14 +252,13 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	while (itcurva.hasNext()) {
 	    Entry<Integer, Integer> tramocurva = itcurva.next();
 	    g.setColor(Color.black);
-	    double xcurva = ((double)tramocurva.getKey()/max);
+	    double xcurva = ((double) tramocurva.getKey() / max);
 	    xcurva = xcurva * Constantes.ANCHO_PANEL_LIENZO;
-	    g.drawLine((int)xcurva, 0, (int)xcurva,
-		    Constantes.ALTO_VENTANA);
+	    g.drawLine((int) xcurva, 0, (int) xcurva, Constantes.ALTO_VENTANA);
 	    g.drawString("Curva en metro " + tramocurva.getKey(),
-		    (int)xcurva - 60, 30);
+		    (int) xcurva - 60, 30);
 	    g.drawString("con velocidad maxima " + tramocurva.getValue(),
-		    (int)xcurva - 80, 40);
+		    (int) xcurva - 80, 40);
 
 	}
 	// aqui se pondra la informacion del ciclista para que se vaya pintando,
@@ -258,7 +274,7 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	    else
 		y = calculaYparaPuntoCiclista(c, arbol);
 	    g.fillOval(
-		    (int) ((c.getBici().getEspacioRecorrido()/max)*Constantes.ANCHO_PANEL_LIENZO)
+		    (int) ((c.getBici().getEspacioRecorrido() / max) * Constantes.ANCHO_PANEL_LIENZO)
 			    - Constantes.ANCHO_PUNTO_CICLISTA / 2, y,
 		    Constantes.ANCHO_PUNTO_CICLISTA,
 		    Constantes.ANCHO_PUNTO_CICLISTA);

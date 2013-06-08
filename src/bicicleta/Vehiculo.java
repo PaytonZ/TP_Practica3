@@ -11,30 +11,30 @@ import constantes.Constantes;
 public class Vehiculo {
 
     /**
-	 * @uml.property  name="velocidad"
-	 */
+     * @uml.property name="velocidad"
+     */
     protected double velocidad;
     /**
-	 * @uml.property  name="numruedas"
-	 */
+     * @uml.property name="numruedas"
+     */
     protected int numruedas;
 
     /**
-	 * @uml.property  name="direccion"
-	 */
+     * @uml.property name="direccion"
+     */
     protected double direccion = 0;
     /**
-	 * @uml.property  name="peso"
-	 */
+     * @uml.property name="peso"
+     */
     protected double peso;
     /**
-	 * @uml.property  name="masa"
-	 */
+     * @uml.property name="masa"
+     */
     private double masa;
 
     /**
-	 * @uml.property  name="espaciorecorrido"
-	 */
+     * @uml.property name="espaciorecorrido"
+     */
     protected double espaciorecorrido;
 
     public Vehiculo(double nueva_masa) {
@@ -51,7 +51,6 @@ public class Vehiculo {
      *            nueva velocidad, despues de haber sumado el aumento a la
      *            velocidad actual
      */
-  
 
     public float calcularAceleracion(float vinicial, float vfinal, int tiempo) {
 	float aceleracion = 0;
@@ -87,27 +86,29 @@ public class Vehiculo {
     }
 
     /**
-	 * devuelve el rumbo
-	 * @return  el rumbo actual
-	 * @uml.property  name="direccion"
-	 */
+     * devuelve el rumbo
+     * 
+     * @return el rumbo actual
+     * @uml.property name="direccion"
+     */
     public double getDireccion() {
 	return direccion;
     }
 
     /**
-	 * @return  the masa
-	 * @uml.property  name="masa"
-	 */
+     * @return the masa
+     * @uml.property name="masa"
+     */
     public double getMasa() {
 	return masa;
     }
 
     /**
-	 * devuelve la velocidad actual
-	 * @return  la velocidad actual
-	 * @uml.property  name="velocidad"
-	 */
+     * devuelve la velocidad actual
+     * 
+     * @return la velocidad actual
+     * @uml.property name="velocidad"
+     */
     public double getVelocidad() {
 	return velocidad;
     }
@@ -126,9 +127,10 @@ public class Vehiculo {
     }
 
     /**
-	 * @param masa  the masa to set
-	 * @uml.property  name="masa"
-	 */
+     * @param masa
+     *            the masa to set
+     * @uml.property name="masa"
+     */
     public void setMasa(double masa) {
 	this.masa = masa;
     }

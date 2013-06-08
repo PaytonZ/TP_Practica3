@@ -6,17 +6,17 @@ import constantes.Constantes;
 
 public class ComandoCambiaPlato implements InterfazCommand {
     /**
-	 * @uml.property  name="ciclista"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="ciclista"
+     * @uml.associationEnd
+     */
     private Ciclista ciclista;
     /**
-	 * @uml.property  name="identificador_ciclista"
-	 */
+     * @uml.property name="identificador_ciclista"
+     */
     private int identificador_ciclista;
     /**
-	 * @uml.property  name="plato"
-	 */
+     * @uml.property name="plato"
+     */
     private int plato;
 
     public ComandoCambiaPlato(int nuevo_identificador_ciclista, int nuevo_plato) {

@@ -16,31 +16,32 @@ import entradaDeDatos.EntradaFichero;
 public class Carretera {
 
     /**
-	 * @uml.property  name="fichero"
-	 * @uml.associationEnd  multiplicity="(1 1)"
-	 */
+     * @uml.property name="fichero"
+     * @uml.associationEnd multiplicity="(1 1)"
+     */
     private EntradaFichero fichero;
     /**
-	 * @uml.property  name="ruta"
-	 */
+     * @uml.property name="ruta"
+     */
     private String ruta;
     /**
-	 * @uml.property  name="bici"
-	 * @uml.associationEnd  multiplicity="(1 1)" inverse="carretera:bicicleta.Bicicleta"
-	 */
+     * @uml.property name="bici"
+     * @uml.associationEnd multiplicity="(1 1)"
+     *                     inverse="carretera:bicicleta.Bicicleta"
+     */
     private Bicicleta bici;
     /**
-	 * @uml.property  name="matriz"
-	 */
+     * @uml.property name="matriz"
+     */
     private double[] matriz;
     /**
-	 * @uml.property  name="arbol"
-	 */
+     * @uml.property name="arbol"
+     */
     private TreeMap<Integer, Integer> arbol;
 
     /**
-	 * @uml.property  name="tramo"
-	 */
+     * @uml.property name="tramo"
+     */
     private int tramo;
 
     /**
@@ -70,9 +71,12 @@ public class Carretera {
     }
 
     /**
-	 * la matriz resultante es del tipo entero y su composicion es la siguiente matriz[0] = metro en el que cambia la pendiente matriz[1] =pendiente que ira desde 90 hasta -90
-	 * @uml.property  name="matriz"
-	 */
+     * la matriz resultante es del tipo entero y su composicion es la siguiente
+     * matriz[0] = metro en el que cambia la pendiente matriz[1] =pendiente que
+     * ira desde 90 hasta -90
+     * 
+     * @uml.property name="matriz"
+     */
     public double[] getMatriz() {
 
 	return matriz;

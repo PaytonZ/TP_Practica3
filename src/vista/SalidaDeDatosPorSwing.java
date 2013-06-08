@@ -18,13 +18,13 @@ public class SalidaDeDatosPorSwing {
     // este arraylist, contiene todos los objetos que se mostraran en el metodo
     // mostrarObjeto()
     /**
-	 * @uml.property  name="lista_salida"
-	 */
+     * @uml.property name="lista_salida"
+     */
     private ArrayList<InterfaceSalida> lista_salida;
     /**
-	 * @uml.property  name="miventana"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="miventana"
+     * @uml.associationEnd
+     */
     private Ventana miventana;
 
     public SalidaDeDatosPorSwing(ArrayList<InterfaceSalida> lista) {

@@ -19,47 +19,47 @@ import factoresExternos.Viento;
 @SuppressWarnings("unused")
 public class Test {
     /**
-	 * @uml.property  name="ciclista"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="ciclista"
+     * @uml.associationEnd
+     */
     private Ciclista ciclista;
     /**
-	 * @uml.property  name="reloj"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="reloj"
+     * @uml.associationEnd
+     */
     private Reloj reloj;
     /**
-	 * @uml.property  name="bici"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="bici"
+     * @uml.associationEnd
+     */
     private Bicicleta bici;
     /**
-	 * @uml.property  name="viento"
-	 * @uml.associationEnd  readOnly="true"
-	 */
+     * @uml.property name="viento"
+     * @uml.associationEnd readOnly="true"
+     */
     private Viento viento;
     /**
-	 * @uml.property  name="carretera"
-	 * @uml.associationEnd  readOnly="true"
-	 */
+     * @uml.property name="carretera"
+     * @uml.associationEnd readOnly="true"
+     */
     private Carretera carretera;
     /**
-	 * @uml.property  name="parse"
-	 * @uml.associationEnd  readOnly="true"
-	 */
+     * @uml.property name="parse"
+     * @uml.associationEnd readOnly="true"
+     */
     private Parser parse;
     /**
-	 * @uml.property  name="dientesporpinon" multiplicity="(0 -1)" dimension="1"
-	 */
+     * @uml.property name="dientesporpinon" multiplicity="(0 -1)" dimension="1"
+     */
     private int dientesporpinon[] = { 6, 5, 4, 3, 2, 1 };
     /**
-	 * @uml.property  name="dientesporplato" multiplicity="(0 -1)" dimension="1"
-	 */
+     * @uml.property name="dientesporplato" multiplicity="(0 -1)" dimension="1"
+     */
     private int dientesporplato[] = { 2, 3, 4 };
     /**
-	 * @uml.property  name="ventana"
-	 * @uml.associationEnd  readOnly="true"
-	 */
+     * @uml.property name="ventana"
+     * @uml.associationEnd readOnly="true"
+     */
     Ventana ventana;
 
     @Before

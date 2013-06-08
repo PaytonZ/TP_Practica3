@@ -21,8 +21,8 @@ import java.io.InputStreamReader;
 
 public class SuperLectura {
     /**
-	 * @uml.property  name="lectura"
-	 */
+     * @uml.property name="lectura"
+     */
     private BufferedReader lectura;
 
     /**

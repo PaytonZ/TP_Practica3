@@ -42,48 +42,49 @@ public class CiclistaManager {
     }
 
     /**
-	 * @uml.property  name="listaejecuta"
-	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="persona.Ciclista"
-	 */
+     * @uml.property name="listaejecuta"
+     * @uml.associationEnd multiplicity="(0 -1)" elementType="persona.Ciclista"
+     */
     private ArrayList<InterfaceEjecuta> listaejecuta;
     /**
-	 * @uml.property  name="listasalida"
-	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="persona.Ciclista"
-	 */
+     * @uml.property name="listasalida"
+     * @uml.associationEnd multiplicity="(0 -1)" elementType="persona.Ciclista"
+     */
     private ArrayList<InterfaceSalida> listasalida;
 
     /**
-	 * @uml.property  name="comandero"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="comandero"
+     * @uml.associationEnd
+     */
     private Comandero comandero;
     /**
-	 * @uml.property  name="output"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="output"
+     * @uml.associationEnd
+     */
     private SalidaDeDatosPorSwing output;
     /**
-	 * @uml.property  name="curva"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="curva"
+     * @uml.associationEnd
+     */
     private Curva curva;
     /**
-	 * @uml.property  name="viento"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="viento"
+     * @uml.associationEnd
+     */
     private Viento viento;
     /**
-	 * @uml.property  name="pendiente"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="pendiente"
+     * @uml.associationEnd
+     */
     private Pendiente pendiente;
 
     /**
-	 * @uml.property  name="reloj"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="reloj"
+     * @uml.associationEnd
+     */
     private Reloj reloj;
 
+    @SuppressWarnings("static-access")
     private void inicia() {
 
 	listaejecuta = new ArrayList<InterfaceEjecuta>();
@@ -112,7 +113,7 @@ public class CiclistaManager {
 	Bicicleta bici5 = new Bicicleta(dientesporpinon.length,
 		dientesporplato.length, 1, dientesporpinon, dientesporplato,
 		0.6858, Constantes.MASA_BICICLETA_ESTANDAR);
-	reloj = new Reloj();
+	reloj = new Reloj().getReloj();
 	Ciclista ciclista0 = new Ciclista(bici0, 0, Constantes.FUERZA_CICLISTA0);
 	Ciclista ciclista1 = new Ciclista(bici1, 1, Constantes.FUERZA_CICLISTA1);
 	Ciclista ciclista2 = new Ciclista(bici2, 2, Constantes.FUERZA_CICLISTA2);

@@ -20,14 +20,15 @@ import constantes.Constantes;
 public class Pendiente implements InterfaceEjecuta {
 
     /**
-	 * @uml.property  name="arbol"
-	 * @uml.associationEnd  qualifier="valueOf:java.lang.Integer java.lang.Integer"
-	 */
+     * @uml.property name="arbol"
+     * @uml.associationEnd 
+     *                     qualifier="valueOf:java.lang.Integer java.lang.Integer"
+     */
     private TreeMap<Integer, Integer> arbol;
     /**
-	 * @uml.property  name="lista_de_ciclistas"
-	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="persona.Ciclista"
-	 */
+     * @uml.property name="lista_de_ciclistas"
+     * @uml.associationEnd multiplicity="(0 -1)" elementType="persona.Ciclista"
+     */
     private ArrayList<Ciclista> lista_de_ciclistas;
 
     /**
@@ -45,10 +46,8 @@ public class Pendiente implements InterfaceEjecuta {
     @Override
     public void ejecuta() {
 
-	
-//	  si la hora actual, esta en nuestro mapa de vientos, asignaremos el
-//	 viento a las bicicletas*/
- 
+	// si la hora actual, esta en nuestro mapa de vientos, asignaremos el
+	// viento a las bicicletas*/
 
 	for (Ciclista c : lista_de_ciclistas) {
 
@@ -69,16 +68,16 @@ public class Pendiente implements InterfaceEjecuta {
 
 		    if (espacio_recorrido >= elemento.getKey()
 			    && espacio_recorrido < elemento2.getKey()) {
-			
-			
+
 			double aceleracion = Constantes.FUERZA_G;
 			double porcentaje = 100 - elemento.getValue();
-			
-			c.getBici().acelerarbici(Math.abs(aceleracion*porcentaje));
+
+			c.getBici().acelerarbici(
+				Math.abs(aceleracion * porcentaje));
 		    }
-			
-		    }
-				// este else sirva para la ultima parte del trazado ya que el
+
+		}
+		// este else sirva para la ultima parte del trazado ya que el
 		// iterador avanzaria a null y fallaria la aplicacion
 		else {
 		    // comprobamos en que metro nos encontramos del recorrido,
@@ -88,23 +87,19 @@ public class Pendiente implements InterfaceEjecuta {
 			// si la pendiente es positiva, nos afectara
 			// negativamente
 			double aceleracion = Constantes.FUERZA_G;
-			double porcentaje = - elemento.getValue();
-			
-			c.getBici().acelerarbici(aceleracion*porcentaje);
-		    }
-			
-			
+			double porcentaje = -elemento.getValue();
+
+			c.getBici().acelerarbici(aceleracion * porcentaje);
 		    }
 
 		}
-	
+
 	    }
-	
+
+	}
 
     }
-    
 
-    
     public TreeMap<Integer, Integer> getArbol() {
 	return arbol;
     }

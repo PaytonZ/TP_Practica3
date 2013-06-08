@@ -7,17 +7,17 @@ import factoresExternos.Viento;
 public class ComandoViento implements InterfazCommand {
 
     /**
-	 * @uml.property  name="viento"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="viento"
+     * @uml.associationEnd
+     */
     private Viento viento;
     /**
-	 * @uml.property  name="tipoViento"
-	 */
+     * @uml.property name="tipoViento"
+     */
     private String tipoViento;
     /**
-	 * @uml.property  name="hora"
-	 */
+     * @uml.property name="hora"
+     */
     private String hora;
 
     public ComandoViento(String mihora, String tipo) {

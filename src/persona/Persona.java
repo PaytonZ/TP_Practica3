@@ -10,19 +10,20 @@ import constantes.Constantes;
  */
 public class Persona {
     /**
-	 * @uml.property  name="peso"
-	 */
+     * @uml.property name="peso"
+     */
     protected double peso;
     /**
-	 * @uml.property  name="masa"
-	 */
+     * @uml.property name="masa"
+     */
     protected double masa;
 
     /**
-	 * devuelve el peso
-	 * @return  devuelve el peso
-	 * @uml.property  name="peso"
-	 */
+     * devuelve el peso
+     * 
+     * @return devuelve el peso
+     * @uml.property name="peso"
+     */
     public double getPeso() {
 	return peso;
     }
@@ -33,10 +34,12 @@ public class Persona {
     }
 
     /**
-	 * asigna el peso
-	 * @param el  peso
-	 * @uml.property  name="peso"
-	 */
+     * asigna el peso
+     * 
+     * @param el
+     *            peso
+     * @uml.property name="peso"
+     */
     public void setPeso(double miPeso) {
 	peso = miPeso;
     }

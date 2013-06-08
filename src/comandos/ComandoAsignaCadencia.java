@@ -6,17 +6,17 @@ import constantes.Constantes;
 
 public class ComandoAsignaCadencia implements InterfazCommand {
     /**
-	 * @uml.property  name="ciclista"
-	 * @uml.associationEnd  
-	 */
+     * @uml.property name="ciclista"
+     * @uml.associationEnd
+     */
     private Ciclista ciclista;
     /**
-	 * @uml.property  name="cadencia"
-	 */
+     * @uml.property name="cadencia"
+     */
     private double cadencia;
     /**
-	 * @uml.property  name="identificador_ciclista"
-	 */
+     * @uml.property name="identificador_ciclista"
+     */
     private int identificador_ciclista;
 
     public ComandoAsignaCadencia(double nueva_cadencia,
