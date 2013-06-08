@@ -76,7 +76,7 @@ public class Comandero implements InterfaceEjecuta, InterfaceSalida {
     @Override
     public void ejecuta() {
 
-	if (!cola_de_comandos.isEmpty()) {
+	while (!cola_de_comandos.isEmpty()) {
 	    procesarComando(cola_de_comandos.poll());
 	}
 	String comando_por_fichero = entrada_de_datos_por_fichero.leerLinea();
