@@ -259,11 +259,11 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	    double xcurva = ((double) tramocurva.getKey() / max);
 	    xcurva = xcurva * Constantes.ANCHO_PANEL_LIENZO - 1;
 	    g.drawLine((int) xcurva, 0, (int) xcurva, Constantes.ALTO_VENTANA);
-	    g.drawString("Curva " + tramocurva.getKey(),
+	    g.drawString("Curva ",
 		    (int) xcurva - 80, 30);
 	    g.drawString("metro " + tramocurva.getKey(),
 		    (int) xcurva - 80, 40);
-	    g.drawString("vel max " + tramocurva.getValue(),
+	    g.drawString("max " + tramocurva.getValue() + " m/s",
 		    (int) xcurva - 80, 50);
 
 	}
