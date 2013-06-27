@@ -14,6 +14,7 @@ import java.util.TreeMap;
 
 import javax.swing.JPanel;
 
+
 import persona.Ciclista;
 import constantes.Constantes;
 import entradaDeDatos.EntradaFichero;
@@ -51,8 +52,10 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
      * @uml.property name="lista_de_ciclistas"
      */
     private ArrayList<Ciclista> lista_de_ciclistas;
-    
-
+    /*
+     * @uml.property name="pendiente"
+     * @uml.associationEnd multiplicity="(1 1)"
+     */
     private Pendiente pendiente;
     /**
      * @uml.property name="arbol"
@@ -257,7 +260,7 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 		    (int) xcurva - 80, 30);
 	    g.drawString("metro " + tramocurva.getKey(),
 		    (int) xcurva - 80, 40);
-	    g.drawString("max " + tramocurva.getValue() + " m/s",
+	    g.drawString("vel max " + tramocurva.getValue(),
 		    (int) xcurva - 80, 50);
 
 	}
