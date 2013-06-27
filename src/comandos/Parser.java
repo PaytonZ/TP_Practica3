@@ -32,7 +32,6 @@ public class Parser {
 	lista_de_comandos.add(new ComandoViento(null, 0));
 	lista_de_comandos.add(new ComandoClembuterol(0));
 	lista_de_comandos.add(new ComandoAyuda(lista_de_comandos));
-	lista_de_comandos.add(new ComandoQuitaFuerza(0,0,0,0));
     }
 
     /**

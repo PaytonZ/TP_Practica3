@@ -14,8 +14,6 @@ import java.util.TreeMap;
 
 import javax.swing.JPanel;
 
-import builder.InterfazDeTiposCiclista;
-
 import persona.Ciclista;
 import constantes.Constantes;
 import entradaDeDatos.EntradaFichero;
@@ -54,11 +52,7 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
      */
     private ArrayList<Ciclista> lista_de_ciclistas;
     
-    private ArrayList<InterfazDeTiposCiclista> lista_de_ciclistas_tipo;
-    /**
-     * @uml.property name="pendiente"
-     * @uml.associationEnd multiplicity="(1 1)"
-     */
+
     private Pendiente pendiente;
     /**
      * @uml.property name="arbol"

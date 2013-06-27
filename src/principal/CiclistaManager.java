@@ -19,9 +19,6 @@ import vista.Lienzo;
 import vista.SalidaDeDatosPorSwing;
 import vista.Ventana;
 import bicicleta.Bicicleta;
-import builder.BuilderCiclistasTipo;
-import builder.BuilderConcretoTonto;
-import builder.InterfazDeTiposCiclista;
 
 import comandos.Comandero;
 

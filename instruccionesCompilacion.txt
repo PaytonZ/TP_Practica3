@@ -1,0 +1,21 @@
+1 Situarnos en la carpeta del proyecto 
+
+2 Compilar proyecto
+
+	windows javac -d bin -cp src src\principal\CiclistaManager.java
+	linux 	javac -d bin -cp src src/principal/CiclistaManager.java
+
+3 Ir a la carpeta con los archivos compilados (en este caso bin)
+	
+4 ejecutar el programa
+
+	java principal.CiclistaManager 4 comandos.tsp 1 20 30 0.4
+
+	4 = nº ciclistas de la carrera
+	comandos.tsp = fichero de comandos
+	1 indica la forma del tiempo
+	20 = nº de dientes de cada plato
+	30 = nº de dientes de cada pinon
+	0.4 = radio rueda
+
+	Acordarse de meter el fichero de comandos en bin
