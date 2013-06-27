@@ -9,7 +9,7 @@ import constantes.Constantes;
  * Esta clase representa una especializacion de persona , ciclista , es decir ,
  * persona que conduce una bicicleta y conoce su interfaz
  * 
- * @author Juan Carlos Marco, Juan Luis Pérez y Emilio Álvarez Piñeiro
+ * @author Juan Carlos Marco, Juan Luis Perez y Emilio Alvarez       * Pineiro
  * 
  */
 public class Ciclista extends Persona implements InterfaceEjecuta,
@@ -17,29 +17,30 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     /**
      * @uml.property name="cadencia"
      */
-    private double cadencia; // numero de pedaladas por segundo
+    protected double cadencia; // numero de pedaladas por segundo
+    
     /**
      * @uml.property name="bici"
      * @uml.associationEnd multiplicity="(1 1)"
      */
-    private Bicicleta bici;
+    protected Bicicleta bici;
     /**
      * @uml.property name="identificador_ciclista"
      */
-    private int identificador_ciclista;
+    protected int identificador_ciclista;
     /**
      * @uml.property name="fuerza_ciclista"
      */
-    private double fuerza_ciclista;
+    protected double fuerza_ciclista;
     /**
      * @uml.property name="fuerzaCiclistaTotal"
      */
-    private double fuerzaCiclistaTotal;
+    protected double fuerzaCiclistaTotal;
 
     /**
      * @uml.property name="tiempoFrenado"
      */
-    private double tiempoFrenado;
+    protected double tiempoFrenado;
     /**
      * @uml.property name="cantidadFreno"
      */
@@ -47,11 +48,11 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
     /**
      * @uml.property name="muerto"
      */
-    private boolean muerto;
+    protected boolean muerto;
     /**
      * @uml.property name="cadenciaaux"
      */
-    private double cadenciaaux;
+    protected double cadenciaaux;
 
     public Ciclista(Bicicleta nueva_bici, int id, double fuerza) {
 	cadencia = 1;
@@ -65,6 +66,7 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	cadenciaaux = 0;
     }
 
+   
     public void aumentaPinon() {
 	cambiarPinon('a');
     }
@@ -108,6 +110,7 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	}
     }
 
+    
     /**
      * este metodo envia la accion a la bicicleta de cambiar plato,
      * 
@@ -144,8 +147,19 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	// Si el ciclista esta muerto no se ejecuta y su velocidad es 0
 	if (!muerto) {
 	    pedalear(cadencia);
+	    if (tiempoFrenado > 0) 
+	    {
+		bici.frena(cantidadFreno);
+		tiempoFrenado--;
+	    }
+	    else
+	    {
+		bici.setFreno(0);
+		bici.frena(0);
+		cantidadFreno = 0;
+	    }
 	    bici.calculaEspacioRecorrido();
-	    bici.calculaVelocidadActual();
+	    //bici.calculaVelocidadActual();
 
 	    /*
 	     * double espacioporpedalada = bici.getRecorridoLinealDeLaRueda()
@@ -153,11 +167,8 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
 	     * 
 	     * bici.acelerarbici(espacioporpedalada);
 	     */
-
-	    if (tiempoFrenado > 0) {
-		bici.frenar((float) cantidadFreno);
-		tiempoFrenado--;
-	    }
+	    
+	   
 
 	    // Modificado para que se acabe la fuerza en ejecucion
 	    // fuerza_ciclista -= ((masa + getBici().getMasa()) * getBici()
@@ -234,6 +245,7 @@ public class Ciclista extends Persona implements InterfaceEjecuta,
      */
     public void pedalear(double cadencia) {
 
+	
 	getBici().setCadencia(cadencia);
 
     }

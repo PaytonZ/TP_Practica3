@@ -80,10 +80,18 @@ public class Comandero implements InterfaceEjecuta, InterfaceSalida {
 	while (!cola_de_comandos.isEmpty()) {
 	    procesarComando(cola_de_comandos.poll());
 	}
-	String comando_por_fichero = entrada_de_datos_por_fichero.leerLinea();
-	if (comando_por_fichero != "") {
-	    recibir_comando(comando_por_fichero);
+	try
+	{
+	    String comando_por_fichero = entrada_de_datos_por_fichero.leerLinea();
+	    if (comando_por_fichero != "") {
+		    recibir_comando(comando_por_fichero);
+		}
 	}
+	catch(Exception e)
+	{
+	    
+	}
+	
 
     }
 

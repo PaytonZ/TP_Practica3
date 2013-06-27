@@ -40,7 +40,7 @@ public class ComandoCurva implements InterfazCommand {
 
     @Override
     public String getInformacionInstruccion() {
-	return "curva añadida en el metro " + PK
+	return "curva anadida en el metro " + PK
 		+ "\n con velocidad maxima de " + velMax + " m/s";
 
     }

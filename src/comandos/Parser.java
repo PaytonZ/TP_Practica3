@@ -1,5 +1,4 @@
-﻿package comandos;
-
+package comandos;
 import java.util.ArrayList;
 
 /**
@@ -28,11 +27,12 @@ public class Parser {
 	lista_de_comandos.add(new ComandoCambiaPinon(0, 0));
 	lista_de_comandos.add(new ComandoCambiaPlato(0, 0));
 	lista_de_comandos.add(new ComandoCurva(0, 0));
-	lista_de_comandos.add(new ComandoFrenar(0, 0));
+	lista_de_comandos.add(new ComandoFrenar(0, 0,0));
 	lista_de_comandos.add(new ComandoPendiente(0, 0));
-	lista_de_comandos.add(new ComandoViento(null, null));
+	lista_de_comandos.add(new ComandoViento(null, 0));
 	lista_de_comandos.add(new ComandoClembuterol(0));
 	lista_de_comandos.add(new ComandoAyuda(lista_de_comandos));
+	lista_de_comandos.add(new ComandoQuitaFuerza(0,0,0,0));
     }
 
     /**

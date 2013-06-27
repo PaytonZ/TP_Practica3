@@ -52,7 +52,7 @@ public class ComandoPendiente implements InterfazCommand {
 
     @Override
     public String getInformacionInstruccion() {
-	return "pendiente añadida en el metro " + PK + "\n con desnivel del "
+	return "pendiente anadida en el metro " + PK + "\n con desnivel del "
 		+ pend + " por ciento";
 
     }

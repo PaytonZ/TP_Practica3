@@ -139,7 +139,7 @@ public class Reloj extends Contador implements InterfaceEjecuta,
 	String mensaje = "";
 	mensaje += "reloj" + "%";
 
-	// SalidaDeDatosPorSwing salida = new SalidaDeDatosPorSwing(); int
+	// SalidaDeDatosPorSwi ng salida = new SalidaDeDatosPorSwing(); int
 	int tiempo[] = new int[3];
 	tiempo = devuelveTiempo();
 

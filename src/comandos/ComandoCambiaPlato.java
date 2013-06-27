@@ -70,11 +70,14 @@ public class ComandoCambiaPlato implements InterfazCommand {
 	InterfazCommand c = null;
 
 	String[] atributos = nombre.split("\\s");
-	if (atributos.length >= 4) {
-	    if (atributos[0].equalsIgnoreCase("bicicleta")) {
-		id_ciclista = Integer.parseInt(atributos[1]);
-		if (atributos[2].equalsIgnoreCase("cambia")
-			&& atributos[3].equalsIgnoreCase("plato")) {
+	if (atributos.length ==5 
+	&& atributos[0].equalsIgnoreCase("bicicleta")
+	&& Integer.parseInt(atributos[1]) >= 0
+	&& Integer.parseInt(atributos[1]) < Constantes.NUM_ACT_CICLISTAS
+	&& atributos[2].equalsIgnoreCase("cambia")
+	&& atributos[3].equalsIgnoreCase("plato")) 
+	{
+		    id_ciclista = Integer.parseInt(atributos[1]);
 		    nuevo_plato = Integer.parseInt(atributos[4]);
 		    if (nuevo_plato >= 0 && nuevo_plato < Constantes.NUM_PLATOS) {
 			c = new ComandoCambiaPlato(id_ciclista, nuevo_plato);
@@ -90,8 +93,7 @@ public class ComandoCambiaPlato implements InterfazCommand {
 			c = new ComandoCambiaPlato(id_ciclista,
 				Constantes.BAJAR);
 		    }
-		}
-	    }
+	
 	}
 	return c;
 

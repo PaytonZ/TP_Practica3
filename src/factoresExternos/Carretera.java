@@ -1,6 +1,8 @@
 package factoresExternos;
 
+import java.util.Iterator;
 import java.util.TreeMap;
+import java.util.Map.Entry;
 
 import bicicleta.Bicicleta;
 import entradaDeDatos.EntradaFichero;
@@ -70,16 +72,8 @@ public class Carretera {
 	return arbol;
     }
 
-    /**
-     * la matriz resultante es del tipo entero y su composicion es la siguiente
-     * matriz[0] = metro en el que cambia la pendiente matriz[1] =pendiente que
-     * ira desde 90 hasta -90
-     * 
-     * @uml.property name="matriz"
-     */
-    public double[] getMatriz() {
 
-	return matriz;
-    }
 
+   
+    
 }

@@ -65,7 +65,7 @@ public class Test {
     @Before
     public void setUp() {
 
-	bici = new Bicicleta(dientesporpinon.length, dientesporplato.length, 1,
+	bici = new Bicicleta(dientesporpinon.length, dientesporplato.length,
 		dientesporpinon, dientesporplato, 0.6858,
 		Constantes.MASA_BICICLETA_ESTANDAR);
 	reloj = new Reloj();

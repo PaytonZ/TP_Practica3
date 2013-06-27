@@ -70,10 +70,10 @@ public class Pendiente implements InterfaceEjecuta {
 			    && espacio_recorrido < elemento2.getKey()) {
 
 			double aceleracion = Constantes.FUERZA_G;
-			double porcentaje = 100 - elemento.getValue();
+			double porcentaje = Double.valueOf(elemento.getValue()) / (Double.valueOf(elemento2.getKey()) - Double.valueOf(elemento.getKey()));
 
-			c.getBici().acelerarbici(
-				Math.abs(aceleracion * porcentaje));
+			
+			c.getBici().acelerarbici(aceleracion * porcentaje);
 		    }
 
 		}
@@ -87,8 +87,9 @@ public class Pendiente implements InterfaceEjecuta {
 			// si la pendiente es positiva, nos afectara
 			// negativamente
 			double aceleracion = Constantes.FUERZA_G;
-			double porcentaje = -elemento.getValue();
+			double porcentaje = Double.valueOf(elemento.getValue()) /  Double.valueOf(elemento.getKey());
 
+			
 			c.getBici().acelerarbici(aceleracion * porcentaje);
 		    }
 

@@ -31,7 +31,7 @@ public class Viento implements InterfaceEjecuta {
      * @uml.property name="mapaVientos"
      * @uml.associationEnd qualifier="hora:java.lang.String java.lang.String"
      */
-    private Map<String, String> mapaVientos;
+    private Map<String, Double> mapaVientos;
     /**
      * @uml.property name="reloj"
      * @uml.associationEnd multiplicity="(1 1)"
@@ -52,13 +52,16 @@ public class Viento implements InterfaceEjecuta {
      * @param bicis
      * @param rel
      */
+    
+    double aceleracion_eolo ;
 
     public Viento(ArrayList<Ciclista> nueva_lista_de_ciclistas, Reloj rel) {
 	viento = 0;
 	fichero = new EntradaFichero();
-	mapaVientos = new HashMap<String, String>();
+	mapaVientos = new HashMap<String, Double>();
 	lista_de_ciclistas = nueva_lista_de_ciclistas;
 	reloj = rel;
+	aceleracion_eolo =0;
     }
 
     @Override
@@ -68,31 +71,22 @@ public class Viento implements InterfaceEjecuta {
 	 * si la hora actual, esta en nuestro mapa de vientos, asignaremos el
 	 * viento a las bicicletas
 	 */
-	double aceleracion_eolo = 0;
+	
+	double b = 0;
 	if (mapaVientos.containsKey(reloj.devuelveTiempoEnString())) {
-	    String tipo = mapaVientos.get(reloj.devuelveTiempoEnString());
+	    double velocidad = mapaVientos.get(reloj.devuelveTiempoEnString());
+	    double division = (velocidad / Constantes.CONSTANTE_EOLO) * 0.5;
+	    division = division + (velocidad / Constantes.CONSTANTE_EOLO) * 0.16;
+	    b = division;
+	    aceleracion_eolo = b/100;
+	    
 
-	    for (Ciclista c : lista_de_ciclistas) {
-		switch (tipo) {
-		case "AFAVOR":
-		    aceleracion_eolo = Constantes.CONSTANTE_EOLO
-			    / c.getBici().getVelocidad();
-		    break;
-		case "ENCONTRA":
-		    aceleracion_eolo = -(Constantes.CONSTANTE_EOLO / c
-			    .getBici().getVelocidad());
-		    break;
-		case "NULO":
-		    aceleracion_eolo = 0;
-		    break;
-		}
-		c.getBici().acelerarbici(aceleracion_eolo);
-	    }
-
-	} else {
-	    for (Ciclista c : lista_de_ciclistas) {
-		c.getBici().acelerarbici(0);
-	    }
+	} 
+	
+	for (Ciclista c : lista_de_ciclistas) 
+	{
+		
+	    c.getBici().acelerarbici(aceleracion_eolo);
 	}
     }
 
@@ -102,7 +96,7 @@ public class Viento implements InterfaceEjecuta {
      * @param hora
      * @return
      */
-    public String getViento(String hora) {
+    public double getViento(String hora) {
 	return mapaVientos.get(hora);
 
     }
@@ -115,8 +109,8 @@ public class Viento implements InterfaceEjecuta {
      * @param tipo
      * @param velocidad
      */
-    public void setViento(String hora, String tipo) {
-	mapaVientos.put(hora, tipo);
+    public void setViento(String hora, double velocidad) {
+	mapaVientos.put(hora, velocidad);
 
     }
 }

@@ -67,6 +67,11 @@ public class Presentador {
 	return ciclista_a_devolver;
     }
 
+    
+    public ArrayList<Ciclista> getCiclistas() {
+	
+	return lista_de_ciclistas;
+    }
     /**
      * @return
      * @uml.property name="curva"

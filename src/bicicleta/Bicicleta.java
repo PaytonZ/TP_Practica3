@@ -1,5 +1,6 @@
 package bicicleta;
 
+import constantes.Constantes;
 import factoresExternos.Carretera;
 import interfaceMain.InterfaceSalida;
 
@@ -83,6 +84,7 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
      * @uml.associationEnd multiplicity="(1 1)"
      *                     inverse="bici:factoresExternos.Carretera"
      */
+    protected double recorridoLinealDeLaRueda ;
     private Carretera carretera;
     /**
      * @uml.property name="velocidad_anterior"
@@ -96,11 +98,14 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
      * @uml.property name="freno"
      */
     private double freno;
+    
+    private boolean campeon ;
 
-    public Bicicleta(int numeropinones, int numeroplatos, double radiorueda,
+    public Bicicleta(int numeropinones, int numeroplatos,
 	    int midientepinon[], int midienteplato[], double radio, double masa) {
 
 	super(masa);
+	campeon = false;
 	dientesplato = new int[numeroplatos];
 	dientespinon = new int[numeropinones];
 	numruedas = 2;
@@ -109,31 +114,33 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 	velocidad_anterior = 0;
 	velocidad = 0;
 	aceleracion = 0;
+	freno = 0;
+	
+	
+	recorridoLinealDeLaRueda = radio * Math.PI;
 	// asignamos el numero de dientes a cada piñon y a cada plato
 
 	setAsignaNumeroDientesPinon(midientepinon);
 
 	setAsignaNumeroDientesPlato(midienteplato);
 
-	setRadioRueda(radio);
-	factorpendiente = 0;
-	setCarretera(new Carretera("carretera.txt", this));
+	
+	//setCarretera(new Carretera("carretera.txt", this));
 
+	
     }
 
     public void acelerarbici(double _aceleracion) {
+	
 	aceleracion += _aceleracion;
+	
 
     }
 
-    public void calculaAceleracion() {
-	aceleracion = velocidad - velocidad_anterior;
-
-    }
 
     public void calculaEspacioPorCadaPedalada() {
-	espacioporpedalada = getRecorridoLinealDeLaRueda()
-		* getRelacionTransmision();
+	espacioporpedalada = recorridoLinealDeLaRueda
+		* relaciontransmision;
     }
 
     /**
@@ -145,48 +152,54 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
      * @param cadencia
      *            pedaladas por segundo que manda el ciclista
      */
-    public void calculaEspacioRecorrido() {
-
-	double velocidad_maxima;
-
-	velocidad_maxima = velocidad * cadencia;
-
-	if (velocidad < velocidad_maxima) {
-
-	}
-	// velocidad = (double) (( 2 *Math.PI *getRadioRueda() *
-	// getRelacionTransmision() )* getCadencia());
+    public void calculaEspacioRecorrido() 
+    {
 
 	// asignamos la relacion de marchas actuales
 	calculaRelacionTransmision();
 	// calculamos la aceleracion
-
+	calculaVelocidad();
 	calculaEspacioPorCadaPedalada();
-	calculaVelocidadActual();
-	calculaAceleracion();
+	
 	espaciorecorrido = espaciorecorrido + velocidad;
+	    
+	if(espaciorecorrido >= Constantes.MAX_METROS_CARRETERA)
+	{
+	    campeon = true;
+	}
+	aceleracion = 0;
     }
 
+   
+    public void calculaVelocidad()
+    {
+	
+	
+	velocidad = espacioporpedalada *  cadencia - aceleracion - freno;
+		
+	
+	if(velocidad < 0)
+	{
+	    velocidad = 0;
+	}
+    }
+    
+    public boolean getCampeon()
+    {
+	return campeon;
+    }
+    public void frena(double cantidadfreno)
+    {
+	//System.out.println(cantidadfreno);
+	freno = freno + cantidadfreno;
+    }
     public void calculaRelacionTransmision() {
 
 	relaciontransmision = ((double) dientesplato[getPlatoAct()] / (double) dientespinon[getPinonAct()]);
 
     }
 
-    public void calculaVelocidadActual() {
-	// la velocidad es el radio de la rueda * 2 PI * relacion de la
-	// transmision * cadencia de pedaleo
-	/*
-	 * velocidad = ((2 * Math.PI * radiorueda * relaciontransmision)
-	 * cadencia - factorpendiente - factorviento);
-	 */
-	// velocidad =aceleracion + velocidad_anterior;
 
-	velocidad = espacioporpedalada * cadencia - factorpendiente
-		+ factorviento;
-	velocidad_anterior = velocidad;
-
-    }
 
     /**
      * @return
@@ -253,11 +266,7 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 
     }
 
-    public double getLongitudRueda() {
-	double longitudrueda = 1;
-	// longitudrueda = 2 *
-	return longitudrueda;
-    }
+   
 
     /**
      * @return
@@ -311,13 +320,17 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
      * @param numero
      */
     public double getRecorridoLinealDeLaRueda() {
-	return radiorueda * Math.PI;
+	return recorridoLinealDeLaRueda;
     }
 
     public double getRelacionTransmision() {
 	return relaciontransmision;
     }
 
+    public double getVelocidad()
+    {
+	return velocidad;
+    }
     /**
      * este metodo esta heredado de la clase InterfazSalida, y todo lo que haya
      * en el, se mostrara cuando se realice el for each de la lista
@@ -330,7 +343,7 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
 
 	String mensaje = "";
 
-	mensaje += String.valueOf(getVelocidad());
+	mensaje += String.valueOf(  velocidad);
 	mensaje += "#velocidad" + ",";
 
 	mensaje += String.valueOf(getEspacioRecorrido());
@@ -434,7 +447,10 @@ public class Bicicleta extends Vehiculo implements InterfaceSalida {
      */
     public void setCadencia(double micadencia) {
 
-	cadencia = (micadencia >= 0) ? micadencia : -micadencia;
+	if(micadencia >=0)
+	{
+	    cadencia = micadencia;
+	}
 
     }
 

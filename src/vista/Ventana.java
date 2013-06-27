@@ -235,7 +235,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	colocarJPanelEnJPanel(contentPane, contentPrincipal);
 
 	contentLienzo = crearJPanel(contentPrincipal, 0,
-		contentPane.getHeight(), Constantes.ANCHO_VENTANA / 2, // Modificado
+		contentPane.getHeight(), Constantes.ANCHO_VENTANA , // Modificado
 								       // para
 								       // pruebas
 								       // de
@@ -369,8 +369,9 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	    // escuchador.asignaMouseClicked(botonFrenaPoco[i], "frenar " + i
 	    // + " 1");
 	    /* Implementacion de prueba que funciona */
+	    
 	    escuchador.asignaMouseClicked(botonFrenaPoco[i], "ciclista " + i
-		    + " frena " + 0.1);
+		    + " frena "+Constantes.CANTIDADFRENOMENOS+" en 5");
 
 	    colocarJButtonEnJPanel(botonFrenaPoco[i], contentPane);
 
@@ -384,7 +385,7 @@ public class Ventana extends JFrame implements InterfaceEjecuta {
 	    // + " 1");
 	    /* Implementacion de prueba que funciona */
 	    escuchador.asignaMouseClicked(botonFrenaMas[i], "ciclista " + i
-		    + " frena " + 1);
+		    + " frena "+Constantes.CANTIDADFRENOMAS+" en 5");
 
 	    colocarJButtonEnJPanel(botonFrenaMas[i], contentPane);
 	}

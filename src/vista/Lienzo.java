@@ -14,6 +14,8 @@ import java.util.TreeMap;
 
 import javax.swing.JPanel;
 
+import builder.InterfazDeTiposCiclista;
+
 import persona.Ciclista;
 import constantes.Constantes;
 import entradaDeDatos.EntradaFichero;
@@ -51,6 +53,8 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
      * @uml.property name="lista_de_ciclistas"
      */
     private ArrayList<Ciclista> lista_de_ciclistas;
+    
+    private ArrayList<InterfazDeTiposCiclista> lista_de_ciclistas_tipo;
     /**
      * @uml.property name="pendiente"
      * @uml.associationEnd multiplicity="(1 1)"
@@ -251,14 +255,33 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 		.entrySet().iterator();
 	while (itcurva.hasNext()) {
 	    Entry<Integer, Integer> tramocurva = itcurva.next();
-	    g.setColor(Color.black);
+	    g.setColor(Color.red);
 	    double xcurva = ((double) tramocurva.getKey() / max);
-	    xcurva = xcurva * Constantes.ANCHO_PANEL_LIENZO;
+	    xcurva = xcurva * Constantes.ANCHO_PANEL_LIENZO - 1;
 	    g.drawLine((int) xcurva, 0, (int) xcurva, Constantes.ALTO_VENTANA);
-	    g.drawString("Curva en metro " + tramocurva.getKey(),
-		    (int) xcurva - 60, 30);
-	    g.drawString("con velocidad maxima " + tramocurva.getValue(),
+	    g.drawString("Curva " + tramocurva.getKey(),
+		    (int) xcurva - 80, 30);
+	    g.drawString("metro " + tramocurva.getKey(),
 		    (int) xcurva - 80, 40);
+	    g.drawString("vel max " + tramocurva.getValue(),
+		    (int) xcurva - 80, 50);
+
+	}
+	
+	Iterator<Entry<Integer, Integer>> itpend = pendiente.getArbol().entrySet().iterator();
+	
+	while (itpend.hasNext()) {
+	    Entry<Integer, Integer> tramo = itpend.next();
+	    g.setColor(Color.orange);
+	    double xpend = ((double) tramo.getKey() / max);
+	    xpend = xpend* Constantes.ANCHO_PANEL_LIENZO;
+	    g.drawLine((int) xpend, 0, (int) xpend, Constantes.ALTO_VENTANA);
+	    g.drawString("Pendiente",
+		    (int) xpend - 100, 300);
+	    g.drawString("metro " + tramo.getKey(),
+		    (int) xpend - 100, 310);
+	    g.drawString("porcentaje " + tramo.getValue()+"%",
+		    (int) xpend - 100, 320);
 
 	}
 	// aqui se pondra la informacion del ciclista para que se vaya pintando,
@@ -282,6 +305,8 @@ public class Lienzo extends Canvas implements InterfaceEjecuta {
 	    id_color_ciclista++;
 
 	}
+	
+	
 
     }
 
